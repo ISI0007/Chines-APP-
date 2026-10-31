@@ -1,0 +1,8 @@
+{
+  "HSK1": {"word_count": 150, "description": "Basic survival Chinese — greetings, numbers, family, common objects"},
+  "HSK2": {"word_count": 300, "description": "Elementary daily communication — shopping, directions, simple conversations"},
+  "HSK3": {"word_count": 600, "description": "Intermediate — travel, work, expressing opinions on familiar topics"},
+  "HSK4": {"word_count": 1200, "description": "Upper-intermediate — discuss wide range of topics with fluency"},
+  "HSK5": {"word_count": 2500, "description": "Advanced — read newspapers, watch films, give speeches"},
+  "HSK6": {"word_count": 5000, "description": "Mastery — understand virtually everything read or heard"}
+}
