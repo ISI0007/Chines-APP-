@@ -21,11 +21,12 @@ sys.path.insert(0, str(BACKEND))
 
 from sqlalchemy import delete, select  # noqa: E402
 from db.database import AsyncSessionLocal, init_db  # noqa: E402
-import models.user, models.vocabulary, models.reading, models.grammar, models.hsk_test  # noqa: E401,E402,F401
+import models.user, models.vocabulary, models.reading, models.grammar, models.hsk_test, models.writing  # noqa: E401,E402,F401
 from models.user import HskLevel  # noqa: E402
 from models.reading import ReadingText  # noqa: E402
 from models.grammar import GrammarLesson  # noqa: E402
 from models.hsk_test import HskTestQuestion, QuestionType  # noqa: E402
+from models.writing import Character  # noqa: E402
 
 DATA = BACKEND / "data"
 
@@ -71,6 +72,23 @@ async def seed_grammar(db, prune=False):
     return n, (await _prune(db, GrammarLesson, keep, lambda r: (r.hsk_level, r.title)) if prune else 0)
 
 
+async def seed_characters(db, prune=False):
+    f = DATA / "writing" / "characters.json"
+    if not f.exists():
+        return 0, 0
+    n, keep = 0, set()
+    for c in json.loads(f.read_text(encoding="utf-8")):
+        lvl = HskLevel(c["hsk_level"]); keep.add(c["char"])
+        hit = (await db.execute(select(Character).where(Character.char == c["char"]))).scalar_one_or_none()
+        if hit:
+            hit.pinyin, hit.meaning, hit.hsk_level, hit.order_index = c["pinyin"], json.dumps(c["meaning"], ensure_ascii=False), lvl, c["order"]
+            continue
+        db.add(Character(char=c["char"], pinyin=c["pinyin"], meaning=json.dumps(c["meaning"], ensure_ascii=False),
+                         hsk_level=lvl, order_index=c["order"]))
+        n += 1
+    return n, (await _prune(db, Character, keep, lambda r: r.char) if prune else 0)
+
+
 async def seed_questions(db, prune=False):
     n, keep = 0, set()
     for f in _files("tests"):
@@ -102,10 +120,11 @@ async def _prune(db, model, keep, key):
 async def main(prune=False):
     await init_db()
     async with AsyncSessionLocal() as db:
-        (r, rp), (g, gp), (q, qp) = await seed_reading(db, prune), await seed_grammar(db, prune), await seed_questions(db, prune)
+        (r, rp), (g, gp), (q, qp), (ch, chp) = (await seed_reading(db, prune), await seed_grammar(db, prune),
+                                               await seed_questions(db, prune), await seed_characters(db, prune))
         await db.commit()
-    print(f"Added: {r} reading texts, {g} grammar lessons, {q} test questions."
-          + (f" Pruned: {rp} / {gp} / {qp}." if prune else ""))
+    print(f"Added: {r} reading texts, {g} grammar lessons, {q} test questions, {ch} characters."
+          + (f" Pruned: {rp} / {gp} / {qp} / {chp}." if prune else ""))
 
 
 if __name__ == "__main__":

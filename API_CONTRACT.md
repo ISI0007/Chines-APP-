@@ -214,6 +214,28 @@ GET  /api/v1/tests/history?limit=20   -> [{ id, hsk_level, score_percent, passed
 
 ---
 
+## Writing (stroke order)
+
+The curriculum is the official 书写字 (characters a learner must be able to hand-write), 693 chars,
+levels 1-6. Render strokes on the client with **hanzi-writer** using the `char` field; the backend
+owns the curriculum and the user's practice state.
+
+```
+GET  /api/v1/writing/characters?hsk_level=HSK1
+ -> [{ id, char, pinyin, meaning:[...], hsk_level, times_practiced, mastered }]  // syllabus order
+
+POST /api/v1/writing/characters/{id}/practice   {"mastered": false}
+ -> { char_id, times_practiced, mastered, xp_gained, total_xp }
+    // +3 XP on first practice, +5 the first time mastered:true is sent; 404 if the id is unknown.
+
+GET  /api/v1/writing/progress
+ -> { "levels": { "HSK1": { total, practiced, mastered }, ... } }
+```
+Per-level character counts: HSK1 93, HSK2 5, HSK3 149, HSK4 148, HSK5 149, HSK6 149 (the official
+beginner band is a combined HSK1~2 list, split here by each character's vocabulary level).
+
+---
+
 ## Health Check
 ```
 GET /health   (no auth)
@@ -275,6 +297,7 @@ TEST_DATABASE_URL=postgresql://user:pw@localhost:5432/test_db pytest` (DESTRUCTI
 | Reading | 36 texts: 6 each for HSK1-6 | Every word validated at its level by `scripts/check_level.py` |
 | Grammar | 48 lessons: 8 each for HSK1-6 | Aligned to the official grammar outline (each lesson has a `syllabus_ref`); all example sentences validated at their level |
 | Test questions | **1,220: HSK1 220, HSK2-6 200 each** (generated from the word list: meaning, reverse, pinyin; HSK1 also has 20 hand-written) | no reading/listening/grammar-based questions yet |
+| Writing | 693 official 书写字 characters, levels 1-6, with pinyin + meaning | Strokes rendered client-side by hanzi-writer; backend tracks practice/mastery |
 | Audio | 83% of words have a human recording after `scripts/fetch_audio.py` (HSK1 93%, HSK6 76%) | no sentence/dialogue audio yet |
 
 **Vocabulary notes for the UI**
