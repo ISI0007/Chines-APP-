@@ -41,12 +41,16 @@ export default function HomeScreen() {
           <TouchableOpacity
             key={m.id}
             style={styles.moduleCard}
-            disabled={m.id !== "flashcards" && m.id !== "tests"}
-            onPress={() => router.push(m.id === "tests" ? "/tests" : "/flashcards")}
+            disabled={m.id === "listening" || m.id === "writing"}
+            onPress={() => {
+              if (m.id === "reading") router.push("/reading");
+              else if (m.id === "grammar") router.push("/grammar");
+              else router.push(m.id === "tests" ? "/tests" : "/flashcards");
+            }}
           >
             <Text style={styles.moduleEmoji}>{m.emoji}</Text>
             <Text style={styles.moduleLabel}>{m.label}</Text>
-            <Text>{m.id === "flashcards" ? "Start review" : m.id === "tests" ? "Start practice" : "Coming soon"}</Text>
+            <Text>{m.id === "flashcards" ? "Start review" : m.id === "tests" ? "Start practice" : m.id === "reading" ? "Read HSK1 stories" : m.id === "grammar" ? "Learn HSK1 patterns" : "Coming soon"}</Text>
           </TouchableOpacity>
         ))}
       </View>

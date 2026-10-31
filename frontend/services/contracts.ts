@@ -16,3 +16,17 @@ export interface TestResult {
   results: { question_id: number; chosen: Answer | null; correct: Answer; is_correct: boolean; explanation: string }[];
 }
 export interface TestHistory { id: number; hsk_level: string; score_percent: number; passed: boolean; finished_at: string | null }
+export interface ReadingSummary {
+  id: number; title: string; title_pinyin: string; topic: string;
+  hsk_level: string; word_count: number; completed: boolean;
+}
+export interface ReadingDetail extends ReadingSummary {
+  content: string; content_pinyin: string; translation: string; audio_path: string | null;
+}
+export interface GrammarSummary {
+  id: number; title: string; hsk_level: string; pattern: string; order_index: number; completed: boolean;
+}
+export interface GrammarDetail extends GrammarSummary {
+  explanation: string; examples: { zh: string; pinyin: string; en: string }[];
+}
+export interface CompletionResult { xp_gained: number; total_xp: number }

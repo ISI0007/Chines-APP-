@@ -1,6 +1,6 @@
 # Chinese learning frontend
 
-Owned by Codex on `codex/frontend`. Backend remains owned by Claude. Implementation follows the updated `API_CONTRACT.md` from `origin/claude/backend` commit `8a64fa8`.
+Owned by Codex on `codex/frontend`. Backend remains owned by Claude. Reading and grammar follow `API_CONTRACT.md` in integrated main commit `37454f8` (test bank update `8a64fa8`).
 
 ## Run
 
@@ -20,6 +20,9 @@ This repository pins Expo SDK 51. Use a compatible development client for native
 - Audio uses `expo-av`, resolving both `/api/v1/audio/...` and `/audio/...` without duplicating the API prefix. Missing/unavailable recordings fall back to the contract's Google TTS URL. Synthetic playback is labeled; failures display a retryable message. Sounds unload when their word/screen is left.
 - HSK practice uses `/tests/start`, `/tests/{id}/submit` and `/tests/history` for levels 1–6. Learners choose 10/20/40/60 questions, navigate and change answers, confirm unanswered questions before submitting, then see server-provided scores, XP and explanations. These are vocabulary/pinyin quizzes, not full official exams; no listening audio is implied.
 - Practice drafts and results are stored locally with the owning user ID and restored after navigation/reload. A different signed-in user cannot use the previous draft. Submissions are guarded against double clicks. Network failures retain answers for retry; HTTP 409 ends the draft and directs learners to server history without awarding XP again. The API cannot reload detailed results for an already-submitted attempt.
+- Reading lists `/reading/texts` by level, filters topics locally, and opens `/reading/texts/{id}`. The reader has separate whole-passage pinyin and English panels plus larger text. No per-character alignment or dictionary tokenization is invented. Passage playback uses only `audio_path` when supplied; missing recordings are explicitly unavailable, with no long-passage TTS fallback.
+- Grammar lists `/grammar/lessons` and opens `/grammar/lessons/{id}` with patterns, explanations, and examples. Pinyin and English can be hidden independently. Both libraries disclose HSK1-only content and offer clear empty states for higher levels.
+- Reading/grammar completion posts to each resource's `/complete` endpoint, then uses the returned `total_xp` (never a client-added reward). Reading sends `{}` without inventing a comprehension score. Buttons guard double clicks, completed lessons stay disabled, and returning to a library refreshes completion badges. Retrying a lost response relies on the API's first-completion-only reward.
 
 ## Validation commands
 
@@ -31,13 +34,13 @@ Tests cover refresh concurrency, invalid refresh/logout, one-retry limits, publi
 
 `node tests/browser-smoke.cjs` runs the exported web app against mocked API/audio responses. It needs Playwright Core available via `PLAYWRIGHT_MODULE` (absolute module path) or normal Node resolution, plus an installed Chromium (`CHROMIUM_PATH` if not using Playwright's default). It checks navigation, card submission/failure, search, pagination, empty results, progress bars and audio fallback. Screenshots are saved under ignored `test-results/`.
 
-Validated for this handoff: TypeScript passes, all 7 client tests pass, the production web export succeeds, and the Chromium smoke checks pass at a 390×844 viewport. Practice checks cover HSK2/6, restoring a selected answer after reload, unanswered-question submission, double-click protection, results/history and HTTP 409 recovery. Mobile-sized vocabulary and test-result screenshots were visually inspected. Live PostgreSQL/backend integration and physical iOS/Android playback have not been tested.
+Validated for this handoff: TypeScript passes, all 7 client tests pass, the production web export succeeds, and the Chromium smoke checks pass at a 390×844 viewport. Practice checks cover HSK2/6, restoring a selected answer after reload, unanswered-question submission, double-click protection, results/history and HTTP 409 recovery. Reading/grammar checks cover topic filters, empty higher levels, pinyin/translation controls, text size, missing lessons, first completion, refreshed badges and lost-response retry without extra XP. Mobile-sized reading and grammar screenshots were visually inspected. These new screens have not been tested against the live backend or on physical iOS/Android devices; Claude separately reported successful live integration of the previous practice-test release.
 
 ## Integration notes for Claude
 
 Read the contract directly from your remote branch; this frontend branch does not merge or modify backend files. To run the two together, merge both branches into the integration branch or run the backend from a separate checkout.
 
-Use backend commit `8a64fa8` or later for practice questions across HSK1–6. Reading and grammar screens remain future work; their existing endpoints have been reviewed.
+Use the integrated backend at `37454f8` or later. Reading and grammar screens now use the existing contracts; no backend changes are required. Passage recordings are distinct from the planned human-recorded vocabulary downloads. Listening exercises and handwriting remain future screens.
 
 The vocabulary import now contains 5,404 HSK 3.0 entries (levels introduced, not cumulative totals). Paging stays at 20 records per request, below the API cap of 200; totals come from the API. Separate readings retain separate word IDs, and supplied pinyin spacing is preserved. About links to the dataset sources and CC-CEDICT attribution. The audio library has no recordings yet and streak tracking is not active. Reading currently has 5 HSK1 passages and grammar has 8 HSK1 lessons. The practice bank contains 1,220 questions: HSK1 has 220 and HSK2–6 have 200 each, mainly generated vocabulary/pinyin questions.
 
