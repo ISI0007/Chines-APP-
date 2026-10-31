@@ -24,6 +24,7 @@ PUNCT = set("，。！？、：；“”‘’（）《》…—·. \n\t\r012345
 # Proper nouns are outside the graded vocabulary. HSK1 officially teaches the 小— prefix for names
 # (小王, 小李), so a handful of common surnames are allowed as name components.
 SURNAMES = set("王李张刘陈杨黄周吴马")
+FUNCTION = {"没"}   # 没(有): HSK1 negative adverb that also appears bare before a verb
 NAME_WHITELIST = {"小" + s for s in SURNAMES} | {"大" + s for s in SURNAMES} | {"老" + s for s in SURNAMES} | SURNAMES
 
 
@@ -62,7 +63,7 @@ def check(text: str, target: int, levels: dict):
     words, namechars = allowed_sets(levels, target)
     bad = []
     for tok, is_word in segment(text, words):
-        if is_word or tok in NAME_WHITELIST or tok in namechars:
+        if is_word or tok in NAME_WHITELIST or tok in namechars or tok in FUNCTION:
             continue
         # a single char that is itself a known HSK word (any level) is reported with its level
         bad.append({"token": tok, "level": levels.get(tok)})

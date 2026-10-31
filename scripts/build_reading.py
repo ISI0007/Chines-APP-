@@ -24,7 +24,7 @@ OUT = BACKEND / "data" / "reading"
 NAME_PINYIN = {"小": "xiǎo", "大": "dà", "老": "lǎo", "王": "Wáng", "李": "Lǐ", "张": "Zhāng",
                "刘": "Liú", "陈": "Chén", "杨": "Yáng", "黄": "Huáng", "周": "Zhōu", "吴": "Wú", "马": "Mǎ"}
 
-# ---------------------------------------------------------------- HSK1 texts
+# ---------------------------------------------------------------- texts
 HSK1 = [
     {"title": "我的家", "topic": "Family",
      "zh": "我叫小王。我家有四个人：爸爸、妈妈、姐姐和我。我们住在中国。我爸爸是老师，我妈妈是医生。姐姐是大学生。我们家有一只小狗，它叫七七。我很爱我的家。",
@@ -44,6 +44,49 @@ HSK1 = [
     {"title": "我的朋友", "topic": "Friends",
      "zh": "我有一个好朋友，她叫小李。她是我的同学。她很漂亮，也很忙。她喜欢读书，也喜欢唱歌。星期天我们去看电影。我们是好朋友。",
      "en": "I have a good friend; she is called Xiao Li. She is my classmate. She is very pretty and also very busy. She likes reading, and also likes singing. On Sunday we go to watch a movie together. We are good friends."},
+]
+
+
+HSK2 = [
+    {"title": "我的爱好", "topic": "Hobbies",
+     "zh": "我有很多爱好。我喜欢运动，因为运动对身体好。每个星期天，我和朋友去打篮球，也去跑步。虽然很累，但是我很快乐。晚上我在家听歌，看书。",
+     "en": "I have many hobbies. I like sports, because sports are good for the body. Every Sunday, my friends and I go play basketball and also go running. Although it is tiring, I am happy. In the evening I listen to songs and read at home."},
+    {"title": "坐地铁", "topic": "Transport",
+     "zh": "今天我要去机场。我坐公交车到车站，再坐地铁。地铁很快，人也很多。从我家到机场要一个小时。我已经买好了机票，准备去外国旅游。",
+     "en": "Today I am going to the airport. I take the bus to the station, then take the subway. The subway is fast, and there are many people too. It takes one hour from my home to the airport. I have already bought my plane ticket and am getting ready to travel abroad."},
+    {"title": "我的生日", "topic": "Daily life",
+     "zh": "昨天是我的生日。朋友们都来我家。妈妈做了很多菜，很好吃。大家一起唱歌、跳舞，很高兴。我今年已经十八岁了。这个生日我很快乐。",
+     "en": "Yesterday was my birthday. My friends all came to my home. Mom made many dishes, very delicious. Everyone sang and danced together, very happy. I am already eighteen years old this year. I was very happy on this birthday."},
+    {"title": "学汉语", "topic": "Study",
+     "zh": "我在大学学习汉语。老师很好，上课的时候教我们说话、写字。开始的时候我不懂，但是现在好多了。我每天学新词。汉语很有意思，我很喜欢学。",
+     "en": "I study Chinese at university. The teacher is very good; in class she teaches us to speak and write characters. At the beginning I did not understand, but now it is much better. I learn new words every day. Chinese is very interesting, and I like learning it."},
+    {"title": "买衣服", "topic": "Shopping",
+     "zh": "星期天我和妈妈去商场买衣服。商场里的衣服颜色很多，有红色的、白色的、黑色的。我想买一条裤子，但是太长了。后来我买了一件白色的衣服，很漂亮。",
+     "en": "On Sunday mom and I go to the mall to buy clothes. The clothes in the mall come in many colors: red, white, black. I want to buy a pair of trousers, but they are too long. Later I bought a white piece of clothing, very pretty."},
+    {"title": "我的一天", "topic": "Routine",
+     "zh": "我每天七点起床。我洗手，再吃早饭。八点我走路去学校。中午我和同学一起吃饭。下午四点我回家。晚上我看一会儿电视，就去睡觉。",
+     "en": "I get up at seven every day. I wash my hands, then eat breakfast. At eight I walk to school. At noon I eat with my classmates. At four in the afternoon I go home. In the evening I watch TV for a while, then go to sleep."},
+]
+
+HSK3 = [
+    {"title": "我的邻居", "topic": "People",
+     "zh": "我家旁边住着一位阿姨。她很热情，也很聪明。我们是好邻居。她喜欢在花园里种草和花，环境很干净。有时她请我去她家做客，给我做蛋糕。她做的蛋糕特别甜，我很喜欢。",
+     "en": "An auntie lives next to my home. She is warm and also clever. We are good neighbors. She likes to grow grass and flowers in the garden; the environment is very clean. Sometimes she invites me to her home as a guest and makes me cake. The cake she makes is especially sweet, and I like it very much."},
+    {"title": "锻炼身体", "topic": "Health",
+     "zh": "为了健康，我决定每天锻炼。以前我总是很累，不想运动。现在我每天早上去公园跑步，有时骑自行车。虽然开始的时候很难，但是我一直坚持。一个月以后，我的身体好多了，也不容易感冒了。",
+     "en": "For my health, I decided to exercise every day. Before, I was always tired and did not want to exercise. Now I go running in the park every morning, and sometimes ride a bike. Although it was hard at the beginning, I kept at it the whole time. After a month, my body was much better, and I no longer catch colds easily."},
+    {"title": "一次旅游", "topic": "Travel",
+     "zh": "去年夏天，我和同事们一起去南方旅游。我们坐高铁出发，又方便又快。那个城市很漂亮，有山也有海。我们尝了很多特别的菜，还买了礼物。虽然有点儿累，但是大家都很开心。这次旅游我一直记得。",
+     "en": "Last summer, my colleagues and I traveled to the south together. We set out by high-speed train, which was both convenient and fast. That city was very pretty, with mountains and the sea. We tasted many special dishes and also bought gifts. Although it was a bit tiring, everyone was happy. I still remember this trip."},
+    {"title": "在图书馆", "topic": "Study",
+     "zh": "我们学校有一个很大的图书馆，环境很安静。除了看书，我还常常在那里做作业、复习。上个星期我要参加一个重要的考试，所以每天都去图书馆练习。如果遇到难题，我就问同学。最后我的成绩不错，非常高兴。",
+     "en": "Our school has a big library with a very quiet environment. Besides reading, I often do homework and review there. Last week I had to take an important exam, so I went to the library every day to practice. If I ran into a hard problem, I asked a classmate. In the end my result was not bad, and I was very happy."},
+    {"title": "网上买东西", "topic": "Shopping",
+     "zh": "现在很多人喜欢在网上买东西，又方便又便宜。上个月我在网上买了一个新手机。我用银行卡买，第二天东西就到了。如果不满意，还可以换。不过我觉得，有的东西还是去商店买比较好，因为可以先看清楚。",
+     "en": "Now many people like to shop online — it is convenient and cheap. Last month I bought a new phone online. I paid by bank card, and the item arrived the next day. If you are not satisfied, you can also exchange it. However, I think for some things it is better to go to a shop, because you can see them clearly first."},
+    {"title": "我的习惯", "topic": "Daily life",
+     "zh": "我有一个好习惯：每天早上早起。起床以后，我先打扫房间，然后吃早饭。我觉得干净的环境让人舒服。晚上睡觉以前，我一般会看一会儿书，再准备好明天要用的东西。这样的生活让我觉得很健康。",
+     "en": "I have a good habit: getting up early every morning. After getting up, I first tidy my room, then eat breakfast. I think a clean environment makes people comfortable. Before sleeping at night, I usually read for a while, then get ready the things I will need tomorrow. This kind of life makes me feel very healthy."},
 ]
 
 
@@ -77,7 +120,7 @@ def main():
     levels = cl.load_levels()
     allwords = json.loads(cl.HSK.read_text(encoding="utf-8"))
     failures = 0
-    for level, texts in [("HSK1", HSK1)]:
+    for level, texts in [("HSK1", HSK1), ("HSK2", HSK2), ("HSK3", HSK3)]:
         target = int(level[3:])
         words_set, _ = cl.allowed_sets(levels, target)
         pin = pinyin_map(allwords, target)
