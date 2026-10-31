@@ -64,7 +64,7 @@ Query params:
 
 → 200
 {
-  "total": 510,
+  "total": 300,
   "skip": 0,
   "limit": 50,
   "words": [
@@ -140,8 +140,8 @@ Authorization: Bearer <token>
   "user_xp": 120,
   "streak_days": 3,
   "levels": {
-    "HSK1": { "total": 510, "learned": 42, "due_for_review": 8 },
-    "HSK2": { "total": 510, "learned": 0,  "due_for_review": 0 },
+    "HSK1": { "total": 300, "learned": 42, "due_for_review": 8 },
+    "HSK2": { "total": 300, "learned": 0,  "due_for_review": 0 },
     ...
   }
 }
@@ -167,7 +167,7 @@ Example: GET /api/v1/audio/hsk1/谢谢.mp3
 `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(simplified)}&tl=zh-CN&client=tw-ob`
 ```
 **Recordings are real now** (open licence): `python scripts/fetch_audio.py` (run on the host, needs git + `pip install -r scripts/requirements-audio.txt`) downloads them into `backend/data/audio/` (not in git; the folder is mounted into Docker). Without that step `audio_path` stays null everywhere.
-Coverage: **4,362 of 5,404 entries (81%)** — HSK1 86%, HSK2 83%, HSK3 89%, HSK4 84%, HSK5 82%, HSK6 65%. A word with several readings only gets a recording when the exact reading is known (single-syllable words).
+Coverage: **4,442 of 5,375 entries (83%)** — HSK1 93%, HSK2 87%, HSK3 91%, HSK4 84%, HSK5 85%, HSK6 76%. A word with several readings only gets a recording when the exact reading is known (single-syllable words).
 Single-syllable recordings were checked against the expected tone with a pitch classifier (95% cross-validated accuracy on the labelled syllables, ~90% agreement on the word recordings); multi-syllable recordings are unchecked and rely on the source's curation. `backend/data/audio/MANIFEST.json` lists which recording backs which word.
 **Attribution is required (CC BY-SA):** the About screen must credit *hugolpz/audio-cmn* (Shtooka/SWAC) — speakers Yue Tan (words) and Chen Wang (syllables). Text: `backend/data/audio/ATTRIBUTION.md`.
 
@@ -260,8 +260,8 @@ HTTP codes used:
 ```bash
 cp .env.example .env
 docker compose up -d --build
-docker compose exec backend python scripts/import_hsk.py       # 5,404 words, safe to re-run; add --prune to also remove old-list words
-docker compose exec backend python scripts/import_content.py   # reading, grammar, test questions
+docker compose exec backend python scripts/import_hsk.py       # 5,375 words, safe to re-run; --prune also removes words no longer in the list (needed when migrating from the old list)
+docker compose exec backend python scripts/import_content.py --prune   # reading, grammar, test questions
 # Swagger UI: http://localhost:8000/docs
 ```
 Tests (needs a Postgres): `cd backend && pip install -r requirements-dev.txt &&
@@ -271,17 +271,17 @@ TEST_DATABASE_URL=postgresql://user:pw@localhost:5432/test_db pytest` (DESTRUCTI
 
 | Content | Have now | Note |
 |---|---|---|
-| Vocabulary | **5,404 words, official HSK 3.0, levels 1-6**: HSK1 510, HSK2 757, HSK3 958, HSK4 987, HSK5 1064, HSK6 1128 | Level = the level a word is *introduced* (not cumulative). Levels 7-9 are not included. |
-| Reading | 5 HSK1 texts | |
-| Grammar | 8 HSK1 lessons | |
-| Test questions | **1,220: HSK1 220, HSK2-6 200 each** (auto-generated from the word list: meaning, reverse, pinyin; HSK1 also has 20 hand-written grammar/fill-blank) | no reading/listening/grammar-based questions yet |
-| Audio | 81% of words have a human recording after `scripts/fetch_audio.py` (see Audio section) | no sentence/dialogue audio yet, so no real listening exercises |
+| Vocabulary | **5,375 words, current official HSK syllabus (2025-11, in force 2026-07), levels 1-6**: HSK1 300, HSK2 198, HSK3 497, HSK4 997, HSK5 1591, HSK6 1792 | Level = the level a word is *introduced* (not cumulative). Cumulative targets 300/500/1000/2000/3600/5400; 25 same-word-same-reading homograph rows are merged (so HSK2-6 are slightly under 200/500/1000/1600/1800). Levels 7-9 not included. **Replaces the earlier 2021-draft list (HSK1 was 510).** |
+| Reading | 5 HSK1 texts | **Written for the old HSK1; too hard for the new one** (they use HSK3-5 words) — being rewritten |
+| Grammar | 8 HSK1 lessons | not yet aligned with the official grammar outline |
+| Test questions | **1,220: HSK1 220, HSK2-6 200 each** (generated from the word list: meaning, reverse, pinyin; HSK1 also has 20 hand-written) | no reading/listening/grammar-based questions yet |
+| Audio | 83% of words have a human recording after `scripts/fetch_audio.py` (HSK1 93%, HSK6 76%) | no sentence/dialogue audio yet |
 
 **Vocabulary notes for the UI**
 - Words with several readings are separate rows: 行 `xíng` (HSK1, "to walk") and 行 `háng` (HSK3, "row"). Always show `pinyin` next to the hanzi.
 - `pinyin` is syllable-spaced (`xiè xie`); `pinyin_numeric` too (`xie4 xie5`). `definitions` has 1-8 short English meanings.
-- Page through lists (`limit` max 200 -> HSK6 is 6 pages). Default order: lowest HSK level first, then most frequent.
-- The official list does not contain greetings like 你好 (it lists 你 and 好 separately), so don't expect it in search.
+- Page through lists (`limit` max 200 -> HSK6 is 9 pages). Default order: lowest HSK level first, then most frequent.
+- The syllabus does include greetings such as 你好 and 谢谢 at HSK1.
 - Local audio: `<hanzi>.mp3`, or `<hanzi>_<numeric pinyin without spaces>.mp3` (e.g. `行_xing2.mp3`) which wins for that reading.
 - Source & licences (CC BY-SA attribution required): `backend/data/hsk/NOTICE.md`. Show an attribution line in the app's About screen.
 

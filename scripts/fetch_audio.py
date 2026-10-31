@@ -120,7 +120,8 @@ def main() -> None:
                 e.update(src=syl, name=f"{e['hanzi']}_{e['numeric']}.mp3", kind="syllable", author="Chen Wang", verified="label")
 
     # 3) place files + manifest
-    shutil.rmtree(OUT, ignore_errors=True)
+    for old_dir in OUT.glob("hsk[1-9]"):          # replace generated audio only; keep ATTRIBUTION.md / MANIFEST.json
+        shutil.rmtree(old_dir)
     kept, per_level = [], defaultdict(Counter)
     for e in plan:
         per_level[e["level"]]["total"] += 1
