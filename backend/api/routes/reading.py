@@ -8,6 +8,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from api.deps import current_user
 from db.database import get_db
+from services.streak_service import record_activity
 from models.reading import ReadingText, UserReadingProgress
 from models.user import HskLevel, User
 from schemas.content import (
@@ -83,6 +84,7 @@ async def complete_text(
     if not prog.completed:
         gained = FIRST_COMPLETION_XP
         user.xp += gained
+    record_activity(user)
     prog.completed = True
     prog.read_at = datetime.now(timezone.utc)
     if body.comprehension_score is not None:

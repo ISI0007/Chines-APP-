@@ -8,6 +8,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from api.deps import current_user
 from db.database import get_db
+from services.streak_service import record_activity
 from models.hsk_test import HskTestQuestion, UserTestAttempt
 from models.user import HskLevel, User
 from schemas.content import (
@@ -97,6 +98,7 @@ async def submit_test(
     attempt.finished_at = datetime.now(timezone.utc)
     attempt.answers = json.dumps({"question_ids": qids, "answers": {str(k): v for k, v in body.answers.items()}})
     user.xp += xp
+    record_activity(user)
     await db.commit()
 
     return TestResultResponse(

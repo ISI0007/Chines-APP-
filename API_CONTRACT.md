@@ -286,6 +286,6 @@ TEST_DATABASE_URL=postgresql://user:pw@localhost:5432/test_db pytest` (DESTRUCTI
 - Source & licences (CC BY-SA attribution required): `backend/data/hsk/NOTICE.md`. Show an attribution line in the app's About screen.
 
 ## Known gaps (backend)
-- `streak_days` is never updated yet (needs a last-active column + migration).
-- No Alembic migrations yet; `create_all` only creates missing tables.
+- `streak_days` now updates: it counts consecutive UTC days with any XP-earning activity (review, completed text/lesson, submitted test). Shown in `/auth/me` and `/vocabulary/progress`.
+- Alembic migrations are set up (`backend/migrations/`). Fresh DB: `alembic upgrade head`; existing create_all DB: `alembic stamp head`. Startup also self-heals additive columns.
 - Word `stroke_order_data` is empty (frontend can use the `hanzi-writer` package directly by character).
