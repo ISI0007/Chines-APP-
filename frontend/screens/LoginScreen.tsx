@@ -6,23 +6,25 @@ import {
   TouchableOpacity,
   StyleSheet,
   ActivityIndicator,
-  Alert,
 } from "react-native";
 import { useAuth } from "../hooks/useAuth";
+import { router } from "expo-router";
 
-export default function LoginScreen({ navigation }: any) {
+export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const { login } = useAuth();
 
   const handleLogin = async () => {
-    if (!email || !password) return Alert.alert("Error", "Fill all fields");
+    if (!email.trim() || !password) { setError("Enter your email and password."); return; }
+    setError("");
     setLoading(true);
     try {
       await login(email, password);
-    } catch (e: any) {
-      Alert.alert("Login failed", e?.response?.data?.detail || "Try again");
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Sign-in failed. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -49,11 +51,12 @@ export default function LoginScreen({ navigation }: any) {
         onChangeText={setPassword}
       />
 
+      {!!error && <Text accessibilityRole="alert" style={{ color: "#a63232", marginBottom: 12 }}>{error}</Text>}
       <TouchableOpacity style={styles.btn} onPress={handleLogin} disabled={loading}>
         {loading ? <ActivityIndicator color="#fff" /> : <Text style={styles.btnText}>Log In</Text>}
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+      <TouchableOpacity onPress={() => router.push("/register")}>
         <Text style={styles.link}>Don't have an account? Register</Text>
       </TouchableOpacity>
     </View>

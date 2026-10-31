@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import { useAuth } from "../hooks/useAuth";
+import { router } from "expo-router";
 
 const MODULES = [
   { id: "flashcards", label: "Flashcards", emoji: "🃏", screen: "Flashcards" },
@@ -11,7 +12,7 @@ const MODULES = [
   { id: "grammar",    label: "Grammar",    emoji: "📚", screen: "Grammar"    },
 ];
 
-export default function HomeScreen({ navigation }: any) {
+export default function HomeScreen() {
   const { user, logout } = useAuth();
 
   return (
@@ -20,7 +21,7 @@ export default function HomeScreen({ navigation }: any) {
       <View style={styles.header}>
         <View>
           <Text style={styles.greeting}>你好, {user?.username}! 👋</Text>
-          <Text style={styles.level}>{user?.hsk_level} · {user?.xp} XP · 🔥 {user?.streak_days} days</Text>
+          <Text style={styles.level}>{user?.hsk_level} · {user?.xp} XP</Text>
         </View>
         <TouchableOpacity onPress={logout}>
           <Text style={styles.logout}>Logout</Text>
@@ -30,7 +31,7 @@ export default function HomeScreen({ navigation }: any) {
       {/* Daily Goal */}
       <View style={styles.goalCard}>
         <Text style={styles.goalTitle}>Daily Goal</Text>
-        <Text style={styles.goalSub}>Complete 10 flashcards to keep your streak!</Text>
+        <Text style={styles.goalSub}>Make time for a few words today.</Text>
       </View>
 
       {/* Modules Grid */}
@@ -40,13 +41,17 @@ export default function HomeScreen({ navigation }: any) {
           <TouchableOpacity
             key={m.id}
             style={styles.moduleCard}
-            onPress={() => navigation.navigate(m.screen)}
+            disabled={m.id !== "flashcards"}
+            onPress={() => router.push("/flashcards")}
           >
             <Text style={styles.moduleEmoji}>{m.emoji}</Text>
             <Text style={styles.moduleLabel}>{m.label}</Text>
+            <Text>{m.id === "flashcards" ? "Start review" : "Coming soon"}</Text>
           </TouchableOpacity>
         ))}
       </View>
+      <TouchableOpacity style={styles.goalCard} onPress={() => router.push("/vocabulary")}><Text style={styles.goalTitle}>Browse vocabulary</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.goalCard} onPress={() => router.push("/progress")}><Text style={styles.goalTitle}>Your progress</Text></TouchableOpacity>
     </ScrollView>
   );
 }

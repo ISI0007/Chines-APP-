@@ -1,0 +1,9 @@
+{
+  "expo": {
+    "name": "Learn Chinese",
+    "slug": "chinese-learn",
+    "scheme": "chinese-learn",
+    "plugins": ["expo-router"],
+    "web": { "bundler": "metro" }
+  }
+}
