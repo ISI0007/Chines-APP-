@@ -1,0 +1,36 @@
+# Env
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Node / Expo
+node_modules/
+.expo/
+dist/
+web-build/
+*.tsbuildinfo
+
+# DB volumes
+pgdata/
+redisdata/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/
+
+# Audio/data (large files — use Git LFS or external storage)
+backend/data/audio/*.mp3
+backend/data/cedict/cedict_ts.u8
