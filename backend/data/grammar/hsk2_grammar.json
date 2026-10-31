@@ -1,0 +1,242 @@
+[
+ {
+  "title": "虽然…但是 — although…",
+  "hsk_level": "HSK2",
+  "pattern": "虽然 + A，但是 + B",
+  "explanation": "虽然 (suīrán) … 但是 (dànshì) … expresses contrast: 'although A, (but) B'. Unlike English, Chinese keeps 但是 in the second clause.",
+  "syllabus_ref": "复句·转折复句：虽然……，但是……",
+  "order_index": 1,
+  "examples": [
+   {
+    "zh": "虽然很累，但是我很快乐。",
+    "pinyin": "suī rán hěn lèi ， dàn shì wǒ hěn kuài lè 。",
+    "en": "Although I'm tired, I'm happy."
+   },
+   {
+    "zh": "虽然下雨，但是我们去了。",
+    "pinyin": "suī rán xià yǔ ， dàn shì wǒ men qù le 。",
+    "en": "Although it rained, we went."
+   },
+   {
+    "zh": "这件衣服虽然贵，但是很好看。",
+    "pinyin": "zhè jiàn yī fu suī rán guì ， dàn shì hěn hǎo kàn 。",
+    "en": "Although this clothing is expensive, it looks nice."
+   },
+   {
+    "zh": "他虽然忙，但是每天运动。",
+    "pinyin": "tā suī rán máng ， dàn shì měi tiān yùn dòng 。",
+    "en": "Although he's busy, he exercises every day."
+   }
+  ]
+ },
+ {
+  "title": "因为…所以 — because…",
+  "hsk_level": "HSK2",
+  "pattern": "因为 + cause，所以 + result",
+  "explanation": "因为 (yīnwèi) gives the reason, 所以 (suǒyǐ) gives the result. Both halves are usually kept.",
+  "syllabus_ref": "复句·因果复句：因为……，所以……",
+  "order_index": 2,
+  "examples": [
+   {
+    "zh": "因为下雨，所以我在家。",
+    "pinyin": "yīn wèi xià yǔ ， suǒ yǐ wǒ zài jiā 。",
+    "en": "Because it rained, I stayed home."
+   },
+   {
+    "zh": "因为他病了，所以没来上课。",
+    "pinyin": "yīn wèi tā bìng le ， suǒ yǐ 没 lái shàng kè 。",
+    "en": "Because he was sick, he didn't come to class."
+   },
+   {
+    "zh": "我喜欢运动，因为对身体好。",
+    "pinyin": "wǒ xǐ huan yùn dòng ， yīn wèi duì shēn tǐ hǎo 。",
+    "en": "I like sports, because it's good for the body."
+   },
+   {
+    "zh": "因为累，所以她想休息。",
+    "pinyin": "yīn wèi lèi ， suǒ yǐ tā xiǎng xiū xi 。",
+    "en": "Because she's tired, she wants to rest."
+   }
+  ]
+ },
+ {
+  "title": "V 得 + adjective — how an action is done",
+  "hsk_level": "HSK2",
+  "pattern": "Verb + 得 + Adjective",
+  "explanation": "To describe HOW an action is done, use Verb + 得 (de) + adjective. If there's an object, repeat the verb: 他说汉语说得很好.",
+  "syllabus_ref": "补语·状态补语1：动词 + 得 + 形容词性短语",
+  "order_index": 3,
+  "examples": [
+   {
+    "zh": "他跑得很快。",
+    "pinyin": "tā pǎo de hěn kuài 。",
+    "en": "He runs fast."
+   },
+   {
+    "zh": "你来得很早。",
+    "pinyin": "nǐ lái de hěn zǎo 。",
+    "en": "You came early."
+   },
+   {
+    "zh": "她唱得很好。",
+    "pinyin": "tā chàng de hěn hǎo 。",
+    "en": "She sings well."
+   },
+   {
+    "zh": "我吃得太多了。",
+    "pinyin": "wǒ chī de tài duō le 。",
+    "en": "I ate too much."
+   }
+  ]
+ },
+ {
+  "title": "过 — have done before",
+  "hsk_level": "HSK2",
+  "pattern": "Verb + 过",
+  "explanation": "过 (guo) after a verb marks an experience — something you have done at least once. Negate with 没 + Verb + 过.",
+  "syllabus_ref": "动作的态·经历态：用动态助词「过」表示",
+  "order_index": 4,
+  "examples": [
+   {
+    "zh": "我去过中国。",
+    "pinyin": "wǒ qù guò Zhōng guó 。",
+    "en": "I have been to China."
+   },
+   {
+    "zh": "你吃过饺子吗？",
+    "pinyin": "nǐ chī guò jiǎo zi ma ？",
+    "en": "Have you eaten dumplings?"
+   },
+   {
+    "zh": "他没看过这个电影。",
+    "pinyin": "tā 没 kàn guò zhè ge diàn yǐng 。",
+    "en": "He hasn't seen this movie."
+   },
+   {
+    "zh": "我学过汉语。",
+    "pinyin": "wǒ xué guò Hàn yǔ 。",
+    "en": "I have studied Chinese."
+   }
+  ]
+ },
+ {
+  "title": "着 — ongoing state",
+  "hsk_level": "HSK2",
+  "pattern": "Verb + 着",
+  "explanation": "着 (zhe) after a verb shows a continuing state. 门开着 = the door is (standing) open.",
+  "syllabus_ref": "补语/动作的态：动词 + 着（表示状态的持续）",
+  "order_index": 5,
+  "examples": [
+   {
+    "zh": "门开着。",
+    "pinyin": "mén kāi zhe 。",
+    "en": "The door is open."
+   },
+   {
+    "zh": "他手里拿着书。",
+    "pinyin": "tā shǒu lǐ ná zhe shū 。",
+    "en": "He's holding a book in his hand."
+   },
+   {
+    "zh": "外面下着雨。",
+    "pinyin": "wài miàn xià zhe yǔ 。",
+    "en": "It's raining outside."
+   },
+   {
+    "zh": "她笑着说。",
+    "pinyin": "tā xiào zhe shuō 。",
+    "en": "She said with a smile."
+   }
+  ]
+ },
+ {
+  "title": "还是 — A or B? (choice question)",
+  "hsk_level": "HSK2",
+  "pattern": "A + 还是 + B？",
+  "explanation": "还是 (háishi) offers a choice in a question: 'A or B?'. (In a statement, 'or' is 或者.)",
+  "syllabus_ref": "句类·疑问句：用「还是」连接的选择问句",
+  "order_index": 6,
+  "examples": [
+   {
+    "zh": "你喝茶还是咖啡？",
+    "pinyin": "nǐ hē chá hái shi kā fēi ？",
+    "en": "Do you want tea or coffee?"
+   },
+   {
+    "zh": "今天去还是明天去？",
+    "pinyin": "jīn tiān qù hái shi míng tiān qù ？",
+    "en": "Go today or tomorrow?"
+   },
+   {
+    "zh": "你坐公交车还是坐地铁？",
+    "pinyin": "nǐ zuò gōng jiāo chē hái shi zuò dì tiě ？",
+    "en": "Do you take the bus or the subway?"
+   },
+   {
+    "zh": "他是老师还是学生？",
+    "pinyin": "tā shì lǎo shī hái shi xué shēng ？",
+    "en": "Is he a teacher or a student?"
+   }
+  ]
+ },
+ {
+  "title": "让 / 叫 — make / let someone do",
+  "hsk_level": "HSK2",
+  "pattern": "Subject + 让/叫 + Person + Verb",
+  "explanation": "让 (ràng) and 叫 (jiào) mean to make / let / ask someone do something. The person comes between the two verbs.",
+  "syllabus_ref": "句型·兼语句1（表使令）：主语 + 请/叫/让 + 宾语 + 动词",
+  "order_index": 7,
+  "examples": [
+   {
+    "zh": "妈妈让我买东西。",
+    "pinyin": "mā ma ràng wǒ mǎi dōng xi 。",
+    "en": "Mom asked me to buy things."
+   },
+   {
+    "zh": "老师让我们读书。",
+    "pinyin": "lǎo shī ràng wǒ men dú shū 。",
+    "en": "The teacher had us read."
+   },
+   {
+    "zh": "他叫我等一下。",
+    "pinyin": "tā jiào wǒ děng yí xià 。",
+    "en": "He told me to wait a moment."
+   },
+   {
+    "zh": "请让我看看。",
+    "pinyin": "qǐng ràng wǒ kàn kàn 。",
+    "en": "Please let me take a look."
+   }
+  ]
+ },
+ {
+  "title": "一…就… — as soon as",
+  "hsk_level": "HSK2",
+  "pattern": "一 + V1，就 + V2",
+  "explanation": "一 (yī) … 就 (jiù) … links two actions: as soon as the first happens, the second follows.",
+  "syllabus_ref": "复句·紧缩复句：一……就……",
+  "order_index": 8,
+  "examples": [
+   {
+    "zh": "我一到家就吃饭。",
+    "pinyin": "wǒ yī dào jiā jiù chī fàn 。",
+    "en": "As soon as I get home, I eat."
+   },
+   {
+    "zh": "他一下课就回家。",
+    "pinyin": "tā yí xià kè jiù huí jiā 。",
+    "en": "As soon as class ends, he goes home."
+   },
+   {
+    "zh": "我一看就懂了。",
+    "pinyin": "wǒ yī kàn jiù dǒng le 。",
+    "en": "I understood as soon as I looked."
+   },
+   {
+    "zh": "她一高兴就唱歌。",
+    "pinyin": "tā yī gāo xìng jiù chàng gē 。",
+    "en": "As soon as she's happy, she sings."
+   }
+  ]
+ }
+]

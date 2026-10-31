@@ -37,6 +37,10 @@ def test_content_stays_within_its_level(kind, items):
     assert not offenders, offenders
 
 
-def test_hsk1_reading_and_grammar_are_present():
-    assert sum(1 for lv, *_ in _reading() if lv == "HSK1") == 6
-    assert len({t for lv, t, _ in _grammar() if lv == "HSK1"}) == 8
+def test_reading_and_grammar_present_for_hsk1_3():
+    from collections import Counter
+    rc = Counter(lv for lv, *_ in _reading())
+    gc = Counter(lv for lv, t in {(lv, t) for lv, t, _ in _grammar()})
+    for lv in ("HSK1", "HSK2", "HSK3"):
+        assert rc[lv] == 6, (lv, rc[lv])
+        assert gc[lv] == 8, (lv, gc[lv])

@@ -272,8 +272,8 @@ TEST_DATABASE_URL=postgresql://user:pw@localhost:5432/test_db pytest` (DESTRUCTI
 | Content | Have now | Note |
 |---|---|---|
 | Vocabulary | **5,375 words, current official HSK syllabus (2025-11, in force 2026-07), levels 1-6**: HSK1 300, HSK2 198, HSK3 497, HSK4 997, HSK5 1591, HSK6 1792 | Level = the level a word is *introduced* (not cumulative). Cumulative targets 300/500/1000/2000/3600/5400; 25 same-word-same-reading homograph rows are merged (so HSK2-6 are slightly under 200/500/1000/1600/1800). Levels 7-9 not included. **Replaces the earlier 2021-draft list (HSK1 was 510).** |
-| Reading | 6 HSK1 texts | Rewritten for the official HSK1 — every word validated at HSK1 by `scripts/check_level.py` |
-| Grammar | 8 HSK1 lessons | Aligned to the official HSK1 grammar outline (each lesson has a `syllabus_ref`); all example sentences validated at HSK1 |
+| Reading | 18 texts: 6 each for HSK1-3 | Every word validated at its level by `scripts/check_level.py` |
+| Grammar | 24 lessons: 8 each for HSK1-3 | Aligned to the official grammar outline (each lesson has a `syllabus_ref`); all example sentences validated at their level |
 | Test questions | **1,220: HSK1 220, HSK2-6 200 each** (generated from the word list: meaning, reverse, pinyin; HSK1 also has 20 hand-written) | no reading/listening/grammar-based questions yet |
 | Audio | 83% of words have a human recording after `scripts/fetch_audio.py` (HSK1 93%, HSK6 76%) | no sentence/dialogue audio yet |
 

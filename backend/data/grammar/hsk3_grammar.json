@@ -1,0 +1,242 @@
+[
+ {
+  "title": "把字句 — do something to an object",
+  "hsk_level": "HSK3",
+  "pattern": "Subject + 把 + Object + Verb + …",
+  "explanation": "把 (bǎ) moves the object before the verb to stress what happens TO it. The verb needs an extra element after it (result, location, 了…).",
+  "syllabus_ref": "句型·「把」字句1",
+  "order_index": 1,
+  "examples": [
+   {
+    "zh": "请把门关上。",
+    "pinyin": "qǐng bǎ mén guān shàng 。",
+    "en": "Please close the door."
+   },
+   {
+    "zh": "我把作业做完了。",
+    "pinyin": "wǒ bǎ zuò yè zuò wán le 。",
+    "en": "I finished the homework."
+   },
+   {
+    "zh": "他把书放在桌子上。",
+    "pinyin": "tā bǎ shū fàng zài zhuō zi shàng 。",
+    "en": "He put the book on the table."
+   },
+   {
+    "zh": "请把名字写在这里。",
+    "pinyin": "qǐng bǎ míng zi xiě zài zhè lǐ 。",
+    "en": "Please write your name here."
+   }
+  ]
+ },
+ {
+  "title": "被 — passive",
+  "hsk_level": "HSK3",
+  "pattern": "Subject + 被 + (doer) + Verb + …",
+  "explanation": "被 (bèi) marks the passive: the subject receives the action. The doer can be left out.",
+  "syllabus_ref": "句型·被动句1",
+  "order_index": 2,
+  "examples": [
+   {
+    "zh": "我的自行车被人借走了。",
+    "pinyin": "wǒ de zì xíng chē bèi rén jiè zǒu le 。",
+    "en": "My bike was borrowed by someone."
+   },
+   {
+    "zh": "蛋糕被弟弟吃了。",
+    "pinyin": "dàn gāo bèi dì di chī le 。",
+    "en": "The cake was eaten by my brother."
+   },
+   {
+    "zh": "杯子被打坏了。",
+    "pinyin": "bēi zi bèi dǎ huài le 。",
+    "en": "The cup was broken."
+   },
+   {
+    "zh": "他被老师叫去了。",
+    "pinyin": "tā bèi lǎo shī jiào qù le 。",
+    "en": "He was called away by the teacher."
+   }
+  ]
+ },
+ {
+  "title": "比 — comparison",
+  "hsk_level": "HSK3",
+  "pattern": "A + 比 + B + Adjective",
+  "explanation": "A 比 (bǐ) B + adjective says A is more … than B. Use 更/还 for 'even more'. A 跟 B 一样 = A is the same as B.",
+  "syllabus_ref": "句型·比较句2：A 比 B + 更/还 + 形容词；A 跟 B 一样",
+  "order_index": 3,
+  "examples": [
+   {
+    "zh": "今天比昨天冷。",
+    "pinyin": "jīn tiān bǐ zuó tiān lěng 。",
+    "en": "Today is colder than yesterday."
+   },
+   {
+    "zh": "他比我高。",
+    "pinyin": "tā bǐ wǒ gāo 。",
+    "en": "He is taller than me."
+   },
+   {
+    "zh": "高铁比汽车快得多。",
+    "pinyin": "gāo tiě bǐ qì chē kuài de duō 。",
+    "en": "The high-speed train is much faster than a car."
+   },
+   {
+    "zh": "我的手机跟你的一样。",
+    "pinyin": "wǒ de shǒu jī gēn nǐ de yí yàng 。",
+    "en": "My phone is the same as yours."
+   }
+  ]
+ },
+ {
+  "title": "如果…就… — if…then",
+  "hsk_level": "HSK3",
+  "pattern": "如果 + condition，就 + result",
+  "explanation": "如果 (rúguǒ) states a condition; 就 (jiù) introduces the result. 如果 can be dropped in casual speech.",
+  "syllabus_ref": "复句·假设复句：如果……，就……",
+  "order_index": 4,
+  "examples": [
+   {
+    "zh": "如果下雨，我就不去了。",
+    "pinyin": "rú guǒ xià yǔ ， wǒ jiù bù qù le 。",
+    "en": "If it rains, I won't go."
+   },
+   {
+    "zh": "如果你有时间，就来我家。",
+    "pinyin": "rú guǒ nǐ yǒu shí jiān ， jiù lái wǒ jiā 。",
+    "en": "If you have time, come to my place."
+   },
+   {
+    "zh": "如果不懂，就问老师。",
+    "pinyin": "rú guǒ bù dǒng ， jiù wèn lǎo shī 。",
+    "en": "If you don't understand, ask the teacher."
+   },
+   {
+    "zh": "如果便宜，我就买。",
+    "pinyin": "rú guǒ pián yi ， wǒ jiù mǎi 。",
+    "en": "If it's cheap, I'll buy it."
+   }
+  ]
+ },
+ {
+  "title": "不但…而且… — not only…but also",
+  "hsk_level": "HSK3",
+  "pattern": "不但 + A，而且 + B",
+  "explanation": "不但 (búdàn) … 而且 (érqiě) … adds a stronger point: 'not only A, but also B'.",
+  "syllabus_ref": "复句·递进复句：不但……，而且……",
+  "order_index": 5,
+  "examples": [
+   {
+    "zh": "她不但聪明，而且很努力。",
+    "pinyin": "tā bú dàn cōng míng ， ér qiě hěn nǔ lì 。",
+    "en": "She is not only clever but also hardworking."
+   },
+   {
+    "zh": "这里不但方便，而且便宜。",
+    "pinyin": "zhè lǐ bú dàn fāng biàn ， ér qiě pián yi 。",
+    "en": "Here is not only convenient but also cheap."
+   },
+   {
+    "zh": "他不但会说汉语，而且写得很好。",
+    "pinyin": "tā bú dàn huì shuō Hàn yǔ ， ér qiě xiě de hěn hǎo 。",
+    "en": "He not only speaks Chinese but also writes it well."
+   },
+   {
+    "zh": "这个菜不但好吃，而且健康。",
+    "pinyin": "zhè ge cài bú dàn hǎo chī ， ér qiě jiàn kāng 。",
+    "en": "This dish is not only tasty but also healthy."
+   }
+  ]
+ },
+ {
+  "title": "除了…还/也… — besides",
+  "hsk_level": "HSK3",
+  "pattern": "除了 + A（以外），还/也 + B",
+  "explanation": "除了 (chúle) … 还/也 … means 'besides A, also B'. With 都 it means 'except A, all …'.",
+  "syllabus_ref": "固定格式：除了……（以外），……还/也/都……",
+  "order_index": 6,
+  "examples": [
+   {
+    "zh": "除了汉语，我还学数学。",
+    "pinyin": "chú le Hàn yǔ ， wǒ hái xué shù xué 。",
+    "en": "Besides Chinese, I also study math."
+   },
+   {
+    "zh": "除了跑步，他也喜欢游泳。",
+    "pinyin": "chú le pǎo bù ， tā yě xǐ huan yóu yǒng 。",
+    "en": "Besides running, he also likes swimming."
+   },
+   {
+    "zh": "除了周末，我每天都上班。",
+    "pinyin": "chú le zhōu mò ， wǒ měi tiān dōu shàng bān 。",
+    "en": "Except weekends, I work every day."
+   },
+   {
+    "zh": "除了他，大家都来了。",
+    "pinyin": "chú le tā ， dà jiā dōu lái le 。",
+    "en": "Except for him, everyone came."
+   }
+  ]
+ },
+ {
+  "title": "先…然后… — first…then",
+  "hsk_level": "HSK3",
+  "pattern": "先 + A，然后 + B",
+  "explanation": "先 (xiān) … 然后 (ránhòu) … puts actions in order: first do A, then do B. 再 can replace 然后.",
+  "syllabus_ref": "复句·承接复句：先……，再/然后……",
+  "order_index": 7,
+  "examples": [
+   {
+    "zh": "我先洗澡，然后睡觉。",
+    "pinyin": "wǒ xiān xǐ zǎo ， rán hòu shuì jiào 。",
+    "en": "I shower first, then sleep."
+   },
+   {
+    "zh": "先做作业，然后看电视。",
+    "pinyin": "xiān zuò zuò yè ， rán hòu kàn diàn shì 。",
+    "en": "Do homework first, then watch TV."
+   },
+   {
+    "zh": "我们先吃饭，然后去公园。",
+    "pinyin": "wǒ men xiān chī fàn ， rán hòu qù gōng yuán 。",
+    "en": "We eat first, then go to the park."
+   },
+   {
+    "zh": "先想清楚，再决定。",
+    "pinyin": "xiān xiǎng qīng chu ， zài jué dìng 。",
+    "en": "Think it over first, then decide."
+   }
+  ]
+ },
+ {
+  "title": "V 得/不 + 补语 — can / cannot (potential)",
+  "hsk_level": "HSK3",
+  "pattern": "Verb + 得/不 + result",
+  "explanation": "Insert 得 (de) for 'able to' or 不 (bu) for 'unable to' between a verb and its result: 看得懂 = can understand (by reading), 看不懂 = cannot.",
+  "syllabus_ref": "补语·可能补语1：动词 + 得/不 + 动词/形容词",
+  "order_index": 8,
+  "examples": [
+   {
+    "zh": "这本书我看得懂。",
+    "pinyin": "zhè běn shū wǒ kàn de dǒng 。",
+    "en": "I can understand this book."
+   },
+   {
+    "zh": "东西太多，我拿不了。",
+    "pinyin": "dōng xi tài duō ， wǒ ná bù le 。",
+    "en": "There are too many things; I can't carry them."
+   },
+   {
+    "zh": "老师说的话你听得懂吗？",
+    "pinyin": "lǎo shī shuō de huà nǐ tīng de dǒng ma ？",
+    "en": "Can you understand what the teacher says?"
+   },
+   {
+    "zh": "今天的作业做得完。",
+    "pinyin": "jīn tiān de zuò yè zuò de wán 。",
+    "en": "Today's homework can be finished."
+   }
+  ]
+ }
+]
