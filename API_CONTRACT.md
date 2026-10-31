@@ -161,12 +161,15 @@ Example: GET /api/v1/audio/hsk1/谢谢.mp3
 ```
 
 **Frontend audio strategy:**
-1. Check `word.audio_path` — if not null, fetch `GET /api/v1{audio_path}`
-2. If null / 404, fall back to browser-side TTS:
-   ```js
-   `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(simplified)}&tl=zh-CN&client=tw-ob`
-   ```
-   Play with `expo-av` `Audio.Sound.createAsync({ uri })`.
+1. If `word.audio_path` is not null, play `API_ORIGIN + word.audio_path` (a short human recording, ~1 s, `audio/mpeg`, served with Range support so a 206 reply is normal).
+2. If it is null, fall back to synthetic speech (Google TTS URL below). It is an unofficial endpoint and can stop working; it also reads a multi-reading hanzi (e.g. 行) in only one way.
+```js
+`https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(simplified)}&tl=zh-CN&client=tw-ob`
+```
+**Recordings are real now** (open licence): `python scripts/fetch_audio.py` (run on the host, needs git + `pip install -r scripts/requirements-audio.txt`) downloads them into `backend/data/audio/` (not in git; the folder is mounted into Docker). Without that step `audio_path` stays null everywhere.
+Coverage: **4,362 of 5,404 entries (81%)** — HSK1 86%, HSK2 83%, HSK3 89%, HSK4 84%, HSK5 82%, HSK6 65%. A word with several readings only gets a recording when the exact reading is known (single-syllable words).
+Single-syllable recordings were checked against the expected tone with a pitch classifier (95% cross-validated accuracy on the labelled syllables, ~90% agreement on the word recordings); multi-syllable recordings are unchecked and rely on the source's curation. `backend/data/audio/MANIFEST.json` lists which recording backs which word.
+**Attribution is required (CC BY-SA):** the About screen must credit *hugolpz/audio-cmn* (Shtooka/SWAC) — speakers Yue Tan (words) and Chen Wang (syllables). Text: `backend/data/audio/ATTRIBUTION.md`.
 
 ---
 
@@ -272,7 +275,7 @@ TEST_DATABASE_URL=postgresql://user:pw@localhost:5432/test_db pytest` (DESTRUCTI
 | Reading | 5 HSK1 texts | |
 | Grammar | 8 HSK1 lessons | |
 | Test questions | **1,220: HSK1 220, HSK2-6 200 each** (auto-generated from the word list: meaning, reverse, pinyin; HSK1 also has 20 hand-written grammar/fill-blank) | no reading/listening/grammar-based questions yet |
-| Audio files | none yet | `audio_path` is null -> use the TTS fallback above |
+| Audio | 81% of words have a human recording after `scripts/fetch_audio.py` (see Audio section) | no sentence/dialogue audio yet, so no real listening exercises |
 
 **Vocabulary notes for the UI**
 - Words with several readings are separate rows: 行 `xíng` (HSK1, "to walk") and 行 `háng` (HSK3, "row"). Always show `pinyin` next to the hanzi.

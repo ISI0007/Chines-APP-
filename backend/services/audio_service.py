@@ -10,7 +10,8 @@ Strategy:
 import os
 from pathlib import Path
 
-AUDIO_ROOT = Path(__file__).parent.parent / "data" / "audio"
+# AUDIO_DIR lets tests/deployments point elsewhere (default: backend/data/audio).
+AUDIO_ROOT = Path(os.environ.get("AUDIO_DIR") or Path(__file__).parent.parent / "data" / "audio")
 
 # Free public TTS endpoint (Mandarin, no key needed, usage: educational)
 # Google Translate TTS — only use as fallback; for production, use a proper TTS API
