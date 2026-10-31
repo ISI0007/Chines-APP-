@@ -1,0 +1,4 @@
+# Dev-only tools for scripts/fetch_audio.py (tone check). Not needed at runtime.
+praat-parselmouth
+numpy
+scikit-learn

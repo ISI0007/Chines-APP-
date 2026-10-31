@@ -159,7 +159,7 @@ async def test_mock_test_flow(client):
 
 async def test_audio_route(client):
     h, _ = await _user(client, "gina")
-    f = ROOT / "backend" / "data" / "audio" / "hsk1"
+    f = Path(os.environ["AUDIO_DIR"]) / "hsk1"
     f.mkdir(parents=True, exist_ok=True)
     mp3 = f / "zz_fixture.mp3"
     mp3.write_bytes(b"ID3fake")

@@ -32,5 +32,5 @@ Thumbs.db
 .idea/
 
 # Audio/data (large files — use Git LFS or external storage)
-backend/data/audio/*.mp3
+backend/data/audio/**/*.mp3
 backend/data/cedict/cedict_ts.u8
