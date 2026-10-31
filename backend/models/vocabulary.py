@@ -2,16 +2,7 @@ from sqlalchemy import String, Integer, Text, Float, Enum as SAEnum, ForeignKey,
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.sql import func
 from db.database import Base
-import enum
-
-
-class HskLevel(str, enum.Enum):
-    HSK1 = "HSK1"
-    HSK2 = "HSK2"
-    HSK3 = "HSK3"
-    HSK4 = "HSK4"
-    HSK5 = "HSK5"
-    HSK6 = "HSK6"
+from models.user import HskLevel
 
 
 class Word(Base):

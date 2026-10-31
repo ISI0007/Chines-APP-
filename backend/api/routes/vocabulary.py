@@ -7,18 +7,18 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import select, func, or_, and_
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from backend.api.deps import current_user
-from backend.db.database import get_db
-from backend.models.user import HskLevel, User
-from backend.models.vocabulary import Word, UserWordProgress
-from backend.schemas.vocabulary import (
+from api.deps import current_user
+from db.database import get_db
+from models.user import HskLevel, User
+from models.vocabulary import Word, UserWordProgress
+from schemas.vocabulary import (
     WordResponse,
     WordListResponse,
     UserWordProgressResponse,
     ReviewRequest,
     ReviewResponse,
 )
-from backend.services.srs_service import sm2_update
+from services.srs_service import sm2_update
 
 router = APIRouter(prefix="/vocabulary", tags=["vocabulary"])
 
@@ -160,7 +160,11 @@ async def submit_review(
     progress = result.scalar_one_or_none()
 
     if not progress:
-        progress = UserWordProgress(user_id=user.id, word_id=body.word_id)
+        # Column defaults only apply at flush, so set SM-2 start values explicitly.
+        progress = UserWordProgress(
+            user_id=user.id, word_id=body.word_id,
+            ease_factor=2.5, interval_days=1, repetitions=0, is_learned=False,
+        )
         db.add(progress)
 
     # Apply SM-2 algorithm

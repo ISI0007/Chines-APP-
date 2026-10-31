@@ -5,9 +5,9 @@ Pydantic schemas for vocabulary and SRS review endpoints.
 import json
 from datetime import datetime
 from typing import Optional
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, field_validator, model_validator
 
-from backend.models.user import HskLevel
+from models.user import HskLevel
 
 
 class WordResponse(BaseModel):
@@ -24,6 +24,16 @@ class WordResponse(BaseModel):
     stroke_order_data: Optional[str] = None
 
     model_config = {"from_attributes": True}
+
+    @model_validator(mode="after")
+    def resolve_audio(self):
+        """Point audio_path at the local MP3 when one has been added under data/audio/."""
+        if not self.audio_path:
+            from services.audio_service import local_audio_path
+            local = local_audio_path(self.simplified, self.hsk_level.value)
+            if local:
+                self.audio_path = f"/api/v1/{local}"
+        return self
 
     @field_validator("definitions", mode="before")
     @classmethod

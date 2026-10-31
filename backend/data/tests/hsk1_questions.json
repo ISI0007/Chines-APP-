@@ -1,0 +1,202 @@
+[
+  {
+    "question_type": "vocabulary",
+    "question_text": "What does 你好 (nǐ hǎo) mean?",
+    "option_a": "Thank you",
+    "option_b": "Hello / Hi",
+    "option_c": "Goodbye",
+    "option_d": "Sorry",
+    "correct_option": "B",
+    "explanation": "你好 (nǐ hǎo) literally means 'you good' and is the standard Chinese greeting."
+  },
+  {
+    "question_type": "pinyin",
+    "question_text": "Which pinyin is correct for 谢谢？",
+    "option_a": "xǐxǐ",
+    "option_b": "shèshè",
+    "option_c": "xièxie",
+    "option_d": "xiēxiē",
+    "correct_option": "C",
+    "explanation": "谢谢 is pronounced xièxie (4th tone + neutral tone) meaning 'thank you'."
+  },
+  {
+    "question_type": "fill_blank",
+    "question_text": "我 ___ 学生。(I am a student.)",
+    "option_a": "有",
+    "option_b": "在",
+    "option_c": "是",
+    "option_d": "很",
+    "correct_option": "C",
+    "explanation": "是 (shì) is the verb 'to be'. For identity/occupation, use Subject + 是 + Noun."
+  },
+  {
+    "question_type": "vocabulary",
+    "question_text": "Which character means 'water'?",
+    "option_a": "火",
+    "option_b": "山",
+    "option_c": "水",
+    "option_d": "木",
+    "correct_option": "C",
+    "explanation": "水 (shuǐ) means water. 火 = fire, 山 = mountain, 木 = wood/tree."
+  },
+  {
+    "question_type": "fill_blank",
+    "question_text": "今天天气 ___ 好。(Today the weather is very good.)",
+    "option_a": "不",
+    "option_b": "很",
+    "option_c": "也",
+    "option_d": "都",
+    "correct_option": "B",
+    "explanation": "很 (hěn) means 'very' and is used with adjectives. 天气很好 = the weather is very good."
+  },
+  {
+    "question_type": "vocabulary",
+    "question_text": "What does 多少钱 (duōshao qián) mean?",
+    "option_a": "Where is it?",
+    "option_b": "What time is it?",
+    "option_c": "How much does it cost?",
+    "option_d": "How many people?",
+    "correct_option": "C",
+    "explanation": "多少 = how much/many, 钱 = money. 多少钱? = How much does it cost?"
+  },
+  {
+    "question_type": "fill_blank",
+    "question_text": "我 ___ 有钱。(I don't have money.)",
+    "option_a": "不",
+    "option_b": "没",
+    "option_c": "别",
+    "option_d": "非",
+    "correct_option": "B",
+    "explanation": "没有 (méiyǒu) is the negative of 有. Never use 不有 — only 没有 to negate 有."
+  },
+  {
+    "question_type": "vocabulary",
+    "question_text": "Which word means 'doctor'?",
+    "option_a": "老师",
+    "option_b": "学生",
+    "option_c": "医生",
+    "option_d": "工人",
+    "correct_option": "C",
+    "explanation": "医生 (yīshēng) = doctor. 老师 = teacher, 学生 = student, 工人 = worker."
+  },
+  {
+    "question_type": "pinyin",
+    "question_text": "What is the correct pinyin for 中国 (China)?",
+    "option_a": "Zōngguó",
+    "option_b": "Zhōngguó",
+    "option_c": "Chōngguó",
+    "option_d": "Zhùngguó",
+    "correct_option": "B",
+    "explanation": "中 = zhōng (1st tone), 国 = guó (2nd tone). 中国 = Zhōngguó."
+  },
+  {
+    "question_type": "fill_blank",
+    "question_text": "你叫 ___ 名字？(What is your name?)",
+    "option_a": "哪",
+    "option_b": "什么",
+    "option_c": "怎么",
+    "option_d": "多少",
+    "correct_option": "B",
+    "explanation": "什么 (shénme) = what. 你叫什么名字？ = What is your name? (Literally: You are called what name?)"
+  },
+  {
+    "question_type": "vocabulary",
+    "question_text": "What does 再见 (zàijiàn) mean?",
+    "option_a": "See you again / Goodbye",
+    "option_b": "Nice to meet you",
+    "option_c": "Good morning",
+    "option_d": "Excuse me",
+    "correct_option": "A",
+    "explanation": "再见 literally means 'see again'. 再 = again, 见 = see/meet. Used to say goodbye."
+  },
+  {
+    "question_type": "vocabulary",
+    "question_text": "Which number is 八 (bā)?",
+    "option_a": "6",
+    "option_b": "7",
+    "option_c": "8",
+    "option_d": "9",
+    "correct_option": "C",
+    "explanation": "八 (bā) = 8. Chinese numbers: 六=6, 七=7, 八=8, 九=9, 十=10."
+  },
+  {
+    "question_type": "fill_blank",
+    "question_text": "我想 ___ 水。(I want to drink water.)",
+    "option_a": "吃",
+    "option_b": "看",
+    "option_c": "喝",
+    "option_d": "说",
+    "correct_option": "C",
+    "explanation": "喝 (hē) = to drink. 吃 = eat, 看 = look/watch, 说 = speak/say."
+  },
+  {
+    "question_type": "vocabulary",
+    "question_text": "What is 星期一 (xīngqī yī)?",
+    "option_a": "Sunday",
+    "option_b": "Monday",
+    "option_c": "Saturday",
+    "option_d": "Friday",
+    "correct_option": "B",
+    "explanation": "星期一 = Monday (weekday + one). Days: 一=Mon, 二=Tue, 三=Wed, 四=Thu, 五=Fri, 六=Sat, 日/天=Sun."
+  },
+  {
+    "question_type": "pinyin",
+    "question_text": "What does the 3rd tone (ǎ, ǒ, ě...) sound like?",
+    "option_a": "High and level",
+    "option_b": "Rising",
+    "option_c": "Dipping down then up",
+    "option_d": "Sharp falling",
+    "correct_option": "C",
+    "explanation": "The 3rd tone dips down then rises — like a questioning 'hmm?' sound. Example: 你 nǐ (you), 我 wǒ (I)."
+  },
+  {
+    "question_type": "fill_blank",
+    "question_text": "她是我的 ___。她是我爸爸的妈妈。",
+    "option_a": "妈妈",
+    "option_b": "姐姐",
+    "option_c": "奶奶",
+    "option_d": "女儿",
+    "correct_option": "C",
+    "explanation": "奶奶 (nǎinai) = paternal grandmother (father's mother). 外婆 = maternal grandmother."
+  },
+  {
+    "question_type": "vocabulary",
+    "question_text": "Which word means 'to go'?",
+    "option_a": "来",
+    "option_b": "去",
+    "option_c": "回",
+    "option_d": "走",
+    "correct_option": "B",
+    "explanation": "去 (qù) = to go (away from here). 来 = to come (toward here), 回 = to return, 走 = to walk/leave."
+  },
+  {
+    "question_type": "fill_blank",
+    "question_text": "现在几点？— 现在 ___ 点。(What time is it? — It is 3 o'clock.)",
+    "option_a": "两",
+    "option_b": "三",
+    "option_c": "四",
+    "option_d": "五",
+    "correct_option": "B",
+    "explanation": "三 (sān) = 3. Note: for 2 o'clock use 两点 (liǎng diǎn), not 二点."
+  },
+  {
+    "question_type": "vocabulary",
+    "question_text": "What does 好吃 (hǎochī) mean?",
+    "option_a": "Very hungry",
+    "option_b": "Delicious / Tasty",
+    "option_c": "Easy to eat",
+    "option_d": "Full (satiated)",
+    "correct_option": "B",
+    "explanation": "好吃 = delicious. 好 (good/easy) + 吃 (eat) = good to eat. Similarly: 好喝 = delicious (drinks), 好看 = good-looking."
+  },
+  {
+    "question_type": "pinyin",
+    "question_text": "Which is the correct pinyin for 朋友 (friend)?",
+    "option_a": "péng yòu",
+    "option_b": "péng yǒu",
+    "option_c": "pěng yōu",
+    "option_d": "péng yōu",
+    "correct_option": "B",
+    "explanation": "朋友 = péngyǒu. 朋 is 2nd tone (péng), 友 is 3rd tone (yǒu)."
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "title": "是 (shì) — To Be",
+    "hsk_level": "HSK1",
+    "pattern": "Subject + 是 + Noun",
+    "explanation": "是 (shì) is the main verb 'to be' in Chinese. It connects a subject to a noun. Unlike English, it is NOT used with adjectives — use 很 (hěn) for adjectives instead.",
+    "order_index": 1,
+    "examples": [
+      {"zh": "我是学生。", "pinyin": "Wǒ shì xuésheng.", "en": "I am a student."},
+      {"zh": "她是老师。", "pinyin": "Tā shì lǎoshī.", "en": "She is a teacher."},
+      {"zh": "这是书。", "pinyin": "Zhè shì shū.", "en": "This is a book."},
+      {"zh": "我不是医生。", "pinyin": "Wǒ bú shì yīshēng.", "en": "I am not a doctor."}
+    ]
+  },
+  {
+    "title": "有 (yǒu) — To Have / There Is",
+    "hsk_level": "HSK1",
+    "pattern": "Subject + 有 + Object",
+    "explanation": "有 (yǒu) means 'to have' or 'there is/are'. Its negative form is 没有 (méiyǒu), NEVER 不有. Use 有 for possession and existence.",
+    "order_index": 2,
+    "examples": [
+      {"zh": "我有一本书。", "pinyin": "Wǒ yǒu yī běn shū.", "en": "I have a book."},
+      {"zh": "桌子上有苹果。", "pinyin": "Zhuōzi shàng yǒu píngguǒ.", "en": "There are apples on the table."},
+      {"zh": "我没有钱。", "pinyin": "Wǒ méiyǒu qián.", "en": "I don't have money."},
+      {"zh": "他有没有时间？", "pinyin": "Tā yǒu méiyǒu shíjiān?", "en": "Does he have time?"}
+    ]
+  },
+  {
+    "title": "不 (bù) — Negation",
+    "hsk_level": "HSK1",
+    "pattern": "Subject + 不 + Verb/Adjective",
+    "explanation": "不 (bù) negates most verbs and adjectives. Its tone changes to 2nd tone (bú) before 4th-tone syllables. Exception: use 没 (méi) to negate 有 and past actions.",
+    "order_index": 3,
+    "examples": [
+      {"zh": "我不喜欢咖啡。", "pinyin": "Wǒ bù xǐhuān kāfēi.", "en": "I don't like coffee."},
+      {"zh": "今天不冷。", "pinyin": "Jīntiān bù lěng.", "en": "It's not cold today."},
+      {"zh": "他不是中国人。", "pinyin": "Tā bú shì Zhōngguó rén.", "en": "He is not Chinese."},
+      {"zh": "我不去。", "pinyin": "Wǒ bú qù.", "en": "I'm not going."}
+    ]
+  },
+  {
+    "title": "吗 (ma) — Yes/No Questions",
+    "hsk_level": "HSK1",
+    "pattern": "Statement + 吗？",
+    "explanation": "Add 吗 (ma) to the end of any statement to make it a yes/no question. No word order change needed — unlike English, Chinese keeps the same sentence structure.",
+    "order_index": 4,
+    "examples": [
+      {"zh": "你是老师吗？", "pinyin": "Nǐ shì lǎoshī ma?", "en": "Are you a teacher?"},
+      {"zh": "你喜欢中国菜吗？", "pinyin": "Nǐ xǐhuān Zhōngguó cài ma?", "en": "Do you like Chinese food?"},
+      {"zh": "他来吗？", "pinyin": "Tā lái ma?", "en": "Is he coming?"},
+      {"zh": "你好吗？", "pinyin": "Nǐ hǎo ma?", "en": "How are you? (Are you well?)"}
+    ]
+  },
+  {
+    "title": "的 (de) — Possessive / Modifier",
+    "hsk_level": "HSK1",
+    "pattern": "Owner + 的 + Noun",
+    "explanation": "的 (de) marks possession (like 's in English) and connects adjectives/phrases to nouns. Between close family or pronouns, 的 is often omitted.",
+    "order_index": 5,
+    "examples": [
+      {"zh": "我的书", "pinyin": "wǒ de shū", "en": "my book"},
+      {"zh": "她的名字", "pinyin": "tā de míngzi", "en": "her name"},
+      {"zh": "好的天气", "pinyin": "hǎo de tiānqì", "en": "good weather"},
+      {"zh": "中国的文化", "pinyin": "Zhōngguó de wénhuà", "en": "Chinese culture"}
+    ]
+  },
+  {
+    "title": "了 (le) — Completed Action",
+    "hsk_level": "HSK1",
+    "pattern": "Subject + Verb + 了 + Object",
+    "explanation": "了 (le) after a verb marks a completed action (not past tense — it's about completion). 了 at the end of a sentence can also indicate a change of state.",
+    "order_index": 6,
+    "examples": [
+      {"zh": "我吃了早饭。", "pinyin": "Wǒ chīle zǎofàn.", "en": "I ate breakfast (completed)."},
+      {"zh": "他来了。", "pinyin": "Tā lái le.", "en": "He came / He's here now."},
+      {"zh": "我买了三本书。", "pinyin": "Wǒ mǎile sān běn shū.", "en": "I bought three books."},
+      {"zh": "天黑了。", "pinyin": "Tiān hēi le.", "en": "It got dark (change of state)."}
+    ]
+  },
+  {
+    "title": "在 (zài) — Location",
+    "hsk_level": "HSK1",
+    "pattern": "Subject + 在 + Place",
+    "explanation": "在 (zài) means 'to be at/in' a location. Place it before the main verb to say where an action happens: Subject + 在 + Place + Verb.",
+    "order_index": 7,
+    "examples": [
+      {"zh": "我在家。", "pinyin": "Wǒ zài jiā.", "en": "I am at home."},
+      {"zh": "书在桌子上。", "pinyin": "Shū zài zhuōzi shàng.", "en": "The book is on the table."},
+      {"zh": "我在学校学习。", "pinyin": "Wǒ zài xuéxiào xuéxí.", "en": "I study at school."},
+      {"zh": "他不在。", "pinyin": "Tā bú zài.", "en": "He is not here."}
+    ]
+  },
+  {
+    "title": "想 (xiǎng) — Want to / Would like to",
+    "hsk_level": "HSK1",
+    "pattern": "Subject + 想 + Verb",
+    "explanation": "想 (xiǎng) expresses desire to do something ('want to'). It is a modal verb — place it directly before the main verb. It also means 'to think/miss someone'.",
+    "order_index": 8,
+    "examples": [
+      {"zh": "我想喝水。", "pinyin": "Wǒ xiǎng hē shuǐ.", "en": "I want to drink water."},
+      {"zh": "她想去中国。", "pinyin": "Tā xiǎng qù Zhōngguó.", "en": "She wants to go to China."},
+      {"zh": "你想吃什么？", "pinyin": "Nǐ xiǎng chī shénme?", "en": "What do you want to eat?"},
+      {"zh": "我想我妈妈。", "pinyin": "Wǒ xiǎng wǒ māma.", "en": "I miss my mom."}
+    ]
+  }
+]

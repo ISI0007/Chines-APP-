@@ -13,7 +13,7 @@ quality: 0-5
 """
 
 from datetime import datetime, timedelta, timezone
-from backend.models.vocabulary import UserWordProgress
+from models.vocabulary import UserWordProgress
 
 
 def sm2_update(progress: UserWordProgress, quality: int) -> UserWordProgress:

@@ -170,11 +170,52 @@ Example: GET /api/v1/audio/hsk1/你好.mp3
 
 ---
 
+## Reading
+
+```
+GET  /api/v1/reading/texts?hsk_level=HSK1&topic=Family     -> [ReadingSummary]
+GET  /api/v1/reading/texts/{id}                            -> ReadingDetail
+POST /api/v1/reading/texts/{id}/complete  {"comprehension_score": 80}   (score optional, 0-100)
+
+ReadingSummary: { id, title, title_pinyin, topic, hsk_level, word_count, completed }
+ReadingDetail : ReadingSummary + { content, content_pinyin, translation, audio_path }
+complete ->     { "xp_gained": 10, "total_xp": 10 }     // XP only on FIRST completion, else 0
+```
+`content_pinyin` is the whole passage in pinyin (sentence-level, not per-character alignment).
+
+## Grammar
+
+```
+GET  /api/v1/grammar/lessons?hsk_level=HSK1   -> [{ id, title, hsk_level, pattern, order_index, completed }]
+GET  /api/v1/grammar/lessons/{id}             -> + { explanation, examples: [{ zh, pinyin, en }] }
+POST /api/v1/grammar/lessons/{id}/complete    -> { "xp_gained": 10, "total_xp": 10 }  // first time only
+```
+
+## HSK mock tests
+
+```
+POST /api/v1/tests/start?hsk_level=HSK1&num_questions=20      (1-60, default 20)
+ -> { attempt_id, hsk_level, total_questions,
+      questions: [{ id, question_type, question_text, option_a..option_d, audio_path }] }
+    // correct answers are NOT included. 404 if no questions exist for that level.
+
+POST /api/v1/tests/{attempt_id}/submit
+ body: { "answers": { "12": "B", "7": "A" } }     // question_id -> A|B|C|D; unanswered = wrong
+ -> { attempt_id, total_questions, correct_answers, score_percent, passed, xp_gained,
+      results: [{ question_id, chosen, correct, is_correct, explanation }] }
+    // pass mark 60%. XP = 2/correct answer + 20 bonus if passed.
+    // 409 if already submitted, 404 if the attempt belongs to another user.
+
+GET  /api/v1/tests/history?limit=20   -> [{ id, hsk_level, score_percent, passed, finished_at }]
+```
+
+---
+
 ## Health Check
 ```
 GET /health   (no auth)
 
-→ 200  { "status": "ok", "version": "0.2.0" }
+→ 200  { "status": "ok", "version": "0.3.0" }
 ```
 
 ---
@@ -208,3 +249,32 @@ HTTP codes used:
 | Audio | See Audio section above |
 | SRS card UX | Show word → user rates 0-5 → POST `/vocabulary/review` |
 | XP display | From `GET /auth/me` `.xp` and `/vocabulary/progress` `.user_xp` |
+
+---
+
+## Running it
+
+```bash
+cp .env.example .env
+docker compose up -d --build
+docker compose exec backend python scripts/import_hsk.py       # 686 words, safe to re-run
+docker compose exec backend python scripts/import_content.py   # reading, grammar, test questions
+# Swagger UI: http://localhost:8000/docs
+```
+Tests (needs a Postgres): `cd backend && pip install -r requirements-dev.txt &&
+TEST_DATABASE_URL=postgresql://user:pw@localhost:5432/test_db pytest` (DESTRUCTIVE: drops/recreates tables in that DB).
+
+## Content status (be honest in the UI)
+
+| Content | Have now | Note |
+|---|---|---|
+| Vocabulary | HSK1: 150, HSK2: 147, HSK3-6: 100 each (686 unique) | HSK3-6 are partial samples, NOT the full official lists |
+| Reading | 5 HSK1 texts | |
+| Grammar | 8 HSK1 lessons | |
+| Test questions | 20 HSK1 | other levels return 404 from `/tests/start` |
+| Audio files | none yet | `audio_path` is null -> use the TTS fallback above |
+
+## Known gaps (backend)
+- `streak_days` is never updated yet (needs a last-active column + migration).
+- No Alembic migrations yet; `create_all` only creates missing tables.
+- Word `stroke_order_data` is empty (frontend can use the `hanzi-writer` package directly by character).
