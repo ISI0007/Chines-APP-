@@ -58,14 +58,13 @@ export default function FlashcardScreen() {
     <Text style={ui.title}>A little practice, every day</Text>
     <Text style={ui.subtitle}>Recall the meaning before revealing the answer. Your rating sets the next review.</Text>
     <Levels value={level} onChange={setLevel} disabled={saving} />
-    {["HSK3", "HSK4", "HSK5", "HSK6"].includes(level) && <Text>This level currently contains a partial vocabulary sample.</Text>}
     {!!notice && <Text accessibilityLiveRegion="polite">{notice}</Text>}
     {busy ? <ActivityIndicator accessibilityLabel="Loading review queue" /> : error ? <Failure message={error} retry={() => setRetry(n => n + 1)} /> : !word ? <View style={ui.card}><Text style={ui.title}>{words.length ? "Session complete" : "No words to review"}</Text><Text>{index} cards reviewed · {earned} XP earned this session</Text><Button title="Check for more words" onPress={() => setRetry(n => n + 1)} /></View> : <>
       <Text>Card {index + 1} of {words.length}</Text>
-      <Pressable accessibilityRole="button" accessibilityLabel={revealed ? "Answer revealed" : `Reveal answer for ${word.simplified}`} onPress={reveal} disabled={revealed || saving}>
+      <Pressable accessibilityRole="button" accessibilityLabel={revealed ? "Answer revealed" : `Reveal meaning for ${word.simplified} ${word.pinyin}`} onPress={reveal} disabled={revealed || saving}>
         <Animated.View style={[ui.card, { minHeight: 240, justifyContent: "center", transform: [{ perspective: 1000 }, { rotateY: flip.interpolate({ inputRange: [0, 0.5, 1], outputRange: ["0deg", "90deg", "0deg"] }) }] }]}>
-          <Text style={ui.hanzi}>{word.simplified}</Text>
-          {revealed ? <><Text style={ui.pinyin}>{word.pinyin}</Text><Text>{word.definitions.join("; ")}</Text></> : <Text>Tap to reveal pronunciation and meaning</Text>}
+          <View style={ui.row}><Text style={ui.hanzi}>{word.simplified}</Text><Text style={ui.pinyin}>{word.pinyin}</Text></View>
+          {revealed ? <Text>{word.definitions.join("; ")}</Text> : <Text>Tap to reveal meaning</Text>}
         </Animated.View>
       </Pressable>
       {revealed && <WordAudio key={word.id} word={word} />}

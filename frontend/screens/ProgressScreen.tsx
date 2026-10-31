@@ -23,7 +23,7 @@ export default function ProgressScreen() {
   return <ScrollView contentContainerStyle={ui.page}><Text style={ui.title}>See how far you’ve come</Text>
     {busy ? <ActivityIndicator accessibilityLabel="Loading progress" /> : error ? <Failure message={error} retry={() => setRetry(n => n + 1)} /> : data && <>
       <View style={ui.card}><Text style={ui.title}>{data.user_xp} XP</Text><Text>{data.streak_days} day streak · Tracking not active yet</Text></View>
-      <Text>Progress covers imported vocabulary. HSK 3–6 are partial samples, not complete official lists.</Text>
+      <Text>Progress covers imported HSK 3.0 vocabulary. Each level counts words introduced at that level, not cumulative totals.</Text>
       {Object.entries(data.levels).sort(([a], [b]) => a.localeCompare(b)).map(([level, progress]) => {
         const percent = progress.total > 0 ? Math.min(100, Math.max(0, progress.learned / progress.total * 100)) : 0;
         return <View key={level} style={ui.card}><Text style={ui.pinyin}>{level}</Text><Text>{progress.learned} / {progress.total} words learned</Text><View accessibilityRole="progressbar" accessibilityLabel={`${level} words learned`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(percent)} style={{ height: 12, borderRadius: 6, backgroundColor: "#eee7df", overflow: "hidden" }}><View style={{ width: `${percent}%`, height: 12, backgroundColor: "#42745b" }} /></View><Text>{progress.due_for_review} due for review{progress.total === 0 ? " · No vocabulary imported yet" : ""}</Text></View>;

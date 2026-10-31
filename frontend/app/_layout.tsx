@@ -11,5 +11,6 @@ export default function Layout() {
     <Stack.Screen name="vocabulary" options={{ title: "Vocabulary" }} />
     <Stack.Screen name="flashcards" options={{ title: "Daily review" }} />
     <Stack.Screen name="progress" options={{ title: "Your progress" }} />
+    <Stack.Screen name="about" options={{ title: "About and sources" }} />
   </Stack>;
 }

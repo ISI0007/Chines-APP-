@@ -52,6 +52,7 @@ export default function HomeScreen() {
       </View>
       <TouchableOpacity style={styles.goalCard} onPress={() => router.push("/vocabulary")}><Text style={styles.goalTitle}>Browse vocabulary</Text></TouchableOpacity>
       <TouchableOpacity style={styles.goalCard} onPress={() => router.push("/progress")}><Text style={styles.goalTitle}>Your progress</Text></TouchableOpacity>
+      <TouchableOpacity onPress={() => router.push("/about")}><Text style={styles.logout}>About and data sources</Text></TouchableOpacity>
     </ScrollView>
   );
 }

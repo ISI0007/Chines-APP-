@@ -42,10 +42,17 @@ function wav() {
       if (url.pathname.endsWith('/review')) return send([word]);
       if (url.pathname.endsWith('/progress')) return send({ user_xp: 5, streak_days: 2, levels: { HSK1: { total: 150, learned: 42, due_for_review: 8 }, HSK2: { total: 0, learned: 0, due_for_review: 0 } } });
       if (url.pathname.endsWith('/words')) {
+        assert.ok(Number(url.searchParams.get('limit')) <= 200);
         const search = url.searchParams.get('search'); searchSeen ||= search === 'hello';
         const skip = Number(url.searchParams.get('skip'));
+        if (search === '行') return send({ total: 2, skip, limit: 20, words: [
+          { ...word, id: 41, simplified: '行', pinyin: 'xíng', definitions: ['to walk'] },
+          { ...word, id: 42, simplified: '行', pinyin: 'háng', definitions: ['row'] },
+        ] });
+        if (search === '谢谢') return send({ total: 1, skip, limit: 20, words: [{ ...word, id: 43, simplified: '谢谢', pinyin: 'xiè xie' }] });
         const words = search === 'nothing' ? [] : skip ? [{ ...word, id: 21, simplified: '再见' }] : [{ ...word, audio_path: null }];
-        return send({ total: search === 'nothing' ? 0 : 21, skip, limit: 20, words });
+        const total = search === 'nothing' ? 0 : search ? 21 : url.searchParams.get('hsk_level') === 'HSK6' ? 1128 : 510;
+        return send({ total, skip, limit: 20, words });
       }
       return route.fulfill({ status: 404, body: '{}' });
     });
@@ -54,7 +61,7 @@ function wav() {
     await page.goto(origin);
     await page.getByText('Browse vocabulary', { exact: true }).waitFor();
     await page.getByText('Start review', { exact: true }).click();
-    await page.getByRole('button', { name: 'Reveal answer for 你好' }).click();
+    await page.getByRole('button', { name: 'Reveal meaning for 你好 nǐ hǎo' }).click();
     await page.getByText('nǐ hǎo', { exact: true }).waitFor();
     await page.getByRole('button', { name: 'Listen', exact: true }).click();
     await page.getByText('Synthetic pronunciation · Google TTS').waitFor();
@@ -67,6 +74,13 @@ function wav() {
     assert.equal(await page.getByRole('progressbar', { name: 'HSK1 words learned' }).getAttribute('aria-valuenow'), '28');
     assert.equal(await page.getByRole('progressbar', { name: 'HSK2 words learned' }).getAttribute('aria-valuenow'), '0');
     await page.goto(origin + '/vocabulary');
+    await page.getByText('510 matching words').waitFor();
+    await page.getByText('Page 1 of 26').waitFor();
+    await page.getByRole('button', { name: 'HSK 6', exact: true }).click();
+    await page.getByText('1128 matching words').waitFor();
+    await page.getByText('Page 1 of 57').waitFor();
+    await page.getByRole('button', { name: 'HSK 1', exact: true }).click();
+    await page.getByText('510 matching words').waitFor();
     await page.getByLabel('Search vocabulary').fill('hello');
     await page.waitForResponse(r => r.url().includes('search=hello'));
     await page.getByRole('button', { name: 'Next', exact: true }).click();
@@ -81,15 +95,22 @@ function wav() {
     assert.equal(tts, 2);
     fs.mkdirSync(path.resolve(__dirname, '../test-results'), { recursive: true });
     await page.screenshot({ path: path.resolve(__dirname, '../test-results/vocabulary-mobile.png'), fullPage: true });
+    await page.getByLabel('Search vocabulary').fill('行');
+    await page.getByText('xíng', { exact: true }).waitFor();
+    await page.getByText('háng', { exact: true }).waitFor();
+    assert.equal(await page.getByText('行', { exact: true }).count(), 2);
+    await page.getByLabel('Search vocabulary').fill('谢谢');
+    await page.getByText('xiè xie', { exact: true }).waitFor();
     failSave = true;
     await page.goto(origin + '/flashcards');
-    await page.getByRole('button', { name: 'Reveal answer for 你好' }).click();
+    await page.getByText('nǐ hǎo', { exact: true }).waitFor();
+    await page.getByRole('button', { name: 'Reveal meaning for 你好 nǐ hǎo' }).click();
     await page.getByRole('button', { name: '4 · Correct after hesitation', exact: true }).click();
     await page.getByText(/We could not confirm this rating/).waitFor();
     assert.equal(await page.getByRole('button', { name: '5 · Perfect recall', exact: true }).isDisabled(), true);
     failSave = false;
     await page.getByRole('button', { name: 'Try again', exact: true }).click();
-    await page.getByRole('button', { name: 'Reveal answer for 你好' }).waitFor();
+    await page.getByRole('button', { name: 'Reveal meaning for 你好 nǐ hǎo' }).waitFor();
     assert.deepEqual(errors, []);
     console.log('PASS: navigation, review save/failure, pagination, search, empty state, progress, local-audio fallback and null-audio TTS (mock API).');
   } catch (error) {
