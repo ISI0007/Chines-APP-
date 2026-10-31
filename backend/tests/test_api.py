@@ -113,6 +113,9 @@ async def test_reading_and_grammar(client):
     assert (await client.post(f"{V}/reading/texts/{tid}/complete", json={"comprehension_score": 150}, headers=h)).status_code == 422
     assert (await client.get(f"{V}/reading/texts/9999", headers=h)).status_code == 404
 
+    for lv in ("HSK1", "HSK4", "HSK6"):
+        assert len((await client.get(f"{V}/reading/texts?hsk_level={lv}", headers=h)).json()) == 6
+        assert len((await client.get(f"{V}/grammar/lessons?hsk_level={lv}", headers=h)).json()) == 8
     lessons = (await client.get(f"{V}/grammar/lessons?hsk_level=HSK1", headers=h)).json()
     assert len(lessons) == 8 and [l["order_index"] for l in lessons] == sorted(l["order_index"] for l in lessons)
     d = (await client.get(f"{V}/grammar/lessons/{lessons[0]['id']}", headers=h)).json()

@@ -90,6 +90,70 @@ HSK3 = [
 ]
 
 
+HSK4 = [
+    {"title": "我的工作", "topic": "Work",
+     "zh": "大学毕业以后，我在一家公司工作。我的工作是帮助顾客解决问题。虽然有时要加班，压力也比较大，但是我觉得很有意思。同事们都很友好，经理也经常鼓励我们。我希望将来能有更多机会，让自己变得更优秀。",
+     "en": "After graduating from university, I work at a company. My job is to help customers solve problems. Although I sometimes have to work overtime and the pressure is fairly high, I find it interesting. My colleagues are all friendly, and the manager often encourages us. I hope I will have more opportunities in the future to make myself more excellent."},
+    {"title": "保护环境", "topic": "Environment",
+     "zh": "保护环境是每个人的责任。现在很多城市的空气污染比较严重，这跟汽车太多有关。为了减少污染，我们可以多坐公共汽车，或者骑自行车。另外，节约用水用电、不乱扔垃圾，这些小事也很重要。只要大家一起努力，环境一定会变得更好。",
+     "en": "Protecting the environment is everyone's responsibility. Now the air pollution in many cities is fairly serious, which is related to there being too many cars. To reduce pollution, we can take public buses more, or ride bikes. In addition, saving water and electricity and not littering — these small things are also important. As long as everyone works together, the environment will surely get better."},
+    {"title": "网上购物", "topic": "Technology",
+     "zh": "随着互联网的发展，网上购物越来越受欢迎。只要用手机扫码付钱，东西很快就会送到家里，十分方便。不过，网上购物也有缺点。有时收到的东西跟图片不一样，质量也不够好。所以我觉得，买重要的东西还是应该小心一点。",
+     "en": "With the development of the internet, online shopping is more and more popular. As long as you scan a code with your phone to pay, the goods are quickly delivered home, which is very convenient. However, online shopping also has drawbacks. Sometimes what you receive is not the same as the picture, and the quality isn't good enough. So I think, for buying important things, one should still be a bit careful."},
+    {"title": "一次面试", "topic": "Work",
+     "zh": "上个月，我去一家公司参加面试。那天我提前半个小时到了。面试的时候，经理问了我很多问题，比如我的经历和将来的打算。虽然开始有点紧张，但是我慢慢冷静下来，认真回答每个问题。几天以后，公司通知我可以去上班了，我非常激动。",
+     "en": "Last month, I went to a company for an interview. That day I arrived half an hour early. During the interview, the manager asked me many questions, such as my experience and my future plans. Although I was a bit nervous at first, I slowly calmed down and answered each question seriously. A few days later, the company notified me I could start work, and I was very excited."},
+    {"title": "健康生活", "topic": "Health",
+     "zh": "为了身体健康，我们应该养成好的生活习惯。首先，要按时吃饭，少吃垃圾食品。其次，每天最好能锻炼半个小时，比如跑步或者打球。另外，休息也很重要，不要经常很晚睡觉。只有身体好，我们才能更好地学习和工作。",
+     "en": "For good health, we should develop good living habits. First, eat meals on time and eat less junk food. Second, it is best to exercise for half an hour every day, such as running or playing ball. In addition, rest is also important — don't sleep very late often. Only with a healthy body can we study and work better."},
+    {"title": "我的家乡", "topic": "Hometown",
+     "zh": "我的家乡是一个美丽的小城市，在中国的南部。那里的气候很好，一年四季都不太冷。城市里有很多公园和树林，环境特别干净。这几年，家乡发展得很快，修了新的道路，也有了不少高楼。每次回家，我都觉得家乡越来越漂亮了。",
+     "en": "My hometown is a beautiful small city, in the south of China. The climate there is nice; it's not too cold all year round. There are many parks and woods in the city, and the environment is especially clean. In recent years, my hometown has developed quickly — new roads were built, and there are quite a few tall buildings too. Every time I go home, I feel my hometown is getting prettier and prettier."},
+]
+
+HSK5 = [
+    {"title": "坚持的力量", "topic": "Life",
+     "zh": "很多人做事都希望马上看到结果，一旦遇到困难就想放弃。其实，真正能成功的人，往往是那些能够坚持下去的人。学习一门语言也好，培养一个爱好也好，都需要长期的努力。没有坚持，就没有收获。只要我们相信自己，一步一步往前走，总有一天会实现自己的目标。",
+     "en": "Many people hope to see results immediately when doing things, and once they meet difficulties they want to give up. In fact, the ones who can truly succeed are often those able to keep going. Whether learning a language or developing a hobby, both need long-term effort. Without persistence, there is no gain. As long as we believe in ourselves and walk forward step by step, one day we will achieve our goals."},
+    {"title": "手机与生活", "topic": "Technology",
+     "zh": "如今，智能手机已经成为我们生活中不可缺少的工具。无论是购物、付钱，还是联系朋友、查找信息，一部手机几乎都能完成。然而，手机也带来了一些问题。有些人连吃饭、走路的时候都看着手机，甚至影响了身体健康和人际关系。因此，合理使用手机，才是聪明的做法。",
+     "en": "Nowadays, smartphones have become an indispensable tool in our lives. Whether shopping, paying, or contacting friends and searching for information, a single phone can do almost all of it. However, phones have also brought some problems. Some people look at their phones even while eating or walking, which has even affected their health and relationships. Therefore, using phones reasonably is the smart approach."},
+    {"title": "传统节日", "topic": "Culture",
+     "zh": "中国有许多传统节日，每个节日都有自己的风俗和意义。比如过年的时候，每个家庭都会打扫房子、准备年夜饭，一家人团聚在一起。无论离家多远，很多人都会想办法回家过年。这些传统之所以能够一代一代传下来，是因为它们表达了人们对家庭和美好生活的向往。",
+     "en": "China has many traditional festivals, and each festival has its own customs and meaning. For example, at New Year, every family cleans the house and prepares the New Year's Eve dinner, with the whole family reunited together. No matter how far from home, many people find a way to go home for the New Year. The reason these traditions can be passed down generation after generation is that they express people's longing for family and a good life."},
+    {"title": "环境保护", "topic": "Environment",
+     "zh": "近年来，环境问题越来越受到人们的关注。工业的发展虽然提高了生活水平，但是也对自然造成了破坏。空气污染、水污染等问题，正威胁着人类的健康。保护环境不只是政府的责任，也需要每个人的参与。哪怕只是节约一张纸、少用一个袋子，也是在为地球做贡献。",
+     "en": "In recent years, environmental problems have drawn more and more attention. Although industrial development has raised living standards, it has also caused damage to nature. Problems like air and water pollution are threatening human health. Protecting the environment is not only the government's responsibility; it also needs everyone's participation. Even just saving a sheet of paper or using one less bag is contributing to the earth."},
+    {"title": "读书的好处", "topic": "Learning",
+     "zh": "有人说，读书是最好的学习方式。通过阅读，我们不仅能够获得知识，还可以了解不同的文化和思想。一本好书，有时甚至能改变一个人的一生。当然，读书也要讲究方法。与其读很多却不思考，不如认真读几本，并把学到的东西用到生活中。这样的阅读，才真正有价值。",
+     "en": "Some say reading is the best way to learn. Through reading, we can not only gain knowledge but also understand different cultures and ideas. A good book can sometimes even change a person's life. Of course, reading also requires method. Rather than reading a lot without thinking, it is better to read a few books carefully and apply what you learn to life. This kind of reading is truly valuable."},
+    {"title": "城市与乡村", "topic": "Society",
+     "zh": "城市和乡村各有各的特点。城市交通方便，工作机会多，但是生活很快，压力也大。乡村虽然没有那么热闹，可是空气新鲜，环境安静，生活比较轻松。随着经济的发展，越来越多的人在城市工作，却开始向往乡村的生活。其实，无论住在哪里，最重要的是找到适合自己的生活方式。",
+     "en": "Cities and the countryside each have their own characteristics. Cities have convenient transport and many job opportunities, but life is fast and the pressure is high. Although the countryside isn't as lively, the air is fresh, the environment is quiet, and life is relatively relaxed. With economic development, more and more people work in cities, yet begin to long for country life. In fact, no matter where you live, the most important thing is to find a way of life that suits you."},
+]
+
+HSK6 = [
+    {"title": "人工智能的影响", "topic": "Technology",
+     "zh": "近年来，人工智能迅速发展，正在深刻地改变着我们的生活。从手机里的语音助手，到工厂里的机器人，人工智能的应用已经无处不在。它不仅提高了工作效率，也为许多行业带来了新的机会。然而，技术的进步也引发了人们的担忧：一旦机器能够代替人来工作，许多人是否会失去工作？因此，如何让技术更好地为人类服务，是我们必须认真思考的问题。",
+     "en": "In recent years, artificial intelligence has developed rapidly and is profoundly changing our lives. From voice assistants in phones to robots in factories, AI applications are already everywhere. It has not only improved work efficiency but also brought new opportunities to many industries. However, technological progress has also raised people's concerns: once machines can replace people at work, will many people lose their jobs? Therefore, how to make technology serve humanity better is a question we must seriously consider."},
+    {"title": "传统文化的传承", "topic": "Culture",
+     "zh": "随着时代的发展，一些传统文化正在慢慢消失。许多年轻人更喜欢流行文化，对古老的艺术缺乏兴趣。其实，传统文化是一个民族的根，凡是优秀的传统，都值得我们保护和传承。保护传统文化，并不是要人们回到过去，而是要把古人的智慧和现代生活结合起来。只有这样，这些宝贵的文化才能在新的时代继续发光。",
+     "en": "With the development of the times, some traditional culture is slowly disappearing. Many young people prefer popular culture and lack interest in ancient arts. In fact, traditional culture is the root of a nation; all excellent traditions are worth our protecting and passing on. Protecting traditional culture does not mean having people return to the past, but combining the wisdom of the ancients with modern life. Only in this way can this precious culture continue to shine in the new era."},
+    {"title": "读万卷书，行万里路", "topic": "Life",
+     "zh": "古人说：“读万卷书，行万里路。”这告诉我们，知识不仅来自书本，也来自实际的经历。读书能让我们了解更多知识和不同的思想；而旅行则让我们亲身感受这个世界的丰富多彩。除非把两者结合起来，否则我们对世界的认识总是片面的。真正有智慧的人，既重视学习，也勇于实践。",
+     "en": "The ancients said: 'Read ten thousand books, travel ten thousand li.' This saying tells us that knowledge comes not only from books but also from real experience. Reading lets us understand more knowledge and different ideas; travel lets us personally feel the richness of this world. Unless we combine the two, our understanding of the world is always one-sided. Truly wise people both value study and dare to practice."},
+    {"title": "健康的生活方式", "topic": "Health",
+     "zh": "现代人的生活节奏越来越快，许多人为了工作，常常忽视了自己的身体。熬夜、不吃早饭、缺乏运动，这些不良习惯正在悄悄损害着我们的健康。其实，保持健康并不难，关键在于坚持。要么每天抽出一点时间锻炼，要么在饮食上多加注意，长期下来，身体自然会有明显的变化。毕竟，健康才是人生最大的财富。",
+     "en": "Modern people's pace of life is faster and faster, and many people often neglect their bodies for the sake of work. Staying up late, skipping breakfast, lack of exercise — these bad habits are quietly harming our health. In fact, staying healthy is not hard; the key lies in persistence. Either set aside a little time to exercise each day, or pay more attention to diet; over the long term, the body will naturally show clear changes. After all, health is the greatest wealth in life."},
+    {"title": "成功的意义", "topic": "Life",
+     "zh": "很多人把成功理解为拥有财富和地位，然而，成功的意义远不止于此。有的人虽然并不富有，却因为帮助了他人而感到幸福；有的人事业有成，内心却并不快乐。由此可见，成功并没有统一的标准。一个人之所以被认为是成功的，往往不是因为他得到了多少，而是因为他为这个世界带来了什么。",
+     "en": "Many people understand success as having wealth and status; however, the meaning of success is far more than this. Some people, though not rich, feel happy because they have helped others; some people are successful in their careers yet are not happy inside. From this we can see that success has no uniform standard. The reason a person is considered successful is often not because of how much they have gained, but because of what they have brought to this world."},
+    {"title": "保护地球", "topic": "Environment",
+     "zh": "地球是人类共同的家园，然而，长期以来，人类为了发展，不断地消耗自然资源，破坏生态环境。气候变暖、空气污染、动物减少等问题日益严重，已经威胁到了人类自身的生存。保护地球不是某一个国家的事，而是全人类共同的责任。凡是生活在地球上的人，都应该从身边的小事做起，为后代留下一个美好的世界。",
+     "en": "The earth is humanity's shared home; however, for a long time, humans have continuously consumed natural resources and damaged the ecological environment for the sake of development. Problems such as climate warming, air pollution, and declining animals are becoming more serious by the day, and already threaten humanity's own survival. Protecting the earth is not one country's affair, but the shared responsibility of all humankind. Everyone living on earth should start from the small things around them, leaving a beautiful world for later generations."},
+]
+
+
 def pinyin_map(words, target):
     m = {}   # hsk30.json is ordered by level then sequence, so setdefault keeps the lowest-level reading
     for w in words:
@@ -120,7 +184,7 @@ def main():
     levels = cl.load_levels()
     allwords = json.loads(cl.HSK.read_text(encoding="utf-8"))
     failures = 0
-    for level, texts in [("HSK1", HSK1), ("HSK2", HSK2), ("HSK3", HSK3)]:
+    for level, texts in [("HSK1", HSK1), ("HSK2", HSK2), ("HSK3", HSK3), ("HSK4", HSK4), ("HSK5", HSK5), ("HSK6", HSK6)]:
         target = int(level[3:])
         words_set, _ = cl.allowed_sets(levels, target)
         pin = pinyin_map(allwords, target)

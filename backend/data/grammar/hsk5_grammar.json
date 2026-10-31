@@ -1,0 +1,242 @@
+[
+ {
+  "title": "连…都/也… — even",
+  "hsk_level": "HSK5",
+  "pattern": "连 + X,都/也 + …",
+  "explanation": "连 (lián) … 都/也 … highlights an extreme case: 'even X'. It stresses that if even X is true, the rest follows.",
+  "syllabus_ref": "复句·递进：连……也/都……",
+  "order_index": 1,
+  "examples": [
+   {
+    "zh": "他忙得连饭都没时间吃。",
+    "pinyin": "tā máng de lián fàn dōu 没 shí jiān chī 。",
+    "en": "He's so busy he has no time even to eat."
+   },
+   {
+    "zh": "这个道理连孩子都懂。",
+    "pinyin": "zhè ge dào lǐ lián hái zi dōu dǒng 。",
+    "en": "Even a child understands this."
+   },
+   {
+    "zh": "她连一个字也没说就走了。",
+    "pinyin": "tā lián yī gè zì yě 没 shuō jiù zǒu le 。",
+    "en": "She left without even saying a word."
+   },
+   {
+    "zh": "我连他的名字都不知道。",
+    "pinyin": "wǒ lián tā de míng zi dōu bù zhī dào 。",
+    "en": "I don't even know his name."
+   }
+  ]
+ },
+ {
+  "title": "否则 / 不然 — otherwise",
+  "hsk_level": "HSK5",
+  "pattern": "…,否则/不然 + consequence",
+  "explanation": "否则 (fǒuzé) / 不然 (bùrán) introduces what would happen if the first clause weren't done: 'otherwise …'.",
+  "syllabus_ref": "复句·假设复句：……，否则……",
+  "order_index": 2,
+  "examples": [
+   {
+    "zh": "快一点，否则就迟到了。",
+    "pinyin": "kuài yī diǎn ， fǒu zé jiù chí dào le 。",
+    "en": "Hurry, otherwise we'll be late."
+   },
+   {
+    "zh": "你应该多休息，否则身体会出问题。",
+    "pinyin": "nǐ yīng gāi duō xiū xi ， fǒu zé shēn tǐ huì chū wèn tí 。",
+    "en": "You should rest more, otherwise your health will suffer."
+   },
+   {
+    "zh": "记得带钥匙，不然进不了门。",
+    "pinyin": "jì de dài yào shi ， bù rán jìn bù le mén 。",
+    "en": "Remember to bring the key, otherwise you can't get in."
+   },
+   {
+    "zh": "多穿点，否则会着凉。",
+    "pinyin": "duō chuān diǎn ， fǒu zé huì zháo liáng 。",
+    "en": "Wear more, otherwise you'll catch a cold."
+   }
+  ]
+ },
+ {
+  "title": "再…也… — no matter how…still",
+  "hsk_level": "HSK5",
+  "pattern": "再 + Adjective,也 + …",
+  "explanation": "再 (zài) + adjective + 也 means 'no matter how … , still …'. It stresses that the result holds in the extreme.",
+  "syllabus_ref": "复句·紧缩复句：再……也……",
+  "order_index": 3,
+  "examples": [
+   {
+    "zh": "再难的问题，他也能解决。",
+    "pinyin": "zài nán de wèn tí ， tā yě néng jiě jué 。",
+    "en": "No matter how hard the problem, he can solve it."
+   },
+   {
+    "zh": "再忙也要吃早饭。",
+    "pinyin": "zài máng yě yào chī zǎo fàn 。",
+    "en": "No matter how busy, you must eat breakfast."
+   },
+   {
+    "zh": "路再远，我也要去。",
+    "pinyin": "lù zài yuǎn ， wǒ yě yào qù 。",
+    "en": "No matter how far, I'll go."
+   },
+   {
+    "zh": "再便宜我也不买。",
+    "pinyin": "zài pián yi wǒ yě bù mǎi 。",
+    "en": "No matter how cheap, I won't buy it."
+   }
+  ]
+ },
+ {
+  "title": "没有…就没有… — without…there is no",
+  "hsk_level": "HSK5",
+  "pattern": "没有 + A,就没有 + B",
+  "explanation": "没有 (méiyǒu) A 就没有 B stresses that A is the condition for B: 'without A, there would be no B'.",
+  "syllabus_ref": "复句·紧缩复句：没有……就没有……",
+  "order_index": 4,
+  "examples": [
+   {
+    "zh": "没有努力，就没有成功。",
+    "pinyin": "méi yǒu nǔ lì ， jiù méi yǒu chéng gōng 。",
+    "en": "Without effort, there is no success."
+   },
+   {
+    "zh": "没有大家的帮助，就没有今天的成绩。",
+    "pinyin": "méi yǒu dà jiā de bāng zhù ， jiù méi yǒu jīn tiān de chéng jì 。",
+    "en": "Without everyone's help, there'd be no results today."
+   },
+   {
+    "zh": "没有健康，就没有一切。",
+    "pinyin": "méi yǒu jiàn kāng ， jiù méi yǒu yí qiè 。",
+    "en": "Without health, there is nothing."
+   },
+   {
+    "zh": "没有练习，就没有进步。",
+    "pinyin": "méi yǒu liàn xí ， jiù méi yǒu jìn bù 。",
+    "en": "Without practice, there is no progress."
+   }
+  ]
+ },
+ {
+  "title": "起来 / 下去 — start / keep going",
+  "hsk_level": "HSK5",
+  "pattern": "Verb/Adj + 起来 / 下去",
+  "explanation": "起来 (qǐlái) after a verb/adjective marks a change beginning (天气暖和起来 = turning warm); 下去 (xiàqù) marks continuing (坚持下去 = keep it up).",
+  "syllabus_ref": "补语·趋向补语3（引申用法：表示状态意义）",
+  "order_index": 5,
+  "examples": [
+   {
+    "zh": "天气渐渐暖和起来了。",
+    "pinyin": "tiān qì jiàn jiàn nuǎn huo qǐ lái le 。",
+    "en": "The weather is gradually turning warm."
+   },
+   {
+    "zh": "听到这个消息，大家都高兴起来。",
+    "pinyin": "tīng dào zhè ge xiāo xi ， dà jiā dōu gāo xìng qǐ lái 。",
+    "en": "On hearing the news, everyone cheered up."
+   },
+   {
+    "zh": "无论多难，我们都要坚持下去。",
+    "pinyin": "wú lùn duō nán ， wǒ men dōu yào jiān chí xià qù 。",
+    "en": "No matter how hard, we must keep going."
+   },
+   {
+    "zh": "雨看起来一时停不下来。",
+    "pinyin": "yǔ kàn qǐ lái yī shí tíng bù xià lái 。",
+    "en": "The rain doesn't look like it'll stop soon."
+   }
+  ]
+ },
+ {
+  "title": "被/叫/让…给… — passive with 给",
+  "hsk_level": "HSK5",
+  "pattern": "Subject + 被/叫/让 + (doer) + 给 + Verb",
+  "explanation": "In spoken Chinese a 给 (gěi) is often added before the verb in a passive sentence, with no change in meaning.",
+  "syllabus_ref": "句型·被动句3：主语 + 被/叫/让 + 宾语 + 给 + 动词",
+  "order_index": 6,
+  "examples": [
+   {
+    "zh": "我的手机被人给拿走了。",
+    "pinyin": "wǒ de shǒu jī bèi rén gěi ná zǒu le 。",
+    "en": "My phone was taken by someone."
+   },
+   {
+    "zh": "蛋糕让弟弟给吃了。",
+    "pinyin": "dàn gāo ràng dì di gěi chī le 。",
+    "en": "The cake got eaten by my brother."
+   },
+   {
+    "zh": "杯子叫他给打破了。",
+    "pinyin": "bēi zi jiào tā gěi dǎ pò le 。",
+    "en": "The cup got broken by him."
+   },
+   {
+    "zh": "作业被雨给弄湿了。",
+    "pinyin": "zuò yè bèi yǔ gěi nòng shī le 。",
+    "en": "The homework got wet from the rain."
+   }
+  ]
+ },
+ {
+  "title": "与其…不如… — rather than…better to",
+  "hsk_level": "HSK5",
+  "pattern": "与其 + A,不如 + B",
+  "explanation": "与其 (yǔqí) A 不如 (bùrú) B weighs two options and prefers B: 'rather than A, better to B'.",
+  "syllabus_ref": "比较/选择：与其……不如……",
+  "order_index": 7,
+  "examples": [
+   {
+    "zh": "与其在家等，不如出去找。",
+    "pinyin": "yǔ qí zài jiā děng ， bù rú chū qù zhǎo 。",
+    "en": "Rather than wait at home, better go out and look."
+   },
+   {
+    "zh": "与其说他聪明，不如说他努力。",
+    "pinyin": "yǔ qí shuō tā cōng míng ， bù rú shuō tā nǔ lì 。",
+    "en": "Rather than clever, he's better called hardworking."
+   },
+   {
+    "zh": "与其买新的，不如修一下。",
+    "pinyin": "yǔ qí mǎi xīn de ， bù rú xiū yí xià 。",
+    "en": "Rather than buy a new one, better to repair it."
+   },
+   {
+    "zh": "与其抱怨，不如想办法解决。",
+    "pinyin": "yǔ qí bào yuàn ， bù rú xiǎng bàn fǎ jiě jué 。",
+    "en": "Rather than complain, better to find a solution."
+   }
+  ]
+ },
+ {
+  "title": "之所以…是因为… — the reason…is that",
+  "hsk_level": "HSK5",
+  "pattern": "之所以 + result,是因为 + cause",
+  "explanation": "之所以 (zhīsuǒyǐ) names a result first, then 是因为 gives the reason — used to stress the cause.",
+  "syllabus_ref": "复句·因果（强调原因）",
+  "order_index": 8,
+  "examples": [
+   {
+    "zh": "他之所以成功，是因为他从不放弃。",
+    "pinyin": "tā zhī suǒ yǐ chéng gōng ， shì yīn wèi tā cóng bù fàng qì 。",
+    "en": "The reason he succeeded is that he never gave up."
+   },
+   {
+    "zh": "我之所以迟到，是因为堵车。",
+    "pinyin": "wǒ zhī suǒ yǐ chí dào ， shì yīn wèi dǔ chē 。",
+    "en": "The reason I was late is the traffic jam."
+   },
+   {
+    "zh": "之所以选择这里，是因为环境好。",
+    "pinyin": "zhī suǒ yǐ xuǎn zé zhè lǐ ， shì yīn wèi huán jìng hǎo 。",
+    "en": "The reason I chose here is the good environment."
+   },
+   {
+    "zh": "她之所以受欢迎，是因为很热心。",
+    "pinyin": "tā zhī suǒ yǐ shòu huān yíng ， shì yīn wèi hěn rè xīn 。",
+    "en": "The reason she's popular is that she's warm-hearted."
+   }
+  ]
+ }
+]
