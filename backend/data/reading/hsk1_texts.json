@@ -1,52 +1,62 @@
 [
-  {
-    "title": "我的家",
-    "title_pinyin": "wǒ de jiā",
-    "topic": "Family",
-    "hsk_level": "HSK1",
-    "content": "我叫小明。我家有三口人：爸爸、妈妈和我。我们住在北京。我爸爸是老师，我妈妈是医生。我们家有一只小猫，它叫咪咪。我很喜欢我的家。",
-    "content_pinyin": "wǒ jiào Xiǎo Míng. wǒ jiā yǒu sān kǒu rén: bàba, māma hé wǒ. wǒmen zhù zài Běijīng. wǒ bàba shì lǎoshī, wǒ māma shì yīshēng. wǒmen jiā yǒu yì zhī xiǎo māo, tā jiào Mīmī. wǒ hěn xǐhuān wǒ de jiā.",
-    "translation": "My name is Xiao Ming. There are three people in my family: dad, mom and me. We live in Beijing. My dad is a teacher and my mom is a doctor. Our family has a little cat named Mimi. I really love my family.",
-    "word_count": 52
-  },
-  {
-    "title": "今天的天气",
-    "title_pinyin": "jīntiān de tiānqì",
-    "topic": "Weather",
-    "hsk_level": "HSK1",
-    "content": "今天天气很好。天上没有云，太阳很大。不冷也不热。我想出去玩。我和朋友一起去公园。我们在公园里跑步。真开心！",
-    "content_pinyin": "jīntiān tiānqì hěn hǎo. tiān shàng méiyǒu yún, tàiyáng hěn dà. bù lěng yě bù rè. wǒ xiǎng chūqù wán. wǒ hé péngyǒu yìqǐ qù gōngyuán. wǒmen zài gōngyuán lǐ pǎobù. zhēn kāixīn!",
-    "translation": "Today the weather is great. There are no clouds in the sky and the sun is bright. It's neither cold nor hot. I want to go out and play. My friend and I go to the park together. We run in the park. So happy!",
-    "word_count": 46
-  },
-  {
-    "title": "我的一天",
-    "title_pinyin": "wǒ de yī tiān",
-    "topic": "Daily Life",
-    "hsk_level": "HSK1",
-    "content": "早上七点，我起床。我洗脸，吃早饭。早饭有米饭和鸡蛋。八点，我去学校。我在学校学习汉语和数学。中午，我吃午饭。下午五点，我回家。晚上，我做作业。十点，我睡觉。",
-    "content_pinyin": "zǎoshang qī diǎn, wǒ qǐchuáng. wǒ xǐ liǎn, chī zǎofàn. zǎofàn yǒu mǐfàn hé jīdàn. bā diǎn, wǒ qù xuéxiào. wǒ zài xuéxiào xuéxí Hànyǔ hé shùxué. zhōngwǔ, wǒ chī wǔfàn. xiàwǔ wǔ diǎn, wǒ huí jiā. wǎnshang, wǒ zuò zuòyè. shí diǎn, wǒ shuìjiào.",
-    "translation": "At 7am I wake up. I wash my face and eat breakfast. Breakfast is rice and eggs. At 8 o'clock I go to school. At school I study Chinese and math. At noon I eat lunch. At 5pm I go home. In the evening I do homework. At 10 o'clock I sleep.",
-    "word_count": 65
-  },
-  {
-    "title": "买东西",
-    "title_pinyin": "mǎi dōngxi",
-    "topic": "Shopping",
-    "hsk_level": "HSK1",
-    "content": "我要买一本书。书店在哪里？那个书店很近，走五分钟。书店里有很多书。我喜欢的书是二十块钱。我买了一本书和一支笔。我用了二十五块钱。",
-    "content_pinyin": "wǒ yào mǎi yī běn shū. shūdiàn zài nǎlǐ? nàge shūdiàn hěn jìn, zǒu wǔ fēnzhōng. shūdiàn lǐ yǒu hěn duō shū. wǒ xǐhuān de shū shì èrshí kuài qián. wǒ mǎile yī běn shū hé yī zhī bǐ. wǒ yòngle èrshíwǔ kuài qián.",
-    "translation": "I want to buy a book. Where is the bookstore? That bookstore is close, a 5-minute walk. There are many books in the bookstore. The book I like is 20 yuan. I bought one book and one pen. I spent 25 yuan.",
-    "word_count": 56
-  },
-  {
-    "title": "在餐厅",
-    "title_pinyin": "zài cāntīng",
-    "topic": "Food",
-    "hsk_level": "HSK1",
-    "content": "我们去餐厅吃饭。我喜欢吃中国菜。我点了一碗面条和一杯茶。我朋友点了米饭和鸡肉。菜很好吃！我们吃得很开心。最后，我们叫服务员买单。",
-    "content_pinyin": "wǒmen qù cāntīng chīfàn. wǒ xǐhuān chī Zhōngguó cài. wǒ diǎnle yī wǎn miàntiáo hé yī bēi chá. wǒ péngyǒu diǎnle mǐfàn hé jīròu. cài hěn hǎochī! wǒmen chī de hěn kāixīn. zuìhòu, wǒmen jiào fúwùyuán mǎidān.",
-    "translation": "We went to a restaurant to eat. I like Chinese food. I ordered a bowl of noodles and a cup of tea. My friend ordered rice and chicken. The food was delicious! We had a great meal. Finally we asked the waiter for the bill.",
-    "word_count": 58
-  }
+ {
+  "title": "我的家",
+  "title_pinyin": "wǒ de jiā",
+  "topic": "Family",
+  "hsk_level": "HSK1",
+  "content": "我叫小王。我家有四个人：爸爸、妈妈、姐姐和我。我们住在中国。我爸爸是老师，我妈妈是医生。姐姐是大学生。我们家有一只小狗，它叫七七。我很爱我的家。",
+  "content_pinyin": "wǒ jiào xiǎo Wáng 。 wǒ jiā yǒu sì gè rén ： bà ba 、 mā ma 、 jiě jie hé wǒ 。 wǒ men zhù zài Zhōng guó 。 wǒ bà ba shì lǎo shī ， wǒ mā ma shì yī shēng 。 jiě jie shì dà xué shēng 。 wǒ men jiā yǒu yī zhī xiǎo gǒu ， tā jiào qī qī 。 wǒ hěn ài wǒ de jiā 。",
+  "translation": "My name is Xiao Wang. There are four people in my family: dad, mom, my older sister and me. We live in China. My dad is a teacher, my mom is a doctor. My sister is a university student. We have a little dog; it is called Qiqi. I love my family very much.",
+  "word_count": 60
+ },
+ {
+  "title": "今天的天气",
+  "title_pinyin": "jīn tiān de tiān qì",
+  "topic": "Weather",
+  "hsk_level": "HSK1",
+  "content": "今天天气很好，不冷。我和朋友想去外边玩。我们九点半在学校见。我和朋友去商店买东西，也喝了茶。下午我回家，很高兴。",
+  "content_pinyin": "jīn tiān tiān qì hěn hǎo ， bù lěng 。 wǒ hé péng you xiǎng qù wài bian wán 。 wǒ men jiǔ diǎn bàn zài xué xiào jiàn 。 wǒ hé péng you qù shāng diàn mǎi dōng xi ， yě hē le chá 。 xià wǔ wǒ huí jiā ， hěn gāo xìng 。",
+  "translation": "The weather is nice today, not cold. My friend and I want to go outside to play. We meet at school at half past nine. We go to the shop together to buy things, and also drink tea. In the afternoon I go home, very happy.",
+  "word_count": 48
+ },
+ {
+  "title": "我的一天",
+  "title_pinyin": "wǒ de yī tiān",
+  "topic": "Daily life",
+  "hsk_level": "HSK1",
+  "content": "我早上七点起床，吃早饭。早饭有鸡蛋和牛奶。八点我去学校上课。中午我吃午饭。下午五点我回家，学习，看电视。晚上我睡觉。",
+  "content_pinyin": "wǒ zǎo shang qī diǎn qǐ chuáng ， chī zǎo fàn 。 zǎo fàn yǒu jī dàn hé niú nǎi 。 bā diǎn wǒ qù xué xiào shàng kè 。 zhōng wǔ wǒ chī wǔ fàn 。 xià wǔ wǔ diǎn wǒ huí jiā ， xué xí ， kàn diàn shì 。 wǎn shang wǒ shuì jiào 。",
+  "translation": "I get up at seven in the morning and eat breakfast. Breakfast is eggs and milk. At eight I go to school for class. At noon I eat lunch. At five in the afternoon I go home, study, and watch TV. At night I sleep.",
+  "word_count": 49
+ },
+ {
+  "title": "买东西",
+  "title_pinyin": "mǎi dōng xi",
+  "topic": "Shopping",
+  "hsk_level": "HSK1",
+  "content": "今天我和妈妈去商店买东西。商店里有很多水果，很漂亮。苹果不贵，一些苹果是十二块钱。我也想买一件衣服，太贵了。我们买了水果，回家。",
+  "content_pinyin": "jīn tiān wǒ hé mā ma qù shāng diàn mǎi dōng xi 。 shāng diàn lǐ yǒu hěn duō shuǐ guǒ ， hěn piào liang 。 píng guǒ bù guì ， yì xiē píng guǒ shì shí èr kuài qián 。 wǒ yě xiǎng mǎi yī jiàn yī fu ， tài guì le 。 wǒ men mǎi le shuǐ guǒ ， huí jiā 。",
+  "translation": "Today mom and I go to the shop to buy things. There is a lot of fruit in the shop, very pretty. The apples are not expensive; some apples are twelve yuan. I also want to buy a piece of clothing, but it is too expensive. We buy fruit and go home.",
+  "word_count": 55
+ },
+ {
+  "title": "在饭店",
+  "title_pinyin": "zài fàn diàn",
+  "topic": "Food",
+  "hsk_level": "HSK1",
+  "content": "晚上，我和家人去饭店吃饭。我们点了米饭、饺子和一些菜。弟弟喜欢吃包子。菜很好吃，我们都很高兴。吃饭后，爸爸请问多少钱。",
+  "content_pinyin": "wǎn shang ， wǒ hé jiā rén qù fàn diàn chī fàn 。 wǒ men diǎn le mǐ fàn 、 jiǎo zi hé yì xiē cài 。 dì di xǐ huan chī bāo zi 。 cài hěn hǎo chī ， wǒ men dōu hěn gāo xìng 。 chī fàn hòu ， bà ba qǐng wèn duō shao qián 。",
+  "translation": "In the evening, my family and I go to a restaurant to eat. We order rice, dumplings and some dishes. My younger brother likes to eat baozi. The food is delicious; we are all happy. After the meal, dad asks how much it costs.",
+  "word_count": 50
+ },
+ {
+  "title": "我的朋友",
+  "title_pinyin": "wǒ de péng you",
+  "topic": "Friends",
+  "hsk_level": "HSK1",
+  "content": "我有一个好朋友，她叫小李。她是我的同学。她很漂亮，也很忙。她喜欢读书，也喜欢唱歌。星期天我们去看电影。我们是好朋友。",
+  "content_pinyin": "wǒ yǒu yī gè hǎo péng you ， tā jiào xiǎo Lǐ 。 tā shì wǒ de tóng xué 。 tā hěn piào liang ， yě hěn máng 。 tā xǐ huan dú shū ， yě xǐ huan chàng gē 。 xīng qī tiān wǒ men qù kàn diàn yǐng 。 wǒ men shì hǎo péng you 。",
+  "translation": "I have a good friend; she is called Xiao Li. She is my classmate. She is very pretty and also very busy. She likes reading, and also likes singing. On Sunday we go to watch a movie together. We are good friends.",
+  "word_count": 49
+ }
 ]

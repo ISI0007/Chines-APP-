@@ -102,7 +102,7 @@ async def test_srs_review_cycle(client):
 async def test_reading_and_grammar(client):
     h, _ = await _user(client, "dave")
     texts = (await client.get(f"{V}/reading/texts?hsk_level=HSK1", headers=h)).json()
-    assert len(texts) == 5 and not any(t["completed"] for t in texts)
+    assert len(texts) == 6 and not any(t["completed"] for t in texts)
     tid = texts[0]["id"]
     detail = (await client.get(f"{V}/reading/texts/{tid}", headers=h)).json()
     assert detail["content"] and detail["content_pinyin"] and detail["translation"]
