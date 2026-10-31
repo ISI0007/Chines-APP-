@@ -28,11 +28,34 @@ function wav() {
     page = await browser.newPage({ viewport: { width: 390, height: 844 } });
     const errors = []; page.on('pageerror', error => errors.push(error.message));
     let reviews = []; let searchSeen = false; let localAudio = 0; let tts = 0; let failSave = false;
+    let attempts = 0; let testSubmissions = 0; let lastAnswers; let testLevel; let duplicateSubmit = false;
+    const testHistory = [];
     const word = { id: 1, simplified: '你好', traditional: '你好', pinyin: 'nǐ hǎo', definitions: ['hello'], hsk_level: 'HSK1', audio_path: '/api/v1/audio/hsk1/你好.mp3' };
     await page.route('**/translate_tts?**', route => { tts++; return route.fulfill({ contentType: 'audio/wav', body: wav() }); });
     await page.route('http://localhost:8000/**', async route => {
       const request = route.request(); const url = new URL(request.url());
       const send = data => route.fulfill({ contentType: 'application/json', body: JSON.stringify(data) });
+      if (url.pathname.endsWith('/tests/history')) return send(testHistory);
+      if (url.pathname.endsWith('/tests/start')) {
+        testLevel = url.searchParams.get('hsk_level');
+        assert.equal(url.searchParams.get('num_questions'), '10');
+        attempts++;
+        return send({ attempt_id: attempts, hsk_level: testLevel, total_questions: 2, questions: [
+          { id: 101, question_type: 'vocabulary', question_text: 'What does 谢谢 mean?', option_a: 'hello', option_b: 'thank you', option_c: 'goodbye', option_d: 'please', audio_path: null },
+          { id: 102, question_type: 'pinyin', question_text: 'Choose the pinyin for 你.', option_a: 'nǐ', option_b: 'hǎo', option_c: 'xiè', option_d: 'zài', audio_path: null },
+        ] });
+      }
+      if (/\/tests\/\d+\/submit$/.test(url.pathname)) {
+        testSubmissions++;
+        if (duplicateSubmit) return route.fulfill({ status: 409, contentType: 'application/json', body: JSON.stringify({ detail: 'Already submitted' }) });
+        lastAnswers = request.postDataJSON();
+        testHistory.unshift({ id: attempts, hsk_level: testLevel, score_percent: 50, passed: false, finished_at: '2026-10-31T12:00:00Z' });
+        await new Promise(resolve => setTimeout(resolve, 100));
+        return send({ attempt_id: attempts, total_questions: 2, correct_answers: 1, score_percent: 50, passed: false, xp_gained: 2, results: [
+          { question_id: 101, chosen: 'B', correct: 'B', is_correct: true, explanation: '谢谢 means thank you.' },
+          { question_id: 102, chosen: null, correct: 'A', is_correct: false, explanation: '你 is pronounced nǐ.' },
+        ] });
+      }
       if (url.pathname.includes('/audio/')) { localAudio++; return route.fulfill({ status: 404, body: '' }); }
       if (url.pathname.endsWith('/auth/me')) return send({ id: 1, username: 'Student', email: 'test@example.com', hsk_level: 'HSK1', xp: reviews.length * 5, streak_days: 2 });
       if (url.pathname.endsWith('/review') && request.method() === 'POST') {
@@ -111,8 +134,41 @@ function wav() {
     failSave = false;
     await page.getByRole('button', { name: 'Try again', exact: true }).click();
     await page.getByRole('button', { name: 'Reveal meaning for 你好 nǐ hǎo' }).waitFor();
+    await page.goto(origin);
+    await page.getByText('Start practice', { exact: true }).click();
+    await page.getByRole('button', { name: 'HSK 6', exact: true }).click();
+    await page.getByRole('button', { name: '10 questions', exact: true }).click();
+    await page.getByRole('button', { name: 'Start practice', exact: true }).click();
+    await page.getByText('What does 谢谢 mean?', { exact: true }).waitFor();
+    assert.equal(testLevel, 'HSK6');
+    assert.equal(await page.getByText('谢谢 means thank you.', { exact: true }).count(), 0);
+    await page.getByRole('radio', { name: 'B · thank you', exact: true }).click();
+    await page.reload();
+    await page.getByRole('radio', { name: 'B · thank you', exact: true }).waitFor();
+    assert.equal(await page.getByRole('radio', { name: 'B · thank you', exact: true }).getAttribute('aria-checked'), 'true');
+    await page.getByRole('button', { name: 'Next question', exact: true }).click();
+    await page.getByRole('button', { name: 'Finish practice', exact: true }).click();
+    await page.getByText(/1 unanswered/).waitFor();
+    await page.getByRole('button', { name: 'Confirm submission', exact: true }).evaluate(button => { button.click(); button.click(); });
+    await page.getByText('50% · Keep practising', { exact: true }).waitFor();
+    assert.equal(testSubmissions, 1);
+    assert.deepEqual(lastAnswers, { answers: { '101': 'B' } });
+    await page.getByText('Incorrect · Your answer: Unanswered', { exact: true }).waitFor();
+    await page.getByText('Attempt #1 · HSK6 · 50% · Keep practising', { exact: true }).waitFor();
+    await page.screenshot({ path: path.resolve(__dirname, '../test-results/tests-mobile.png'), fullPage: true });
+    await page.getByRole('button', { name: 'Start another practice', exact: true }).click();
+    await page.getByRole('button', { name: 'HSK 2', exact: true }).click();
+    await page.getByRole('button', { name: '10 questions', exact: true }).click();
+    await page.getByRole('button', { name: 'Start practice', exact: true }).click();
+    await page.getByText('What does 谢谢 mean?', { exact: true }).waitFor();
+    assert.equal(testLevel, 'HSK2');
+    duplicateSubmit = true;
+    await page.getByRole('button', { name: 'Finish practice', exact: true }).click();
+    await page.getByRole('button', { name: 'Confirm submission', exact: true }).click();
+    await page.getByText('This attempt was submitted. See its score in recent attempts.', { exact: true }).waitFor();
+    assert.equal(testSubmissions, 2);
     assert.deepEqual(errors, []);
-    console.log('PASS: navigation, review save/failure, pagination, search, empty state, progress, local-audio fallback and null-audio TTS (mock API).');
+    console.log('PASS: vocabulary/review/audio/progress, HSK2/6 practice, draft restoration, unanswered questions, duplicate-click protection, results, history and 409 recovery (mock API).');
   } catch (error) {
     if (page) console.error('Browser state:', await page.locator('body').innerText());
     throw error;
