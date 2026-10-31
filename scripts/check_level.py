@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BACKEND = ROOT / "backend" if (ROOT / "backend").exists() else ROOT
 HSK = BACKEND / "data" / "hsk" / "hsk30.json"
 
-PUNCT = set("，。！？、：；“”‘’（）《》…—·. \n\t\r0123456789" + "".join(chr(c) for c in range(0x30, 0x3a)))
+PUNCT = set("，。！？、：；“”‘’（）《》…—·" + ",.!?:;\"'()<>-~ \n\t\r" + "0123456789")
 # Proper nouns are outside the graded vocabulary. HSK1 officially teaches the 小— prefix for names
 # (小王, 小李), so a handful of common surnames are allowed as name components.
 SURNAMES = set("王李张刘陈杨黄周吴马")

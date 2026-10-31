@@ -1,0 +1,242 @@
+[
+ {
+  "title": "凡是…都… — every / all",
+  "hsk_level": "HSK6",
+  "pattern": "凡是 + X,都 + …",
+  "explanation": "凡是 (fánshì) means 'every / all that …'; the 都 clause states what is true of every such case.",
+  "syllabus_ref": "复句·条件复句：凡是……，都……",
+  "order_index": 1,
+  "examples": [
+   {
+    "zh": "凡是努力的人,都会有收获。",
+    "pinyin": "fán shì nǔ lì de rén , dōu huì yǒu shōu huò 。",
+    "en": "Everyone who works hard will gain something."
+   },
+   {
+    "zh": "凡是来过这里的人,都说好。",
+    "pinyin": "fán shì lái guò zhè lǐ de rén , dōu shuō hǎo 。",
+    "en": "Everyone who has been here says it's good."
+   },
+   {
+    "zh": "凡是重要的事,都要认真对待。",
+    "pinyin": "fán shì zhòng yào de shì , dōu yào rèn zhēn duì dài 。",
+    "en": "Every important matter must be taken seriously."
+   },
+   {
+    "zh": "凡是他答应的事,都会做到。",
+    "pinyin": "fán shì tā dā ying de shì , dōu huì zuò dào 。",
+    "en": "Everything he promises, he does."
+   }
+  ]
+ },
+ {
+  "title": "除非…否则… — unless",
+  "hsk_level": "HSK6",
+  "pattern": "除非 + condition,否则 + …",
+  "explanation": "除非 (chúfēi) states the only condition; 否则 gives what happens without it: 'unless …, otherwise …'. 除非…才 is a positive variant.",
+  "syllabus_ref": "复句·条件复句：除非……，否则/不然……",
+  "order_index": 2,
+  "examples": [
+   {
+    "zh": "除非你同意,否则我不会去。",
+    "pinyin": "chú fēi nǐ tóng yì , fǒu zé wǒ bù huì qù 。",
+    "en": "Unless you agree, I won't go."
+   },
+   {
+    "zh": "除非下雨,否则比赛照常进行。",
+    "pinyin": "chú fēi xià yǔ , fǒu zé bǐ sài zhào cháng jìn xíng 。",
+    "en": "Unless it rains, the match goes on as usual."
+   },
+   {
+    "zh": "除非亲眼看见,否则他不会相信。",
+    "pinyin": "chú fēi qīn yǎn kàn jiàn , fǒu zé tā bù huì xiāng xìn 。",
+    "en": "Unless he sees it himself, he won't believe it."
+   },
+   {
+    "zh": "除非努力,才能成功。",
+    "pinyin": "chú fēi nǔ lì , cái néng chéng gōng 。",
+    "en": "Only by working hard can one succeed."
+   }
+  ]
+ },
+ {
+  "title": "就算…也… — even if",
+  "hsk_level": "HSK6",
+  "pattern": "就算 + A,也 + B",
+  "explanation": "就算 (jiùsuàn) is a colloquial 'even if', like 即使; the 也 clause holds regardless.",
+  "syllabus_ref": "复句·让步复句：就算……，也……",
+  "order_index": 3,
+  "examples": [
+   {
+    "zh": "就算失败,我也不后悔。",
+    "pinyin": "jiù suàn shī bài , wǒ yě bù hòu huǐ 。",
+    "en": "Even if I fail, I won't regret it."
+   },
+   {
+    "zh": "就算再贵,他也要买。",
+    "pinyin": "jiù suàn zài guì , tā yě yào mǎi 。",
+    "en": "Even if it's expensive, he'll buy it."
+   },
+   {
+    "zh": "就算你不说,我也知道。",
+    "pinyin": "jiù suàn nǐ bù shuō , wǒ yě zhī dào 。",
+    "en": "Even if you don't say it, I know."
+   },
+   {
+    "zh": "就算困难再大,我们也能克服。",
+    "pinyin": "jiù suàn kùn nan zài dà , wǒ men yě néng kè fú 。",
+    "en": "No matter how big the difficulty, we can overcome it."
+   }
+  ]
+ },
+ {
+  "title": "要么…要么… — either…or",
+  "hsk_level": "HSK6",
+  "pattern": "要么 + A,要么 + B",
+  "explanation": "要么 (yàome) … 要么 … presents two alternatives: 'either A or B'. It states a choice between two options.",
+  "syllabus_ref": "复句·选择复句：要么……，要么……",
+  "order_index": 4,
+  "examples": [
+   {
+    "zh": "周末要么在家休息,要么出去运动。",
+    "pinyin": "zhōu mò yào me zài jiā xiū xi , yào me chū qù yùn dòng 。",
+    "en": "On weekends, either rest at home or go out to exercise."
+   },
+   {
+    "zh": "要么你来,要么我去。",
+    "pinyin": "yào me nǐ lái , yào me wǒ qù 。",
+    "en": "Either you come or I go."
+   },
+   {
+    "zh": "这件事要么做好,要么别做。",
+    "pinyin": "zhè jiàn shì yào me zuò hǎo , yào me bié zuò 。",
+    "en": "Either do this well, or don't do it."
+   },
+   {
+    "zh": "要么坐高铁,要么坐飞机,都可以。",
+    "pinyin": "yào me zuò gāo tiě , yào me zuò fēi jī , dōu kě yǐ 。",
+    "en": "Either high-speed rail or plane — both work."
+   }
+  ]
+ },
+ {
+  "title": "以便 — so as to",
+  "hsk_level": "HSK6",
+  "pattern": "…,以便 + purpose",
+  "explanation": "以便 (yǐbiàn) introduces a purpose made easier by the first clause: 'so as to / in order to'.",
+  "syllabus_ref": "复句·目的复句：……，以便……",
+  "order_index": 5,
+  "examples": [
+   {
+    "zh": "请留下电话,以便联系。",
+    "pinyin": "qǐng liú xia diàn huà , yǐ biàn lián xì 。",
+    "en": "Please leave your number, so we can contact you."
+   },
+   {
+    "zh": "他早早到了,以便有时间准备。",
+    "pinyin": "tā zǎo zǎo dào le , yǐ biàn yǒu shí jiān zhǔn bèi 。",
+    "en": "He arrived early, so as to have time to prepare."
+   },
+   {
+    "zh": "把说明写清楚,以便大家理解。",
+    "pinyin": "bǎ shuō míng xiě qīng chu , yǐ biàn dà jiā lǐ jiě 。",
+    "en": "Write the instructions clearly, so everyone understands."
+   },
+   {
+    "zh": "多存点钱,以便将来使用。",
+    "pinyin": "duō cún diǎn qián , yǐ biàn jiāng lái shǐ yòng 。",
+    "en": "Save more money, for future use."
+   }
+  ]
+ },
+ {
+  "title": "哪怕…也… — even if (extreme)",
+  "hsk_level": "HSK6",
+  "pattern": "哪怕 + A,也 + B",
+  "explanation": "哪怕 (nǎpà) supposes even the smallest or most extreme case: 'even if / even just …, still …'.",
+  "syllabus_ref": "复句·让步复句：哪怕……，也……",
+  "order_index": 6,
+  "examples": [
+   {
+    "zh": "哪怕只有一点希望,我们也不放弃。",
+    "pinyin": "nǎ pà zhǐ yǒu yī diǎn xī wàng , wǒ men yě bù fàng qì 。",
+    "en": "Even with just a little hope, we won't give up."
+   },
+   {
+    "zh": "哪怕再忙,他也会抽时间看书。",
+    "pinyin": "nǎ pà zài máng , tā yě huì chōu shí jiān kàn shū 。",
+    "en": "No matter how busy, he makes time to read."
+   },
+   {
+    "zh": "哪怕走得慢一点,也要坚持走完。",
+    "pinyin": "nǎ pà zǒu de màn yī diǎn , yě yào jiān chí zǒu wán 。",
+    "en": "Even if walking slowly, finish the walk."
+   },
+   {
+    "zh": "哪怕别人不理解,她也要坚持自己的想法。",
+    "pinyin": "nǎ pà bié rén bù lǐ jiě , tā yě yào jiān chí zì jǐ de xiǎng fǎ 。",
+    "en": "Even if others don't understand, she sticks to her idea."
+   }
+  ]
+ },
+ {
+  "title": "不仅不…反而… — not only not…on the contrary",
+  "hsk_level": "HSK6",
+  "pattern": "不仅不 + A,反而 + B",
+  "explanation": "不仅不 (bùjǐn bù) … 反而 (fǎn'ér) … says the opposite of what's expected happened: 'not only did A not happen, on the contrary B'.",
+  "syllabus_ref": "复句·递进/转折：不仅不……，反而……",
+  "order_index": 7,
+  "examples": [
+   {
+    "zh": "吃了药,病不仅不好,反而更重了。",
+    "pinyin": "chī le yào , bìng bù jǐn bù hǎo , fǎn ér gèng chóng le 。",
+    "en": "After the medicine, the illness not only didn't improve but got worse."
+   },
+   {
+    "zh": "他不仅不生气,反而笑了。",
+    "pinyin": "tā bù jǐn bù shēng qì , fǎn ér xiào le 。",
+    "en": "He not only wasn't angry but laughed instead."
+   },
+   {
+    "zh": "批评他,他不仅不改,反而更过分了。",
+    "pinyin": "pī píng tā , tā bù jǐn bù gǎi , fǎn ér gèng guò fèn le 。",
+    "en": "Criticized, he not only didn't change but went further."
+   },
+   {
+    "zh": "下了雨,天气不仅不凉,反而更热了。",
+    "pinyin": "xià le yǔ , tiān qì bù jǐn bù liáng , fǎn ér gèng rè le 。",
+    "en": "After the rain, it not only didn't cool down but got hotter."
+   }
+  ]
+ },
+ {
+  "title": "随着 — along with / as",
+  "hsk_level": "HSK6",
+  "pattern": "随着 + change,…",
+  "explanation": "随着 (suízhe) marks a change that another change follows: 'as / along with …'. It opens a clause describing a developing situation.",
+  "syllabus_ref": "介词·引出依据：随着（表示伴随）",
+  "order_index": 8,
+  "examples": [
+   {
+    "zh": "随着年龄的增长,他变得越来越成熟。",
+    "pinyin": "suí zhe nián líng de zēng zhǎng , tā biàn de yuè lái yuè chéng shú 。",
+    "en": "As he grows older, he becomes more mature."
+   },
+   {
+    "zh": "随着科技的发展,生活越来越方便。",
+    "pinyin": "suí zhe kē jì de fā zhǎn , shēng huó yuè lái yuè fāng biàn 。",
+    "en": "As technology develops, life gets more convenient."
+   },
+   {
+    "zh": "随着时间的推移,一切都会好起来。",
+    "pinyin": "suí zhe shí jiān de tuī yí , yí qiè dōu huì hǎo qǐ lái 。",
+    "en": "As time goes by, everything will get better."
+   },
+   {
+    "zh": "随着经济的发展,城市变化很大。",
+    "pinyin": "suí zhe jīng jì de fā zhǎn , chéng shì biàn huà hěn dà 。",
+    "en": "As the economy develops, cities change greatly."
+   }
+  ]
+ }
+]

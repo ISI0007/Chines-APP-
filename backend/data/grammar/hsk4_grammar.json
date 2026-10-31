@@ -1,0 +1,242 @@
+[
+ {
+  "title": "不管…都… — regardless",
+  "hsk_level": "HSK4",
+  "pattern": "不管 + question,都/也 + …",
+  "explanation": "不管 (bùguǎn) + a choice or question word, then 都/也: 'no matter …, still …'. 无论 is a more formal synonym.",
+  "syllabus_ref": "复句·条件复句：不管……，都/也……",
+  "order_index": 1,
+  "examples": [
+   {
+    "zh": "不管多累，他都坚持锻炼。",
+    "pinyin": "bù guǎn duō lèi ， tā dōu jiān chí duàn liàn 。",
+    "en": "No matter how tired, he keeps exercising."
+   },
+   {
+    "zh": "不管你去不去，我都去。",
+    "pinyin": "bù guǎn nǐ qù bù qù ， wǒ dōu qù 。",
+    "en": "Whether you go or not, I'm going."
+   },
+   {
+    "zh": "不管什么工作，他都认真做。",
+    "pinyin": "bù guǎn shén me gōng zuò ， tā dōu rèn zhēn zuò 。",
+    "en": "No matter what the job, he does it seriously."
+   },
+   {
+    "zh": "不管天气怎么样，比赛都会进行。",
+    "pinyin": "bù guǎn tiān qì zěn me yàng ， bǐ sài dōu huì jìn xíng 。",
+    "en": "Regardless of the weather, the match will go on."
+   }
+  ]
+ },
+ {
+  "title": "即使…也… — even if",
+  "hsk_level": "HSK4",
+  "pattern": "即使 + A,也 + B",
+  "explanation": "即使 (jíshǐ) … 也 … supposes an extreme case: 'even if A, still B'. The B clause keeps 也.",
+  "syllabus_ref": "复句·让步复句：即使……，也……",
+  "order_index": 2,
+  "examples": [
+   {
+    "zh": "即使下大雨，我们也要出发。",
+    "pinyin": "jí shǐ xià dà yǔ ， wǒ men yě yào chū fā 。",
+    "en": "Even if it rains hard, we'll set out."
+   },
+   {
+    "zh": "即使很困难，也不要放弃。",
+    "pinyin": "jí shǐ hěn kùn nan ， yě bú yào fàng qì 。",
+    "en": "Even if it's hard, don't give up."
+   },
+   {
+    "zh": "即使他反对，我也会去做。",
+    "pinyin": "jí shǐ tā fǎn duì ， wǒ yě huì qù zuò 。",
+    "en": "Even if he objects, I'll do it."
+   },
+   {
+    "zh": "即使再忙，也要注意身体。",
+    "pinyin": "jí shǐ zài máng ， yě yào zhù yì shēn tǐ 。",
+    "en": "Even if busy, pay attention to your health."
+   }
+  ]
+ },
+ {
+  "title": "不是…而是… — not…but rather",
+  "hsk_level": "HSK4",
+  "pattern": "不是 + A,而是 + B",
+  "explanation": "不是 (búshì) … 而是 (érshì) … corrects A with B: 'it's not A, but rather B'.",
+  "syllabus_ref": "复句·并列复句：不是……，而是……",
+  "order_index": 3,
+  "examples": [
+   {
+    "zh": "这不是我的，而是他的。",
+    "pinyin": "zhè bù shì wǒ de ， ér shì tā de 。",
+    "en": "This isn't mine, but his."
+   },
+   {
+    "zh": "他不是不想来，而是没有时间。",
+    "pinyin": "tā bù shì bù xiǎng lái ， ér shì méi yǒu shí jiān 。",
+    "en": "It's not that he doesn't want to come, but that he has no time."
+   },
+   {
+    "zh": "重要的不是钱，而是健康。",
+    "pinyin": "zhòng yào de bù shì qián ， ér shì jiàn kāng 。",
+    "en": "What matters isn't money, but health."
+   },
+   {
+    "zh": "她要的不是这个，而是那个。",
+    "pinyin": "tā yào de bù shì zhè ge ， ér shì nà ge 。",
+    "en": "What she wants isn't this one, but that one."
+   }
+  ]
+ },
+ {
+  "title": "既…又… — both…and",
+  "hsk_level": "HSK4",
+  "pattern": "既 + A,又 + B",
+  "explanation": "既 (jì) … 又 (yòu) … lists two qualities held at once: 'both A and B'. Usually both are adjectives or verbs.",
+  "syllabus_ref": "复句·并列复句：既……，又/也……",
+  "order_index": 4,
+  "examples": [
+   {
+    "zh": "这个方法既方便又便宜。",
+    "pinyin": "zhè ge fāng fǎ jì fāng biàn yòu pián yi 。",
+    "en": "This method is both convenient and cheap."
+   },
+   {
+    "zh": "他既是老师，又是作家。",
+    "pinyin": "tā jì shì lǎo shī ， yòu shì zuò jiā 。",
+    "en": "He is both a teacher and a writer."
+   },
+   {
+    "zh": "这里既安静又干净。",
+    "pinyin": "zhè lǐ jì ān jìng yòu gān jìng 。",
+    "en": "Here is both quiet and clean."
+   },
+   {
+    "zh": "她既聪明又努力。",
+    "pinyin": "tā jì cōng míng yòu nǔ lì 。",
+    "en": "She is both clever and hardworking."
+   }
+  ]
+ },
+ {
+  "title": "不仅…还/而且… — not only…also",
+  "hsk_level": "HSK4",
+  "pattern": "不仅 + A,还/而且 + B",
+  "explanation": "不仅 (bùjǐn) … 还/而且 … adds a further point, like 不但 but more formal: 'not only A, also B'.",
+  "syllabus_ref": "复句·递进复句：不仅/不光……，还/而且……",
+  "order_index": 5,
+  "examples": [
+   {
+    "zh": "他不仅会开车，还会修车。",
+    "pinyin": "tā bù jǐn huì kāi chē ， hái huì xiū chē 。",
+    "en": "He can not only drive but also repair cars."
+   },
+   {
+    "zh": "运动不仅对身体好，而且让人快乐。",
+    "pinyin": "yùn dòng bù jǐn duì shēn tǐ hǎo ， ér qiě ràng rén kuài lè 。",
+    "en": "Exercise is not only good for the body but also makes people happy."
+   },
+   {
+    "zh": "这本书不仅有趣，而且有用。",
+    "pinyin": "zhè běn shū bù jǐn yǒu qù ， ér qiě yǒu yòng 。",
+    "en": "This book is not only interesting but also useful."
+   },
+   {
+    "zh": "她不仅学习好，还很热心。",
+    "pinyin": "tā bù jǐn xué xí hǎo ， hái hěn rè xīn 。",
+    "en": "She not only studies well but is also warm-hearted."
+   }
+  ]
+ },
+ {
+  "title": "A 不如 B — A is not as good as B",
+  "hsk_level": "HSK4",
+  "pattern": "A + 不如 + B (+ Adjective)",
+  "explanation": "A 不如 (bùrú) B means A is inferior to B. Add an adjective to say in what way: 今天不如昨天暖和.",
+  "syllabus_ref": "句型·比较句3：A 不如 B（+ 形容词）",
+  "order_index": 6,
+  "examples": [
+   {
+    "zh": "坐公交车不如坐地铁快。",
+    "pinyin": "zuò gōng jiāo chē bù rú zuò dì tiě kuài 。",
+    "en": "Taking the bus is not as fast as the subway."
+   },
+   {
+    "zh": "这家餐厅不如那家。",
+    "pinyin": "zhè jiā cān tīng bù rú nà jiā 。",
+    "en": "This restaurant isn't as good as that one."
+   },
+   {
+    "zh": "今天不如昨天暖和。",
+    "pinyin": "jīn tiān bù rú zuó tiān nuǎn huo 。",
+    "en": "Today isn't as warm as yesterday."
+   },
+   {
+    "zh": "说得好不如做得好。",
+    "pinyin": "shuō de hǎo bù rú zuò de hǎo 。",
+    "en": "Speaking well isn't as good as doing well."
+   }
+  ]
+ },
+ {
+  "title": "由于…因此… — due to…therefore",
+  "hsk_level": "HSK4",
+  "pattern": "由于 + cause,因此 + result",
+  "explanation": "由于 (yóuyú) introduces a reason (more formal than 因为); 因此 (yīncǐ) 'therefore' introduces the result.",
+  "syllabus_ref": "介词·引出原因：由于；复句·因果",
+  "order_index": 7,
+  "examples": [
+   {
+    "zh": "由于堵车，我迟到了。",
+    "pinyin": "yóu yú dǔ chē ， wǒ chí dào le 。",
+    "en": "Due to traffic, I was late."
+   },
+   {
+    "zh": "由于天气不好，航班取消了。",
+    "pinyin": "yóu yú tiān qì bù hǎo ， háng bān qǔ xiāo le 。",
+    "en": "Due to bad weather, the flight was cancelled."
+   },
+   {
+    "zh": "他很努力，因此取得了好成绩。",
+    "pinyin": "tā hěn nǔ lì ， yīn cǐ qǔ dé le hǎo chéng jì 。",
+    "en": "He worked hard, therefore he got good results."
+   },
+   {
+    "zh": "由于准备得好，面试很顺利。",
+    "pinyin": "yóu yú zhǔn bèi de hǎo ， miàn shì hěn shùn lì 。",
+    "en": "Thanks to good preparation, the interview went smoothly."
+   }
+  ]
+ },
+ {
+  "title": "V 得/不了 — can / cannot (manage to)",
+  "hsk_level": "HSK4",
+  "pattern": "Verb + 得了 / 不了",
+  "explanation": "得了 (deliǎo) means able to do / finish; 不了 (buliǎo) means unable to. 这么多菜我吃不了 = I can't finish this much food.",
+  "syllabus_ref": "补语·可能补语2：动词 + 得/不 + 了",
+  "order_index": 8,
+  "examples": [
+   {
+    "zh": "这么多菜我吃不了。",
+    "pinyin": "zhè me duō cài wǒ chī bù le 。",
+    "en": "I can't finish this much food."
+   },
+   {
+    "zh": "今天的工作我做得了。",
+    "pinyin": "jīn tiān de gōng zuò wǒ zuò de le 。",
+    "en": "I can get today's work done."
+   },
+   {
+    "zh": "东西太重，我一个人拿不了。",
+    "pinyin": "dōng xi tài chóng ， wǒ yī gè rén ná bù le 。",
+    "en": "The things are too heavy; I can't carry them alone."
+   },
+   {
+    "zh": "放心，这点困难难不了他。",
+    "pinyin": "fàng xīn ， zhè diǎn kùn nan nán bù le tā 。",
+    "en": "Don't worry, this little difficulty can't stump him."
+   }
+  ]
+ }
+]
