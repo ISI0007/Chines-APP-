@@ -25,7 +25,7 @@ async def client():
         await c.run_sync(Base.metadata.drop_all)
         await c.run_sync(Base.metadata.create_all)
     await _load_script("import_hsk").main(prune=True)
-    await _load_script("import_content").main()
+    await _load_script("import_content").main(prune=True)
     async with AsyncClient(transport=ASGITransport(app=main.app), base_url="http://t") as ac:
         yield ac
     await engine.dispose()
@@ -57,7 +57,7 @@ async def test_auth_flow(client):
 async def test_vocabulary(client):
     h, _ = await _user(client, "bob")
     r = (await client.get(f"{V}/vocabulary/words?hsk_level=HSK1&limit=200", headers=h)).json()
-    assert r["total"] == 510 and r["words"][0]["definitions"] and r["words"][0]["hsk_level"] == "HSK1"
+    assert r["total"] == 300 and r["words"][0]["definitions"] and r["words"][0]["hsk_level"] == "HSK1"
     thanks = (await client.get(f"{V}/vocabulary/words?search=谢谢", headers=h)).json()["words"]
     w = next(x for x in thanks if x["simplified"] == "谢谢")
     assert w["pinyin"] == "xiè xie" and w["pinyin_numeric"] == "xie4 xie5" and "thank" in " ".join(w["definitions"])
@@ -67,14 +67,14 @@ async def test_vocabulary(client):
     assert any(x["simplified"] == "谢谢" for x in s["words"])
     # heteronyms are separate cards with their own level + meaning
     xing = {x["pinyin"]: x for x in (await client.get(f"{V}/vocabulary/words?search=行", headers=h)).json()["words"] if x["simplified"] == "行"}
-    assert xing["xíng"]["hsk_level"] == "HSK1" and xing["háng"]["hsk_level"] == "HSK3"
+    assert xing["xíng"]["hsk_level"] == "HSK3" and xing["háng"]["hsk_level"] == "HSK5"
     assert xing["xíng"]["definitions"] != xing["háng"]["definitions"]
     # un-filtered ordering: lowest level first, never HSK3+ before HSK1 (NULL-rank regression)
     first = (await client.get(f"{V}/vocabulary/words?limit=5", headers=h)).json()["words"]
     assert all(x["hsk_level"] == "HSK1" for x in first)
     totals = {lv: (await client.get(f"{V}/vocabulary/words?hsk_level={lv}&limit=1", headers=h)).json()["total"]
               for lv in ("HSK1", "HSK6")}
-    assert totals == {"HSK1": 510, "HSK6": 1128}
+    assert totals == {"HSK1": 300, "HSK6": 1792}
 
 
 async def test_srs_review_cycle(client):
@@ -95,7 +95,7 @@ async def test_srs_review_cycle(client):
     assert (await client.post(f"{V}/vocabulary/review", json={"word_id": wid, "quality": 6}, headers=h)).status_code == 422
     assert (await client.post(f"{V}/vocabulary/review", json={"word_id": 999999, "quality": 3}, headers=h)).status_code == 404
     prog = (await client.get(f"{V}/vocabulary/progress", headers=h)).json()
-    assert prog["user_xp"] == 11 and prog["levels"]["HSK1"]["total"] == 510
+    assert prog["user_xp"] == 11 and prog["levels"]["HSK1"]["total"] == 300
     assert (await client.get(f"{V}/auth/me", headers=h)).json()["xp"] == 11
 
 
@@ -186,3 +186,20 @@ async def test_audio_route(client):
     assert (await client.get(f"{V}/audio/hsk1/nope.mp3")).status_code == 404
     assert (await client.get(f"{V}/audio/hsk1/..%2F..%2Fmain.py")).status_code == 404
     assert (await client.get(f"{V}/audio/hsk1/x.txt")).status_code == 404
+
+
+async def test_content_prune_removes_questions_no_longer_in_the_data_files(client):
+    from sqlalchemy import func, select
+    from db.database import AsyncSessionLocal
+    from models.hsk_test import HskTestQuestion, QuestionType
+    from models.user import HskLevel
+    async with AsyncSessionLocal() as db:
+        before = (await db.execute(select(func.count()).select_from(HskTestQuestion))).scalar_one()
+        db.add(HskTestQuestion(hsk_level=HskLevel.HSK1, question_type=QuestionType.VOCABULARY, question_text="STALE question about an old word list",
+                               option_a="a", option_b="b", option_c="c", option_d="d", correct_option="A", explanation="x"))
+        await db.commit()
+    out = await _load_script("import_content").main(prune=True)
+    async with AsyncSessionLocal() as db:
+        after = (await db.execute(select(func.count()).select_from(HskTestQuestion))).scalar_one()
+        stale = (await db.execute(select(func.count()).select_from(HskTestQuestion).where(HskTestQuestion.question_text.like("STALE%")))).scalar_one()
+    assert after == before and stale == 0

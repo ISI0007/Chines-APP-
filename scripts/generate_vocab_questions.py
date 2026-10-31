@@ -63,15 +63,19 @@ def main() -> None:
         valid = [w for w in ws if short_def(w)]
         questions, seen = [], set()
 
-        def pick_foils(w, pool, n, text_of):
+        def pick_foils(w, pool, n, text_of, meaning_foils=False):
             """Foils with the same POS, no shared meaning-words with w, distinct text."""
             same = [x for x in pool if x is not w and pos_key(x) == pos_key(w)]
             rest = [x for x in pool if x is not w and pos_key(x) != pos_key(w)]
             rng.shuffle(same), rng.shuffle(rest)
             foils, used = [], {text_of(w).lower()}
+            defs_text = " ; ".join(w["definitions"]).lower()
             for x in same + rest:
                 t = text_of(x)
                 if t.lower() in used or x["simplified"] == w["simplified"]:
+                    continue
+                # a meaning foil must not appear as a whole word in ANY meaning of w ("for" for 为)
+                if meaning_foils and re.search(rf"\b{re.escape(t.lower())}\b", defs_text):
                     continue
                 # a foil must not also be a correct answer for w
                 if tokens(short_def(x) or "") & all_tokens(w) or tokens(short_def(w)) & all_tokens(x):
@@ -109,7 +113,7 @@ def main() -> None:
                 break
             correct = short_def(w)
             q = f"What does {w['simplified']} ({w['pinyin']}) mean?"
-            n += add("vocabulary", q, correct, pick_foils(w, valid, 3, short_def), explain(w), w)
+            n += add("vocabulary", q, correct, pick_foils(w, valid, 3, short_def, meaning_foils=True), explain(w), w)
         # 2) reverse: English -> word
         label = lambda x: f"{x['simplified']} ({x['pinyin']})"  # noqa: E731
         n = 0
