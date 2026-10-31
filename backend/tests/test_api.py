@@ -206,3 +206,16 @@ async def test_content_prune_removes_questions_no_longer_in_the_data_files(clien
         after = (await db.execute(select(func.count()).select_from(HskTestQuestion))).scalar_one()
         stale = (await db.execute(select(func.count()).select_from(HskTestQuestion).where(HskTestQuestion.question_text.like("STALE%")))).scalar_one()
     assert after == before and stale == 0
+
+
+async def test_activity_updates_streak(client):
+    h, _ = await _user(client, "streaky")
+    assert (await client.get(f"{V}/auth/me", headers=h)).json()["streak_days"] == 0
+    q = (await client.get(f"{V}/vocabulary/review?hsk_level=HSK1&limit=1", headers=h)).json()
+    await client.post(f"{V}/vocabulary/review", json={"word_id": q[0]["id"], "quality": 5}, headers=h)
+    me = (await client.get(f"{V}/auth/me", headers=h)).json()
+    assert me["streak_days"] == 1                      # first activity today -> streak 1
+    # a second action the same day keeps the streak at 1
+    await client.post(f"{V}/reading/texts/1/complete", json={}, headers=h)
+    assert (await client.get(f"{V}/auth/me", headers=h)).json()["streak_days"] == 1
+    assert (await client.get(f"{V}/vocabulary/progress", headers=h)).json()["streak_days"] == 1

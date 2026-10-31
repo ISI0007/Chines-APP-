@@ -8,6 +8,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from api.deps import current_user
 from db.database import get_db
+from services.streak_service import record_activity
 from models.grammar import GrammarLesson, UserGrammarProgress
 from models.user import HskLevel, User
 from schemas.content import GrammarLessonDetail, GrammarLessonSummary, XpResponse
@@ -77,6 +78,7 @@ async def complete_lesson(
     if not prog.completed:
         gained = FIRST_COMPLETION_XP
         user.xp += gained
+    record_activity(user)
     prog.completed = True
     prog.completed_at = datetime.now(timezone.utc)
     await db.commit()

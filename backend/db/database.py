@@ -1,3 +1,4 @@
+from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
 from sqlalchemy.orm import DeclarativeBase
 from core.config import settings
@@ -21,6 +22,16 @@ async def get_db() -> AsyncSession:
             await session.close()
 
 
+# Idempotent, additive-only DDL so databases created by an earlier create_all pick up new columns
+# on startup. For anything beyond adding a nullable column, use a real Alembic migration (see
+# backend/migrations/). create_all never alters an existing table, which is why this exists.
+_ADDITIVE_DDL = [
+    "ALTER TABLE users ADD COLUMN IF NOT EXISTS last_active_on DATE",
+]
+
+
 async def init_db():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+        for stmt in _ADDITIVE_DDL:
+            await conn.execute(text(stmt))

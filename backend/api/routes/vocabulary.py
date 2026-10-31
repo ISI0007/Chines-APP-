@@ -9,6 +9,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from api.deps import current_user
 from db.database import get_db
+from services.streak_service import record_activity
 from models.user import HskLevel, User
 from models.vocabulary import Word, UserWordProgress
 from schemas.vocabulary import (
@@ -175,6 +176,7 @@ async def submit_review(
     # Award XP
     xp_gained = 5 if body.quality >= 3 else 1
     user.xp += xp_gained
+    record_activity(user)
     await db.commit()
 
     return ReviewResponse(
