@@ -197,7 +197,7 @@ POST /api/v1/grammar/lessons/{id}/complete    -> { "xp_gained": 10, "total_xp": 
 POST /api/v1/tests/start?hsk_level=HSK1&num_questions=20      (1-60, default 20)
  -> { attempt_id, hsk_level, total_questions,
       questions: [{ id, question_type, question_text, option_a..option_d, audio_path }] }
-    // correct answers are NOT included. 404 if no questions exist for that level.
+    // correct answers are NOT included.
 
 POST /api/v1/tests/{attempt_id}/submit
  body: { "answers": { "12": "B", "7": "A" } }     // question_id -> A|B|C|D; unanswered = wrong
@@ -271,7 +271,7 @@ TEST_DATABASE_URL=postgresql://user:pw@localhost:5432/test_db pytest` (DESTRUCTI
 | Vocabulary | **5,404 words, official HSK 3.0, levels 1-6**: HSK1 510, HSK2 757, HSK3 958, HSK4 987, HSK5 1064, HSK6 1128 | Level = the level a word is *introduced* (not cumulative). Levels 7-9 are not included. |
 | Reading | 5 HSK1 texts | |
 | Grammar | 8 HSK1 lessons | |
-| Test questions | 20 HSK1 | other levels return 404 from `/tests/start` |
+| Test questions | **1,220: HSK1 220, HSK2-6 200 each** (auto-generated from the word list: meaning, reverse, pinyin; HSK1 also has 20 hand-written grammar/fill-blank) | no reading/listening/grammar-based questions yet |
 | Audio files | none yet | `audio_path` is null -> use the TTS fallback above |
 
 **Vocabulary notes for the UI**

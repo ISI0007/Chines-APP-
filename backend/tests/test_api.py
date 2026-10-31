@@ -129,7 +129,9 @@ async def test_mock_test_flow(client):
     assert start["total_questions"] == 10 and len(start["questions"]) == 10
     assert "correct_option" not in start["questions"][0]  # never leak answers pre-submit
     aid = start["attempt_id"]
-    assert (await client.post(f"{V}/tests/start?hsk_level=HSK6", headers=h)).status_code == 404
+    for lv in ("HSK2", "HSK6"):  # every level now has a question bank
+        r6 = await client.post(f"{V}/tests/start?hsk_level={lv}&num_questions=5", headers=h)
+        assert r6.status_code == 200 and r6.json()["total_questions"] == 5
     assert (await client.post(f"{V}/tests/{aid}/submit", json={"answers": {}}, headers=h2)).status_code == 404  # not frank's
     assert (await client.post(f"{V}/tests/{aid}/submit", json={"answers": {"1": "Z"}}, headers=h)).status_code == 422
 
