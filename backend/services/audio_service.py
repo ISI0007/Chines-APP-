@@ -20,12 +20,21 @@ _GTTS_TEMPLATE = (
 )
 
 
-def local_audio_path(simplified: str, hsk_level: str) -> str | None:
-    """Return the relative path if a local MP3 exists, else None."""
-    level_dir = AUDIO_ROOT / hsk_level.lower()
-    mp3 = level_dir / f"{simplified}.mp3"
-    if mp3.exists():
-        return f"audio/{hsk_level.lower()}/{simplified}.mp3"
+def local_audio_path(simplified: str, hsk_level: str, pinyin_numeric: str | None = None) -> str | None:
+    """Relative path of a local MP3 if one exists, else None.
+
+    Lookup order (so heteronyms like 行 xíng / háng can have separate recordings):
+      1. <simplified>_<numeric pinyin without spaces>.mp3   e.g. 行_xing2.mp3
+      2. <simplified>.mp3
+    """
+    level = hsk_level.lower()
+    names = []
+    if pinyin_numeric:
+        names.append(f"{simplified}_{pinyin_numeric.replace(' ', '').lower()}.mp3")
+    names.append(f"{simplified}.mp3")
+    for name in names:
+        if (AUDIO_ROOT / level / name).exists():
+            return f"audio/{level}/{name}"
     return None
 
 

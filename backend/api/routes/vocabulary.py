@@ -61,7 +61,7 @@ async def list_words(
     total_q = select(func.count()).select_from(q.subquery())
     total = (await db.execute(total_q)).scalar_one()
 
-    q = q.order_by(Word.frequency_rank.asc()).offset(skip).limit(limit)
+    q = q.order_by(Word.hsk_level.asc(), Word.frequency_rank.asc().nulls_last(), Word.id.asc()).offset(skip).limit(limit)
     words = (await db.execute(q)).scalars().all()
 
     return WordListResponse(total=total, skip=skip, limit=limit, words=words)
@@ -126,7 +126,7 @@ async def get_due_reviews(
             new_q = new_q.where(Word.id.not_in(seen_ids))
         if hsk_level:
             new_q = new_q.where(Word.hsk_level == hsk_level)
-        new_q = new_q.order_by(Word.frequency_rank.asc()).limit(remaining)
+        new_q = new_q.order_by(Word.hsk_level.asc(), Word.frequency_rank.asc().nulls_last(), Word.id.asc()).limit(remaining)
         new_words = list((await db.execute(new_q)).scalars().all())
         due_words.extend(new_words)
 

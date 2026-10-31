@@ -30,7 +30,7 @@ class WordResponse(BaseModel):
         """Point audio_path at the local MP3 when one has been added under data/audio/."""
         if not self.audio_path:
             from services.audio_service import local_audio_path
-            local = local_audio_path(self.simplified, self.hsk_level.value)
+            local = local_audio_path(self.simplified, self.hsk_level.value, self.pinyin_numeric)
             if local:
                 self.audio_path = f"/api/v1/{local}"
         return self

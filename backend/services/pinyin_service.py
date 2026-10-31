@@ -20,10 +20,15 @@ _TO_MARKED = {(v, t): ch for ch, (v, t) in _MARKED.items()}
 
 TONE_COLORS = {1: "#E53935", 2: "#FF9800", 3: "#4CAF50", 4: "#2196F3", 5: "#9E9E9E"}
 
-_VOWELS = "aeiouü" + "".join(_MARKED)
-# one syllable: optional initial, vowel run, optional n/ng/r not followed by a vowel
+_PLAIN = "aeiouü"
+_MARKS = "".join(_MARKED)
+_VOWELS = _PLAIN + _MARKS
+# One syllable = optional initial + vowel run + optional n/ng/r (not followed by a vowel).
+# A vowel run holds at most ONE tone-marked vowel, so "nǚér" splits into nǚ + ér.
 _SYL = re.compile(
-    rf"(?:zh|ch|sh|[bpmfdtnlgkhjqxrzcsyw])?[{_VOWELS}]+(?:ng|n|r)?(?![{_VOWELS}])",
+    rf"(?:zh|ch|sh|[bpmfdtnlgkhjqxrzcsyw])?"
+    rf"(?:[{_PLAIN}]+[{_MARKS}]?[{_PLAIN}]*|[{_MARKS}][{_PLAIN}]*)"
+    rf"(?:(?:ng|n|r)(?![{_VOWELS}]))?",
     re.IGNORECASE,
 )
 _NUMERIC_SYL = re.compile(r"([A-Za-zü:v]+?)([1-5])")

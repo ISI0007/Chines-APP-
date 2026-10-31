@@ -64,20 +64,20 @@ Query params:
 
 → 200
 {
-  "total": 150,
+  "total": 510,
   "skip": 0,
   "limit": 50,
   "words": [
     {
       "id": 1,
-      "simplified": "你好",
-      "traditional": "你好",
-      "pinyin": "nǐ hǎo",
-      "pinyin_numeric": "ni3 hao3",
-      "definitions": ["hello", "hi", "how are you"],
+      "simplified": "谢谢",
+      "traditional": "謝謝",
+      "pinyin": "xiè xie",
+      "pinyin_numeric": "xie4 xie5",
+      "definitions": ["to thank", "thanks", "thank you"],
       "hsk_level": "HSK1",
-      "frequency_rank": 1,
-      "audio_path": "/api/v1/audio/hsk1/你好.mp3",   ← null if no file
+      "frequency_rank": 520,
+      "audio_path": "/api/v1/audio/hsk1/谢谢.mp3",   ← null if no file
       "stroke_order_data": null
     }, ...
   ]
@@ -140,8 +140,8 @@ Authorization: Bearer <token>
   "user_xp": 120,
   "streak_days": 3,
   "levels": {
-    "HSK1": { "total": 150, "learned": 42, "due_for_review": 8 },
-    "HSK2": { "total": 150, "learned": 0,  "due_for_review": 0 },
+    "HSK1": { "total": 510, "learned": 42, "due_for_review": 8 },
+    "HSK2": { "total": 510, "learned": 0,  "due_for_review": 0 },
     ...
   }
 }
@@ -154,7 +154,7 @@ Authorization: Bearer <token>
 ### Serve Local MP3
 ```
 GET /api/v1/audio/{hsk_level}/{filename}
-Example: GET /api/v1/audio/hsk1/你好.mp3
+Example: GET /api/v1/audio/hsk1/谢谢.mp3
 
 → 200  audio/mpeg stream
 → 404  { "detail": "Audio file not found" }
@@ -257,7 +257,7 @@ HTTP codes used:
 ```bash
 cp .env.example .env
 docker compose up -d --build
-docker compose exec backend python scripts/import_hsk.py       # 686 words, safe to re-run
+docker compose exec backend python scripts/import_hsk.py       # 5,404 words, safe to re-run; add --prune to also remove old-list words
 docker compose exec backend python scripts/import_content.py   # reading, grammar, test questions
 # Swagger UI: http://localhost:8000/docs
 ```
@@ -268,11 +268,19 @@ TEST_DATABASE_URL=postgresql://user:pw@localhost:5432/test_db pytest` (DESTRUCTI
 
 | Content | Have now | Note |
 |---|---|---|
-| Vocabulary | HSK1: 150, HSK2: 147, HSK3-6: 100 each (686 unique) | HSK3-6 are partial samples, NOT the full official lists |
+| Vocabulary | **5,404 words, official HSK 3.0, levels 1-6**: HSK1 510, HSK2 757, HSK3 958, HSK4 987, HSK5 1064, HSK6 1128 | Level = the level a word is *introduced* (not cumulative). Levels 7-9 are not included. |
 | Reading | 5 HSK1 texts | |
 | Grammar | 8 HSK1 lessons | |
 | Test questions | 20 HSK1 | other levels return 404 from `/tests/start` |
 | Audio files | none yet | `audio_path` is null -> use the TTS fallback above |
+
+**Vocabulary notes for the UI**
+- Words with several readings are separate rows: 行 `xíng` (HSK1, "to walk") and 行 `háng` (HSK3, "row"). Always show `pinyin` next to the hanzi.
+- `pinyin` is syllable-spaced (`xiè xie`); `pinyin_numeric` too (`xie4 xie5`). `definitions` has 1-8 short English meanings.
+- Page through lists (`limit` max 200 -> HSK6 is 6 pages). Default order: lowest HSK level first, then most frequent.
+- The official list does not contain greetings like 你好 (it lists 你 and 好 separately), so don't expect it in search.
+- Local audio: `<hanzi>.mp3`, or `<hanzi>_<numeric pinyin without spaces>.mp3` (e.g. `行_xing2.mp3`) which wins for that reading.
+- Source & licences (CC BY-SA attribution required): `backend/data/hsk/NOTICE.md`. Show an attribution line in the app's About screen.
 
 ## Known gaps (backend)
 - `streak_days` is never updated yet (needs a last-active column + migration).

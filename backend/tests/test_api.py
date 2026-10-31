@@ -24,7 +24,7 @@ async def client():
     async with engine.begin() as c:
         await c.run_sync(Base.metadata.drop_all)
         await c.run_sync(Base.metadata.create_all)
-    await _load_script("import_hsk").main()
+    await _load_script("import_hsk").main(prune=True)
     await _load_script("import_content").main()
     async with AsyncClient(transport=ASGITransport(app=main.app), base_url="http://t") as ac:
         yield ac
@@ -57,19 +57,24 @@ async def test_auth_flow(client):
 async def test_vocabulary(client):
     h, _ = await _user(client, "bob")
     r = (await client.get(f"{V}/vocabulary/words?hsk_level=HSK1&limit=200", headers=h)).json()
-    assert r["total"] == 150 and r["words"][0]["definitions"] and r["words"][0]["hsk_level"] == "HSK1"
-    w = next(x for x in r["words"] if x["simplified"] == "你好")
-    assert w["pinyin"] == "nǐ hǎo" and w["pinyin_numeric"] == "ni3 hao3"
-    assert (await client.get(f"{V}/vocabulary/words/{w['id']}", headers=h)).json()["simplified"] == "你好"
+    assert r["total"] == 510 and r["words"][0]["definitions"] and r["words"][0]["hsk_level"] == "HSK1"
+    thanks = (await client.get(f"{V}/vocabulary/words?search=谢谢", headers=h)).json()["words"]
+    w = next(x for x in thanks if x["simplified"] == "谢谢")
+    assert w["pinyin"] == "xiè xie" and w["pinyin_numeric"] == "xie4 xie5" and "thank" in " ".join(w["definitions"])
+    assert (await client.get(f"{V}/vocabulary/words/{w['id']}", headers=h)).json()["simplified"] == "谢谢"
     assert (await client.get(f"{V}/vocabulary/words/999999", headers=h)).status_code == 404
-    s = (await client.get(f"{V}/vocabulary/words?search=hello", headers=h)).json()
-    assert any(x["simplified"] == "你好" for x in s["words"])
-    # duplicates collapsed to lowest level
-    d = (await client.get(f"{V}/vocabulary/words?search=分钟", headers=h)).json()
-    assert [x["hsk_level"] for x in d["words"] if x["simplified"] == "分钟"] == ["HSK1"]
-    # un-filtered ordering: HSK1 words come before HSK3+ (NULL-rank regression)
+    s = (await client.get(f"{V}/vocabulary/words?search=thank", headers=h)).json()
+    assert any(x["simplified"] == "谢谢" for x in s["words"])
+    # heteronyms are separate cards with their own level + meaning
+    xing = {x["pinyin"]: x for x in (await client.get(f"{V}/vocabulary/words?search=行", headers=h)).json()["words"] if x["simplified"] == "行"}
+    assert xing["xíng"]["hsk_level"] == "HSK1" and xing["háng"]["hsk_level"] == "HSK3"
+    assert xing["xíng"]["definitions"] != xing["háng"]["definitions"]
+    # un-filtered ordering: lowest level first, never HSK3+ before HSK1 (NULL-rank regression)
     first = (await client.get(f"{V}/vocabulary/words?limit=5", headers=h)).json()["words"]
     assert all(x["hsk_level"] == "HSK1" for x in first)
+    totals = {lv: (await client.get(f"{V}/vocabulary/words?hsk_level={lv}&limit=1", headers=h)).json()["total"]
+              for lv in ("HSK1", "HSK6")}
+    assert totals == {"HSK1": 510, "HSK6": 1128}
 
 
 async def test_srs_review_cycle(client):
@@ -90,7 +95,7 @@ async def test_srs_review_cycle(client):
     assert (await client.post(f"{V}/vocabulary/review", json={"word_id": wid, "quality": 6}, headers=h)).status_code == 422
     assert (await client.post(f"{V}/vocabulary/review", json={"word_id": 999999, "quality": 3}, headers=h)).status_code == 404
     prog = (await client.get(f"{V}/vocabulary/progress", headers=h)).json()
-    assert prog["user_xp"] == 11 and prog["levels"]["HSK1"]["total"] == 150
+    assert prog["user_xp"] == 11 and prog["levels"]["HSK1"]["total"] == 510
     assert (await client.get(f"{V}/auth/me", headers=h)).json()["xp"] == 11
 
 
@@ -154,26 +159,28 @@ async def test_audio_route(client):
     h, _ = await _user(client, "gina")
     f = ROOT / "backend" / "data" / "audio" / "hsk1"
     f.mkdir(parents=True, exist_ok=True)
-    mp3 = f / "测试.mp3"
+    mp3 = f / "zz_fixture.mp3"
     mp3.write_bytes(b"ID3fake")
     try:
-        r = await client.get(f"{V}/audio/hsk1/测试.mp3")
+        r = await client.get(f"{V}/audio/hsk1/zz_fixture.mp3")
         assert r.status_code == 200 and r.headers["content-type"] == "audio/mpeg"
     finally:
         mp3.unlink()
     # word payloads expose a local file as audio_path once it exists, null otherwise
-    w = (await client.get(f"{V}/vocabulary/words?search=你好", headers=h)).json()["words"][0]
+    w = (await client.get(f"{V}/vocabulary/words?search=谢谢", headers=h)).json()["words"][0]
     assert w["audio_path"] is None
     mp3.write_bytes(b"ID3fake")
     try:
-        fresh = {x["simplified"]: x for x in (await client.get(f"{V}/vocabulary/words?search=测试", headers=h)).json()["words"]}
-        assert not fresh  # no such word; audio_path only appears for real words
-        (f / "你好.mp3").write_bytes(b"ID3fake")
-        w = (await client.get(f"{V}/vocabulary/words?search=你好", headers=h)).json()["words"][0]
-        assert w["audio_path"] == "/api/v1/audio/hsk1/你好.mp3"
+        (f / "谢谢.mp3").write_bytes(b"ID3fake")
+        w = (await client.get(f"{V}/vocabulary/words?search=谢谢", headers=h)).json()["words"][0]
+        assert w["audio_path"] == "/api/v1/audio/hsk1/谢谢.mp3"
         assert (await client.get(f"{V}{w['audio_path'][len('/api/v1'):]}")).status_code == 200
+        # a reading-specific recording takes precedence over the plain one
+        (f / "谢谢_xie4xie5.mp3").write_bytes(b"ID3fake")
+        w = (await client.get(f"{V}/vocabulary/words?search=谢谢", headers=h)).json()["words"][0]
+        assert w["audio_path"] == "/api/v1/audio/hsk1/谢谢_xie4xie5.mp3"
     finally:
-        mp3.unlink(missing_ok=True); (f / "你好.mp3").unlink(missing_ok=True)
+        mp3.unlink(missing_ok=True); (f / "谢谢.mp3").unlink(missing_ok=True); (f / "谢谢_xie4xie5.mp3").unlink(missing_ok=True)
     assert (await client.get(f"{V}/audio/hsk1/nope.mp3")).status_code == 404
     assert (await client.get(f"{V}/audio/hsk1/..%2F..%2Fmain.py")).status_code == 404
     assert (await client.get(f"{V}/audio/hsk1/x.txt")).status_code == 404
