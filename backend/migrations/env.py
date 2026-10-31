@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # import the ap
 
 from core.config import settings  # noqa: E402
 from db.database import Base  # noqa: E402
-import models.user, models.vocabulary, models.reading, models.grammar, models.hsk_test  # noqa: E401,E402,F401
+import models.user, models.vocabulary, models.reading, models.grammar, models.hsk_test, models.writing  # noqa: E401,E402,F401
 
 target_metadata = Base.metadata
 URL = settings.DATABASE_URL.replace("postgresql://", "postgresql+asyncpg://")

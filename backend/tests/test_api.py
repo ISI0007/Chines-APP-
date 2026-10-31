@@ -219,3 +219,29 @@ async def test_activity_updates_streak(client):
     await client.post(f"{V}/reading/texts/1/complete", json={}, headers=h)
     assert (await client.get(f"{V}/auth/me", headers=h)).json()["streak_days"] == 1
     assert (await client.get(f"{V}/vocabulary/progress", headers=h)).json()["streak_days"] == 1
+
+
+async def test_writing_module(client):
+    h, _ = await _user(client, "writer")
+    h1 = (await client.get(f"{V}/writing/characters?hsk_level=HSK1", headers=h)).json()
+    assert len(h1) >= 90 and h1[0]["char"] and h1[0]["pinyin"] and h1[0]["meaning"]
+    assert all(c["times_practiced"] == 0 and not c["mastered"] for c in h1)
+    assert "correct_option" not in h1[0]  # never leak answer-like fields; just curriculum
+    cid = h1[0]["id"]
+    # first practice -> +3 XP, times_practiced 1
+    r = (await client.post(f"{V}/writing/characters/{cid}/practice", json={}, headers=h)).json()
+    assert r["times_practiced"] == 1 and r["xp_gained"] == 3 and not r["mastered"]
+    # practice again + master -> +5 XP, no double first-practice XP
+    r = (await client.post(f"{V}/writing/characters/{cid}/practice", json={"mastered": True}, headers=h)).json()
+    assert r["times_practiced"] == 2 and r["mastered"] and r["xp_gained"] == 5
+    # mastering again earns nothing more
+    r = (await client.post(f"{V}/writing/characters/{cid}/practice", json={"mastered": True}, headers=h)).json()
+    assert r["xp_gained"] == 0 and r["times_practiced"] == 3
+    assert (await client.post(f"{V}/writing/characters/999999/practice", json={}, headers=h)).status_code == 404
+    me = (await client.get(f"{V}/auth/me", headers=h)).json()
+    assert me["xp"] == 8 and me["streak_days"] == 1          # 3 + 5, streak started
+    prog = (await client.get(f"{V}/writing/progress", headers=h)).json()["levels"]
+    assert prog["HSK1"]["practiced"] == 1 and prog["HSK1"]["mastered"] == 1 and prog["HSK1"]["total"] >= 90
+    # the practiced flag shows up in the listing
+    again = (await client.get(f"{V}/writing/characters?hsk_level=HSK1", headers=h)).json()
+    assert next(c for c in again if c["id"] == cid)["mastered"] is True

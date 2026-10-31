@@ -7,7 +7,7 @@ from core.config import settings
 from db.database import init_db
 
 # Import every model so Base.metadata.create_all() sees all tables.
-import models.user, models.vocabulary, models.reading, models.grammar, models.hsk_test  # noqa: E401,F401
+import models.user, models.vocabulary, models.reading, models.grammar, models.hsk_test, models.writing  # noqa: E401,F401
 
 from api.routes.auth import router as auth_router
 from api.routes.vocabulary import router as vocab_router
@@ -15,6 +15,7 @@ from api.routes.audio import router as audio_router
 from api.routes.reading import router as reading_router
 from api.routes.grammar import router as grammar_router
 from api.routes.tests import router as tests_router
+from api.routes.writing import router as writing_router
 
 
 @asynccontextmanager
@@ -44,7 +45,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-for r in (auth_router, vocab_router, audio_router, reading_router, grammar_router, tests_router):
+for r in (auth_router, vocab_router, audio_router, reading_router, grammar_router, tests_router, writing_router):
     app.include_router(r, prefix="/api/v1")
 
 
