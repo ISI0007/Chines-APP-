@@ -246,3 +246,12 @@ export interface HealthResponse {
   status:  string;
   version: string;
 }
+
+// ─── Backwards-compatible aliases (used by existing Codex screens) ────────────
+
+/** @deprecated use VocabProgress */
+export type Progress         = VocabProgress;
+/** @deprecated use TestStartResponse */
+export type TestAttempt      = TestStartResponse;
+/** @deprecated use XpResponse */
+export type CompletionResult = XpResponse;
