@@ -30,11 +30,40 @@ function wav() {
     let reviews = []; let searchSeen = false; let localAudio = 0; let tts = 0; let failSave = false;
     let attempts = 0; let testSubmissions = 0; let lastAnswers; let testLevel; let duplicateSubmit = false;
     const testHistory = [];
+    let readingDone = false; let grammarDone = false; let readingPosts = 0; let grammarPosts = 0;
+    let readingFetchFail = true; let grammarSaveFail = true; let profileXp = 0;
+    const story = { id: 1, title: '我的家', title_pinyin: 'wǒ de jiā', topic: 'Family', hsk_level: 'HSK1', word_count: 12, content: '我爱我的家。\n我的家有三个人。', content_pinyin: 'wǒ ài wǒ de jiā. wǒ de jiā yǒu sān gè rén.', translation: 'I love my family. There are three people in my family.', audio_path: null };
+    const lesson = { id: 1, title: 'Using 是', hsk_level: 'HSK1', pattern: 'Subject + 是 + noun', order_index: 1, explanation: 'Use 是 to identify someone or something.', examples: [{ zh: '我是学生。', pinyin: 'wǒ shì xué sheng.', en: 'I am a student.' }] };
     const word = { id: 1, simplified: '你好', traditional: '你好', pinyin: 'nǐ hǎo', definitions: ['hello'], hsk_level: 'HSK1', audio_path: '/api/v1/audio/hsk1/你好.mp3' };
     await page.route('**/translate_tts?**', route => { tts++; return route.fulfill({ contentType: 'audio/wav', body: wav() }); });
     await page.route('http://localhost:8000/**', async route => {
       const request = route.request(); const url = new URL(request.url());
       const send = data => route.fulfill({ contentType: 'application/json', body: JSON.stringify(data) });
+      if (url.pathname.endsWith('/reading/texts')) {
+        if (readingFetchFail) { readingFetchFail = false; return route.fulfill({ status: 500, body: '{}' }); }
+        return send(url.searchParams.get('hsk_level') === 'HSK1' ? [{ ...story, completed: readingDone }, { ...story, id: 2, title: '在学校', topic: 'School', completed: false }] : []);
+      }
+      if (url.pathname.endsWith('/reading/texts/1')) return send({ ...story, completed: readingDone });
+      if (url.pathname.endsWith('/reading/texts/999')) return route.fulfill({ status: 404, contentType: 'application/json', body: JSON.stringify({ detail: 'Text not found' }) });
+      if (url.pathname.endsWith('/reading/texts/1/complete')) {
+        readingPosts++;
+        assert.deepEqual(request.postDataJSON(), {});
+        const xp = readingDone ? 0 : 10; readingDone = true; profileXp += xp;
+        await new Promise(resolve => setTimeout(resolve, 100));
+        return send({ xp_gained: xp, total_xp: profileXp });
+      }
+      if (url.pathname.endsWith('/grammar/lessons')) return send(url.searchParams.get('hsk_level') === 'HSK1' ? [{ ...lesson, completed: grammarDone }] : []);
+      if (url.pathname.endsWith('/grammar/lessons/1')) return send({ ...lesson, completed: grammarDone });
+      if (url.pathname.endsWith('/grammar/lessons/1/complete')) {
+        grammarPosts++;
+        if (grammarSaveFail) {
+          // The server saved it, but the response was lost. Retrying must add no XP.
+          grammarSaveFail = false; grammarDone = true; profileXp += 10;
+          return route.fulfill({ status: 500, body: '{}' });
+        }
+        const xp = grammarDone ? 0 : 10; grammarDone = true; profileXp += xp;
+        return send({ xp_gained: xp, total_xp: profileXp });
+      }
       if (url.pathname.endsWith('/tests/history')) return send(testHistory);
       if (url.pathname.endsWith('/tests/start')) {
         testLevel = url.searchParams.get('hsk_level');
@@ -57,7 +86,7 @@ function wav() {
         ] });
       }
       if (url.pathname.includes('/audio/')) { localAudio++; return route.fulfill({ status: 404, body: '' }); }
-      if (url.pathname.endsWith('/auth/me')) return send({ id: 1, username: 'Student', email: 'test@example.com', hsk_level: 'HSK1', xp: reviews.length * 5, streak_days: 2 });
+      if (url.pathname.endsWith('/auth/me')) return send({ id: 1, username: 'Student', email: 'test@example.com', hsk_level: 'HSK1', xp: profileXp, streak_days: 2 });
       if (url.pathname.endsWith('/review') && request.method() === 'POST') {
         if (failSave) return route.fulfill({ status: 500, body: '{}' });
         reviews.push(request.postDataJSON()); return send({ word_id: 1, next_review: '2026-11-07T10:00:00Z', interval_days: 6, xp_gained: 5 });
@@ -167,8 +196,62 @@ function wav() {
     await page.getByRole('button', { name: 'Confirm submission', exact: true }).click();
     await page.getByText('This attempt was submitted. See its score in recent attempts.', { exact: true }).waitFor();
     assert.equal(testSubmissions, 2);
+    await page.goto(origin);
+    await page.getByText('Read HSK1 stories', { exact: true }).click();
+    await page.getByText('Could not load this content. Check your connection and try again.', { exact: true }).waitFor();
+    await page.getByRole('button', { name: 'Try again', exact: true }).click();
+    await page.getByRole('button', { name: 'Read 我的家', exact: true }).waitFor();
+    await page.getByRole('button', { name: 'Family', exact: true }).click();
+    assert.equal(await page.getByRole('button', { name: 'Read 在学校', exact: true }).count(), 0);
+    await page.getByRole('button', { name: 'HSK 2', exact: true }).click();
+    await page.getByText('No HSK2 reading texts yet. Choose HSK1 to start reading.', { exact: true }).waitFor();
+    await page.getByRole('button', { name: 'HSK 1', exact: true }).click();
+    await page.getByRole('button', { name: 'Read 我的家', exact: true }).click();
+    await page.getByText(story.content, { exact: true }).waitFor();
+    assert.equal(await page.getByText(story.content_pinyin, { exact: true }).count(), 0);
+    assert.equal(await page.getByText(story.translation, { exact: true }).count(), 0);
+    await page.getByRole('button', { name: 'Pinyin', exact: true }).click();
+    await page.getByText(story.content_pinyin, { exact: true }).waitFor();
+    await page.getByRole('button', { name: 'Translation', exact: true }).click();
+    await page.getByText(story.translation, { exact: true }).waitFor();
+    await page.getByRole('button', { name: 'Larger text', exact: true }).click();
+    assert.equal(await page.getByRole('button', { name: 'Larger text', exact: true }).getAttribute('aria-pressed'), 'true');
+    await page.getByText('No passage recording is available yet.', { exact: true }).waitFor();
+    assert.equal(await page.getByRole('button', { name: 'Listen to passage', exact: true }).count(), 0);
+    await page.screenshot({ path: path.resolve(__dirname, '../test-results/reading-mobile.png'), fullPage: true });
+    await page.getByRole('button', { name: 'Mark as read', exact: true }).evaluate(button => { button.click(); button.click(); });
+    await page.getByText('Completed · +10 XP', { exact: true }).waitFor();
+    assert.equal(readingPosts, 1);
+    await page.getByRole('link', { name: '← Reading library', exact: true }).click();
+    await page.getByRole('button', { name: 'Read 我的家', exact: true }).getByText('Completed', { exact: true }).waitFor();
+    await page.getByRole('button', { name: 'Read 我的家', exact: true }).click();
+    await page.getByRole('button', { name: 'Completed', exact: true }).waitFor();
+    assert.equal(await page.getByRole('button', { name: 'Completed', exact: true }).isDisabled(), true);
+    await page.goto(origin + '/reading/999');
+    await page.getByText('This lesson is no longer available. Return to the library to choose another.', { exact: true }).waitFor();
+    await page.goto(origin + '/reading/invalid');
+    await page.getByText('This lesson link is invalid.', { exact: true }).waitFor();
+    await page.goto(origin);
+    await page.getByText('Learn HSK1 patterns', { exact: true }).click();
+    await page.getByRole('button', { name: 'HSK 6', exact: true }).click();
+    await page.getByText('No HSK6 grammar lessons yet. Choose HSK1 to start learning.', { exact: true }).waitFor();
+    await page.getByRole('button', { name: 'HSK 1', exact: true }).click();
+    await page.getByRole('button', { name: 'Study Using 是', exact: true }).click();
+    await page.getByText(lesson.pattern, { exact: true }).filter({ visible: true }).waitFor();
+    await page.getByText(lesson.examples[0].pinyin, { exact: true }).waitFor();
+    await page.getByRole('button', { name: 'Translation', exact: true }).click();
+    assert.equal(await page.getByText(lesson.examples[0].en, { exact: true }).count(), 0);
+    await page.getByRole('button', { name: 'Translation', exact: true }).click();
+    await page.screenshot({ path: path.resolve(__dirname, '../test-results/grammar-mobile.png'), fullPage: true });
+    await page.getByRole('button', { name: 'Complete lesson', exact: true }).click();
+    await page.getByText('Completion could not be confirmed. Try again; XP is awarded only for the first completion.', { exact: true }).waitFor();
+    await page.getByRole('button', { name: 'Retry completion', exact: true }).click();
+    await page.getByText('Already completed · Your progress is saved', { exact: true }).waitFor();
+    assert.equal(grammarPosts, 2); assert.equal(profileXp, 20);
+    await page.getByRole('link', { name: '← Grammar library', exact: true }).click();
+    await page.getByRole('button', { name: 'Study Using 是', exact: true }).getByText('HSK1 · Completed', { exact: true }).waitFor();
     assert.deepEqual(errors, []);
-    console.log('PASS: vocabulary/review/audio/progress, HSK2/6 practice, draft restoration, unanswered questions, duplicate-click protection, results, history and 409 recovery (mock API).');
+    console.log('PASS: vocabulary/review/audio/progress/tests plus reading/grammar navigation, topics, HSK1 limits, display toggles, completion, XP/retry safety and missing lessons (mock API).');
   } catch (error) {
     if (page) console.error('Browser state:', await page.locator('body').innerText());
     throw error;

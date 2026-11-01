@@ -13,5 +13,10 @@ export default function Layout() {
     <Stack.Screen name="progress" options={{ title: "Your progress" }} />
     <Stack.Screen name="about" options={{ title: "About and sources" }} />
     <Stack.Screen name="tests" options={{ title: "HSK practice" }} />
+    <Stack.Screen name="reading/index" options={{ title: "Reading library" }} />
+    <Stack.Screen name="reading/[id]" options={{ title: "Read a story" }} />
+    <Stack.Screen name="grammar/index" options={{ title: "Grammar library" }} />
+    <Stack.Screen name="grammar/[id]" options={{ title: "Grammar lesson" }} />
+    <Stack.Screen name="writing" options={{ title: "Stroke practice" }} />
   </Stack>;
 }
