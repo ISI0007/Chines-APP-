@@ -1,536 +1,2091 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Chinese Learning App",
-    "version": "0.3.0",
-    "description": "Base URL: http://localhost:8000/api/v1  |  Auth: Bearer JWT"
+    "title": "ChineseLearn",
+    "description": "Backend API for Chinese language learning app",
+    "version": "0.3.0"
   },
-  "servers": [
-    { "url": "http://localhost:8000/api/v1", "description": "Local dev" }
-  ],
-  "components": {
-    "securitySchemes": {
-      "BearerAuth": { "type": "http", "scheme": "bearer", "bearerFormat": "JWT" }
+  "paths": {
+    "/api/v1/auth/register": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Register",
+        "operationId": "register_api_v1_auth_register_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
     },
-    "schemas": {
-      "HskLevel": { "type": "string", "enum": ["HSK1","HSK2","HSK3","HSK4","HSK5","HSK6"] },
-      "Answer":   { "type": "string", "enum": ["A","B","C","D"] },
-      "Word": {
-        "type": "object",
-        "properties": {
-          "id":                { "type": "integer" },
-          "simplified":        { "type": "string" },
-          "traditional":       { "type": "string", "nullable": true },
-          "pinyin":            { "type": "string" },
-          "pinyin_numeric":    { "type": "string", "nullable": true },
-          "definitions":       { "type": "array", "items": { "type": "string" } },
-          "hsk_level":         { "$ref": "#/components/schemas/HskLevel" },
-          "frequency_rank":    { "type": "integer", "nullable": true },
-          "audio_path":        { "type": "string", "nullable": true },
-          "stroke_order_data": { "type": "string", "nullable": true }
+    "/api/v1/auth/login": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Login",
+        "operationId": "login_api_v1_auth_login_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          },
+          "required": true
         },
-        "required": ["id","simplified","pinyin","definitions","hsk_level"]
-      },
-      "WordListResponse": {
-        "type": "object",
-        "properties": {
-          "total": { "type": "integer" },
-          "skip":  { "type": "integer" },
-          "limit": { "type": "integer" },
-          "words": { "type": "array", "items": { "$ref": "#/components/schemas/Word" } }
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/refresh": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Refresh",
+        "operationId": "refresh_api_v1_auth_refresh_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshRequest"
+              }
+            }
+          },
+          "required": true
         },
-        "required": ["total","skip","limit","words"]
-      },
-      "ReviewRequest": {
-        "type": "object",
-        "properties": {
-          "word_id": { "type": "integer" },
-          "quality": { "type": "integer", "minimum": 0, "maximum": 5 }
-        },
-        "required": ["word_id","quality"]
-      },
-      "ReviewResult": {
-        "type": "object",
-        "properties": {
-          "word_id":       { "type": "integer" },
-          "next_review":   { "type": "string", "format": "date-time" },
-          "interval_days": { "type": "integer" },
-          "ease_factor":   { "type": "number" },
-          "is_learned":    { "type": "boolean" },
-          "xp_gained":     { "type": "integer" }
-        },
-        "required": ["word_id","next_review","interval_days","ease_factor","is_learned","xp_gained"]
-      },
-      "VocabProgress": {
-        "type": "object",
-        "properties": {
-          "user_xp":     { "type": "integer" },
-          "streak_days": { "type": "integer" },
-          "levels": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object",
-              "properties": {
-                "total":          { "type": "integer" },
-                "learned":        { "type": "integer" },
-                "due_for_review": { "type": "integer" }
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/me": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Me",
+        "operationId": "me_api_v1_auth_me_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                }
               }
             }
           }
         },
-        "required": ["user_xp","streak_days","levels"]
-      },
-      "UserResponse": {
-        "type": "object",
-        "properties": {
-          "id":          { "type": "integer" },
-          "email":       { "type": "string" },
-          "username":    { "type": "string" },
-          "hsk_level":   { "$ref": "#/components/schemas/HskLevel" },
-          "xp":          { "type": "integer" },
-          "streak_days": { "type": "integer" },
-          "is_active":   { "type": "boolean" }
-        },
-        "required": ["id","email","username","hsk_level","xp","streak_days","is_active"]
-      },
-      "Tokens": {
-        "type": "object",
-        "properties": {
-          "access_token":  { "type": "string" },
-          "refresh_token": { "type": "string" },
-          "token_type":    { "type": "string" }
-        },
-        "required": ["access_token","refresh_token"]
-      },
-      "ReadingSummary": {
-        "type": "object",
-        "properties": {
-          "id":           { "type": "integer" },
-          "title":        { "type": "string" },
-          "title_pinyin": { "type": "string" },
-          "topic":        { "type": "string" },
-          "hsk_level":    { "$ref": "#/components/schemas/HskLevel" },
-          "word_count":   { "type": "integer" },
-          "completed":    { "type": "boolean" }
-        },
-        "required": ["id","title","title_pinyin","topic","hsk_level","word_count","completed"]
-      },
-      "ReadingDetail": {
-        "allOf": [
-          { "$ref": "#/components/schemas/ReadingSummary" },
+        "security": [
           {
-            "type": "object",
-            "properties": {
-              "content":        { "type": "string" },
-              "content_pinyin": { "type": "string" },
-              "translation":    { "type": "string" },
-              "audio_path":     { "type": "string", "nullable": true }
-            },
-            "required": ["content","content_pinyin","translation"]
+            "HTTPBearer": []
           }
         ]
-      },
-      "XpResponse": {
-        "type": "object",
-        "properties": {
-          "xp_gained": { "type": "integer" },
-          "total_xp":  { "type": "integer" }
-        },
-        "required": ["xp_gained","total_xp"]
-      },
-      "GrammarExample": {
-        "type": "object",
-        "properties": {
-          "zh":     { "type": "string" },
-          "pinyin": { "type": "string" },
-          "en":     { "type": "string" }
-        },
-        "required": ["zh","pinyin","en"]
-      },
-      "GrammarSummary": {
-        "type": "object",
-        "properties": {
-          "id":          { "type": "integer" },
-          "title":       { "type": "string" },
-          "hsk_level":   { "$ref": "#/components/schemas/HskLevel" },
-          "pattern":     { "type": "string" },
-          "order_index": { "type": "integer" },
-          "completed":   { "type": "boolean" }
-        },
-        "required": ["id","title","hsk_level","pattern","order_index","completed"]
-      },
-      "GrammarDetail": {
-        "allOf": [
-          { "$ref": "#/components/schemas/GrammarSummary" },
+      }
+    },
+    "/api/v1/vocabulary/words": {
+      "get": {
+        "tags": [
+          "vocabulary"
+        ],
+        "summary": "List Words",
+        "description": "List vocabulary words with optional filters.\n\nQuery params:\n- hsk_level: HSK1 | HSK2 | HSK3 | HSK4 | HSK5 | HSK6\n- search: full-text search across simplified, pinyin, definitions\n- skip / limit: pagination",
+        "operationId": "list_words_api_v1_vocabulary_words_get",
+        "security": [
           {
-            "type": "object",
-            "properties": {
-              "explanation": { "type": "string" },
-              "examples":    { "type": "array", "items": { "$ref": "#/components/schemas/GrammarExample" } }
-            },
-            "required": ["explanation","examples"]
+            "HTTPBearer": []
           }
-        ]
-      },
-      "TestQuestion": {
-        "type": "object",
-        "properties": {
-          "id":            { "type": "integer" },
-          "question_type": { "type": "string" },
-          "question_text": { "type": "string" },
-          "option_a":      { "type": "string" },
-          "option_b":      { "type": "string" },
-          "option_c":      { "type": "string" },
-          "option_d":      { "type": "string" },
-          "audio_path":    { "type": "string", "nullable": true }
-        },
-        "required": ["id","question_type","question_text","option_a","option_b","option_c","option_d"]
-      },
-      "TestStartResponse": {
-        "type": "object",
-        "properties": {
-          "attempt_id":      { "type": "integer" },
-          "hsk_level":       { "$ref": "#/components/schemas/HskLevel" },
-          "total_questions": { "type": "integer" },
-          "questions":       { "type": "array", "items": { "$ref": "#/components/schemas/TestQuestion" } }
-        },
-        "required": ["attempt_id","hsk_level","total_questions","questions"]
-      },
-      "TestSubmitRequest": {
-        "type": "object",
-        "properties": {
-          "answers": {
-            "type": "object",
-            "additionalProperties": { "$ref": "#/components/schemas/Answer" },
-            "description": "Keys are question IDs as strings: {\"12\": \"B\"}"
+        ],
+        "parameters": [
+          {
+            "name": "hsk_level",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/HskLevel"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Hsk Level"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 50
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Search"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Skip"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 200,
+              "minimum": 1,
+              "default": 50,
+              "title": "Limit"
+            }
           }
-        },
-        "required": ["answers"]
-      },
-      "QuestionResult": {
-        "type": "object",
-        "properties": {
-          "question_id": { "type": "integer" },
-          "chosen":      { "$ref": "#/components/schemas/Answer", "nullable": true },
-          "correct":     { "$ref": "#/components/schemas/Answer" },
-          "is_correct":  { "type": "boolean" },
-          "explanation": { "type": "string" }
-        },
-        "required": ["question_id","correct","is_correct","explanation"]
-      },
-      "TestResult": {
-        "type": "object",
-        "properties": {
-          "attempt_id":      { "type": "integer" },
-          "total_questions": { "type": "integer" },
-          "correct_answers": { "type": "integer" },
-          "score_percent":   { "type": "number" },
-          "passed":          { "type": "boolean" },
-          "xp_gained":       { "type": "integer" },
-          "results":         { "type": "array", "items": { "$ref": "#/components/schemas/QuestionResult" } }
-        },
-        "required": ["attempt_id","total_questions","correct_answers","score_percent","passed","xp_gained","results"]
-      },
-      "TestHistory": {
-        "type": "object",
-        "properties": {
-          "id":            { "type": "integer" },
-          "hsk_level":     { "$ref": "#/components/schemas/HskLevel" },
-          "score_percent": { "type": "number" },
-          "passed":        { "type": "boolean" },
-          "finished_at":   { "type": "string", "format": "date-time", "nullable": true }
-        },
-        "required": ["id","hsk_level","score_percent","passed"]
-      },
-      "WritingCharacter": {
-        "type": "object",
-        "properties": {
-          "id":              { "type": "integer" },
-          "char":            { "type": "string" },
-          "pinyin":          { "type": "string" },
-          "meaning":         { "type": "array", "items": { "type": "string" } },
-          "hsk_level":       { "$ref": "#/components/schemas/HskLevel" },
-          "times_practiced": { "type": "integer" },
-          "mastered":        { "type": "boolean" }
-        },
-        "required": ["id","char","pinyin","meaning","hsk_level","times_practiced","mastered"]
-      },
-      "PracticeResult": {
-        "type": "object",
-        "properties": {
-          "char_id":         { "type": "integer" },
-          "times_practiced": { "type": "integer" },
-          "mastered":        { "type": "boolean" },
-          "xp_gained":       { "type": "integer" },
-          "total_xp":        { "type": "integer" }
-        },
-        "required": ["char_id","times_practiced","mastered","xp_gained","total_xp"]
-      }
-    }
-  },
-  "security": [{ "BearerAuth": [] }],
-  "paths": {
-    "/auth/register": {
-      "post": {
-        "tags": ["auth"], "summary": "Register a new user", "security": [],
-        "requestBody": { "required": true, "content": { "application/json": { "schema": {
-          "type": "object",
-          "properties": { "email": {"type":"string","format":"email"}, "username": {"type":"string"}, "password": {"type":"string"} },
-          "required": ["email","username","password"]
-        }}}},
-        "responses": {
-          "201": { "description": "Created", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UserResponse" } } } }
-        }
-      }
-    },
-    "/auth/login": {
-      "post": {
-        "tags": ["auth"], "summary": "Login — get JWT tokens", "security": [],
-        "requestBody": { "required": true, "content": { "application/json": { "schema": {
-          "type": "object",
-          "properties": { "email": {"type":"string"}, "password": {"type":"string"} },
-          "required": ["email","password"]
-        }}}},
-        "responses": {
-          "200": { "description": "Tokens", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Tokens" } } } },
-          "401": { "description": "Invalid credentials" }
-        }
-      }
-    },
-    "/auth/refresh": {
-      "post": {
-        "tags": ["auth"], "summary": "Refresh access token", "security": [],
-        "requestBody": { "required": true, "content": { "application/json": { "schema": {
-          "type": "object", "properties": { "refresh_token": {"type":"string"} }, "required": ["refresh_token"]
-        }}}},
-        "responses": {
-          "200": { "description": "New tokens", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Tokens" } } } }
-        }
-      }
-    },
-    "/auth/me": {
-      "get": {
-        "tags": ["auth"], "summary": "Get current user",
-        "responses": {
-          "200": { "description": "User", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UserResponse" } } } }
-        }
-      }
-    },
-    "/vocabulary/words": {
-      "get": {
-        "tags": ["vocabulary"], "summary": "List words (paginated)",
-        "parameters": [
-          { "name": "hsk_level", "in": "query", "schema": { "$ref": "#/components/schemas/HskLevel" } },
-          { "name": "search",    "in": "query", "schema": { "type": "string" } },
-          { "name": "skip",      "in": "query", "schema": { "type": "integer", "default": 0 } },
-          { "name": "limit",     "in": "query", "schema": { "type": "integer", "default": 50, "maximum": 200 } }
         ],
         "responses": {
-          "200": { "description": "Word page", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WordListResponse" } } } }
-        }
-      }
-    },
-    "/vocabulary/words/{word_id}": {
-      "get": {
-        "tags": ["vocabulary"], "summary": "Get single word",
-        "parameters": [{ "name": "word_id", "in": "path", "required": true, "schema": { "type": "integer" } }],
-        "responses": {
-          "200": { "description": "Word", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Word" } } } },
-          "404": { "description": "Not found" }
-        }
-      }
-    },
-    "/vocabulary/review": {
-      "get": {
-        "tags": ["vocabulary"], "summary": "Get words due for SRS review",
-        "parameters": [
-          { "name": "hsk_level", "in": "query", "schema": { "$ref": "#/components/schemas/HskLevel" } },
-          { "name": "limit",     "in": "query", "schema": { "type": "integer", "default": 20 } }
-        ],
-        "responses": {
-          "200": { "description": "Due words", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Word" } } } } }
-        }
-      },
-      "post": {
-        "tags": ["vocabulary"], "summary": "Submit SM-2 review (quality 0-5)",
-        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ReviewRequest" } } } },
-        "responses": {
-          "200": { "description": "Updated SRS state", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ReviewResult" } } } }
-        }
-      }
-    },
-    "/vocabulary/progress": {
-      "get": {
-        "tags": ["vocabulary"], "summary": "Per-level vocab progress",
-        "responses": {
-          "200": { "description": "Progress", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/VocabProgress" } } } }
-        }
-      }
-    },
-    "/audio/{hsk_level}/{filename}": {
-      "get": {
-        "tags": ["audio"], "summary": "Serve audio file (no auth required)", "security": [],
-        "parameters": [
-          { "name": "hsk_level", "in": "path", "required": true, "schema": { "type": "string" }, "example": "hsk1" },
-          { "name": "filename",  "in": "path", "required": true, "schema": { "type": "string" }, "example": "谢谢.mp3" }
-        ],
-        "responses": {
-          "200": { "description": "MP3 audio", "content": { "audio/mpeg": {} } },
-          "404": { "description": "File not found" }
-        }
-      }
-    },
-    "/reading/texts": {
-      "get": {
-        "tags": ["reading"], "summary": "List graded reading texts",
-        "parameters": [
-          { "name": "hsk_level", "in": "query", "schema": { "$ref": "#/components/schemas/HskLevel" } },
-          { "name": "topic",     "in": "query", "schema": { "type": "string" } }
-        ],
-        "responses": {
-          "200": { "description": "Text list", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/ReadingSummary" } } } } }
-        }
-      }
-    },
-    "/reading/texts/{text_id}": {
-      "get": {
-        "tags": ["reading"], "summary": "Get reading text with full content",
-        "parameters": [{ "name": "text_id", "in": "path", "required": true, "schema": { "type": "integer" } }],
-        "responses": {
-          "200": { "description": "Full text", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ReadingDetail" } } } },
-          "404": { "description": "Not found" }
-        }
-      }
-    },
-    "/reading/texts/{text_id}/complete": {
-      "post": {
-        "tags": ["reading"], "summary": "Mark text complete (XP on first completion only)",
-        "parameters": [{ "name": "text_id", "in": "path", "required": true, "schema": { "type": "integer" } }],
-        "requestBody": { "required": false, "content": { "application/json": { "schema": {
-          "type": "object", "properties": { "comprehension_score": { "type": "number", "nullable": true } }
-        }}}},
-        "responses": {
-          "200": { "description": "XP", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/XpResponse" } } } }
-        }
-      }
-    },
-    "/grammar/lessons": {
-      "get": {
-        "tags": ["grammar"], "summary": "List grammar lessons",
-        "parameters": [{ "name": "hsk_level", "in": "query", "schema": { "$ref": "#/components/schemas/HskLevel" } }],
-        "responses": {
-          "200": { "description": "Lesson list", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/GrammarSummary" } } } } }
-        }
-      }
-    },
-    "/grammar/lessons/{lesson_id}": {
-      "get": {
-        "tags": ["grammar"], "summary": "Get lesson with examples",
-        "parameters": [{ "name": "lesson_id", "in": "path", "required": true, "schema": { "type": "integer" } }],
-        "responses": {
-          "200": { "description": "Lesson detail", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/GrammarDetail" } } } },
-          "404": { "description": "Not found" }
-        }
-      }
-    },
-    "/grammar/lessons/{lesson_id}/complete": {
-      "post": {
-        "tags": ["grammar"], "summary": "Mark grammar lesson complete",
-        "parameters": [{ "name": "lesson_id", "in": "path", "required": true, "schema": { "type": "integer" } }],
-        "responses": {
-          "200": { "description": "XP", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/XpResponse" } } } }
-        }
-      }
-    },
-    "/tests/start": {
-      "post": {
-        "tags": ["tests"], "summary": "Start an HSK mock test",
-        "parameters": [
-          { "name": "hsk_level",      "in": "query", "required": true, "schema": { "$ref": "#/components/schemas/HskLevel" } },
-          { "name": "num_questions",  "in": "query", "schema": { "type": "integer", "default": 20, "minimum": 1, "maximum": 60 } }
-        ],
-        "responses": {
-          "200": { "description": "Test started — correct answers NOT included", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TestStartResponse" } } } }
-        }
-      }
-    },
-    "/tests/{attempt_id}/submit": {
-      "post": {
-        "tags": ["tests"], "summary": "Submit test answers",
-        "parameters": [{ "name": "attempt_id", "in": "path", "required": true, "schema": { "type": "integer" } }],
-        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TestSubmitRequest" } } } },
-        "responses": {
-          "200": { "description": "Score + per-question results", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TestResult" } } } },
-          "404": { "description": "Attempt not found" },
-          "409": { "description": "Already submitted" }
-        }
-      }
-    },
-    "/tests/history": {
-      "get": {
-        "tags": ["tests"], "summary": "Get test history",
-        "parameters": [{ "name": "limit", "in": "query", "schema": { "type": "integer", "default": 20 } }],
-        "responses": {
-          "200": { "description": "History", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/TestHistory" } } } } }
-        }
-      }
-    },
-    "/writing/characters": {
-      "get": {
-        "tags": ["writing"], "summary": "List writing characters for a level",
-        "parameters": [{ "name": "hsk_level", "in": "query", "schema": { "$ref": "#/components/schemas/HskLevel" } }],
-        "responses": {
-          "200": { "description": "Characters", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/WritingCharacter" } } } } }
-        }
-      }
-    },
-    "/writing/characters/{char_id}/practice": {
-      "post": {
-        "tags": ["writing"], "summary": "Record a writing practice attempt",
-        "parameters": [{ "name": "char_id", "in": "path", "required": true, "schema": { "type": "integer" } }],
-        "requestBody": { "required": true, "content": { "application/json": { "schema": {
-          "type": "object", "properties": { "mastered": { "type": "boolean" } }, "required": ["mastered"]
-        }}}},
-        "responses": {
-          "200": { "description": "Practice result", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PracticeResult" } } } },
-          "404": { "description": "Character not found" }
-        }
-      }
-    },
-    "/writing/progress": {
-      "get": {
-        "tags": ["writing"], "summary": "Per-level writing progress",
-        "responses": {
-          "200": { "description": "Writing progress",
-            "content": { "application/json": { "schema": {
-              "type": "object",
-              "properties": {
-                "levels": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "object",
-                    "properties": {
-                      "total":     { "type": "integer" },
-                      "practiced": { "type": "integer" },
-                      "mastered":  { "type": "integer" }
-                    }
-                  }
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WordListResponse"
                 }
               }
-            }}}
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
           }
         }
+      }
+    },
+    "/api/v1/vocabulary/words/{word_id}": {
+      "get": {
+        "tags": [
+          "vocabulary"
+        ],
+        "summary": "Get Word",
+        "operationId": "get_word_api_v1_vocabulary_words__word_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "word_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Word Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WordResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/vocabulary/review": {
+      "get": {
+        "tags": [
+          "vocabulary"
+        ],
+        "summary": "Get Due Reviews",
+        "description": "Return words whose next_review is <= now (due for SRS review).\nNew words (no progress entry yet) are included up to the limit.",
+        "operationId": "get_due_reviews_api_v1_vocabulary_review_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "hsk_level",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/HskLevel"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Hsk Level"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WordResponse"
+                  },
+                  "title": "Response Get Due Reviews Api V1 Vocabulary Review Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "vocabulary"
+        ],
+        "summary": "Submit Review",
+        "description": "Submit a flashcard review result.\nquality: 0-5 (SM-2 scale: 0=blackout, 3=correct w/ difficulty, 5=perfect)",
+        "operationId": "submit_review_api_v1_vocabulary_review_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/vocabulary/progress": {
+      "get": {
+        "tags": [
+          "vocabulary"
+        ],
+        "summary": "Get Progress",
+        "description": "Return aggregate SRS progress per HSK level.",
+        "operationId": "get_progress_api_v1_vocabulary_progress_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/audio/{hsk_level}/{filename}": {
+      "get": {
+        "tags": [
+          "audio"
+        ],
+        "summary": "Serve Audio",
+        "description": "Stream a local MP3 audio file.\nExample: GET /api/v1/audio/hsk1/谢谢.mp3  (or 行_xing2.mp3 for a specific reading)\n\nIf the file doesn't exist, return 404.\nThe frontend should fall back to browser-side Google TTS for missing files.",
+        "operationId": "serve_audio_api_v1_audio__hsk_level___filename__get",
+        "parameters": [
+          {
+            "name": "hsk_level",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Hsk Level"
+            }
+          },
+          {
+            "name": "filename",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Filename"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/reading/texts": {
+      "get": {
+        "tags": [
+          "reading"
+        ],
+        "summary": "List Texts",
+        "operationId": "list_texts_api_v1_reading_texts_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "hsk_level",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/HskLevel"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Hsk Level"
+            }
+          },
+          {
+            "name": "topic",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Topic"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ReadingTextSummary"
+                  },
+                  "title": "Response List Texts Api V1 Reading Texts Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/reading/texts/{text_id}": {
+      "get": {
+        "tags": [
+          "reading"
+        ],
+        "summary": "Get Text",
+        "operationId": "get_text_api_v1_reading_texts__text_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "text_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Text Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadingTextDetail"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/reading/texts/{text_id}/complete": {
+      "post": {
+        "tags": [
+          "reading"
+        ],
+        "summary": "Complete Text",
+        "description": "Mark a text as read. XP is awarded only on the first completion.",
+        "operationId": "complete_text_api_v1_reading_texts__text_id__complete_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "text_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Text Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReadingCompleteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/XpResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/grammar/lessons": {
+      "get": {
+        "tags": [
+          "grammar"
+        ],
+        "summary": "List Lessons",
+        "operationId": "list_lessons_api_v1_grammar_lessons_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "hsk_level",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/HskLevel"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Hsk Level"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrammarLessonSummary"
+                  },
+                  "title": "Response List Lessons Api V1 Grammar Lessons Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/grammar/lessons/{lesson_id}": {
+      "get": {
+        "tags": [
+          "grammar"
+        ],
+        "summary": "Get Lesson",
+        "operationId": "get_lesson_api_v1_grammar_lessons__lesson_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "lesson_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Lesson Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrammarLessonDetail"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/grammar/lessons/{lesson_id}/complete": {
+      "post": {
+        "tags": [
+          "grammar"
+        ],
+        "summary": "Complete Lesson",
+        "description": "Mark a lesson complete. XP is awarded only the first time.",
+        "operationId": "complete_lesson_api_v1_grammar_lessons__lesson_id__complete_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "lesson_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Lesson Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/XpResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tests/start": {
+      "post": {
+        "tags": [
+          "tests"
+        ],
+        "summary": "Start Test",
+        "operationId": "start_test_api_v1_tests_start_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "hsk_level",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/HskLevel"
+            }
+          },
+          {
+            "name": "num_questions",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 60,
+              "minimum": 1,
+              "default": 20,
+              "title": "Num Questions"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestStartResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tests/{attempt_id}/submit": {
+      "post": {
+        "tags": [
+          "tests"
+        ],
+        "summary": "Submit Test",
+        "operationId": "submit_test_api_v1_tests__attempt_id__submit_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "attempt_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Attempt Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TestSubmitRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestResultResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tests/history": {
+      "get": {
+        "tags": [
+          "tests"
+        ],
+        "summary": "History",
+        "operationId": "history_api_v1_tests_history_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TestHistoryItem"
+                  },
+                  "title": "Response History Api V1 Tests History Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/writing/characters": {
+      "get": {
+        "tags": [
+          "writing"
+        ],
+        "summary": "List Characters",
+        "description": "Writing-character curriculum for a level (official 书写字), in syllabus order, with the\nuser's practice state. Render strokes on the client with hanzi-writer using `char`.",
+        "operationId": "list_characters_api_v1_writing_characters_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "hsk_level",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/HskLevel"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Hsk Level"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CharacterResponse"
+                  },
+                  "title": "Response List Characters Api V1 Writing Characters Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/writing/characters/{char_id}/practice": {
+      "post": {
+        "tags": [
+          "writing"
+        ],
+        "summary": "Practice",
+        "description": "Record one practice of a character. XP on first practice and on first mastery.",
+        "operationId": "practice_api_v1_writing_characters__char_id__practice_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "char_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Char Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PracticeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PracticeResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/writing/progress": {
+      "get": {
+        "tags": [
+          "writing"
+        ],
+        "summary": "Writing Progress",
+        "description": "Per-level writing progress: total characters, how many practiced, how many mastered.",
+        "operationId": "writing_progress_api_v1_writing_progress_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
       }
     },
     "/health": {
       "get": {
-        "tags": ["health"], "summary": "Health check (no auth)", "security": [],
+        "tags": [
+          "health"
+        ],
+        "summary": "Health",
+        "operationId": "health_health_get",
         "responses": {
-          "200": { "description": "ok", "content": { "application/json": { "schema": {
-            "type": "object",
-            "properties": { "status": {"type":"string"}, "version": {"type":"string"} }
-          }}}}
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
         }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CharacterResponse": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "char": {
+            "type": "string",
+            "title": "Char"
+          },
+          "pinyin": {
+            "type": "string",
+            "title": "Pinyin"
+          },
+          "meaning": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Meaning"
+          },
+          "hsk_level": {
+            "$ref": "#/components/schemas/HskLevel"
+          },
+          "times_practiced": {
+            "type": "integer",
+            "title": "Times Practiced",
+            "default": 0
+          },
+          "mastered": {
+            "type": "boolean",
+            "title": "Mastered",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "char",
+          "pinyin",
+          "meaning",
+          "hsk_level"
+        ],
+        "title": "CharacterResponse"
+      },
+      "GrammarExample": {
+        "properties": {
+          "zh": {
+            "type": "string",
+            "title": "Zh"
+          },
+          "pinyin": {
+            "type": "string",
+            "title": "Pinyin"
+          },
+          "en": {
+            "type": "string",
+            "title": "En"
+          }
+        },
+        "type": "object",
+        "required": [
+          "zh",
+          "pinyin",
+          "en"
+        ],
+        "title": "GrammarExample"
+      },
+      "GrammarLessonDetail": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "hsk_level": {
+            "$ref": "#/components/schemas/HskLevel"
+          },
+          "pattern": {
+            "type": "string",
+            "title": "Pattern"
+          },
+          "order_index": {
+            "type": "integer",
+            "title": "Order Index"
+          },
+          "completed": {
+            "type": "boolean",
+            "title": "Completed",
+            "default": false
+          },
+          "explanation": {
+            "type": "string",
+            "title": "Explanation"
+          },
+          "examples": {
+            "items": {
+              "$ref": "#/components/schemas/GrammarExample"
+            },
+            "type": "array",
+            "title": "Examples"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "hsk_level",
+          "pattern",
+          "order_index",
+          "explanation",
+          "examples"
+        ],
+        "title": "GrammarLessonDetail"
+      },
+      "GrammarLessonSummary": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "hsk_level": {
+            "$ref": "#/components/schemas/HskLevel"
+          },
+          "pattern": {
+            "type": "string",
+            "title": "Pattern"
+          },
+          "order_index": {
+            "type": "integer",
+            "title": "Order Index"
+          },
+          "completed": {
+            "type": "boolean",
+            "title": "Completed",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "hsk_level",
+          "pattern",
+          "order_index"
+        ],
+        "title": "GrammarLessonSummary"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HskLevel": {
+        "type": "string",
+        "enum": [
+          "HSK1",
+          "HSK2",
+          "HSK3",
+          "HSK4",
+          "HSK5",
+          "HSK6"
+        ],
+        "title": "HskLevel"
+      },
+      "LoginRequest": {
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email"
+          },
+          "password": {
+            "type": "string",
+            "title": "Password"
+          }
+        },
+        "type": "object",
+        "required": [
+          "email",
+          "password"
+        ],
+        "title": "LoginRequest"
+      },
+      "PracticeRequest": {
+        "properties": {
+          "mastered": {
+            "type": "boolean",
+            "title": "Mastered",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "PracticeRequest"
+      },
+      "PracticeResponse": {
+        "properties": {
+          "char_id": {
+            "type": "integer",
+            "title": "Char Id"
+          },
+          "times_practiced": {
+            "type": "integer",
+            "title": "Times Practiced"
+          },
+          "mastered": {
+            "type": "boolean",
+            "title": "Mastered"
+          },
+          "xp_gained": {
+            "type": "integer",
+            "title": "Xp Gained"
+          },
+          "total_xp": {
+            "type": "integer",
+            "title": "Total Xp"
+          }
+        },
+        "type": "object",
+        "required": [
+          "char_id",
+          "times_practiced",
+          "mastered",
+          "xp_gained",
+          "total_xp"
+        ],
+        "title": "PracticeResponse"
+      },
+      "QuestionResult": {
+        "properties": {
+          "question_id": {
+            "type": "integer",
+            "title": "Question Id"
+          },
+          "chosen": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Chosen"
+          },
+          "correct": {
+            "type": "string",
+            "title": "Correct"
+          },
+          "is_correct": {
+            "type": "boolean",
+            "title": "Is Correct"
+          },
+          "explanation": {
+            "type": "string",
+            "title": "Explanation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "question_id",
+          "chosen",
+          "correct",
+          "is_correct",
+          "explanation"
+        ],
+        "title": "QuestionResult"
+      },
+      "ReadingCompleteRequest": {
+        "properties": {
+          "comprehension_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Comprehension Score"
+          }
+        },
+        "type": "object",
+        "title": "ReadingCompleteRequest"
+      },
+      "ReadingTextDetail": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "title_pinyin": {
+            "type": "string",
+            "title": "Title Pinyin"
+          },
+          "topic": {
+            "type": "string",
+            "title": "Topic"
+          },
+          "hsk_level": {
+            "$ref": "#/components/schemas/HskLevel"
+          },
+          "word_count": {
+            "type": "integer",
+            "title": "Word Count"
+          },
+          "completed": {
+            "type": "boolean",
+            "title": "Completed",
+            "default": false
+          },
+          "content": {
+            "type": "string",
+            "title": "Content"
+          },
+          "content_pinyin": {
+            "type": "string",
+            "title": "Content Pinyin"
+          },
+          "translation": {
+            "type": "string",
+            "title": "Translation"
+          },
+          "audio_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Audio Path"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "title_pinyin",
+          "topic",
+          "hsk_level",
+          "word_count",
+          "content",
+          "content_pinyin",
+          "translation"
+        ],
+        "title": "ReadingTextDetail"
+      },
+      "ReadingTextSummary": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "title_pinyin": {
+            "type": "string",
+            "title": "Title Pinyin"
+          },
+          "topic": {
+            "type": "string",
+            "title": "Topic"
+          },
+          "hsk_level": {
+            "$ref": "#/components/schemas/HskLevel"
+          },
+          "word_count": {
+            "type": "integer",
+            "title": "Word Count"
+          },
+          "completed": {
+            "type": "boolean",
+            "title": "Completed",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "title_pinyin",
+          "topic",
+          "hsk_level",
+          "word_count"
+        ],
+        "title": "ReadingTextSummary"
+      },
+      "RefreshRequest": {
+        "properties": {
+          "refresh_token": {
+            "type": "string",
+            "title": "Refresh Token"
+          }
+        },
+        "type": "object",
+        "required": [
+          "refresh_token"
+        ],
+        "title": "RefreshRequest"
+      },
+      "RegisterRequest": {
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email"
+          },
+          "username": {
+            "type": "string",
+            "title": "Username"
+          },
+          "password": {
+            "type": "string",
+            "title": "Password"
+          }
+        },
+        "type": "object",
+        "required": [
+          "email",
+          "username",
+          "password"
+        ],
+        "title": "RegisterRequest"
+      },
+      "ReviewRequest": {
+        "properties": {
+          "word_id": {
+            "type": "integer",
+            "title": "Word Id"
+          },
+          "quality": {
+            "type": "integer",
+            "title": "Quality"
+          }
+        },
+        "type": "object",
+        "required": [
+          "word_id",
+          "quality"
+        ],
+        "title": "ReviewRequest",
+        "description": "Body for POST /vocabulary/review"
+      },
+      "ReviewResponse": {
+        "properties": {
+          "word_id": {
+            "type": "integer",
+            "title": "Word Id"
+          },
+          "next_review": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Next Review"
+          },
+          "interval_days": {
+            "type": "integer",
+            "title": "Interval Days"
+          },
+          "ease_factor": {
+            "type": "number",
+            "title": "Ease Factor"
+          },
+          "is_learned": {
+            "type": "boolean",
+            "title": "Is Learned"
+          },
+          "xp_gained": {
+            "type": "integer",
+            "title": "Xp Gained"
+          }
+        },
+        "type": "object",
+        "required": [
+          "word_id",
+          "next_review",
+          "interval_days",
+          "ease_factor",
+          "is_learned",
+          "xp_gained"
+        ],
+        "title": "ReviewResponse",
+        "description": "Result of a submitted flashcard review."
+      },
+      "TestHistoryItem": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "hsk_level": {
+            "$ref": "#/components/schemas/HskLevel"
+          },
+          "score_percent": {
+            "type": "number",
+            "title": "Score Percent"
+          },
+          "passed": {
+            "type": "boolean",
+            "title": "Passed"
+          },
+          "finished_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finished At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "hsk_level",
+          "score_percent",
+          "passed",
+          "finished_at"
+        ],
+        "title": "TestHistoryItem"
+      },
+      "TestQuestion": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "question_type": {
+            "type": "string",
+            "title": "Question Type"
+          },
+          "question_text": {
+            "type": "string",
+            "title": "Question Text"
+          },
+          "option_a": {
+            "type": "string",
+            "title": "Option A"
+          },
+          "option_b": {
+            "type": "string",
+            "title": "Option B"
+          },
+          "option_c": {
+            "type": "string",
+            "title": "Option C"
+          },
+          "option_d": {
+            "type": "string",
+            "title": "Option D"
+          },
+          "audio_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Audio Path"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "question_type",
+          "question_text",
+          "option_a",
+          "option_b",
+          "option_c",
+          "option_d"
+        ],
+        "title": "TestQuestion",
+        "description": "Question as shown to the user — correct answer is NOT included."
+      },
+      "TestResultResponse": {
+        "properties": {
+          "attempt_id": {
+            "type": "integer",
+            "title": "Attempt Id"
+          },
+          "total_questions": {
+            "type": "integer",
+            "title": "Total Questions"
+          },
+          "correct_answers": {
+            "type": "integer",
+            "title": "Correct Answers"
+          },
+          "score_percent": {
+            "type": "number",
+            "title": "Score Percent"
+          },
+          "passed": {
+            "type": "boolean",
+            "title": "Passed"
+          },
+          "xp_gained": {
+            "type": "integer",
+            "title": "Xp Gained"
+          },
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/QuestionResult"
+            },
+            "type": "array",
+            "title": "Results"
+          }
+        },
+        "type": "object",
+        "required": [
+          "attempt_id",
+          "total_questions",
+          "correct_answers",
+          "score_percent",
+          "passed",
+          "xp_gained",
+          "results"
+        ],
+        "title": "TestResultResponse"
+      },
+      "TestStartResponse": {
+        "properties": {
+          "attempt_id": {
+            "type": "integer",
+            "title": "Attempt Id"
+          },
+          "hsk_level": {
+            "$ref": "#/components/schemas/HskLevel"
+          },
+          "total_questions": {
+            "type": "integer",
+            "title": "Total Questions"
+          },
+          "questions": {
+            "items": {
+              "$ref": "#/components/schemas/TestQuestion"
+            },
+            "type": "array",
+            "title": "Questions"
+          }
+        },
+        "type": "object",
+        "required": [
+          "attempt_id",
+          "hsk_level",
+          "total_questions",
+          "questions"
+        ],
+        "title": "TestStartResponse"
+      },
+      "TestSubmitRequest": {
+        "properties": {
+          "answers": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Answers"
+          }
+        },
+        "type": "object",
+        "required": [
+          "answers"
+        ],
+        "title": "TestSubmitRequest"
+      },
+      "TokenResponse": {
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "title": "Access Token"
+          },
+          "refresh_token": {
+            "type": "string",
+            "title": "Refresh Token"
+          },
+          "token_type": {
+            "type": "string",
+            "title": "Token Type",
+            "default": "bearer"
+          }
+        },
+        "type": "object",
+        "required": [
+          "access_token",
+          "refresh_token"
+        ],
+        "title": "TokenResponse"
+      },
+      "UserResponse": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "email": {
+            "type": "string",
+            "title": "Email"
+          },
+          "username": {
+            "type": "string",
+            "title": "Username"
+          },
+          "hsk_level": {
+            "type": "string",
+            "title": "Hsk Level"
+          },
+          "xp": {
+            "type": "integer",
+            "title": "Xp"
+          },
+          "streak_days": {
+            "type": "integer",
+            "title": "Streak Days"
+          },
+          "is_active": {
+            "type": "boolean",
+            "title": "Is Active"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "email",
+          "username",
+          "hsk_level",
+          "xp",
+          "streak_days",
+          "is_active"
+        ],
+        "title": "UserResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "WordListResponse": {
+        "properties": {
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "skip": {
+            "type": "integer",
+            "title": "Skip"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          },
+          "words": {
+            "items": {
+              "$ref": "#/components/schemas/WordResponse"
+            },
+            "type": "array",
+            "title": "Words"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total",
+          "skip",
+          "limit",
+          "words"
+        ],
+        "title": "WordListResponse",
+        "description": "Paginated list of words."
+      },
+      "WordResponse": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "simplified": {
+            "type": "string",
+            "title": "Simplified"
+          },
+          "traditional": {
+            "type": "string",
+            "title": "Traditional"
+          },
+          "pinyin": {
+            "type": "string",
+            "title": "Pinyin"
+          },
+          "pinyin_numeric": {
+            "type": "string",
+            "title": "Pinyin Numeric"
+          },
+          "definitions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Definitions"
+          },
+          "hsk_level": {
+            "$ref": "#/components/schemas/HskLevel"
+          },
+          "frequency_rank": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Frequency Rank"
+          },
+          "audio_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Audio Path"
+          },
+          "stroke_order_data": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stroke Order Data"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "simplified",
+          "traditional",
+          "pinyin",
+          "pinyin_numeric",
+          "definitions",
+          "hsk_level"
+        ],
+        "title": "WordResponse",
+        "description": "Single word detail returned by the API."
+      },
+      "XpResponse": {
+        "properties": {
+          "xp_gained": {
+            "type": "integer",
+            "title": "Xp Gained"
+          },
+          "total_xp": {
+            "type": "integer",
+            "title": "Total Xp"
+          }
+        },
+        "type": "object",
+        "required": [
+          "xp_gained",
+          "total_xp"
+        ],
+        "title": "XpResponse"
+      }
+    },
+    "securitySchemes": {
+      "HTTPBearer": {
+        "type": "http",
+        "scheme": "bearer"
       }
     }
   }
