@@ -16,6 +16,7 @@ from api.routes.reading import router as reading_router
 from api.routes.grammar import router as grammar_router
 from api.routes.tests import router as tests_router
 from api.routes.writing import router as writing_router
+from api.routes.users import router as users_router
 
 
 @asynccontextmanager
@@ -45,7 +46,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-for r in (auth_router, vocab_router, audio_router, reading_router, grammar_router, tests_router, writing_router):
+for r in (auth_router, vocab_router, audio_router, reading_router, grammar_router, tests_router, writing_router, users_router):
     app.include_router(r, prefix="/api/v1")
 
 

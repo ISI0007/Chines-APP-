@@ -239,6 +239,26 @@ export interface WritingProgress {
   levels: Record<HskLevel, WritingLevelProgress>;
 }
 
+// ─── Leaderboard ─────────────────────────────────────────────────────────────
+
+/** One row in the leaderboard table */
+export interface LeaderboardEntry {
+  rank:        number;
+  user_id:     number;
+  username:    string;
+  hsk_level:   HskLevel;
+  xp:          number;
+  streak_days: number;
+}
+
+/** GET /users/leaderboard */
+export interface LeaderboardResponse {
+  /** Top-N users by XP */
+  top: LeaderboardEntry[];
+  /** Current user's position if they are outside the top-N list; null otherwise */
+  me:  LeaderboardEntry | null;
+}
+
 // ─── Health ───────────────────────────────────────────────────────────────────
 
 /** GET /health  (no auth required) */

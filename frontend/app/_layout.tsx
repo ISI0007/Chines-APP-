@@ -18,5 +18,6 @@ export default function Layout() {
     <Stack.Screen name="grammar/index" options={{ title: "Grammar library" }} />
     <Stack.Screen name="grammar/[id]" options={{ title: "Grammar lesson" }} />
     <Stack.Screen name="writing" options={{ title: "Stroke practice" }} />
+    <Stack.Screen name="leaderboard" options={{ title: "Leaderboard" }} />
   </Stack>;
 }
