@@ -27,6 +27,14 @@ async def get_db() -> AsyncSession:
 # backend/migrations/). create_all never alters an existing table, which is why this exists.
 _ADDITIVE_DDL = [
     "ALTER TABLE users ADD COLUMN IF NOT EXISTS last_active_on DATE",
+    # HSK 3.0 test question columns (added 2026-11)
+    "ALTER TABLE hsk_test_questions ADD COLUMN IF NOT EXISTS section VARCHAR(20) DEFAULT 'reading'",
+    "ALTER TABLE hsk_test_questions ADD COLUMN IF NOT EXISTS question_number INTEGER DEFAULT 0",
+    "ALTER TABLE hsk_test_questions ADD COLUMN IF NOT EXISTS image_url VARCHAR(400)",
+    "ALTER TABLE hsk_test_questions ADD COLUMN IF NOT EXISTS passage_id VARCHAR(80)",
+    "ALTER TABLE hsk_test_questions ADD COLUMN IF NOT EXISTS passage_text TEXT",
+    # option_d may be null for 3-choice questions (L1)
+    "ALTER TABLE hsk_test_questions ALTER COLUMN option_d DROP NOT NULL",
 ]
 
 

@@ -149,14 +149,23 @@ export interface GrammarDetail extends GrammarSummary {
 // ─── Tests ────────────────────────────────────────────────────────────────────
 
 export interface TestQuestion {
-  id:            number;
-  question_type: string;
-  question_text: string;
-  option_a:      string;
-  option_b:      string;
-  option_c:      string;
-  option_d:      string;
-  audio_path:    string | null;
+  id:             number;
+  /** HSK 3.0: 'listening' | 'reading' | 'writing' */
+  section:        string;
+  question_number: number;
+  question_type:  string;
+  question_text:  string;
+  option_a:       string;
+  option_b:       string;
+  option_c:       string;
+  /** null for HSK1 3-choice questions */
+  option_d:       string | null;
+  audio_path:     string | null;
+  /** HSK 3.0 picture-based writing tasks */
+  image_url:      string | null;
+  /** Groups questions belonging to the same reading passage */
+  passage_id:     string | null;
+  passage_text:   string | null;
 }
 
 /** POST /tests/start  — response */

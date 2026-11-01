@@ -71,15 +71,20 @@ class GrammarLessonDetail(GrammarLessonSummary):
 
 # ── HSK tests ────────────────────────────────────────────
 class TestQuestion(BaseModel):
-    """Question as shown to the user — correct answer is NOT included."""
+    """Question shown to the user — correct answer is NOT included."""
     id: int
+    section: str = "reading"           # "listening" | "reading" | "writing"
+    question_number: int = 0
     question_type: str
     question_text: str
     option_a: str
     option_b: str
     option_c: str
-    option_d: str
-    audio_path: Optional[str] = None
+    option_d: Optional[str] = None     # may be absent for 3-choice HSK 1 questions
+    audio_path:   Optional[str] = None  # URL for listening questions
+    image_url:    Optional[str] = None  # URL for picture+word writing questions
+    passage_id:   Optional[str] = None  # groups questions sharing a passage
+    passage_text: Optional[str] = None  # the shared passage text (only on first q of group)
     model_config = {"from_attributes": True}
 
 
@@ -88,6 +93,8 @@ class TestStartResponse(BaseModel):
     hsk_level: HskLevel
     total_questions: int
     questions: list[TestQuestion]
+    # HSK 3.0: questions already ordered section → question_number
+    # Frontend can group by `section` for a tabbed / sectioned view
 
 
 class TestSubmitRequest(BaseModel):

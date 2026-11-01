@@ -25,7 +25,7 @@ import models.user, models.vocabulary, models.reading, models.grammar, models.hs
 from models.user import HskLevel  # noqa: E402
 from models.reading import ReadingText  # noqa: E402
 from models.grammar import GrammarLesson  # noqa: E402
-from models.hsk_test import HskTestQuestion, QuestionType  # noqa: E402
+from models.hsk_test import HskTestQuestion, QuestionType, TestSection  # noqa: E402
 from models.writing import Character  # noqa: E402
 
 DATA = BACKEND / "data"
@@ -90,24 +90,131 @@ async def seed_characters(db, prune=False):
 
 
 async def seed_questions(db, prune=False):
-    n, keep = 0, set()
+    """
+    Seeds test questions from backend/data/tests/*.json.
+
+    Two formats are handled:
+
+    Legacy format  (hsk1_questions.json, hsk2_questions.json, …)
+      - hsk_level derived from filename
+      - natural key: (hsk_level, question_text)
+      - no section / question_number fields
+
+    HSK 3.0 format  (hsk30_questions.json)
+      - hsk_level per row (rows span multiple levels)
+      - natural key: (hsk_level, section, question_number)
+      - all new fields: section, question_number, passage_id, passage_text,
+                        audio_path, image_url
+    """
+    n = 0
+    keep_legacy: set[tuple] = set()   # (hsk_level, question_text)
+    keep_hsk30:  set[tuple] = set()   # (hsk_level, section, question_number)
+
     for f in _files("tests"):
-        lvl = HskLevel(f.stem.split("_")[0].upper())  # hsk1_questions.json -> HSK1
-        for q in json.loads(f.read_text(encoding="utf-8")):
-            keep.add((lvl, q["question_text"]))
-            hit = (await db.execute(select(HskTestQuestion).where(
-                HskTestQuestion.hsk_level == lvl,
-                HskTestQuestion.question_text == q["question_text"]))).scalar_one_or_none()
-            if hit:
-                continue
-            db.add(HskTestQuestion(
-                hsk_level=lvl, question_type=QuestionType(q["question_type"]),
-                question_text=q["question_text"], option_a=q["option_a"], option_b=q["option_b"],
-                option_c=q["option_c"], option_d=q["option_d"], correct_option=q["correct_option"],
-                explanation=q.get("explanation", ""),
-            ))
-            n += 1
-    return n, (await _prune(db, HskTestQuestion, keep, lambda r: (r.hsk_level, r.question_text)) if prune else 0)
+        rows = json.loads(f.read_text(encoding="utf-8"))
+        if not rows:
+            continue
+
+        # ── Detect format ─────────────────────────────────────────────────────
+        is_hsk30 = "section" in rows[0] and "question_number" in rows[0]
+
+        if is_hsk30:
+            for q in rows:
+                lvl     = HskLevel(q["hsk_level"])
+                section = TestSection(q["section"])
+                qnum    = int(q["question_number"])
+                keep_hsk30.add((lvl, section, qnum))
+
+                hit = (await db.execute(
+                    select(HskTestQuestion).where(
+                        HskTestQuestion.hsk_level      == lvl,
+                        HskTestQuestion.section        == section,
+                        HskTestQuestion.question_number == qnum,
+                    )
+                )).scalar_one_or_none()
+
+                if hit:
+                    # Update in-place so re-runs reflect JSON edits
+                    hit.question_type  = QuestionType(q["question_type"])
+                    hit.question_text  = q["question_text"]
+                    hit.option_a       = q["option_a"]
+                    hit.option_b       = q["option_b"]
+                    hit.option_c       = q["option_c"]
+                    hit.option_d       = q.get("option_d")
+                    hit.correct_option = q["correct_option"]
+                    hit.explanation    = q.get("explanation", "")
+                    hit.passage_id     = q.get("passage_id")
+                    hit.passage_text   = q.get("passage_text")
+                    hit.audio_path     = q.get("audio_path")
+                    hit.image_url      = q.get("image_url")
+                    continue
+
+                db.add(HskTestQuestion(
+                    hsk_level       = lvl,
+                    section         = section,
+                    question_number = qnum,
+                    question_type   = QuestionType(q["question_type"]),
+                    question_text   = q["question_text"],
+                    option_a        = q["option_a"],
+                    option_b        = q["option_b"],
+                    option_c        = q["option_c"],
+                    option_d        = q.get("option_d"),
+                    correct_option  = q["correct_option"],
+                    explanation     = q.get("explanation", ""),
+                    passage_id      = q.get("passage_id"),
+                    passage_text    = q.get("passage_text"),
+                    audio_path      = q.get("audio_path"),
+                    image_url       = q.get("image_url"),
+                ))
+                n += 1
+
+        else:
+            # Legacy per-level files: derive level from filename
+            lvl = HskLevel(f.stem.split("_")[0].upper())  # hsk1_questions.json → HSK1
+            for q in rows:
+                keep_legacy.add((lvl, q["question_text"]))
+                hit = (await db.execute(
+                    select(HskTestQuestion).where(
+                        HskTestQuestion.hsk_level     == lvl,
+                        HskTestQuestion.question_text == q["question_text"],
+                    )
+                )).scalar_one_or_none()
+                if hit:
+                    continue
+                db.add(HskTestQuestion(
+                    hsk_level      = lvl,
+                    question_type  = QuestionType(q["question_type"]),
+                    question_text  = q["question_text"],
+                    option_a       = q["option_a"],
+                    option_b       = q["option_b"],
+                    option_c       = q["option_c"],
+                    option_d       = q.get("option_d"),
+                    correct_option = q["correct_option"],
+                    explanation    = q.get("explanation", ""),
+                ))
+                n += 1
+
+    if prune:
+        # Prune legacy rows not in any legacy file
+        stale_legacy = [
+            r.id for r in (await db.execute(
+                select(HskTestQuestion).where(HskTestQuestion.section == None)  # noqa: E711
+            )).scalars()
+            if (r.hsk_level, r.question_text) not in keep_legacy
+        ]
+        # Prune HSK 3.0 rows not in the HSK 3.0 file
+        stale_hsk30 = [
+            r.id for r in (await db.execute(
+                select(HskTestQuestion).where(HskTestQuestion.section != None)  # noqa: E711
+            )).scalars()
+            if (r.hsk_level, r.section, r.question_number) not in keep_hsk30
+        ]
+        stale = stale_legacy + stale_hsk30
+        if stale:
+            await db.execute(delete(HskTestQuestion).where(HskTestQuestion.id.in_(stale)))
+        return n, len(stale)
+
+    return n, 0
 
 
 async def _prune(db, model, keep, key):
