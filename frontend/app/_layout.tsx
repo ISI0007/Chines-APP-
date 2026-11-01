@@ -10,6 +10,11 @@ export default function Layout() {
     <Stack.Screen name="register" options={{ title: "Create account" }} />
     <Stack.Screen name="vocabulary" options={{ title: "Vocabulary" }} />
     <Stack.Screen name="flashcards" options={{ title: "Daily review" }} />
+    <Stack.Screen name="phase2-flashcards" options={{ title: "Flashcards" }} />
+    <Stack.Screen name="phase2-reader" options={{ title: "Graded readers" }} />
+    <Stack.Screen name="mock-test" options={{ title: "HSK mock test" }} />
+    <Stack.Screen name="audio-drill" options={{ title: "Audio drill" }} />
+    <Stack.Screen name="phase2-progress" options={{ title: "Your progress" }} />
     <Stack.Screen name="progress" options={{ title: "Your progress" }} />
     <Stack.Screen name="about" options={{ title: "About and sources" }} />
     <Stack.Screen name="tests" options={{ title: "HSK practice" }} />
