@@ -276,6 +276,189 @@ export interface HealthResponse {
   version: string;
 }
 
+// ─── Phase 3: Speaking / Shadowing ───────────────────────────────────────────
+
+/** POST /shadowing/submit  —  request body */
+export interface ShadowingSubmitRequest {
+  /** Base64-encoded audio data */
+  audio_base64:  string;
+  /** "webm" | "wav" | "m4a" */
+  audio_format:  "webm" | "wav" | "m4a";
+  /** Chinese text user was reading, e.g. "你好" */
+  target_text:   string;
+  /** Pinyin of target_text, e.g. "nǐ hǎo" */
+  target_pinyin: string;
+}
+
+export interface PhonemeScore {
+  pinyin: string;
+  /** 0.0 – 1.0 */
+  score: number;
+}
+
+/** POST /shadowing/submit  —  response */
+export interface ShadowingResult {
+  /** Overall 0.0 – 1.0 */
+  score: number;
+  phoneme_breakdown: PhonemeScore[];
+  feedback: string;
+  /** "heuristic" when Whisper not configured; "whisper" when available */
+  method: "heuristic" | "whisper";
+}
+
+// ─── Phase 3: Avatar ──────────────────────────────────────────────────────────
+
+/** POST /users/me/avatar  —  response (multipart/form-data upload) */
+export interface AvatarResponse {
+  avatar_url: string;
+}
+
+// ─── Phase 3: Course levels / lessons ────────────────────────────────────────
+
+/** One HSK level's summary — GET /course/levels */
+export interface CourseLevelSummary {
+  level:           HskLevel;
+  lesson_count:    number;
+  completed_count: number;
+  completion_pct:  number;
+}
+
+/** GET /course/levels */
+export interface CourseLevelsResponse {
+  levels: CourseLevelSummary[];
+}
+
+/** One lesson row — GET /course/units?hsk_level=HSK1 */
+export interface CourseLessonItem {
+  id:            number;
+  lesson_number: number;
+  title_zh:      string;
+  title_en:      string;
+  topic:         string;
+  has_audio:     boolean;
+  completed:     boolean;
+}
+
+/** GET /course/units?hsk_level=HSK1 */
+export interface CourseUnitsResponse {
+  hsk_level: HskLevel;
+  lessons:   CourseLessonItem[];
+}
+
+/** Audio track object inside a lesson detail */
+export interface AudioTrack {
+  section:    string;   // "new_words" | "dialogue_1" | "listening" | "exercise"
+  track:      string;   // filename relative to audio_extracted/
+  label:      string;
+  duration_s: number;
+}
+
+/** GET /course/lessons/{id} */
+export interface CourseLessonDetail {
+  id:               number;
+  hsk_level:        HskLevel;
+  book:             "textbook" | "workbook";
+  volume:           string;
+  lesson_number:    number;
+  title_zh:         string;
+  title_en:         string;
+  topic:            string;
+  has_audio:        boolean;
+  audio_tracks:     AudioTrack[];
+  answer_key_pdf:   string | null;
+  answer_key_pages: string;
+}
+
+/** POST /course/lessons/{id}/complete  —  response */
+export interface LessonCompleteResult {
+  lesson_id:         number;
+  xp_earned:         number;
+  total_xp:          number;
+  streak_updated:    boolean;
+  already_completed: boolean;
+}
+
+// ─── Phase 3: Listening tests ─────────────────────────────────────────────────
+
+export interface ListeningQuestionOption {
+  key:  string;   // "A" | "B" | "C" | "D"
+  text: string;
+}
+
+/** One question in a listening test session */
+export interface ListeningQuestion {
+  id:                   string;
+  audio_url:            string | null;
+  question_text:        string;
+  question_text_pinyin: string;
+  options:              ListeningQuestionOption[];
+}
+
+/** GET /listening-test/{hsk_level}  —  response */
+export interface ListeningTestSession {
+  test_id:   number;
+  hsk_level: HskLevel;
+  questions: ListeningQuestion[];
+}
+
+/** One answer entry in POST /listening-test/{test_id}/submit */
+export interface ListeningAnswerSubmit {
+  question_id:     string;
+  selected_option: string;   // "A" | "B" | "C" | "D"
+}
+
+/** POST /listening-test/{test_id}/submit  —  request body */
+export interface ListeningSubmitRequest {
+  answers: ListeningAnswerSubmit[];
+}
+
+export interface ListeningQuestionResult {
+  question_id:    string;
+  selected:       string | null;
+  correct_option: string;
+  is_correct:     boolean;
+  explanation:    string;
+}
+
+/** POST /listening-test/{test_id}/submit  —  response */
+export interface ListeningTestResult {
+  test_id:         number;
+  total_questions: number;
+  correct_answers: number;
+  score_percent:   number;
+  passed:          boolean;
+  xp_gained:       number;
+  results:         ListeningQuestionResult[];
+}
+
+/** GET /listening-test/history  —  one row */
+export interface ListeningTestHistoryItem {
+  id:            number;
+  hsk_level:     HskLevel;
+  score_percent: number | null;
+  passed:        boolean | null;
+  started_at:    string;
+  finished_at:   string | null;
+}
+
+// ─── Phase 3: HSK 3.0 Nine-Band Progression ──────────────────────────────────
+
+export type BandStatus = "locked" | "in_progress" | "completed";
+
+export interface HskBand {
+  band:           number;   // 1 – 9
+  status:         BandStatus;
+  words_mastered: number;
+  words_total:    number;
+  pct:            number;   // 0.0 – 100.0
+}
+
+/** GET /progression */
+export interface ProgressionResponse {
+  current_band: number;
+  bands:        HskBand[];
+}
+
 // ─── Backwards-compatible aliases (used by existing Codex screens) ────────────
 
 /** @deprecated use VocabProgress */

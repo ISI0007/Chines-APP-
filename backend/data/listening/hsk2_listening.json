@@ -1,0 +1,77 @@
+[
+  {
+    "id": "hsk2_l_001",
+    "hsk_level": "HSK2",
+    "audio_url": null,
+    "question_text": "你每天几点起床？",
+    "question_text_pinyin": "Nǐ měi tiān jǐ diǎn qǐchuáng?",
+    "options": [
+      {"key": "A", "text": "我七点起床。(Wǒ qī diǎn qǐchuáng.)"},
+      {"key": "B", "text": "我不喜欢早起。(Wǒ bù xǐhuān zǎo qǐ.)"},
+      {"key": "C", "text": "我睡觉了。(Wǒ shuìjiào le.)"},
+      {"key": "D", "text": "我很累。(Wǒ hěn lèi.)"}
+    ],
+    "correct_option": "A",
+    "explanation": "The question asks what time you get up every day. The correct answer gives a specific time."
+  },
+  {
+    "id": "hsk2_l_002",
+    "hsk_level": "HSK2",
+    "audio_url": null,
+    "question_text": "你的爱好是什么？",
+    "question_text_pinyin": "Nǐ de àihào shì shénme?",
+    "options": [
+      {"key": "A", "text": "我有两个妹妹。(Wǒ yǒu liǎng gè mèimei.)"},
+      {"key": "B", "text": "我喜欢打篮球。(Wǒ xǐhuān dǎ lánqiú.)"},
+      {"key": "C", "text": "我工作很忙。(Wǒ gōngzuò hěn máng.)"},
+      {"key": "D", "text": "我住在北京。(Wǒ zhù zài Běijīng.)"}
+    ],
+    "correct_option": "B",
+    "explanation": "The question asks about your hobby. The correct answer states a leisure activity."
+  },
+  {
+    "id": "hsk2_l_003",
+    "hsk_level": "HSK2",
+    "audio_url": null,
+    "question_text": "今天天气怎么样？",
+    "question_text_pinyin": "Jīntiān tiānqì zěnmeyàng?",
+    "options": [
+      {"key": "A", "text": "今天很热。(Jīntiān hěn rè.)"},
+      {"key": "B", "text": "我喜欢冬天。(Wǒ xǐhuān dōngtiān.)"},
+      {"key": "C", "text": "明天下雨。(Míngtiān xià yǔ.)"},
+      {"key": "D", "text": "天气预报说晴天。(Tiānqì yùbào shuō qíngtiān.)"}
+    ],
+    "correct_option": "A",
+    "explanation": "The question asks about today's weather. Option A directly answers about today's temperature."
+  },
+  {
+    "id": "hsk2_l_004",
+    "hsk_level": "HSK2",
+    "audio_url": null,
+    "question_text": "你去哪儿？",
+    "question_text_pinyin": "Nǐ qù nǎr?",
+    "options": [
+      {"key": "A", "text": "我刚回来。(Wǒ gāng huílái.)"},
+      {"key": "B", "text": "我去超市买东西。(Wǒ qù chāoshì mǎi dōngxi.)"},
+      {"key": "C", "text": "他已经走了。(Tā yǐjīng zǒu le.)"},
+      {"key": "D", "text": "我不想出门。(Wǒ bù xiǎng chūmén.)"}
+    ],
+    "correct_option": "B",
+    "explanation": "The question asks where you are going. Option B gives a destination and purpose."
+  },
+  {
+    "id": "hsk2_l_005",
+    "hsk_level": "HSK2",
+    "audio_url": null,
+    "question_text": "你会说几种语言？",
+    "question_text_pinyin": "Nǐ huì shuō jǐ zhǒng yǔyán?",
+    "options": [
+      {"key": "A", "text": "我会说中文和英文。(Wǒ huì shuō Zhōngwén hé Yīngwén.)"},
+      {"key": "B", "text": "我学了三年汉语。(Wǒ xué le sān nián Hànyǔ.)"},
+      {"key": "C", "text": "我的中文不太好。(Wǒ de Zhōngwén bù tài hǎo.)"},
+      {"key": "D", "text": "我在语言学校学习。(Wǒ zài yǔyán xuéxiào xuéxí.)"}
+    ],
+    "correct_option": "A",
+    "explanation": "The question asks how many languages you can speak. Option A directly answers with two languages."
+  }
+]

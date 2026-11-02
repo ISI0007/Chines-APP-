@@ -1,0 +1,77 @@
+[
+  {
+    "id": "hsk1_l_001",
+    "hsk_level": "HSK1",
+    "audio_url": null,
+    "question_text": "你好吗？",
+    "question_text_pinyin": "Nǐ hǎo ma?",
+    "options": [
+      {"key": "A", "text": "我很好。(Wǒ hěn hǎo.)"},
+      {"key": "B", "text": "我不去。(Wǒ bù qù.)"},
+      {"key": "C", "text": "他是老师。(Tā shì lǎoshī.)"},
+      {"key": "D", "text": "我喜欢猫。(Wǒ xǐhuān māo.)"}
+    ],
+    "correct_option": "A",
+    "explanation": "The question asks 'How are you?'. The correct response is 'I'm very well.'"
+  },
+  {
+    "id": "hsk1_l_002",
+    "hsk_level": "HSK1",
+    "audio_url": null,
+    "question_text": "这是什么？",
+    "question_text_pinyin": "Zhè shì shénme?",
+    "options": [
+      {"key": "A", "text": "他是我爸爸。(Tā shì wǒ bàba.)"},
+      {"key": "B", "text": "这是书。(Zhè shì shū.)"},
+      {"key": "C", "text": "我喝水。(Wǒ hē shuǐ.)"},
+      {"key": "D", "text": "她很漂亮。(Tā hěn piàoliang.)"}
+    ],
+    "correct_option": "B",
+    "explanation": "The question asks 'What is this?'. The correct response is 'This is a book.'"
+  },
+  {
+    "id": "hsk1_l_003",
+    "hsk_level": "HSK1",
+    "audio_url": null,
+    "question_text": "几点了？",
+    "question_text_pinyin": "Jǐ diǎn le?",
+    "options": [
+      {"key": "A", "text": "今天天气很好。(Jīntiān tiānqì hěn hǎo.)"},
+      {"key": "B", "text": "我叫李明。(Wǒ jiào Lǐ Míng.)"},
+      {"key": "C", "text": "现在三点。(Xiànzài sān diǎn.)"},
+      {"key": "D", "text": "我有一个哥哥。(Wǒ yǒu yī gè gēge.)"}
+    ],
+    "correct_option": "C",
+    "explanation": "The question asks 'What time is it?'. The correct response is 'It is 3 o'clock now.'"
+  },
+  {
+    "id": "hsk1_l_004",
+    "hsk_level": "HSK1",
+    "audio_url": null,
+    "question_text": "你喝什么？",
+    "question_text_pinyin": "Nǐ hē shénme?",
+    "options": [
+      {"key": "A", "text": "我喝茶。(Wǒ hē chá.)"},
+      {"key": "B", "text": "我去学校。(Wǒ qù xuéxiào.)"},
+      {"key": "C", "text": "我喜欢看书。(Wǒ xǐhuān kàn shū.)"},
+      {"key": "D", "text": "他是中国人。(Tā shì Zhōngguó rén.)"}
+    ],
+    "correct_option": "A",
+    "explanation": "The question asks 'What do you drink?'. The correct response is 'I drink tea.'"
+  },
+  {
+    "id": "hsk1_l_005",
+    "hsk_level": "HSK1",
+    "audio_url": null,
+    "question_text": "他是谁？",
+    "question_text_pinyin": "Tā shì shéi?",
+    "options": [
+      {"key": "A", "text": "他很高兴。(Tā hěn gāoxìng.)"},
+      {"key": "B", "text": "他是我朋友。(Tā shì wǒ péngyou.)"},
+      {"key": "C", "text": "我不知道。不对。(Wǒ bù zhīdào.)"},
+      {"key": "D", "text": "他在家。(Tā zài jiā.)"}
+    ],
+    "correct_option": "B",
+    "explanation": "The question asks 'Who is he?'. The correct response is 'He is my friend.'"
+  }
+]
