@@ -1,0 +1,47 @@
+[
+  {
+    "id": "hsk4_l_001",
+    "hsk_level": "HSK4",
+    "audio_url": null,
+    "question_text": "HSK4 Listening question 1 (placeholder — replace with real content)",
+    "question_text_pinyin": "",
+    "options": [
+      {"key": "A", "text": "Option A"},
+      {"key": "B", "text": "Option B"},
+      {"key": "C", "text": "Option C"},
+      {"key": "D", "text": "Option D"}
+    ],
+    "correct_option": "A",
+    "explanation": "Placeholder explanation for HSK4 question 1."
+  },
+  {
+    "id": "hsk4_l_002",
+    "hsk_level": "HSK4",
+    "audio_url": null,
+    "question_text": "HSK4 Listening question 2 (placeholder)",
+    "question_text_pinyin": "",
+    "options": [
+      {"key": "A", "text": "Option A"},
+      {"key": "B", "text": "Option B"},
+      {"key": "C", "text": "Option C"},
+      {"key": "D", "text": "Option D"}
+    ],
+    "correct_option": "B",
+    "explanation": "Placeholder explanation for HSK4 question 2."
+  },
+  {
+    "id": "hsk4_l_003",
+    "hsk_level": "HSK4",
+    "audio_url": null,
+    "question_text": "HSK4 Listening question 3 (placeholder)",
+    "question_text_pinyin": "",
+    "options": [
+      {"key": "A", "text": "Option A"},
+      {"key": "B", "text": "Option B"},
+      {"key": "C", "text": "Option C"},
+      {"key": "D", "text": "Option D"}
+    ],
+    "correct_option": "C",
+    "explanation": "Placeholder explanation for HSK4 question 3."
+  }
+]

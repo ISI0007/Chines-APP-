@@ -3,7 +3,7 @@
   "info": {
     "title": "ChineseLearn",
     "description": "Backend API for Chinese language learning app",
-    "version": "0.3.0"
+    "version": "0.4.0"
   },
   "paths": {
     "/api/v1/auth/register": {
@@ -1149,6 +1149,352 @@
           }
         }
       }
+    },
+    "/api/v1/shadowing/submit": {
+      "post": {
+        "tags": [
+          "shadowing"
+        ],
+        "summary": "Submit a speaking/shadowing attempt for scoring",
+        "operationId": "submit_shadowing",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShadowingSubmitRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Scoring result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShadowingResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/me/avatar": {
+      "post": {
+        "tags": [
+          "avatar"
+        ],
+        "summary": "Upload profile photo",
+        "operationId": "upload_avatar",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "file"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Avatar uploaded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AvatarResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "avatar"
+        ],
+        "summary": "Delete profile photo",
+        "operationId": "delete_avatar",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted"
+          }
+        }
+      }
+    },
+    "/api/v1/course/levels": {
+      "get": {
+        "tags": [
+          "course"
+        ],
+        "summary": "HSK levels with user completion percentages",
+        "operationId": "get_course_levels",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Level list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseLevelsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/course/units": {
+      "get": {
+        "tags": [
+          "course"
+        ],
+        "summary": "Lessons for a given HSK level",
+        "operationId": "get_course_units",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "hsk_level",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "HSK1"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Unit list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseUnitsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/course/lessons/{lesson_id}/complete": {
+      "post": {
+        "tags": [
+          "course"
+        ],
+        "summary": "Mark a lesson as complete and award XP",
+        "operationId": "complete_lesson",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "lesson_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Completion result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LessonCompleteResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/listening-test/{hsk_level}": {
+      "get": {
+        "tags": [
+          "listening-test"
+        ],
+        "summary": "Start a listening test session",
+        "operationId": "start_listening_test",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "hsk_level",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "HSK1"
+            }
+          },
+          {
+            "name": "num_questions",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 5,
+              "minimum": 1,
+              "maximum": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Test session",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListeningTestSession"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/listening-test/{test_id}/submit": {
+      "post": {
+        "tags": [
+          "listening-test"
+        ],
+        "summary": "Submit answers for a listening test",
+        "operationId": "submit_listening_test",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "test_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListeningSubmitRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Test results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListeningTestResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/listening-test/history": {
+      "get": {
+        "tags": [
+          "listening-test"
+        ],
+        "summary": "Current user's listening test history",
+        "operationId": "listening_test_history",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "History list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ListeningTestHistoryItem"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/progression": {
+      "get": {
+        "tags": [
+          "progression"
+        ],
+        "summary": "HSK 3.0 nine-band progression for current user",
+        "operationId": "get_progression",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Progression",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressionResponse"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -2080,6 +2426,367 @@
           "total_xp"
         ],
         "title": "XpResponse"
+      },
+      "ShadowingSubmitRequest": {
+        "type": "object",
+        "required": [
+          "audio_base64",
+          "target_text",
+          "target_pinyin"
+        ],
+        "properties": {
+          "audio_base64": {
+            "type": "string"
+          },
+          "audio_format": {
+            "type": "string",
+            "enum": [
+              "webm",
+              "wav",
+              "m4a"
+            ],
+            "default": "webm"
+          },
+          "target_text": {
+            "type": "string"
+          },
+          "target_pinyin": {
+            "type": "string"
+          }
+        }
+      },
+      "PhonemeScore": {
+        "type": "object",
+        "properties": {
+          "pinyin": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      },
+      "ShadowingResult": {
+        "type": "object",
+        "properties": {
+          "score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "phoneme_breakdown": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PhonemeScore"
+            }
+          },
+          "feedback": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "heuristic",
+              "whisper"
+            ]
+          }
+        }
+      },
+      "AvatarResponse": {
+        "type": "object",
+        "properties": {
+          "avatar_url": {
+            "type": "string"
+          }
+        }
+      },
+      "CourseLevelSummary": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": "string"
+          },
+          "lesson_count": {
+            "type": "integer"
+          },
+          "completed_count": {
+            "type": "integer"
+          },
+          "completion_pct": {
+            "type": "number"
+          }
+        }
+      },
+      "CourseLevelsResponse": {
+        "type": "object",
+        "properties": {
+          "levels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CourseLevelSummary"
+            }
+          }
+        }
+      },
+      "CourseLessonItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "lesson_number": {
+            "type": "integer"
+          },
+          "title_zh": {
+            "type": "string"
+          },
+          "title_en": {
+            "type": "string"
+          },
+          "topic": {
+            "type": "string"
+          },
+          "has_audio": {
+            "type": "boolean"
+          },
+          "completed": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CourseUnitsResponse": {
+        "type": "object",
+        "properties": {
+          "hsk_level": {
+            "type": "string"
+          },
+          "lessons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CourseLessonItem"
+            }
+          }
+        }
+      },
+      "LessonCompleteResult": {
+        "type": "object",
+        "properties": {
+          "lesson_id": {
+            "type": "integer"
+          },
+          "xp_earned": {
+            "type": "integer"
+          },
+          "total_xp": {
+            "type": "integer"
+          },
+          "streak_updated": {
+            "type": "boolean"
+          },
+          "already_completed": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ListeningQuestionOption": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        }
+      },
+      "ListeningQuestion": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "audio_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "question_text": {
+            "type": "string"
+          },
+          "question_text_pinyin": {
+            "type": "string"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListeningQuestionOption"
+            }
+          }
+        }
+      },
+      "ListeningTestSession": {
+        "type": "object",
+        "properties": {
+          "test_id": {
+            "type": "integer"
+          },
+          "hsk_level": {
+            "type": "string"
+          },
+          "questions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListeningQuestion"
+            }
+          }
+        }
+      },
+      "ListeningAnswerSubmit": {
+        "type": "object",
+        "required": [
+          "question_id",
+          "selected_option"
+        ],
+        "properties": {
+          "question_id": {
+            "type": "string"
+          },
+          "selected_option": {
+            "type": "string"
+          }
+        }
+      },
+      "ListeningSubmitRequest": {
+        "type": "object",
+        "required": [
+          "answers"
+        ],
+        "properties": {
+          "answers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListeningAnswerSubmit"
+            }
+          }
+        }
+      },
+      "ListeningQuestionResult": {
+        "type": "object",
+        "properties": {
+          "question_id": {
+            "type": "string"
+          },
+          "selected": {
+            "type": "string",
+            "nullable": true
+          },
+          "correct_option": {
+            "type": "string"
+          },
+          "is_correct": {
+            "type": "boolean"
+          },
+          "explanation": {
+            "type": "string"
+          }
+        }
+      },
+      "ListeningTestResult": {
+        "type": "object",
+        "properties": {
+          "test_id": {
+            "type": "integer"
+          },
+          "total_questions": {
+            "type": "integer"
+          },
+          "correct_answers": {
+            "type": "integer"
+          },
+          "score_percent": {
+            "type": "number"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "xp_gained": {
+            "type": "integer"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListeningQuestionResult"
+            }
+          }
+        }
+      },
+      "ListeningTestHistoryItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "hsk_level": {
+            "type": "string"
+          },
+          "score_percent": {
+            "type": "number",
+            "nullable": true
+          },
+          "passed": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "started_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "finished_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "HskBand": {
+        "type": "object",
+        "properties": {
+          "band": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "locked",
+              "in_progress",
+              "completed"
+            ]
+          },
+          "words_mastered": {
+            "type": "integer"
+          },
+          "words_total": {
+            "type": "integer"
+          },
+          "pct": {
+            "type": "number"
+          }
+        }
+      },
+      "ProgressionResponse": {
+        "type": "object",
+        "properties": {
+          "current_band": {
+            "type": "integer"
+          },
+          "bands": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HskBand"
+            }
+          }
+        }
       }
     },
     "securitySchemes": {
