@@ -459,6 +459,49 @@ export interface ProgressionResponse {
   bands:        HskBand[];
 }
 
+// ─── Phase 3: Profile ─────────────────────────────────────────────────────────
+
+/** GET /users/me/profile */
+export interface ProfileResponse {
+  id:          number;
+  username:    string;
+  email:       string;
+  hsk_level:   HskLevel;
+  xp:          number;
+  streak_days: number;
+  avatar_url:  string | null;
+}
+
+// ─── Phase 3: Stroke-Order Scoring ───────────────────────────────────────────
+
+/** POST /writing/characters/{char}/score  —  request body */
+export interface StrokeScoreRequest {
+  char:                   string;
+  stroke_sequence:        [number, number][];   // [[x,y], …] per stroke
+  expected_stroke_count?: number;
+}
+
+/** POST /writing/characters/{char}/score  —  response */
+export interface StrokeScoreResponse {
+  char:             string;
+  score:            number;    // 0.0 – 1.0
+  strokes_drawn:    number;
+  strokes_expected: number;
+  feedback:         string;
+  xp_gained:        number;
+  total_xp:         number;
+}
+
+// ─── Phase 3: Native Audio Mapping ───────────────────────────────────────────
+
+/** GET|POST|DELETE /audio-admin/words/{word_id}/audio */
+export interface AudioMappingResponse {
+  word_id:    number;
+  simplified: string;
+  audio_path: string | null;
+  audio_url:  string | null;
+}
+
 // ─── Backwards-compatible aliases (used by existing Codex screens) ────────────
 
 /** @deprecated use VocabProgress */

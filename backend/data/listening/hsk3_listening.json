@@ -1,47 +1,85 @@
-[
-  {
-    "id": "hsk3_l_001",
-    "hsk_level": "HSK3",
-    "audio_url": null,
-    "question_text": "HSK3 Listening question 1 (placeholder — replace with real content)",
-    "question_text_pinyin": "",
-    "options": [
-      {"key": "A", "text": "Option A"},
-      {"key": "B", "text": "Option B"},
-      {"key": "C", "text": "Option C"},
-      {"key": "D", "text": "Option D"}
-    ],
-    "correct_option": "A",
-    "explanation": "Placeholder explanation for HSK3 question 1."
-  },
-  {
-    "id": "hsk3_l_002",
-    "hsk_level": "HSK3",
-    "audio_url": null,
-    "question_text": "HSK3 Listening question 2 (placeholder)",
-    "question_text_pinyin": "",
-    "options": [
-      {"key": "A", "text": "Option A"},
-      {"key": "B", "text": "Option B"},
-      {"key": "C", "text": "Option C"},
-      {"key": "D", "text": "Option D"}
-    ],
-    "correct_option": "B",
-    "explanation": "Placeholder explanation for HSK3 question 2."
-  },
-  {
-    "id": "hsk3_l_003",
-    "hsk_level": "HSK3",
-    "audio_url": null,
-    "question_text": "HSK3 Listening question 3 (placeholder)",
-    "question_text_pinyin": "",
-    "options": [
-      {"key": "A", "text": "Option A"},
-      {"key": "B", "text": "Option B"},
-      {"key": "C", "text": "Option C"},
-      {"key": "D", "text": "Option D"}
-    ],
-    "correct_option": "C",
-    "explanation": "Placeholder explanation for HSK3 question 3."
-  }
-]
+{
+  "level": "HSK3",
+  "questions": [
+    {
+      "id": "hsk3_q01",
+      "audio_text": "女：你昨天为什么没来上课？男：我感冒了，在家休息了一天。",
+      "question": "男的昨天为什么没来上课？",
+      "options": ["A. 他去旅游了", "B. 他生病了", "C. 他有事情要做", "D. 他忘了"],
+      "correct_option": "B",
+      "explanation": "男的说他感冒了，在家休息，所以没来上课。感冒是生病的一种。"
+    },
+    {
+      "id": "hsk3_q02",
+      "audio_text": "男：这件衬衫多少钱？女：两百三十块，你觉得怎么样？男：有点贵，便宜一点可以吗？",
+      "question": "衬衫现在的价格是多少？",
+      "options": ["A. 二百块", "B. 两百三十块", "C. 三百二十块", "D. 一百三十块"],
+      "correct_option": "B",
+      "explanation": "女的说衬衫两百三十块，所以答案是B。"
+    },
+    {
+      "id": "hsk3_q03",
+      "audio_text": "女：请问图书馆怎么走？男：你从这里向左走，过了红绿灯，再直走两百米就到了。",
+      "question": "图书馆在哪个方向？",
+      "options": ["A. 直走", "B. 向右走", "C. 先向左走再直走", "D. 向左走到底"],
+      "correct_option": "C",
+      "explanation": "男的说先向左走，过了红绿灯再直走两百米，所以答案是C。"
+    },
+    {
+      "id": "hsk3_q04",
+      "audio_text": "男：你平时几点起床？女：我一般六点半起床，然后跑步半小时，七点半去上班。",
+      "question": "女的几点去上班？",
+      "options": ["A. 六点", "B. 六点半", "C. 七点", "D. 七点半"],
+      "correct_option": "D",
+      "explanation": "女的说六点半起床，跑步半小时后七点，再过半小时七点半去上班。"
+    },
+    {
+      "id": "hsk3_q05",
+      "audio_text": "女：你喜欢看什么类型的电影？男：我最喜欢看历史片，也喜欢看爱情片，但是不喜欢看恐怖片。",
+      "question": "男的不喜欢看什么电影？",
+      "options": ["A. 历史片", "B. 爱情片", "C. 恐怖片", "D. 动作片"],
+      "correct_option": "C",
+      "explanation": "男的明确说不喜欢看恐怖片，所以答案是C。"
+    },
+    {
+      "id": "hsk3_q06",
+      "audio_text": "男：这次考试你考得怎么样？女：不太好，只考了七十分，我需要更努力了。",
+      "question": "女的考了多少分？",
+      "options": ["A. 六十分", "B. 七十分", "C. 八十分", "D. 九十分"],
+      "correct_option": "B",
+      "explanation": "女的说只考了七十分，答案是B。"
+    },
+    {
+      "id": "hsk3_q07",
+      "audio_text": "女：你有兄弟姐妹吗？男：有，我有一个哥哥和两个妹妹，我是老二。",
+      "question": "男的在家里排行第几？",
+      "options": ["A. 老大", "B. 老二", "C. 老三", "D. 老四"],
+      "correct_option": "B",
+      "explanation": "男的说他是老二，上有哥哥，下有两个妹妹。"
+    },
+    {
+      "id": "hsk3_q08",
+      "audio_text": "男：你们公司在哪个城市？女：我们公司在上海，但我每个月要去北京出差两三次。",
+      "question": "女的公司在哪里？",
+      "options": ["A. 北京", "B. 广州", "C. 上海", "D. 深圳"],
+      "correct_option": "C",
+      "explanation": "女的说公司在上海，出差去北京，所以公司在上海。"
+    },
+    {
+      "id": "hsk3_q09",
+      "audio_text": "女：这本书你看完了吗？男：还没有，我才看了一半，最近太忙了，没有时间看。",
+      "question": "男的看完书了吗？",
+      "options": ["A. 看完了", "B. 没开始看", "C. 只看了一半", "D. 刚开始看"],
+      "correct_option": "C",
+      "explanation": "男的说才看了一半，所以答案是C。"
+    },
+    {
+      "id": "hsk3_q10",
+      "audio_text": "男：你会做中国菜吗？女：会，我最拿手的是红烧肉和糖醋鱼，你喜欢吃哪个？",
+      "question": "女的最拿手的菜是什么？",
+      "options": ["A. 红烧肉和糖醋鱼", "B. 炒饭和饺子", "C. 北京烤鸭", "D. 麻婆豆腐"],
+      "correct_option": "A",
+      "explanation": "女的说她最拿手的是红烧肉和糖醋鱼，答案是A。"
+    }
+  ]
+}

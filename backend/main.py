@@ -28,6 +28,7 @@ from api.routes.avatar import router as avatar_router
 from api.routes.course_progress import router as course_progress_router
 from api.routes.listening_test import router as listening_test_router
 from api.routes.progression import router as progression_router
+from api.routes.audio_admin import router as audio_admin_router
 
 STATIC_DIR = Path(__file__).resolve().parent / "static"
 STATIC_DIR.mkdir(exist_ok=True)
@@ -70,7 +71,7 @@ for r in (
     course_router,
     # Phase 3
     shadowing_router, avatar_router, course_progress_router,
-    listening_test_router, progression_router,
+    listening_test_router, progression_router, audio_admin_router,
 ):
     app.include_router(r, prefix="/api/v1")
 

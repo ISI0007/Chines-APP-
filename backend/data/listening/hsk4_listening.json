@@ -1,47 +1,85 @@
-[
-  {
-    "id": "hsk4_l_001",
-    "hsk_level": "HSK4",
-    "audio_url": null,
-    "question_text": "HSK4 Listening question 1 (placeholder — replace with real content)",
-    "question_text_pinyin": "",
-    "options": [
-      {"key": "A", "text": "Option A"},
-      {"key": "B", "text": "Option B"},
-      {"key": "C", "text": "Option C"},
-      {"key": "D", "text": "Option D"}
-    ],
-    "correct_option": "A",
-    "explanation": "Placeholder explanation for HSK4 question 1."
-  },
-  {
-    "id": "hsk4_l_002",
-    "hsk_level": "HSK4",
-    "audio_url": null,
-    "question_text": "HSK4 Listening question 2 (placeholder)",
-    "question_text_pinyin": "",
-    "options": [
-      {"key": "A", "text": "Option A"},
-      {"key": "B", "text": "Option B"},
-      {"key": "C", "text": "Option C"},
-      {"key": "D", "text": "Option D"}
-    ],
-    "correct_option": "B",
-    "explanation": "Placeholder explanation for HSK4 question 2."
-  },
-  {
-    "id": "hsk4_l_003",
-    "hsk_level": "HSK4",
-    "audio_url": null,
-    "question_text": "HSK4 Listening question 3 (placeholder)",
-    "question_text_pinyin": "",
-    "options": [
-      {"key": "A", "text": "Option A"},
-      {"key": "B", "text": "Option B"},
-      {"key": "C", "text": "Option C"},
-      {"key": "D", "text": "Option D"}
-    ],
-    "correct_option": "C",
-    "explanation": "Placeholder explanation for HSK4 question 3."
-  }
-]
+{
+  "level": "HSK4",
+  "questions": [
+    {
+      "id": "hsk4_q01",
+      "audio_text": "女：您好，我想订一个双人间，住三晚。男：好的，请问您什么时候入住？女：本周五，也就是十五号。男：好的，我们这里双人间每晚四百五十元，需要帮您预订吗？",
+      "question": "女的打算在酒店住几晚？",
+      "options": ["A. 一晚", "B. 两晚", "C. 三晚", "D. 四晚"],
+      "correct_option": "C",
+      "explanation": "女的说住三晚，所以答案是C。"
+    },
+    {
+      "id": "hsk4_q02",
+      "audio_text": "男：听说你最近在学习摄影，进展怎么样？女：还可以，我已经买了相机，每个周末都会去外面拍照，不过技术还差得远呢。",
+      "question": "女的最近在做什么？",
+      "options": ["A. 学习画画", "B. 学习摄影", "C. 学习唱歌", "D. 学习舞蹈"],
+      "correct_option": "B",
+      "explanation": "男的提到摄影，女的确认了这件事，答案是B。"
+    },
+    {
+      "id": "hsk4_q03",
+      "audio_text": "女：你觉得环境污染问题怎么解决？男：我觉得最重要的是减少工厂排放，同时要提高公民的环保意识，另外政府也要制定更严格的法律。",
+      "question": "男的认为解决环境问题最重要的是什么？",
+      "options": ["A. 提高公民意识", "B. 制定法律", "C. 减少工厂排放", "D. 种植更多树木"],
+      "correct_option": "C",
+      "explanation": "男的说最重要的是减少工厂排放，然后才提到其他措施，答案是C。"
+    },
+    {
+      "id": "hsk4_q04",
+      "audio_text": "男：你这次出差感觉怎么样？女：挺充实的，见了三家客户，签了两个合同，就是太累了，每天要工作到晚上十点多。",
+      "question": "女的出差期间签了几个合同？",
+      "options": ["A. 一个", "B. 两个", "C. 三个", "D. 四个"],
+      "correct_option": "B",
+      "explanation": "女的说签了两个合同，答案是B。"
+    },
+    {
+      "id": "hsk4_q05",
+      "audio_text": "女：你平时怎么锻炼身体？男：我每天早上跑步三公里，周末打打篮球，偶尔也去游泳，不过最近工作忙，锻炼少了很多。",
+      "question": "男的最近为什么减少了锻炼？",
+      "options": ["A. 天气不好", "B. 身体不舒服", "C. 工作太忙", "D. 没有兴趣了"],
+      "correct_option": "C",
+      "explanation": "男的说最近工作忙，锻炼少了，答案是C。"
+    },
+    {
+      "id": "hsk4_q06",
+      "audio_text": "男：你们学校有多少学生？女：我们学校大约有五千名学生，其中有三百多名留学生，来自三十多个国家。",
+      "question": "女的学校大约有多少留学生？",
+      "options": ["A. 三十多名", "B. 一百多名", "C. 三百多名", "D. 五千名"],
+      "correct_option": "C",
+      "explanation": "女的说有三百多名留学生，答案是C。"
+    },
+    {
+      "id": "hsk4_q07",
+      "audio_text": "女：听说你要换工作了？男：是的，我现在的公司发展空间有限，而且薪水也不理想，所以想找一个更好的机会。",
+      "question": "男的为什么想换工作？",
+      "options": ["A. 公司倒闭了", "B. 发展空间有限且薪水不理想", "C. 想换个城市", "D. 和同事关系不好"],
+      "correct_option": "B",
+      "explanation": "男的说发展空间有限和薪水不理想，所以答案是B。"
+    },
+    {
+      "id": "hsk4_q08",
+      "audio_text": "男：你觉得学外语最重要的是什么？女：我认为最重要的是要有语言环境，光靠背单词和语法是不够的，要多和母语者交流，多看原版影视剧。",
+      "question": "女的认为学外语最重要的是什么？",
+      "options": ["A. 背单词", "B. 学语法", "C. 有语言环境", "D. 上补习班"],
+      "correct_option": "C",
+      "explanation": "女的说最重要的是有语言环境，答案是C。"
+    },
+    {
+      "id": "hsk4_q09",
+      "audio_text": "女：这次旅行你最喜欢哪个地方？男：我最喜欢桂林，那里的山水真的太漂亮了，而且当地的米粉也很好吃，我们去了三天还没玩够。",
+      "question": "他们在桂林待了多长时间？",
+      "options": ["A. 一天", "B. 两天", "C. 三天", "D. 四天"],
+      "correct_option": "C",
+      "explanation": "男的说去了三天还没玩够，答案是C。"
+    },
+    {
+      "id": "hsk4_q10",
+      "audio_text": "男：你最近读了什么好书？女：最近在看一本关于人工智能的书，讲的是AI对未来社会的影响，既有技术层面的分析，也有哲学层面的思考，写得非常深刻。",
+      "question": "女的最近在读什么类型的书？",
+      "options": ["A. 历史小说", "B. 爱情故事", "C. 人工智能相关书籍", "D. 旅行指南"],
+      "correct_option": "C",
+      "explanation": "女的说在看一本关于人工智能的书，答案是C。"
+    }
+  ]
+}

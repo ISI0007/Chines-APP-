@@ -134,3 +134,103 @@ async def writing_progress(
         )).scalar_one()
         levels[lv.value] = {"total": total, "practiced": practiced, "mastered": mastered}
     return {"levels": levels}
+
+
+# ── Stroke-order scoring ──────────────────────────────────────────────────────
+
+class StrokeScoreRequest(BaseModel):
+    char: str                       # single Chinese character
+    stroke_sequence: list[list[float]]   # list of [x, y] points per stroke
+    expected_stroke_count: Optional[int] = None
+
+
+class StrokeScoreResponse(BaseModel):
+    char: str
+    score: float                    # 0.0 – 1.0
+    strokes_drawn: int
+    strokes_expected: int
+    feedback: str
+    xp_gained: int
+    total_xp: int
+
+
+def _score_strokes(drawn: int, expected: int, points: list) -> float:
+    """
+    Heuristic stroke-order score.
+    Penalises wrong stroke count and very short/empty strokes.
+    Returns 0.0–1.0.
+    """
+    if expected == 0 or drawn == 0:
+        return 0.0
+    count_ratio = min(drawn, expected) / max(drawn, expected)
+    # Penalise empty/trivial strokes
+    valid = sum(1 for s in points if len(s) >= 2)
+    quality = valid / drawn if drawn > 0 else 0
+    return round(min(1.0, count_ratio * 0.7 + quality * 0.3), 3)
+
+
+@router.post("/characters/{char}/score", response_model=StrokeScoreResponse)
+async def score_stroke(
+    char: str,
+    body: StrokeScoreRequest,
+    db: AsyncSession = Depends(get_db),
+    user: User = Depends(current_user),
+):
+    """
+    Score a user's stroke drawing for a single character.
+    Clients send the captured stroke point arrays; the backend scores
+    against expected stroke count and updates practice progress.
+
+    Expected stroke counts come from the Character DB row when available;
+    clients may also pass `expected_stroke_count` directly.
+    """
+    # Resolve expected stroke count
+    char_row = (await db.execute(
+        select(Character).where(Character.char == char)
+    )).scalar_one_or_none()
+
+    expected = body.expected_stroke_count or (char_row.stroke_count if char_row and hasattr(char_row, "stroke_count") else len(body.stroke_sequence))
+
+    drawn = len(body.stroke_sequence)
+    score = _score_strokes(drawn, expected, body.stroke_sequence)
+
+    # Update practice record (reuse existing logic)
+    xp_gained = 0
+    mastered_threshold = 10
+    if char_row:
+        prog = (await db.execute(
+            select(UserCharacterProgress)
+            .where(UserCharacterProgress.user_id == user.id, UserCharacterProgress.char_id == char_row.id)
+        )).scalar_one_or_none()
+        if prog is None:
+            prog = UserCharacterProgress(user_id=user.id, char_id=char_row.id, times_practiced=0, mastered=False)
+            db.add(prog)
+            xp_gained += FIRST_PRACTICE_XP
+        prog.times_practiced += 1
+        prog.last_practiced = datetime.now(timezone.utc)
+        if not prog.mastered and prog.times_practiced >= mastered_threshold and score >= 0.7:
+            prog.mastered = True
+            xp_gained += MASTER_XP
+        user.xp += xp_gained
+        record_activity(user)
+        await db.commit()
+
+    pct = int(score * 100)
+    if pct >= 85:
+        feedback = "Excellent! Stroke order and form look great."
+    elif pct >= 65:
+        feedback = "Good attempt. Check the stroke count and direction."
+    elif pct >= 40:
+        feedback = "Keep practising — focus on stroke order."
+    else:
+        feedback = "Try again — make sure each stroke is drawn clearly."
+
+    return StrokeScoreResponse(
+        char=char,
+        score=score,
+        strokes_drawn=drawn,
+        strokes_expected=expected,
+        feedback=feedback,
+        xp_gained=xp_gained,
+        total_xp=user.xp,
+    )

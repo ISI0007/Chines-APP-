@@ -93,6 +93,44 @@ async def leaderboard(
     return LeaderboardResponse(top=top, me=me_entry)
 
 
+class ProfileResponse(BaseModel):
+    id: int
+    username: str
+    email: str
+    hsk_level: str
+    xp: int
+    streak_days: int
+    avatar_url: Optional[str] = None
+
+    model_config = {"from_attributes": True}
+
+
+@router.get("/me/profile", response_model=ProfileResponse)
+async def get_profile(
+    db: AsyncSession = Depends(get_db),
+    user: User = Depends(current_user),
+):
+    """Return current user profile including avatar URL if set."""
+    from models.phase3 import UserAvatar
+    avatar_row = (await db.execute(
+        select(UserAvatar).where(UserAvatar.user_id == user.id)
+    )).scalar_one_or_none()
+
+    avatar_url: Optional[str] = None
+    if avatar_row:
+        avatar_url = f"/static/avatars/{avatar_row.filename}"
+
+    return ProfileResponse(
+        id=user.id,
+        username=user.username,
+        email=user.email,
+        hsk_level=user.hsk_level.value if hasattr(user.hsk_level, "value") else str(user.hsk_level),
+        xp=user.xp,
+        streak_days=user.streak_days or 0,
+        avatar_url=avatar_url,
+    )
+
+
 @router.patch("/me/level", response_model=UserResponse)
 async def update_level(
     hsk_level: str,
