@@ -35,6 +35,11 @@ _ADDITIVE_DDL = [
     "ALTER TABLE hsk_test_questions ADD COLUMN IF NOT EXISTS passage_text TEXT",
     # option_d may be null for 3-choice questions (L1)
     "ALTER TABLE hsk_test_questions ALTER COLUMN option_d DROP NOT NULL",
+    # CourseLesson table columns (added 2026-11) — table created by create_all, extras here
+    "ALTER TABLE course_lessons ADD COLUMN IF NOT EXISTS volume VARCHAR(10) DEFAULT ''",
+    "ALTER TABLE course_lessons ADD COLUMN IF NOT EXISTS topic VARCHAR(100) DEFAULT ''",
+    "ALTER TABLE course_lessons ADD COLUMN IF NOT EXISTS answer_key_pdf VARCHAR(200)",
+    "ALTER TABLE course_lessons ADD COLUMN IF NOT EXISTS answer_key_pages VARCHAR(50) DEFAULT ''",
 ]
 
 

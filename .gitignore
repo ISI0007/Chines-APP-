@@ -34,3 +34,17 @@ Thumbs.db
 # Audio/data (large files — use Git LFS or external storage)
 backend/data/audio/**/*.mp3
 backend/data/cedict/cedict_ts.u8
+
+# ── HSK Course Assets ──────────────────────────────────────────────────────
+# These are COPYRIGHTED commercial materials published by Beijing Language
+# and Culture University Press (BLCUP / 北京语言大学出版社), authorized by
+# Hanban/CTI. They are NOT redistributable. Keep them out of git entirely.
+# Only the manifest JSON (metadata only, no audio/book content) is tracked.
+backend/data/hsk_course_assets/books/
+backend/data/hsk_course_assets/workbooks/
+backend/data/hsk_course_assets/audio_archives/
+backend/data/hsk_course_assets/audio_extracted/
+backend/data/hsk_course_assets/answer_keys/
+# Allow the manifest and this notice:
+!backend/data/hsk_course_assets/course_manifest.json
+!backend/data/hsk_course_assets/ASSETS_NOTICE.md
