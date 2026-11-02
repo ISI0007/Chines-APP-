@@ -1,62 +1,102 @@
 [
- {
-  "title": "人工智能的影响",
-  "title_pinyin": "rén gōng zhì néng de yǐng xiǎng",
-  "topic": "Technology",
-  "hsk_level": "HSK6",
-  "content": "近年来，人工智能迅速发展，正在深刻地改变着我们的生活。从手机里的语音助手，到工厂里的机器人，人工智能的应用已经无处不在。它不仅提高了工作效率，也为许多行业带来了新的机会。然而，技术的进步也引发了人们的担忧：一旦机器能够代替人来工作，许多人是否会失去工作？因此，如何让技术更好地为人类服务，是我们必须认真思考的问题。",
-  "content_pinyin": "jìn nián lái ， rén gōng zhì néng xùn sù fā zhǎn ， zhèng zài shēn kè de gǎi biàn zhe wǒ men de shēng huó 。 cóng shǒu jī lǐ de yǔ yīn zhù shǒu ， dào gōng chǎng lǐ de jī qì rén ， rén gōng zhì néng de yìng yòng yǐ jīng wú chǔ bù zài 。 tā bù jǐn tí gāo le gōng zuò xiào lǜ ， yě wèi xǔ duō háng yè dài lái le xīn de jī huì 。 rán ér ， jì shù de jìn bù yě yǐn fā le rén men de dān yōu ： yí dàn jī qì néng gòu dài tì rén lái gōng zuò ， xǔ duō rén shì fǒu huì shī qù gōng zuò ？ yīn cǐ ， rú hé ràng jì shù gèng hǎo de wèi rén lèi fú wù ， shì wǒ men bì xū rèn zhēn sī kǎo de wèn tí 。",
-  "translation": "In recent years, artificial intelligence has developed rapidly and is profoundly changing our lives. From voice assistants in phones to robots in factories, AI applications are already everywhere. It has not only improved work efficiency but also brought new opportunities to many industries. However, technological progress has also raised people's concerns: once machines can replace people at work, will many people lose their jobs? Therefore, how to make technology serve humanity better is a question we must seriously consider.",
-  "word_count": 142
- },
- {
-  "title": "传统文化的传承",
-  "title_pinyin": "chuán tǒng wén huà de chuán chéng",
-  "topic": "Culture",
-  "hsk_level": "HSK6",
-  "content": "随着时代的发展，一些传统文化正在慢慢消失。许多年轻人更喜欢流行文化，对古老的艺术缺乏兴趣。其实，传统文化是一个民族的根，凡是优秀的传统，都值得我们保护和传承。保护传统文化，并不是要人们回到过去，而是要把古人的智慧和现代生活结合起来。只有这样，这些宝贵的文化才能在新的时代继续发光。",
-  "content_pinyin": "suí zhe shí dài de fā zhǎn ， yì xiē chuán tǒng wén huà zhèng zài màn màn xiāo shī 。 xǔ duō nián qīng rén gèng xǐ huan liú xíng wén huà ， duì gǔ lǎo de yì shù quē fá xìng qù 。 qí shí ， chuán tǒng wén huà shì yī gè mín zú de gēn ， fán shì yōu xiù de chuán tǒng ， dōu zhí dé wǒ men bǎo hù hé chuán chéng 。 bǎo hù chuán tǒng wén huà ， bìng bù shì yào rén men huí dào guò qù ， ér shì yào bǎ gǔ rén de zhì huì hé xiàn dài shēng huó jié hé qǐ lái 。 zhǐ yǒu zhè yàng ， zhè xiē bǎo guì de wén huà cái néng zài xīn de shí dài jì xù fā guāng 。",
-  "translation": "With the development of the times, some traditional culture is slowly disappearing. Many young people prefer popular culture and lack interest in ancient arts. In fact, traditional culture is the root of a nation; all excellent traditions are worth our protecting and passing on. Protecting traditional culture does not mean having people return to the past, but combining the wisdom of the ancients with modern life. Only in this way can this precious culture continue to shine in the new era.",
-  "word_count": 127
- },
- {
-  "title": "读万卷书，行万里路",
-  "title_pinyin": "dú wàn juǎn shū ， xíng wàn lǐ lù",
-  "topic": "Life",
-  "hsk_level": "HSK6",
-  "content": "古人说：“读万卷书，行万里路。”这告诉我们，知识不仅来自书本，也来自实际的经历。读书能让我们了解更多知识和不同的思想；而旅行则让我们亲身感受这个世界的丰富多彩。除非把两者结合起来，否则我们对世界的认识总是片面的。真正有智慧的人，既重视学习，也勇于实践。",
-  "content_pinyin": "gǔ rén shuō ： “ dú wàn juǎn shū ， xíng wàn lǐ lù 。 ” zhè gào su wǒ men ， zhī shi bù jǐn lái zì shū běn ， yě lái zì shí jì de jīng lì 。 dú shū néng ràng wǒ men liǎo jiě gèng duō zhī shi hé bù tóng de sī xiǎng ； ér lǚ xíng zé ràng wǒ men qīn shēn gǎn shòu zhè ge shì jiè de fēng fù duō cǎi 。 chú fēi bǎ liǎng zhě jié hé qǐ lái ， fǒu zé wǒ men duì shì jiè de rèn shi zǒng shì piàn miàn de 。 zhēn zhèng yǒu zhì huì de rén ， jì zhòng shì xué xí ， yě yǒng yú shí jiàn 。",
-  "translation": "The ancients said: 'Read ten thousand books, travel ten thousand li.' This saying tells us that knowledge comes not only from books but also from real experience. Reading lets us understand more knowledge and different ideas; travel lets us personally feel the richness of this world. Unless we combine the two, our understanding of the world is always one-sided. Truly wise people both value study and dare to practice.",
-  "word_count": 111
- },
- {
-  "title": "健康的生活方式",
-  "title_pinyin": "jiàn kāng de shēng huó fāng shì",
-  "topic": "Health",
-  "hsk_level": "HSK6",
-  "content": "现代人的生活节奏越来越快，许多人为了工作，常常忽视了自己的身体。熬夜、不吃早饭、缺乏运动，这些不良习惯正在悄悄损害着我们的健康。其实，保持健康并不难，关键在于坚持。要么每天抽出一点时间锻炼，要么在饮食上多加注意，长期下来，身体自然会有明显的变化。毕竟，健康才是人生最大的财富。",
-  "content_pinyin": "xiàn dài rén de shēng huó jié zòu yuè lái yuè kuài ， xǔ duō rén wéi le gōng zuò ， cháng cháng hū shì le zì jǐ de shēn tǐ 。 áo yè 、 bù chī zǎo fàn 、 quē fá yùn dòng ， zhè xiē bù liáng xí guàn zhèng zài qiāo qiāo sǔn hài zhe wǒ men de jiàn kāng 。 qí shí ， bǎo chí jiàn kāng bìng bù nán ， guān jiàn zài yú jiān chí 。 yào me měi tiān chōu chū yī diǎn shí jiān duàn liàn ， yào me zài yǐn shí shàng duō jiā zhù yì ， cháng qī xià lái ， shēn tǐ zì rán huì yǒu míng xiǎn de biàn huà 。 bì jìng ， jiàn kāng cái shì rén shēng zuì dà de cái fù 。",
-  "translation": "Modern people's pace of life is faster and faster, and many people often neglect their bodies for the sake of work. Staying up late, skipping breakfast, lack of exercise — these bad habits are quietly harming our health. In fact, staying healthy is not hard; the key lies in persistence. Either set aside a little time to exercise each day, or pay more attention to diet; over the long term, the body will naturally show clear changes. After all, health is the greatest wealth in life.",
-  "word_count": 122
- },
- {
-  "title": "成功的意义",
-  "title_pinyin": "chéng gōng de yì yì",
-  "topic": "Life",
-  "hsk_level": "HSK6",
-  "content": "很多人把成功理解为拥有财富和地位，然而，成功的意义远不止于此。有的人虽然并不富有，却因为帮助了他人而感到幸福；有的人事业有成，内心却并不快乐。由此可见，成功并没有统一的标准。一个人之所以被认为是成功的，往往不是因为他得到了多少，而是因为他为这个世界带来了什么。",
-  "content_pinyin": "hěn duō rén bǎ chéng gōng lǐ jiě wèi yōng yǒu cái fù hé dì wèi ， rán ér ， chéng gōng de yì yì yuǎn bù zhǐ yú cǐ 。 yǒu de rén suī rán bìng bù fù yǒu ， què yīn wèi bāng zhù le tā rén ér gǎn dào xìng fú ； yǒu de rén shì yè yǒu chéng ， nèi xīn què bìng bù kuài lè 。 yóu cǐ kě jiàn ， chéng gōng bìng méi yǒu tǒng yī de biāo zhǔn 。 yī gè rén zhī suǒ yǐ bèi rèn wéi shì chéng gōng de ， wǎng wǎng bù shì yīn wèi tā dé dào le duō shao ， ér shì yīn wèi tā wèi zhè ge shì jiè dài lái le shén me 。",
-  "translation": "Many people understand success as having wealth and status; however, the meaning of success is far more than this. Some people, though not rich, feel happy because they have helped others; some people are successful in their careers yet are not happy inside. From this we can see that success has no uniform standard. The reason a person is considered successful is often not because of how much they have gained, but because of what they have brought to this world.",
-  "word_count": 118
- },
- {
-  "title": "保护地球",
-  "title_pinyin": "bǎo hù dì qiú",
-  "topic": "Environment",
-  "hsk_level": "HSK6",
-  "content": "地球是人类共同的家园，然而，长期以来，人类为了发展，不断地消耗自然资源，破坏生态环境。气候变暖、空气污染、动物减少等问题日益严重，已经威胁到了人类自身的生存。保护地球不是某一个国家的事，而是全人类共同的责任。凡是生活在地球上的人，都应该从身边的小事做起，为后代留下一个美好的世界。",
-  "content_pinyin": "dì qiú shì rén lèi gòng tóng de jiā yuán ， rán ér ， cháng qī yǐ lái ， rén lèi wèi le fā zhǎn ， bú duàn de xiāo hào zì rán zī yuán ， pò huài shēng tài huán jìng 。 qì hòu biàn nuǎn 、 kōng qì wū rǎn 、 dòng wù jiǎn shǎo děng wèn tí rì yì yán zhòng ， yǐ jīng wēi xié dào le rén lèi zì shēn de shēng cún 。 bǎo hù dì qiú bù shì mǒu yī gè guó jiā de shì ， ér shì quán rén lèi gòng tóng de zé rèn 。 fán shì shēng huó zài dì qiú shàng de rén ， dōu yīng gāi cóng shēn biān de xiǎo shì zuò qǐ ， wèi hòu dài liú xia yī gè měi hǎo de shì jiè 。",
-  "translation": "The earth is humanity's shared home; however, for a long time, humans have continuously consumed natural resources and damaged the ecological environment for the sake of development. Problems such as climate warming, air pollution, and declining animals are becoming more serious by the day, and already threaten humanity's own survival. Protecting the earth is not one country's affair, but the shared responsibility of all humankind. Everyone living on earth should start from the small things around them, leaving a beautiful world for later generations.",
-  "word_count": 125
- }
+  {
+    "title": "人工智能的影响",
+    "title_pinyin": "rén gōng zhì néng de yǐng xiǎng",
+    "topic": "Technology",
+    "hsk_level": "HSK6",
+    "content": "近年来，人工智能迅速发展，正在深刻地改变着我们的生活。从手机里的语音助手，到工厂里的机器人，人工智能的应用已经无处不在。它不仅提高了工作效率，也为许多行业带来了新的机会。然而，技术的进步也引发了人们的担忧：一旦机器能够代替人来工作，许多人是否会失去工作？因此，如何让技术更好地为人类服务，是我们必须认真思考的问题。",
+    "content_pinyin": "jìn nián lái ， rén gōng zhì néng xùn sù fā zhǎn ， zhèng zài shēn kè de gǎi biàn zhe wǒ men de shēng huó 。 cóng shǒu jī lǐ de yǔ yīn zhù shǒu ， dào gōng chǎng lǐ de jī qì rén ， rén gōng zhì néng de yìng yòng yǐ jīng wú chǔ bù zài 。 tā bù jǐn tí gāo le gōng zuò xiào lǜ ， yě wèi xǔ duō háng yè dài lái le xīn de jī huì 。 rán ér ， jì shù de jìn bù yě yǐn fā le rén men de dān yōu ： yí dàn jī qì néng gòu dài tì rén lái gōng zuò ， xǔ duō rén shì fǒu huì shī qù gōng zuò ？ yīn cǐ ， rú hé ràng jì shù gèng hǎo de wèi rén lèi fú wù ， shì wǒ men bì xū rèn zhēn sī kǎo de wèn tí 。",
+    "translation": "In recent years, artificial intelligence has developed rapidly and is profoundly changing our lives. From voice assistants in phones to robots in factories, AI applications are already everywhere. It has not only improved work efficiency but also brought new opportunities to many industries. However, technological progress has also raised people's concerns: once machines can replace people at work, will many people lose their jobs? Therefore, how to make technology serve humanity better is a question we must seriously consider.",
+    "word_count": 142
+  },
+  {
+    "title": "传统文化的传承",
+    "title_pinyin": "chuán tǒng wén huà de chuán chéng",
+    "topic": "Culture",
+    "hsk_level": "HSK6",
+    "content": "随着时代的发展，一些传统文化正在慢慢消失。许多年轻人更喜欢流行文化，对古老的艺术缺乏兴趣。其实，传统文化是一个民族的根，凡是优秀的传统，都值得我们保护和传承。保护传统文化，并不是要人们回到过去，而是要把古人的智慧和现代生活结合起来。只有这样，这些宝贵的文化才能在新的时代继续发光。",
+    "content_pinyin": "suí zhe shí dài de fā zhǎn ， yì xiē chuán tǒng wén huà zhèng zài màn màn xiāo shī 。 xǔ duō nián qīng rén gèng xǐ huan liú xíng wén huà ， duì gǔ lǎo de yì shù quē fá xìng qù 。 qí shí ， chuán tǒng wén huà shì yī gè mín zú de gēn ， fán shì yōu xiù de chuán tǒng ， dōu zhí dé wǒ men bǎo hù hé chuán chéng 。 bǎo hù chuán tǒng wén huà ， bìng bù shì yào rén men huí dào guò qù ， ér shì yào bǎ gǔ rén de zhì huì hé xiàn dài shēng huó jié hé qǐ lái 。 zhǐ yǒu zhè yàng ， zhè xiē bǎo guì de wén huà cái néng zài xīn de shí dài jì xù fā guāng 。",
+    "translation": "With the development of the times, some traditional culture is slowly disappearing. Many young people prefer popular culture and lack interest in ancient arts. In fact, traditional culture is the root of a nation; all excellent traditions are worth our protecting and passing on. Protecting traditional culture does not mean having people return to the past, but combining the wisdom of the ancients with modern life. Only in this way can this precious culture continue to shine in the new era.",
+    "word_count": 127
+  },
+  {
+    "title": "读万卷书，行万里路",
+    "title_pinyin": "dú wàn juǎn shū ， xíng wàn lǐ lù",
+    "topic": "Life",
+    "hsk_level": "HSK6",
+    "content": "古人说：“读万卷书，行万里路。”这告诉我们，知识不仅来自书本，也来自实际的经历。读书能让我们了解更多知识和不同的思想；而旅行则让我们亲身感受这个世界的丰富多彩。除非把两者结合起来，否则我们对世界的认识总是片面的。真正有智慧的人，既重视学习，也勇于实践。",
+    "content_pinyin": "gǔ rén shuō ： “ dú wàn juǎn shū ， xíng wàn lǐ lù 。 ” zhè gào su wǒ men ， zhī shi bù jǐn lái zì shū běn ， yě lái zì shí jì de jīng lì 。 dú shū néng ràng wǒ men liǎo jiě gèng duō zhī shi hé bù tóng de sī xiǎng ； ér lǚ xíng zé ràng wǒ men qīn shēn gǎn shòu zhè ge shì jiè de fēng fù duō cǎi 。 chú fēi bǎ liǎng zhě jié hé qǐ lái ， fǒu zé wǒ men duì shì jiè de rèn shi zǒng shì piàn miàn de 。 zhēn zhèng yǒu zhì huì de rén ， jì zhòng shì xué xí ， yě yǒng yú shí jiàn 。",
+    "translation": "The ancients said: 'Read ten thousand books, travel ten thousand li.' This saying tells us that knowledge comes not only from books but also from real experience. Reading lets us understand more knowledge and different ideas; travel lets us personally feel the richness of this world. Unless we combine the two, our understanding of the world is always one-sided. Truly wise people both value study and dare to practice.",
+    "word_count": 111
+  },
+  {
+    "title": "健康的生活方式",
+    "title_pinyin": "jiàn kāng de shēng huó fāng shì",
+    "topic": "Health",
+    "hsk_level": "HSK6",
+    "content": "现代人的生活节奏越来越快，许多人为了工作，常常忽视了自己的身体。熬夜、不吃早饭、缺乏运动，这些不良习惯正在悄悄损害着我们的健康。其实，保持健康并不难，关键在于坚持。要么每天抽出一点时间锻炼，要么在饮食上多加注意，长期下来，身体自然会有明显的变化。毕竟，健康才是人生最大的财富。",
+    "content_pinyin": "xiàn dài rén de shēng huó jié zòu yuè lái yuè kuài ， xǔ duō rén wéi le gōng zuò ， cháng cháng hū shì le zì jǐ de shēn tǐ 。 áo yè 、 bù chī zǎo fàn 、 quē fá yùn dòng ， zhè xiē bù liáng xí guàn zhèng zài qiāo qiāo sǔn hài zhe wǒ men de jiàn kāng 。 qí shí ， bǎo chí jiàn kāng bìng bù nán ， guān jiàn zài yú jiān chí 。 yào me měi tiān chōu chū yī diǎn shí jiān duàn liàn ， yào me zài yǐn shí shàng duō jiā zhù yì ， cháng qī xià lái ， shēn tǐ zì rán huì yǒu míng xiǎn de biàn huà 。 bì jìng ， jiàn kāng cái shì rén shēng zuì dà de cái fù 。",
+    "translation": "Modern people's pace of life is faster and faster, and many people often neglect their bodies for the sake of work. Staying up late, skipping breakfast, lack of exercise — these bad habits are quietly harming our health. In fact, staying healthy is not hard; the key lies in persistence. Either set aside a little time to exercise each day, or pay more attention to diet; over the long term, the body will naturally show clear changes. After all, health is the greatest wealth in life.",
+    "word_count": 122
+  },
+  {
+    "title": "成功的意义",
+    "title_pinyin": "chéng gōng de yì yì",
+    "topic": "Life",
+    "hsk_level": "HSK6",
+    "content": "很多人把成功理解为拥有财富和地位，然而，成功的意义远不止于此。有的人虽然并不富有，却因为帮助了他人而感到幸福；有的人事业有成，内心却并不快乐。由此可见，成功并没有统一的标准。一个人之所以被认为是成功的，往往不是因为他得到了多少，而是因为他为这个世界带来了什么。",
+    "content_pinyin": "hěn duō rén bǎ chéng gōng lǐ jiě wèi yōng yǒu cái fù hé dì wèi ， rán ér ， chéng gōng de yì yì yuǎn bù zhǐ yú cǐ 。 yǒu de rén suī rán bìng bù fù yǒu ， què yīn wèi bāng zhù le tā rén ér gǎn dào xìng fú ； yǒu de rén shì yè yǒu chéng ， nèi xīn què bìng bù kuài lè 。 yóu cǐ kě jiàn ， chéng gōng bìng méi yǒu tǒng yī de biāo zhǔn 。 yī gè rén zhī suǒ yǐ bèi rèn wéi shì chéng gōng de ， wǎng wǎng bù shì yīn wèi tā dé dào le duō shao ， ér shì yīn wèi tā wèi zhè ge shì jiè dài lái le shén me 。",
+    "translation": "Many people understand success as having wealth and status; however, the meaning of success is far more than this. Some people, though not rich, feel happy because they have helped others; some people are successful in their careers yet are not happy inside. From this we can see that success has no uniform standard. The reason a person is considered successful is often not because of how much they have gained, but because of what they have brought to this world.",
+    "word_count": 118
+  },
+  {
+    "title": "保护地球",
+    "title_pinyin": "bǎo hù dì qiú",
+    "topic": "Environment",
+    "hsk_level": "HSK6",
+    "content": "地球是人类共同的家园，然而，长期以来，人类为了发展，不断地消耗自然资源，破坏生态环境。气候变暖、空气污染、动物减少等问题日益严重，已经威胁到了人类自身的生存。保护地球不是某一个国家的事，而是全人类共同的责任。凡是生活在地球上的人，都应该从身边的小事做起，为后代留下一个美好的世界。",
+    "content_pinyin": "dì qiú shì rén lèi gòng tóng de jiā yuán ， rán ér ， cháng qī yǐ lái ， rén lèi wèi le fā zhǎn ， bú duàn de xiāo hào zì rán zī yuán ， pò huài shēng tài huán jìng 。 qì hòu biàn nuǎn 、 kōng qì wū rǎn 、 dòng wù jiǎn shǎo děng wèn tí rì yì yán zhòng ， yǐ jīng wēi xié dào le rén lèi zì shēn de shēng cún 。 bǎo hù dì qiú bù shì mǒu yī gè guó jiā de shì ， ér shì quán rén lèi gòng tóng de zé rèn 。 fán shì shēng huó zài dì qiú shàng de rén ， dōu yīng gāi cóng shēn biān de xiǎo shì zuò qǐ ， wèi hòu dài liú xia yī gè měi hǎo de shì jiè 。",
+    "translation": "The earth is humanity's shared home; however, for a long time, humans have continuously consumed natural resources and damaged the ecological environment for the sake of development. Problems such as climate warming, air pollution, and declining animals are becoming more serious by the day, and already threaten humanity's own survival. Protecting the earth is not one country's affair, but the shared responsibility of all humankind. Everyone living on earth should start from the small things around them, leaving a beautiful world for later generations.",
+    "word_count": 125
+  },
+  {
+    "title": "哲学视角下的自由意志",
+    "title_pinyin": "zhéxué shìjiǎo xià de zìyóu yìzhì",
+    "topic": "Philosophy",
+    "hsk_level": "HSK6",
+    "content": "自由意志问题是西方哲学史上争论最为持久的核心议题之一。决定论者认为，宇宙中的一切事件，包括人类的每一个决定，都由先前的因果链条所决定，自由意志不过是一种幻觉。相反，非决定论者坚持认为人具有真正的选择能力，能够在不被既有条件完全决定的情况下做出决策。现代神经科学的发展为这一论争注入了新的维度：本杰明·利贝特的实验表明，大脑在人意识到做出决定之前已经开始准备行动，这似乎支持了决定论的立场。然而，批评者指出，意识的作用可能在于事后对行为的批准或否决，而非启动行动。这一问题不仅具有纯粹的哲学意义，更与道德责任、法律惩罚的正当性等实践议题密切相关。",
+    "content_pinyin": "zìyóu yìzhì wèntí shì xīfāng zhéxué shǐ shàng zhēnglùn zuì wéi chíjiǔ de héxīn yìtí zhī yī 。 juédìng lùn zhě rènwéi ， yǔzhòu zhōng de yīqiè shìjiàn ， bāokuò rénlèi de měi yī gè juédìng ， dōu yóu xiānjí de yīnguǒ liàntiáo suǒ juédìng ， zìyóu yìzhì bùguò shì yī zhǒng huànjué 。 xiāngfǎn ， fēi juédìng lùn zhě jiānchí rènwéi rén jùyǒu zhēnzhèng de xuǎnzé nénglì ， nénggòu zài bù bèi jìyǒu tiáojiàn wánquán juédìng de qíngkuàng xià zuòchū juécè 。 xiàndài shénjīng kēxué de fāzhǎn wèi zhè yī lùnzhēng zhùrù le xīn de wéidù ： běn jié míng · lì bèi tè de shíyàn biǎomíng ， dànǎo zài rén yìshí dào zuòchū juédìng zhīqián yǐjīng kāishǐ zhǔnbèi xíngdòng ， zhè sìhu zhīchí le juédìng lùn de lìchǎng 。 rán'ér ， pīpíng zhě zhǐchū ， yìshí de zuòyòng kěnéng zàiyú shìhòu duì xíngwéi de pīzhǔn huò fǒujué ， ér fēi qǐdòng xíngdòng 。 zhè yī wèntí bùjǐn jùyǒu chúncuì de zhéxué yìyì ， gèng yǔ dàodé zérèn 、 fǎlǜ chéngfá de zhèngdāng xìng děng shíjiàn yìtí mìqiè xiāngguān 。",
+    "translation": "The problem of free will is one of the most persistently contested core topics in the history of Western philosophy. Determinists argue that every event in the universe, including every human decision, is determined by prior causal chains, and that free will is nothing more than an illusion. In contrast, indeterminists insist that human beings possess genuine capacity for choice — the ability to make decisions without being completely determined by pre-existing conditions. The development of modern neuroscience has injected new dimensions into this debate: Benjamin Libet's experiments showed that the brain begins preparing for action before a person is consciously aware of making a decision, which seems to support the determinist position. However, critics point out that the role of consciousness may lie in subsequent approval or veto of behaviour, rather than in initiating action. This issue has not only pure philosophical significance but is also closely related to practical questions such as moral responsibility and the justifiability of legal punishment.",
+    "word_count": 185
+  },
+  {
+    "title": "全球气候治理的困境与出路",
+    "title_pinyin": "quánqiú qìhòu zhìlǐ de kùnjìng yǔ chūlù",
+    "topic": "Environment",
+    "hsk_level": "HSK6",
+    "content": "全球气候治理是当代国际关系中最棘手的集体行动困境之一。《巴黎协定》为全球气温控制设定了明确目标，但其自愿性承诺机制内在地缺乏约束力，加之地缘政治博弈日趋复杂，各国在减排责任分担上的分歧难以弥合。发达国家历史排放量巨大，理应承担更多责任，却往往以转移技术和提供资金的姿态规避实质性减排义务。新兴经济体则面临发展权与减排责任之间的深层矛盾，在主权利益与全球公域义务之间艰难博弈。与此同时，气候变化的非线性效应和临界点风险使问题愈加紧迫，一旦突破某些生态临界点，气候系统将进入不可逆转的恶化轨道。真正有效的气候治理需要超越博弈论的零和思维，在公平正义原则下构建差异化却具有强制力的全球减排体系，同时通过技术创新降低绿色转型的经济代价，以实现代际公平与当代发展的有机统一。",
+    "content_pinyin": "quánqiú qìhòu zhìlǐ shì dāngdài guójì guānxi zhōng zuì jíshǒu de jítǐ xíngdòng kùnjìng zhī yī 。",
+    "translation": "Global climate governance is one of the most thorny collective action dilemmas in contemporary international relations. The Paris Agreement set clear targets for controlling global temperature, but its voluntary commitment mechanism is inherently lacking in binding force; coupled with the growing complexity of geopolitical games, differences among countries over the distribution of emission reduction responsibilities are difficult to bridge. Developed countries have historically emitted vast amounts of greenhouse gases and should shoulder greater responsibility, yet they often use the posture of transferring technology and providing funding to evade substantive emission reduction obligations. Emerging economies face a deep contradiction between the right to development and emission reduction responsibilities, engaged in a difficult balancing act between sovereign interests and global commons obligations. At the same time, the non-linear effects and tipping point risks of climate change are making the situation increasingly urgent — once certain ecological tipping points are crossed, the climate system will enter an irreversible downward trajectory. Truly effective climate governance requires transcending the zero-sum thinking of game theory, constructing under the principles of fairness and justice a differentiated yet binding global emission reduction system, while simultaneously lowering the economic cost of green transition through technological innovation, in order to achieve an organic unity of intergenerational equity and contemporary development.",
+    "word_count": 200
+  },
+  {
+    "title": "语言与思维的相互塑造",
+    "title_pinyin": "yǔyán yǔ sīwéi de xiānghù sùzào",
+    "topic": "Linguistics",
+    "hsk_level": "HSK6",
+    "content": "语言与思维的关系问题，自古以来就是语言学、哲学和认知科学交叉研究的核心议题。萨丕尔-沃尔夫假说提出语言相对论：人们使用的语言在深层次上塑造了他们感知和理解世界的方式。强版本的语言决定论已被学界普遍否定，但弱版本的语言影响论——即语言习惯倾向性地影响认知与感知——仍获得大量实验证据的支持。例如，拥有精细颜色词汇体系的语言使用者在颜色辨别任务中表现更优；使用绝对方向参照系（如用东南西北代替左右）的语言群体，在空间认知方面展现出独特优势。反过来，新概念的涌现与社会实践的变迁也不断重塑语言本身，语言与思维之间形成了一种动态的相互建构关系。这一认识对外语教学具有深刻启示：习得一门语言，不仅仅是掌握符号系统，更是向一种新的感知与概念化世界的方式敞开了大门。",
+    "content_pinyin": "yǔyán yǔ sīwéi de guānxi wèntí ， zìgǔ yǐlái jiùshì yǔyánxué 、 zhéxué hé rènzhī kēxué jiāochā yánjiū de héxīn yìtí 。",
+    "translation": "The question of the relationship between language and thought has been a core topic at the intersection of linguistics, philosophy and cognitive science since ancient times. The Sapir–Whorf hypothesis proposed linguistic relativity: the languages people use profoundly shape the way they perceive and understand the world. The strong version of linguistic determinism has been widely rejected by academia, but the weak version — that linguistic habits tendentially influence cognition and perception — still receives substantial support from experimental evidence. For instance, speakers of languages with elaborate colour vocabulary systems perform better in colour discrimination tasks; language groups that use absolute directional reference frames (such as cardinal directions rather than left and right) exhibit unique advantages in spatial cognition. Conversely, the emergence of new concepts and shifts in social practice continually reshape language itself, forming a dynamic relationship of mutual construction between language and thought. This insight has profound implications for foreign language teaching: acquiring a language is not merely mastering a symbol system — it is opening a door to a new way of perceiving and conceptualising the world.",
+    "word_count": 190
+  },
+  {
+    "title": "技术加速时代的人文危机",
+    "title_pinyin": "jìshù jiāsù shídài de rénwén wēijī",
+    "topic": "Philosophy",
+    "hsk_level": "HSK6",
+    "content": "当技术变革的速度超越人类适应能力的阈值，一场深刻的人文危机便悄然降临。算法推荐系统以其精准的个性化投喂，在提升信息获取效率的同时，也构建了一座座思想茧房，使人们愈发难以接触到异质性观点，批判性思维的土壤日益贫瘠。基因编辑、脑机接口和人工智能辅助决策等技术的边界扩张，正在动摇我们对「人何以为人」这一本体论问题的基本共识，也对建立在人类独特性与自主性之上的道德体系构成根本性挑战。后人文主义者欢呼这是人类进化的新阶段，而保守的人文主义者则忧虑，在这一进程中，我们将失去某种弥足珍贵却难以名状的本真性。应对技术加速时代的人文危机，或许需要我们以更大的智识勇气，重新审视那些被经济功利主义所遮蔽的根本性价值追问：我们究竟想要什么样的生活？什么样的社会值得我们为之建构？",
+    "content_pinyin": "dāng jìshù biàngé de sùdù chāoyuè rénlèi shìyìng nénglì de yùzhí ， yī chǎng shēnkè de rénwén wēijī biàn qiāorán jiànglín 。",
+    "translation": "When the pace of technological change surpasses the threshold of human adaptive capacity, a profound humanistic crisis quietly descends. Algorithm recommendation systems, with their precise personalised feeding, increase the efficiency of information access while also constructing echo chambers of thought, making it increasingly difficult for people to encounter heterogeneous viewpoints and leaving the soil of critical thinking ever more barren. The expanding boundaries of gene editing, brain-computer interfaces and AI-assisted decision-making are shaking our basic consensus on the ontological question of 'what makes us human', and fundamentally challenging the moral systems built on human uniqueness and autonomy. Post-humanists herald this as a new stage of human evolution, while conservative humanists worry that in this process we will lose something precious yet inexpressible — a kind of authenticity. Responding to the humanistic crisis of the age of technological acceleration may require us to muster greater intellectual courage to re-examine those fundamental questions of value obscured by economic utilitarianism: What kind of life do we actually want? What kind of society is worth building?",
+    "word_count": 195
+  }
 ]

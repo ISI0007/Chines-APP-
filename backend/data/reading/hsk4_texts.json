@@ -1,62 +1,102 @@
 [
- {
-  "title": "我的工作",
-  "title_pinyin": "wǒ de gōng zuò",
-  "topic": "Work",
-  "hsk_level": "HSK4",
-  "content": "大学毕业以后，我在一家公司工作。我的工作是帮助顾客解决问题。虽然有时要加班，压力也比较大，但是我觉得很有意思。同事们都很友好，经理也经常鼓励我们。我希望将来能有更多机会，让自己变得更优秀。",
-  "content_pinyin": "dà xué bì yè yǐ hòu ， wǒ zài yī jiā gōng sī gōng zuò 。 wǒ de gōng zuò shì bāng zhù gù kè jiě jué wèn tí 。 suī rán yǒu shí yào jiā bān ， yā lì yě bǐ jiào dà ， dàn shì wǒ jué de hěn yǒu yì si 。 tóng shì men dōu hěn yǒu hǎo ， jīng lǐ yě jīng cháng gǔ lì wǒ men 。 wǒ xī wàng jiāng lái néng yǒu gèng duō jī huì ， ràng zì jǐ biàn de gèng yōu xiù 。",
-  "translation": "After graduating from university, I work at a company. My job is to help customers solve problems. Although I sometimes have to work overtime and the pressure is fairly high, I find it interesting. My colleagues are all friendly, and the manager often encourages us. I hope I will have more opportunities in the future to make myself more excellent.",
-  "word_count": 84
- },
- {
-  "title": "保护环境",
-  "title_pinyin": "bǎo hù huán jìng",
-  "topic": "Environment",
-  "hsk_level": "HSK4",
-  "content": "保护环境是每个人的责任。现在很多城市的空气污染比较严重，这跟汽车太多有关。为了减少污染，我们可以多坐公共汽车，或者骑自行车。另外，节约用水用电、不乱扔垃圾，这些小事也很重要。只要大家一起努力，环境一定会变得更好。",
-  "content_pinyin": "bǎo hù huán jìng shì měi gè rén de zé rèn 。 xiàn zài hěn duō chéng shì de kōng qì wū rǎn bǐ jiào yán zhòng ， zhè gēn qì chē tài duō yǒu guān 。 wèi le jiǎn shǎo wū rǎn ， wǒ men kě yǐ duō zuò gōng gòng qì chē ， huò zhě qí zì xíng chē 。 lìng wài ， jié yuē yòng shuǐ yòng diàn 、 bù luàn rēng lā jī ， zhè xiē xiǎo shì yě hěn zhòng yào 。 zhǐ yào dà jiā yì qǐ nǔ lì ， huán jìng yí dìng huì biàn de gèng hǎo 。",
-  "translation": "Protecting the environment is everyone's responsibility. Now the air pollution in many cities is fairly serious, which is related to there being too many cars. To reduce pollution, we can take public buses more, or ride bikes. In addition, saving water and electricity and not littering — these small things are also important. As long as everyone works together, the environment will surely get better.",
-  "word_count": 94
- },
- {
-  "title": "网上购物",
-  "title_pinyin": "wǎng shang gòu wù",
-  "topic": "Technology",
-  "hsk_level": "HSK4",
-  "content": "随着互联网的发展，网上购物越来越受欢迎。只要用手机扫码付钱，东西很快就会送到家里，十分方便。不过，网上购物也有缺点。有时收到的东西跟图片不一样，质量也不够好。所以我觉得，买重要的东西还是应该小心一点。",
-  "content_pinyin": "suí zhe hù lián wǎng de fā zhǎn ， wǎng shang gòu wù yuè lái yuè shòu huān yíng 。 zhǐ yào yòng shǒu jī sǎo mǎ fù qián ， dōng xi hěn kuài jiù huì sòng dào jiā lǐ ， shí fēn fāng biàn 。 bú guò ， wǎng shang gòu wù yě yǒu quē diǎn 。 yǒu shí shōu dào de dōng xi gēn tú piàn bù yí yàng ， zhì liàng yě bú gòu hǎo 。 suǒ yǐ wǒ jué de ， mǎi zhòng yào de dōng xi hái shi yīng gāi xiǎo xīn yī diǎn 。",
-  "translation": "With the development of the internet, online shopping is more and more popular. As long as you scan a code with your phone to pay, the goods are quickly delivered home, which is very convenient. However, online shopping also has drawbacks. Sometimes what you receive is not the same as the picture, and the quality isn't good enough. So I think, for buying important things, one should still be a bit careful.",
-  "word_count": 89
- },
- {
-  "title": "一次面试",
-  "title_pinyin": "yī cì miàn shì",
-  "topic": "Work",
-  "hsk_level": "HSK4",
-  "content": "上个月，我去一家公司参加面试。那天我提前半个小时到了。面试的时候，经理问了我很多问题，比如我的经历和将来的打算。虽然开始有点紧张，但是我慢慢冷静下来，认真回答每个问题。几天以后，公司通知我可以去上班了，我非常激动。",
-  "content_pinyin": "shàng gè yuè ， wǒ qù yī jiā gōng sī cān jiā miàn shì 。 nà tiān wǒ tí qián bàn gè xiǎo shí dào le 。 miàn shì de shí hou ， jīng lǐ wèn le wǒ hěn duō wèn tí ， bǐ rú wǒ de jīng lì hé jiāng lái de dǎ suàn 。 suī rán kāi shǐ yǒu diǎn jǐn zhāng ， dàn shì wǒ màn màn lěng jìng xià lái ， rèn zhēn huí dá měi gè wèn tí 。 jǐ tiān yǐ hòu ， gōng sī tōng zhī wǒ kě yǐ qù shàng bān le ， wǒ fēi cháng jī dòng 。",
-  "translation": "Last month, I went to a company for an interview. That day I arrived half an hour early. During the interview, the manager asked me many questions, such as my experience and my future plans. Although I was a bit nervous at first, I slowly calmed down and answered each question seriously. A few days later, the company notified me I could start work, and I was very excited.",
-  "word_count": 95
- },
- {
-  "title": "健康生活",
-  "title_pinyin": "jiàn kāng shēng huó",
-  "topic": "Health",
-  "hsk_level": "HSK4",
-  "content": "为了身体健康，我们应该养成好的生活习惯。首先，要按时吃饭，少吃垃圾食品。其次，每天最好能锻炼半个小时，比如跑步或者打球。另外，休息也很重要，不要经常很晚睡觉。只有身体好，我们才能更好地学习和工作。",
-  "content_pinyin": "wèi le shēn tǐ jiàn kāng ， wǒ men yīng gāi yǎng chéng hǎo de shēng huó xí guàn 。 shǒu xiān ， yào àn shí chī fàn ， shǎo chī lā jī shí pǐn 。 qí cì ， měi tiān zuì hǎo néng duàn liàn bàn gè xiǎo shí ， bǐ rú pǎo bù huò zhě dǎ qiú 。 lìng wài ， xiū xi yě hěn zhòng yào ， bú yào jīng cháng hěn wǎn shuì jiào 。 zhǐ yǒu shēn tǐ hǎo ， wǒ men cái néng gèng hǎo de xué xí hé gōng zuò 。",
-  "translation": "For good health, we should develop good living habits. First, eat meals on time and eat less junk food. Second, it is best to exercise for half an hour every day, such as running or playing ball. In addition, rest is also important — don't sleep very late often. Only with a healthy body can we study and work better.",
-  "word_count": 85
- },
- {
-  "title": "我的家乡",
-  "title_pinyin": "wǒ de jiā xiāng",
-  "topic": "Hometown",
-  "hsk_level": "HSK4",
-  "content": "我的家乡是一个美丽的小城市，在中国的南部。那里的气候很好，一年四季都不太冷。城市里有很多公园和树林，环境特别干净。这几年，家乡发展得很快，修了新的道路，也有了不少高楼。每次回家，我都觉得家乡越来越漂亮了。",
-  "content_pinyin": "wǒ de jiā xiāng shì yī gè měi lì de xiǎo chéng shì ， zài Zhōng guó de nán bù 。 nà lǐ de qì hòu hěn hǎo ， yī nián sì jì dōu bù tài lěng 。 chéng shì lǐ yǒu hěn duō gōng yuán hé shù lín ， huán jìng tè bié gān jìng 。 zhè jǐ nián ， jiā xiāng fā zhǎn de hěn kuài ， xiū le xīn de dào lù ， yě yǒu le bù shǎo gāo lóu 。 měi cì huí jiā ， wǒ dōu jué de jiā xiāng yuè lái yuè piào liang le 。",
-  "translation": "My hometown is a beautiful small city, in the south of China. The climate there is nice; it's not too cold all year round. There are many parks and woods in the city, and the environment is especially clean. In recent years, my hometown has developed quickly — new roads were built, and there are quite a few tall buildings too. Every time I go home, I feel my hometown is getting prettier and prettier.",
-  "word_count": 90
- }
+  {
+    "title": "我的工作",
+    "title_pinyin": "wǒ de gōng zuò",
+    "topic": "Work",
+    "hsk_level": "HSK4",
+    "content": "大学毕业以后，我在一家公司工作。我的工作是帮助顾客解决问题。虽然有时要加班，压力也比较大，但是我觉得很有意思。同事们都很友好，经理也经常鼓励我们。我希望将来能有更多机会，让自己变得更优秀。",
+    "content_pinyin": "dà xué bì yè yǐ hòu ， wǒ zài yī jiā gōng sī gōng zuò 。 wǒ de gōng zuò shì bāng zhù gù kè jiě jué wèn tí 。 suī rán yǒu shí yào jiā bān ， yā lì yě bǐ jiào dà ， dàn shì wǒ jué de hěn yǒu yì si 。 tóng shì men dōu hěn yǒu hǎo ， jīng lǐ yě jīng cháng gǔ lì wǒ men 。 wǒ xī wàng jiāng lái néng yǒu gèng duō jī huì ， ràng zì jǐ biàn de gèng yōu xiù 。",
+    "translation": "After graduating from university, I work at a company. My job is to help customers solve problems. Although I sometimes have to work overtime and the pressure is fairly high, I find it interesting. My colleagues are all friendly, and the manager often encourages us. I hope I will have more opportunities in the future to make myself more excellent.",
+    "word_count": 84
+  },
+  {
+    "title": "保护环境",
+    "title_pinyin": "bǎo hù huán jìng",
+    "topic": "Environment",
+    "hsk_level": "HSK4",
+    "content": "保护环境是每个人的责任。现在很多城市的空气污染比较严重，这跟汽车太多有关。为了减少污染，我们可以多坐公共汽车，或者骑自行车。另外，节约用水用电、不乱扔垃圾，这些小事也很重要。只要大家一起努力，环境一定会变得更好。",
+    "content_pinyin": "bǎo hù huán jìng shì měi gè rén de zé rèn 。 xiàn zài hěn duō chéng shì de kōng qì wū rǎn bǐ jiào yán zhòng ， zhè gēn qì chē tài duō yǒu guān 。 wèi le jiǎn shǎo wū rǎn ， wǒ men kě yǐ duō zuò gōng gòng qì chē ， huò zhě qí zì xíng chē 。 lìng wài ， jié yuē yòng shuǐ yòng diàn 、 bù luàn rēng lā jī ， zhè xiē xiǎo shì yě hěn zhòng yào 。 zhǐ yào dà jiā yì qǐ nǔ lì ， huán jìng yí dìng huì biàn de gèng hǎo 。",
+    "translation": "Protecting the environment is everyone's responsibility. Now the air pollution in many cities is fairly serious, which is related to there being too many cars. To reduce pollution, we can take public buses more, or ride bikes. In addition, saving water and electricity and not littering — these small things are also important. As long as everyone works together, the environment will surely get better.",
+    "word_count": 94
+  },
+  {
+    "title": "网上购物",
+    "title_pinyin": "wǎng shang gòu wù",
+    "topic": "Technology",
+    "hsk_level": "HSK4",
+    "content": "随着互联网的发展，网上购物越来越受欢迎。只要用手机扫码付钱，东西很快就会送到家里，十分方便。不过，网上购物也有缺点。有时收到的东西跟图片不一样，质量也不够好。所以我觉得，买重要的东西还是应该小心一点。",
+    "content_pinyin": "suí zhe hù lián wǎng de fā zhǎn ， wǎng shang gòu wù yuè lái yuè shòu huān yíng 。 zhǐ yào yòng shǒu jī sǎo mǎ fù qián ， dōng xi hěn kuài jiù huì sòng dào jiā lǐ ， shí fēn fāng biàn 。 bú guò ， wǎng shang gòu wù yě yǒu quē diǎn 。 yǒu shí shōu dào de dōng xi gēn tú piàn bù yí yàng ， zhì liàng yě bú gòu hǎo 。 suǒ yǐ wǒ jué de ， mǎi zhòng yào de dōng xi hái shi yīng gāi xiǎo xīn yī diǎn 。",
+    "translation": "With the development of the internet, online shopping is more and more popular. As long as you scan a code with your phone to pay, the goods are quickly delivered home, which is very convenient. However, online shopping also has drawbacks. Sometimes what you receive is not the same as the picture, and the quality isn't good enough. So I think, for buying important things, one should still be a bit careful.",
+    "word_count": 89
+  },
+  {
+    "title": "一次面试",
+    "title_pinyin": "yī cì miàn shì",
+    "topic": "Work",
+    "hsk_level": "HSK4",
+    "content": "上个月，我去一家公司参加面试。那天我提前半个小时到了。面试的时候，经理问了我很多问题，比如我的经历和将来的打算。虽然开始有点紧张，但是我慢慢冷静下来，认真回答每个问题。几天以后，公司通知我可以去上班了，我非常激动。",
+    "content_pinyin": "shàng gè yuè ， wǒ qù yī jiā gōng sī cān jiā miàn shì 。 nà tiān wǒ tí qián bàn gè xiǎo shí dào le 。 miàn shì de shí hou ， jīng lǐ wèn le wǒ hěn duō wèn tí ， bǐ rú wǒ de jīng lì hé jiāng lái de dǎ suàn 。 suī rán kāi shǐ yǒu diǎn jǐn zhāng ， dàn shì wǒ màn màn lěng jìng xià lái ， rèn zhēn huí dá měi gè wèn tí 。 jǐ tiān yǐ hòu ， gōng sī tōng zhī wǒ kě yǐ qù shàng bān le ， wǒ fēi cháng jī dòng 。",
+    "translation": "Last month, I went to a company for an interview. That day I arrived half an hour early. During the interview, the manager asked me many questions, such as my experience and my future plans. Although I was a bit nervous at first, I slowly calmed down and answered each question seriously. A few days later, the company notified me I could start work, and I was very excited.",
+    "word_count": 95
+  },
+  {
+    "title": "健康生活",
+    "title_pinyin": "jiàn kāng shēng huó",
+    "topic": "Health",
+    "hsk_level": "HSK4",
+    "content": "为了身体健康，我们应该养成好的生活习惯。首先，要按时吃饭，少吃垃圾食品。其次，每天最好能锻炼半个小时，比如跑步或者打球。另外，休息也很重要，不要经常很晚睡觉。只有身体好，我们才能更好地学习和工作。",
+    "content_pinyin": "wèi le shēn tǐ jiàn kāng ， wǒ men yīng gāi yǎng chéng hǎo de shēng huó xí guàn 。 shǒu xiān ， yào àn shí chī fàn ， shǎo chī lā jī shí pǐn 。 qí cì ， měi tiān zuì hǎo néng duàn liàn bàn gè xiǎo shí ， bǐ rú pǎo bù huò zhě dǎ qiú 。 lìng wài ， xiū xi yě hěn zhòng yào ， bú yào jīng cháng hěn wǎn shuì jiào 。 zhǐ yǒu shēn tǐ hǎo ， wǒ men cái néng gèng hǎo de xué xí hé gōng zuò 。",
+    "translation": "For good health, we should develop good living habits. First, eat meals on time and eat less junk food. Second, it is best to exercise for half an hour every day, such as running or playing ball. In addition, rest is also important — don't sleep very late often. Only with a healthy body can we study and work better.",
+    "word_count": 85
+  },
+  {
+    "title": "我的家乡",
+    "title_pinyin": "wǒ de jiā xiāng",
+    "topic": "Hometown",
+    "hsk_level": "HSK4",
+    "content": "我的家乡是一个美丽的小城市，在中国的南部。那里的气候很好，一年四季都不太冷。城市里有很多公园和树林，环境特别干净。这几年，家乡发展得很快，修了新的道路，也有了不少高楼。每次回家，我都觉得家乡越来越漂亮了。",
+    "content_pinyin": "wǒ de jiā xiāng shì yī gè měi lì de xiǎo chéng shì ， zài Zhōng guó de nán bù 。 nà lǐ de qì hòu hěn hǎo ， yī nián sì jì dōu bù tài lěng 。 chéng shì lǐ yǒu hěn duō gōng yuán hé shù lín ， huán jìng tè bié gān jìng 。 zhè jǐ nián ， jiā xiāng fā zhǎn de hěn kuài ， xiū le xīn de dào lù ， yě yǒu le bù shǎo gāo lóu 。 měi cì huí jiā ， wǒ dōu jué de jiā xiāng yuè lái yuè piào liang le 。",
+    "translation": "My hometown is a beautiful small city, in the south of China. The climate there is nice; it's not too cold all year round. There are many parks and woods in the city, and the environment is especially clean. In recent years, my hometown has developed quickly — new roads were built, and there are quite a few tall buildings too. Every time I go home, I feel my hometown is getting prettier and prettier.",
+    "word_count": 90
+  },
+  {
+    "title": "创业的艰辛",
+    "title_pinyin": "chuàngyè de jiānxīn",
+    "topic": "Work",
+    "hsk_level": "HSK4",
+    "content": "创业是很多年轻人的梦想，但现实往往比想象中困难得多。首先，资金问题是最大的障碍，许多创业者要靠自己的积蓄或向家人借钱来启动项目。其次，市场竞争激烈，新产品很难脱颖而出。此外，创业者还需要同时处理产品开发、市场营销、团队管理等多方面的工作，精力和时间都面临巨大压力。尽管如此，成功的创业经历也能带来丰厚的物质回报和强烈的成就感。",
+    "content_pinyin": "chuàngyè shì hěn duō niánqīng rén de mèngxiǎng ， dàn xiànshí wǎngwǎng bǐ xiǎngxiàng zhōng kùnnan de duō 。 shǒuxiān ， zījīn wèntí shì zuì dà de zhàng'ài ， xǔduō chuàngyè zhě yào kào zìjǐ de jīxù huò xiàng jiārén jiè qián lái qǐdòng xiàngmù 。 qícì ， shìchǎng jìngzhēng jīliè ， xīn chǎnpǐn hěn nán tuōyǐng ér chū 。 cǐwài ， chuàngyè zhě hái xūyào tóngshí chǔlǐ chǎnpǐn kāifā 、 shìchǎng yíngxiāo 、 tuánduì guǎnlǐ děng duō fāngmiàn de gōngzuò ， jīnglì hé shíjiān dōu miànlín jùdà yālì 。 jǐnguǎn rúcǐ ， chénggōng de chuàngyè jīnglì yě néng dài lái fēnghòu de wùzhì huíbào hé qiángliè de chéngjiù gǎn 。",
+    "translation": "Entrepreneurship is the dream of many young people, but reality is often far harder than imagined. First, funding is the biggest obstacle — many entrepreneurs rely on their own savings or borrow from family to launch their projects. Second, market competition is fierce and new products find it hard to stand out. In addition, entrepreneurs must simultaneously handle product development, marketing, team management and many other tasks, facing enormous pressure on their energy and time. Despite all this, a successful entrepreneurial experience can bring substantial financial rewards and a strong sense of achievement.",
+    "word_count": 120
+  },
+  {
+    "title": "城市与乡村",
+    "title_pinyin": "chéngshì yǔ xiāngcūn",
+    "topic": "Society",
+    "hsk_level": "HSK4",
+    "content": "中国的城镇化进程加快，越来越多的农村人口涌入城市。城市生活节奏快，就业机会多，医疗教育条件好，但生活成本也高，竞争压力大。相比之下，农村生活节奏慢，空气清新，邻里关系更亲密，但公共设施不完善，收入也相对较低。近年来，随着乡村振兴政策的推进，越来越多的人开始重新关注农村的发展潜力，甚至有不少城里人选择回到农村创业。",
+    "content_pinyin": "Zhōngguó de chéngzhènhuà jìnchéng jiākuài ， yuèlái yuè duō de nóngcūn rénkǒu yǒngrù chéngshì 。 chéngshì shēnghuó jiézòu kuài ， jiùyè jīhuì duō ， yīliáo jiàoyù tiáojiàn hǎo ， dàn shēnghuó chéngběn yě gāo ， jìngzhēng yālì dà 。 xiāng bǐ zhī xià ， nóngcūn shēnghuó jiézòu màn ， kōngqì qīngxīn ， lín lǐ guānxi gèng qīnmì ， dàn gōnggòng shèshī bù wánshàn ， shōurù yě xiāngduì jiào dī 。 jìn nián lái ， suízhe xiāngcūn zhènxīng zhèngcè de tuījìn ， yuèlái yuè duō de rén kāishǐ chóngxīn guānzhù nóngcūn de fāzhǎn qiánlì ， shènzhì yǒu bùshǎo chéng lǐ rén xuǎnzé huí dào nóngcūn chuàngyè 。",
+    "translation": "China's urbanisation process is accelerating, with more and more rural people pouring into cities. City life is fast-paced, employment opportunities are plentiful and healthcare and education conditions are good, but the cost of living is also high and competitive pressures are great. In contrast, rural life is slower-paced, the air is fresh and neighbourly relationships are closer, but public facilities are less developed and incomes are relatively lower. In recent years, as rural revitalisation policies have advanced, more and more people have started to pay renewed attention to the development potential of rural areas, and quite a few city dwellers have even chosen to return to the countryside to start businesses.",
+    "word_count": 130
+  },
+  {
+    "title": "社交媒体的影响",
+    "title_pinyin": "shèjiāo méitǐ de yǐngxiǎng",
+    "topic": "Technology",
+    "hsk_level": "HSK4",
+    "content": "社交媒体已经成为现代人生活的重要组成部分。通过微信、微博、抖音等平台，人们可以随时分享生活、获取信息、与朋友互动。然而，过度使用社交媒体也带来了一些负面影响。首先，长时间盯着屏幕会损害视力，影响睡眠质量。其次，刷不完的信息流容易让人分心，降低工作和学习效率。更深层次的问题是，过于依赖网络上的点赞和评论来获得满足感，可能导致心理上的焦虑和不安全感。因此，我们需要学会合理使用社交媒体，保持健康的生活方式。",
+    "content_pinyin": "shèjiāo méitǐ yǐjīng chéngwéi xiàndài rén shēnghuó de zhòngyào zǔchéng bùfen 。 tōngguò Wēixìn 、 Wēibó 、 Dǒuyīn děng píngtái ， rénmen kěyǐ suíshí fēnxiǎng shēnghuó 、 huòqǔ xìnxī 、 yǔ péngyou hùdòng 。 rán'ér ， guòdù shǐyòng shèjiāo méitǐ yě dài lái le yīxiē fùmiàn yǐngxiǎng 。 shǒuxiān ， cháng shíjiān dīng zhe píngmù huì sǔnhài shìlì ， yǐngxiǎng shuìmián zhìliàng 。 qícì ， shuā bù wán de xìnxī liú róngyì ràng rén fēnxīn ， jiàngdī gōngzuò hé xuéxí xiàolǜ 。 gèng shēn céngcì de wèntí shì ， guòyú yīlài wǎngluò shàng de diǎnzàn hé pínglùn lái huòdé mǎnzú gǎn ， kěnéng dǎozhì xīnlǐ shàng de jiāolǜ hé bù ānquán gǎn 。 yīncǐ ， wǒmen xūyào xuéhuì hélǐ shǐyòng shèjiāo méitǐ ， bǎochí jiànkāng de shēnghuó fāngshì 。",
+    "translation": "Social media has become an important part of modern people's lives. Through platforms such as WeChat, Weibo and TikTok, people can share their lives, access information and interact with friends at any time. However, excessive use of social media has also brought some negative effects. First, staring at screens for long periods can damage eyesight and affect sleep quality. Second, an endless stream of information is easily distracting and reduces work and study efficiency. The deeper issue is that relying too heavily on likes and comments online for a sense of satisfaction may lead to anxiety and insecurity. Therefore, we need to learn how to use social media in a balanced way and maintain a healthy lifestyle.",
+    "word_count": 140
+  },
+  {
+    "title": "中医与西医",
+    "title_pinyin": "zhōngyī yǔ xīyī",
+    "topic": "Health",
+    "hsk_level": "HSK4",
+    "content": "中医和西医是两种不同的医学体系，各有优势。西医以现代科学为基础，诊断精确，手术和急救能力强，适合处理急性疾病和外伤。中医则注重整体调养，通过针灸、中药、推拿等方式调节人体机能，在治疗慢性病和预防疾病方面有独特优势。近年来，越来越多的医生开始探索中西医结合的治疗方案，希望发挥两者的优势，为患者提供更全面有效的医疗服务。",
+    "content_pinyin": "zhōngyī hé xīyī shì liǎng zhǒng bùtóng de yīxué tǐxì ， gè yǒu yōushì 。 xīyī yǐ xiàndài kēxué wéi jīchǔ ， zhěnduàn jīngquè ， shǒushù hé jíjiù nénglì qiáng ， shìhé chǔlǐ jíxìng jíbìng hé wàishāng 。 zhōngyī zé zhùzhòng zhěngtǐ diàoyǎng ， tōngguò zhēnjiǔ 、 zhōngyào 、 tuīná děng fāngshì tiáojié réntǐ jīnéng ， zài zhìliáo mànxìng bìng hé yùfáng jíbìng fāngmiàn yǒu dútè yōushì 。 jìn nián lái ， yuèlái yuè duō de yīshēng kāishǐ tànsuǒ zhōng xī yī jiéhé de zhìliáo fāng'àn ， xīwàng fāhuī liǎng zhě de yōushì ， wèi huànzhě tígōng gèng quánmiàn yǒuxiào de yīliáo fúwù 。",
+    "translation": "Traditional Chinese medicine (TCM) and Western medicine are two different medical systems, each with its own strengths. Western medicine is grounded in modern science — it is diagnostically precise, excels at surgery and emergency care, and is well suited to treating acute diseases and injuries. TCM focuses on holistic recuperation, regulating bodily functions through acupuncture, herbal medicine, massage and other methods, and has unique advantages in treating chronic diseases and preventing illness. In recent years, more and more doctors have begun exploring integrated TCM-Western medicine treatment plans, hoping to harness the strengths of both systems and provide patients with more comprehensive and effective healthcare.",
+    "word_count": 135
+  }
 ]

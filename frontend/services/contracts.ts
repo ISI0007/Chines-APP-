@@ -459,6 +459,23 @@ export interface ProgressionResponse {
   bands:        HskBand[];
 }
 
+// ─── Phase 4: Reading stats ───────────────────────────────────────────────────
+
+/** One level row inside GET /reading/stats */
+export interface ReadingLevelStat {
+  hsk_level:  HskLevel;
+  total:      number;
+  completed:  number;
+  pct:        number;   // 0.0 – 100.0
+}
+
+/** GET /reading/stats */
+export interface ReadingStatsResponse {
+  levels:          ReadingLevelStat[];
+  total_completed: number;
+  total_texts:     number;
+}
+
 // ─── Phase 3: Profile ─────────────────────────────────────────────────────────
 
 /** GET /users/me/profile */

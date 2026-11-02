@@ -3,7 +3,8 @@ from datetime import datetime, timezone
 from typing import Optional
 
 from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy import select
+from pydantic import BaseModel
+from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from api.deps import current_user
@@ -14,6 +15,19 @@ from models.user import HskLevel, User
 from schemas.content import (
     ReadingCompleteRequest, ReadingTextDetail, ReadingTextSummary, XpResponse,
 )
+
+
+class ReadingLevelStat(BaseModel):
+    hsk_level: str
+    total: int
+    completed: int
+    pct: float          # 0.0 – 100.0
+
+
+class ReadingStatsResponse(BaseModel):
+    levels: list[ReadingLevelStat]
+    total_completed: int
+    total_texts: int
 
 router = APIRouter(prefix="/reading", tags=["reading"])
 FIRST_COMPLETION_XP = 10
@@ -91,3 +105,52 @@ async def complete_text(
         prog.comprehension_score = body.comprehension_score
     await db.commit()
     return XpResponse(xp_gained=gained, total_xp=user.xp)
+
+
+@router.get("/stats", response_model=ReadingStatsResponse)
+async def reading_stats(
+    db: AsyncSession = Depends(get_db),
+    user: User = Depends(current_user),
+):
+    """Return per-level reading completion statistics for the current user."""
+    # All texts grouped by level
+    rows = (await db.execute(
+        select(ReadingText.hsk_level, func.count(ReadingText.id).label("total"))
+        .group_by(ReadingText.hsk_level)
+    )).all()
+
+    # Completed ids for this user
+    done_ids = await _completed_ids(db, user.id)
+
+    # Count completed per level
+    completed_rows = (await db.execute(
+        select(ReadingText.hsk_level, func.count(ReadingText.id).label("done"))
+        .join(
+            UserReadingProgress,
+            (UserReadingProgress.text_id == ReadingText.id)
+            & (UserReadingProgress.user_id == user.id)
+            & (UserReadingProgress.completed.is_(True)),
+            isouter=True,
+        )
+        .where(UserReadingProgress.user_id == user.id, UserReadingProgress.completed.is_(True))
+        .group_by(ReadingText.hsk_level)
+    )).all()
+    done_map: dict[str, int] = {r.hsk_level.value: r.done for r in completed_rows}
+
+    level_order = [l.value for l in HskLevel]
+    stats: list[ReadingLevelStat] = []
+    total_texts = 0
+    total_completed = 0
+    for row in sorted(rows, key=lambda r: level_order.index(r.hsk_level.value) if r.hsk_level.value in level_order else 99):
+        lv = row.hsk_level.value
+        tot = row.total
+        done = done_map.get(lv, 0)
+        total_texts += tot
+        total_completed += done
+        stats.append(ReadingLevelStat(
+            hsk_level=lv,
+            total=tot,
+            completed=done,
+            pct=round(done / tot * 100, 1) if tot else 0.0,
+        ))
+    return ReadingStatsResponse(levels=stats, total_completed=total_completed, total_texts=total_texts)

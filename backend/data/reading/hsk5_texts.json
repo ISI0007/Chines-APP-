@@ -1,62 +1,102 @@
 [
- {
-  "title": "坚持的力量",
-  "title_pinyin": "jiān chí de lì liàng",
-  "topic": "Life",
-  "hsk_level": "HSK5",
-  "content": "很多人做事都希望马上看到结果，一旦遇到困难就想放弃。其实，真正能成功的人，往往是那些能够坚持下去的人。学习一门语言也好，培养一个爱好也好，都需要长期的努力。没有坚持，就没有收获。只要我们相信自己，一步一步往前走，总有一天会实现自己的目标。",
-  "content_pinyin": "hěn duō rén zuò shì dōu xī wàng mǎ shàng kàn dào jié guǒ ， yí dàn yù dào kùn nan jiù xiǎng fàng qì 。 qí shí ， zhēn zhèng néng chéng gōng de rén ， wǎng wǎng shì nà xiē néng gòu jiān chí xià qù de rén 。 xué xí yī mén yǔ yán yě hǎo ， péi yǎng yī gè ài hào yě hǎo ， dōu xū yào cháng qī de nǔ lì 。 méi yǒu jiān chí ， jiù méi yǒu shōu huò 。 zhǐ yào wǒ men xiāng xìn zì jǐ ， yī bù yī bù wǎng qián zǒu ， zǒng yǒu yī tiān huì shí xiàn zì jǐ de mù biāo 。",
-  "translation": "Many people hope to see results immediately when doing things, and once they meet difficulties they want to give up. In fact, the ones who can truly succeed are often those able to keep going. Whether learning a language or developing a hobby, both need long-term effort. Without persistence, there is no gain. As long as we believe in ourselves and walk forward step by step, one day we will achieve our goals.",
-  "word_count": 106
- },
- {
-  "title": "手机与生活",
-  "title_pinyin": "shǒu jī yǔ shēng huó",
-  "topic": "Technology",
-  "hsk_level": "HSK5",
-  "content": "如今，智能手机已经成为我们生活中不可缺少的工具。无论是购物、付钱，还是联系朋友、查找信息，一部手机几乎都能完成。然而，手机也带来了一些问题。有些人连吃饭、走路的时候都看着手机，甚至影响了身体健康和人际关系。因此，合理使用手机，才是聪明的做法。",
-  "content_pinyin": "rú jīn ， zhì néng shǒu jī yǐ jīng chéng wéi wǒ men shēng huó zhōng bù kě quē shǎo de gōng jù 。 wú lùn shì gòu wù 、 fù qián ， hái shi lián xì péng you 、 chá zhǎo xìn xī ， yī bù shǒu jī jī hū dōu néng wán chéng 。 rán ér ， shǒu jī yě dài lái le yì xiē wèn tí 。 yǒu xiē rén lián chī fàn 、 zǒu lù de shí hou dōu kàn zhe shǒu jī ， shèn zhì yǐng xiǎng le shēn tǐ jiàn kāng hé rén jì guān xì 。 yīn cǐ ， hé lǐ shǐ yòng shǒu jī ， cái shì cōng míng de zuò fǎ 。",
-  "translation": "Nowadays, smartphones have become an indispensable tool in our lives. Whether shopping, paying, or contacting friends and searching for information, a single phone can do almost all of it. However, phones have also brought some problems. Some people look at their phones even while eating or walking, which has even affected their health and relationships. Therefore, using phones reasonably is the smart approach.",
-  "word_count": 106
- },
- {
-  "title": "传统节日",
-  "title_pinyin": "chuán tǒng jié rì",
-  "topic": "Culture",
-  "hsk_level": "HSK5",
-  "content": "中国有许多传统节日，每个节日都有自己的风俗和意义。比如过年的时候，每个家庭都会打扫房子、准备年夜饭，一家人团聚在一起。无论离家多远，很多人都会想办法回家过年。这些传统之所以能够一代一代传下来，是因为它们表达了人们对家庭和美好生活的向往。",
-  "content_pinyin": "Zhōng guó yǒu xǔ duō chuán tǒng jié rì ， měi gè jié rì dōu yǒu zì jǐ de fēng sú hé yì yì 。 bǐ rú guò nián de shí hou ， měi gè jiā tíng dōu huì dǎ sǎo fáng zi 、 zhǔn bèi nián yè fàn ， yī jiā rén tuán jù zài yì qǐ 。 wú lùn lí jiā duō yuǎn ， hěn duō rén dōu huì xiǎng bàn fǎ huí jiā guò nián 。 zhè xiē chuán tǒng zhī suǒ yǐ néng gòu yí dài yí dài chuán xià lái ， shì yīn wèi tā men biǎo dá le rén men duì jiā tíng hé měi hǎo shēng huó de xiàng wǎng 。",
-  "translation": "China has many traditional festivals, and each festival has its own customs and meaning. For example, at New Year, every family cleans the house and prepares the New Year's Eve dinner, with the whole family reunited together. No matter how far from home, many people find a way to go home for the New Year. The reason these traditions can be passed down generation after generation is that they express people's longing for family and a good life.",
-  "word_count": 108
- },
- {
-  "title": "环境保护",
-  "title_pinyin": "huán jìng bǎo hù",
-  "topic": "Environment",
-  "hsk_level": "HSK5",
-  "content": "近年来，环境问题越来越受到人们的关注。工业的发展虽然提高了生活水平，但是也对自然造成了破坏。空气污染、水污染等问题，正威胁着人类的健康。保护环境不只是政府的责任，也需要每个人的参与。哪怕只是节约一张纸、少用一个袋子，也是在为地球做贡献。",
-  "content_pinyin": "jìn nián lái ， huán jìng wèn tí yuè lái yuè shòu dào rén men de guān zhù 。 gōng yè de fā zhǎn suī rán tí gāo le shēng huó shuǐ píng ， dàn shì yě duì zì rán zào chéng le pò huài 。 kōng qì wū rǎn 、 shuǐ wū rǎn děng wèn tí ， zhèng wēi xié zhe rén lèi de jiàn kāng 。 bǎo hù huán jìng bù zhǐ shì zhèng fǔ de zé rèn ， yě xū yào měi gè rén de cān yù 。 nǎ pà zhǐ shì jié yuē yī zhāng zhǐ 、 shǎo yòng yī gè dài zi ， yě shì zài wèi dì qiú zuò gòng xiàn 。",
-  "translation": "In recent years, environmental problems have drawn more and more attention. Although industrial development has raised living standards, it has also caused damage to nature. Problems like air and water pollution are threatening human health. Protecting the environment is not only the government's responsibility; it also needs everyone's participation. Even just saving a sheet of paper or using one less bag is contributing to the earth.",
-  "word_count": 106
- },
- {
-  "title": "读书的好处",
-  "title_pinyin": "dú shū de hǎo chù",
-  "topic": "Learning",
-  "hsk_level": "HSK5",
-  "content": "有人说，读书是最好的学习方式。通过阅读，我们不仅能够获得知识，还可以了解不同的文化和思想。一本好书，有时甚至能改变一个人的一生。当然，读书也要讲究方法。与其读很多却不思考，不如认真读几本，并把学到的东西用到生活中。这样的阅读，才真正有价值。",
-  "content_pinyin": "yǒu rén shuō ， dú shū shì zuì hǎo de xué xí fāng shì 。 tōng guò yuè dú ， wǒ men bù jǐn néng gòu huò dé zhī shi ， hái kě yǐ liǎo jiě bù tóng de wén huà hé sī xiǎng 。 yī běn hǎo shū ， yǒu shí shèn zhì néng gǎi biàn yī gè rén de yì shēng 。 dāng rán ， dú shū yě yào jiǎng jiu fāng fǎ 。 yǔ qí dú hěn duō què bù sī kǎo ， bù rú rèn zhēn dú jǐ běn ， bìng bǎ xué dào de dōng xi yòng dào shēng huó zhōng 。 zhè yàng de yuè dú ， cái zhēn zhèng yǒu jià zhí 。",
-  "translation": "Some say reading is the best way to learn. Through reading, we can not only gain knowledge but also understand different cultures and ideas. A good book can sometimes even change a person's life. Of course, reading also requires method. Rather than reading a lot without thinking, it is better to read a few books carefully and apply what you learn to life. This kind of reading is truly valuable.",
-  "word_count": 106
- },
- {
-  "title": "城市与乡村",
-  "title_pinyin": "chéng shì yǔ xiāng cūn",
-  "topic": "Society",
-  "hsk_level": "HSK5",
-  "content": "城市和乡村各有各的特点。城市交通方便，工作机会多，但是生活很快，压力也大。乡村虽然没有那么热闹，可是空气新鲜，环境安静，生活比较轻松。随着经济的发展，越来越多的人在城市工作，却开始向往乡村的生活。其实，无论住在哪里，最重要的是找到适合自己的生活方式。",
-  "content_pinyin": "chéng shì hé xiāng cūn gè yǒu gè de tè diǎn 。 chéng shì jiāo tōng fāng biàn ， gōng zuò jī huì duō ， dàn shì shēng huó hěn kuài ， yā lì yě dà 。 xiāng cūn suī rán méi yǒu nà me rè nao ， kě shì kōng qì xīn xiān ， huán jìng ān jìng ， shēng huó bǐ jiào qīng sōng 。 suí zhe jīng jì de fā zhǎn ， yuè lái yuè duō de rén zài chéng shì gōng zuò ， què kāi shǐ xiàng wǎng xiāng cūn de shēng huó 。 qí shí ， wú lùn zhù zài nǎ lǐ ， zuì zhòng yào de shì zhǎo dào shì hé zì jǐ de shēng huó fāng shì 。",
-  "translation": "Cities and the countryside each have their own characteristics. Cities have convenient transport and many job opportunities, but life is fast and the pressure is high. Although the countryside isn't as lively, the air is fresh, the environment is quiet, and life is relatively relaxed. With economic development, more and more people work in cities, yet begin to long for country life. In fact, no matter where you live, the most important thing is to find a way of life that suits you.",
-  "word_count": 110
- }
+  {
+    "title": "坚持的力量",
+    "title_pinyin": "jiān chí de lì liàng",
+    "topic": "Life",
+    "hsk_level": "HSK5",
+    "content": "很多人做事都希望马上看到结果，一旦遇到困难就想放弃。其实，真正能成功的人，往往是那些能够坚持下去的人。学习一门语言也好，培养一个爱好也好，都需要长期的努力。没有坚持，就没有收获。只要我们相信自己，一步一步往前走，总有一天会实现自己的目标。",
+    "content_pinyin": "hěn duō rén zuò shì dōu xī wàng mǎ shàng kàn dào jié guǒ ， yí dàn yù dào kùn nan jiù xiǎng fàng qì 。 qí shí ， zhēn zhèng néng chéng gōng de rén ， wǎng wǎng shì nà xiē néng gòu jiān chí xià qù de rén 。 xué xí yī mén yǔ yán yě hǎo ， péi yǎng yī gè ài hào yě hǎo ， dōu xū yào cháng qī de nǔ lì 。 méi yǒu jiān chí ， jiù méi yǒu shōu huò 。 zhǐ yào wǒ men xiāng xìn zì jǐ ， yī bù yī bù wǎng qián zǒu ， zǒng yǒu yī tiān huì shí xiàn zì jǐ de mù biāo 。",
+    "translation": "Many people hope to see results immediately when doing things, and once they meet difficulties they want to give up. In fact, the ones who can truly succeed are often those able to keep going. Whether learning a language or developing a hobby, both need long-term effort. Without persistence, there is no gain. As long as we believe in ourselves and walk forward step by step, one day we will achieve our goals.",
+    "word_count": 106
+  },
+  {
+    "title": "手机与生活",
+    "title_pinyin": "shǒu jī yǔ shēng huó",
+    "topic": "Technology",
+    "hsk_level": "HSK5",
+    "content": "如今，智能手机已经成为我们生活中不可缺少的工具。无论是购物、付钱，还是联系朋友、查找信息，一部手机几乎都能完成。然而，手机也带来了一些问题。有些人连吃饭、走路的时候都看着手机，甚至影响了身体健康和人际关系。因此，合理使用手机，才是聪明的做法。",
+    "content_pinyin": "rú jīn ， zhì néng shǒu jī yǐ jīng chéng wéi wǒ men shēng huó zhōng bù kě quē shǎo de gōng jù 。 wú lùn shì gòu wù 、 fù qián ， hái shi lián xì péng you 、 chá zhǎo xìn xī ， yī bù shǒu jī jī hū dōu néng wán chéng 。 rán ér ， shǒu jī yě dài lái le yì xiē wèn tí 。 yǒu xiē rén lián chī fàn 、 zǒu lù de shí hou dōu kàn zhe shǒu jī ， shèn zhì yǐng xiǎng le shēn tǐ jiàn kāng hé rén jì guān xì 。 yīn cǐ ， hé lǐ shǐ yòng shǒu jī ， cái shì cōng míng de zuò fǎ 。",
+    "translation": "Nowadays, smartphones have become an indispensable tool in our lives. Whether shopping, paying, or contacting friends and searching for information, a single phone can do almost all of it. However, phones have also brought some problems. Some people look at their phones even while eating or walking, which has even affected their health and relationships. Therefore, using phones reasonably is the smart approach.",
+    "word_count": 106
+  },
+  {
+    "title": "传统节日",
+    "title_pinyin": "chuán tǒng jié rì",
+    "topic": "Culture",
+    "hsk_level": "HSK5",
+    "content": "中国有许多传统节日，每个节日都有自己的风俗和意义。比如过年的时候，每个家庭都会打扫房子、准备年夜饭，一家人团聚在一起。无论离家多远，很多人都会想办法回家过年。这些传统之所以能够一代一代传下来，是因为它们表达了人们对家庭和美好生活的向往。",
+    "content_pinyin": "Zhōng guó yǒu xǔ duō chuán tǒng jié rì ， měi gè jié rì dōu yǒu zì jǐ de fēng sú hé yì yì 。 bǐ rú guò nián de shí hou ， měi gè jiā tíng dōu huì dǎ sǎo fáng zi 、 zhǔn bèi nián yè fàn ， yī jiā rén tuán jù zài yì qǐ 。 wú lùn lí jiā duō yuǎn ， hěn duō rén dōu huì xiǎng bàn fǎ huí jiā guò nián 。 zhè xiē chuán tǒng zhī suǒ yǐ néng gòu yí dài yí dài chuán xià lái ， shì yīn wèi tā men biǎo dá le rén men duì jiā tíng hé měi hǎo shēng huó de xiàng wǎng 。",
+    "translation": "China has many traditional festivals, and each festival has its own customs and meaning. For example, at New Year, every family cleans the house and prepares the New Year's Eve dinner, with the whole family reunited together. No matter how far from home, many people find a way to go home for the New Year. The reason these traditions can be passed down generation after generation is that they express people's longing for family and a good life.",
+    "word_count": 108
+  },
+  {
+    "title": "环境保护",
+    "title_pinyin": "huán jìng bǎo hù",
+    "topic": "Environment",
+    "hsk_level": "HSK5",
+    "content": "近年来，环境问题越来越受到人们的关注。工业的发展虽然提高了生活水平，但是也对自然造成了破坏。空气污染、水污染等问题，正威胁着人类的健康。保护环境不只是政府的责任，也需要每个人的参与。哪怕只是节约一张纸、少用一个袋子，也是在为地球做贡献。",
+    "content_pinyin": "jìn nián lái ， huán jìng wèn tí yuè lái yuè shòu dào rén men de guān zhù 。 gōng yè de fā zhǎn suī rán tí gāo le shēng huó shuǐ píng ， dàn shì yě duì zì rán zào chéng le pò huài 。 kōng qì wū rǎn 、 shuǐ wū rǎn děng wèn tí ， zhèng wēi xié zhe rén lèi de jiàn kāng 。 bǎo hù huán jìng bù zhǐ shì zhèng fǔ de zé rèn ， yě xū yào měi gè rén de cān yù 。 nǎ pà zhǐ shì jié yuē yī zhāng zhǐ 、 shǎo yòng yī gè dài zi ， yě shì zài wèi dì qiú zuò gòng xiàn 。",
+    "translation": "In recent years, environmental problems have drawn more and more attention. Although industrial development has raised living standards, it has also caused damage to nature. Problems like air and water pollution are threatening human health. Protecting the environment is not only the government's responsibility; it also needs everyone's participation. Even just saving a sheet of paper or using one less bag is contributing to the earth.",
+    "word_count": 106
+  },
+  {
+    "title": "读书的好处",
+    "title_pinyin": "dú shū de hǎo chù",
+    "topic": "Learning",
+    "hsk_level": "HSK5",
+    "content": "有人说，读书是最好的学习方式。通过阅读，我们不仅能够获得知识，还可以了解不同的文化和思想。一本好书，有时甚至能改变一个人的一生。当然，读书也要讲究方法。与其读很多却不思考，不如认真读几本，并把学到的东西用到生活中。这样的阅读，才真正有价值。",
+    "content_pinyin": "yǒu rén shuō ， dú shū shì zuì hǎo de xué xí fāng shì 。 tōng guò yuè dú ， wǒ men bù jǐn néng gòu huò dé zhī shi ， hái kě yǐ liǎo jiě bù tóng de wén huà hé sī xiǎng 。 yī běn hǎo shū ， yǒu shí shèn zhì néng gǎi biàn yī gè rén de yì shēng 。 dāng rán ， dú shū yě yào jiǎng jiu fāng fǎ 。 yǔ qí dú hěn duō què bù sī kǎo ， bù rú rèn zhēn dú jǐ běn ， bìng bǎ xué dào de dōng xi yòng dào shēng huó zhōng 。 zhè yàng de yuè dú ， cái zhēn zhèng yǒu jià zhí 。",
+    "translation": "Some say reading is the best way to learn. Through reading, we can not only gain knowledge but also understand different cultures and ideas. A good book can sometimes even change a person's life. Of course, reading also requires method. Rather than reading a lot without thinking, it is better to read a few books carefully and apply what you learn to life. This kind of reading is truly valuable.",
+    "word_count": 106
+  },
+  {
+    "title": "城市与乡村",
+    "title_pinyin": "chéng shì yǔ xiāng cūn",
+    "topic": "Society",
+    "hsk_level": "HSK5",
+    "content": "城市和乡村各有各的特点。城市交通方便，工作机会多，但是生活很快，压力也大。乡村虽然没有那么热闹，可是空气新鲜，环境安静，生活比较轻松。随着经济的发展，越来越多的人在城市工作，却开始向往乡村的生活。其实，无论住在哪里，最重要的是找到适合自己的生活方式。",
+    "content_pinyin": "chéng shì hé xiāng cūn gè yǒu gè de tè diǎn 。 chéng shì jiāo tōng fāng biàn ， gōng zuò jī huì duō ， dàn shì shēng huó hěn kuài ， yā lì yě dà 。 xiāng cūn suī rán méi yǒu nà me rè nao ， kě shì kōng qì xīn xiān ， huán jìng ān jìng ， shēng huó bǐ jiào qīng sōng 。 suí zhe jīng jì de fā zhǎn ， yuè lái yuè duō de rén zài chéng shì gōng zuò ， què kāi shǐ xiàng wǎng xiāng cūn de shēng huó 。 qí shí ， wú lùn zhù zài nǎ lǐ ， zuì zhòng yào de shì zhǎo dào shì hé zì jǐ de shēng huó fāng shì 。",
+    "translation": "Cities and the countryside each have their own characteristics. Cities have convenient transport and many job opportunities, but life is fast and the pressure is high. Although the countryside isn't as lively, the air is fresh, the environment is quiet, and life is relatively relaxed. With economic development, more and more people work in cities, yet begin to long for country life. In fact, no matter where you live, the most important thing is to find a way of life that suits you.",
+    "word_count": 110
+  },
+  {
+    "title": "数字经济的崛起",
+    "title_pinyin": "shùzì jīngjì de juéqǐ",
+    "topic": "Economy",
+    "hsk_level": "HSK5",
+    "content": "数字经济正以前所未有的速度重塑全球产业格局。电子商务、移动支付、大数据分析和人工智能技术的融合，催生了全新的商业模式，也对传统行业构成了深刻冲击。在中国，数字经济已经成为国民经济的重要组成部分，2023年数字经济规模超过50万亿元，占GDP的比重超过40%。然而，数字经济的快速发展也带来了数据安全、平台垄断、劳动者权益保护等新挑战，需要政府、企业和社会各界共同探索有效的治理路径。",
+    "content_pinyin": "shùzì jīngjì zhèng yǐ qián suǒ wèi yǒu de sùdù chóng sù quánqiú chǎnyè géjú 。 diànzǐ shāngwù 、 yídòng zhīfù 、 dà shùjù fēnxī hé réngōng zhìnéng jìshù de rónghé ， cuī shēng le quánxīn de shāngyè móshì ， yě duì chuántǒng hángyè gòuchéng le shēnkè chōngjī 。 zài Zhōngguó ， shùzì jīngjì yǐjīng chéngwéi guómín jīngjì de zhòngyào zǔchéng bùfen ， 2023 nián shùzì jīngjì guīmó chāoguò 50 wàn yì yuán ， zhàn GDP de bǐzhòng chāoguò 40% 。 rán'ér ， shùzì jīngjì de kuàisù fāzhǎn yě dài lái le shùjù ānquán 、 píngtái lǒngduàn 、 láodòng zhě quányì bǎohù děng xīn tiǎozhàn ， xūyào zhèngfǔ 、 qǐyè hé shèhuì gèjiè gòngtóng tànsuǒ yǒuxiào de zhìlǐ lùjìng 。",
+    "translation": "The digital economy is reshaping the global industrial landscape at an unprecedented pace. The convergence of e-commerce, mobile payments, big data analytics and artificial intelligence has spawned entirely new business models while also profoundly disrupting traditional industries. In China, the digital economy has become an important component of the national economy — in 2023 its scale exceeded 50 trillion yuan, accounting for more than 40% of GDP. However, the rapid development of the digital economy has also brought new challenges including data security, platform monopolies and the protection of workers' rights, which require governments, businesses and all sectors of society to jointly explore effective governance pathways.",
+    "word_count": 150
+  },
+  {
+    "title": "文化遗产的传承与保护",
+    "title_pinyin": "wénhuà yíchǎn de chuánchéng yǔ bǎohù",
+    "topic": "Culture",
+    "hsk_level": "HSK5",
+    "content": "文化遗产是一个民族的集体记忆与精神财富，承载着历史的印记和文明的智慧。然而，在全球化和现代化的冲击下，许多传统技艺、地方戏曲和民俗文化正面临日益严峻的传承危机。年轻一代对传统文化的兴趣减退，传承人老龄化问题突出。对此，政府和社会各界正积极采取措施：建立非遗数据库、开展传承人培训、将传统文化纳入学校教育课程。与此同时，利用数字技术对文化遗产进行活化呈现，也为传统文化的现代传播提供了新途径。传承文化遗产，不仅是保护历史，更是构建文化自信的重要基石。",
+    "content_pinyin": "wénhuà yíchǎn shì yīgè mínzú de jítǐ jìyì yǔ jīngshén cáifù ， chéngzǎi zhe lìshǐ de yìnjì hé wénmíng de zhìhuì 。 rán'ér ， zài quánqiúhuà hé xiàndàihuà de chōngjī xià ， xǔduō chuántǒng jìyì 、 dìfāng xìqǔ hé mínsú wénhuà zhèng miànlín rì yì yánjùn de chuánchéng wéijī 。 niánqīng yīdài duì chuántǒng wénhuà de xìngqù jiǎntuì ， chuánchéng rén lǎolínghuà wèntí tūchū 。 duì cǐ ， zhèngfǔ hé shèhuì gèjiè zhèng jījí cǎiqǔ cuòshī ： jiànlì fēiyí shùjùkù 、 kāizhǎn chuánchéng rén péixùn 、 jiāng chuántǒng wénhuà nà rù xuéxiào jiàoyù kèchéng 。 yǔ cǐ tóngshí ， lìyòng shùzì jìshù duì wénhuà yíchǎn jìnxíng huóhuà chéngxiàn ， yě wèi chuántǒng wénhuà de xiàndài chuánbō tígōng le xīn tújìng 。 chuánchéng wénhuà yíchǎn ， bùjǐn shì bǎohù lìshǐ ， gèng shì gòujiàn wénhuà zìxìn de zhòngyào jīshí 。",
+    "translation": "Cultural heritage is a nation's collective memory and spiritual wealth, bearing the imprints of history and the wisdom of civilisation. However, under the impact of globalisation and modernisation, many traditional crafts, local operas and folk cultures are facing an increasingly severe succession crisis. The younger generation's interest in traditional culture is declining and the ageing of inheritors is a prominent problem. In response, government and all sectors of society are actively taking measures: establishing intangible heritage databases, conducting training for inheritors and incorporating traditional culture into school curricula. At the same time, using digital technology to vitalise and present cultural heritage has provided new channels for the modern dissemination of traditional culture. Inheriting cultural heritage is not only about protecting history — it is also an important cornerstone for building cultural confidence.",
+    "word_count": 160
+  },
+  {
+    "title": "老龄化社会的挑战",
+    "title_pinyin": "lǎolínghuà shèhuì de tiǎozhàn",
+    "topic": "Society",
+    "hsk_level": "HSK5",
+    "content": "人口老龄化是当今全球普遍面临的重大社会问题。随着生育率下降和预期寿命延长，越来越多的国家正步入老龄化社会。这一趋势带来了多层面的挑战：养老金体系面临资金压力，医疗和护理需求急剧增加，劳动力短缺制约经济增长。中国在这一领域面临的挑战尤为严峻，预计到2050年，65岁以上老年人口将占总人口的三分之一以上。为应对老龄化挑战，各国正在探索延迟退休、发展银发经济、引进移民以补充劳动力等多种对策，同时也在加大对养老基础设施和社会服务体系的投入。",
+    "content_pinyin": "rénkǒu lǎolínghuà shì dāngjīn quánqiú pǔbiàn miànlín de zhòngdà shèhuì wèntí 。 suízhe shēngyùlǜ xiàjiàng hé yùqī shòumìng yáncháng ， yuèlái yuè duō de guójiā zhèng bùrù lǎolínghuà shèhuì 。 zhè yī qūshì dài lái le duō céngmiàn de tiǎozhàn ： yǎnglǎojīn tǐxì miànlín zījīn yālì ， yīliáo hé hùlǐ xūqiú jùzēng ， láodònglì duǎnquē zhìyuē jīngjì zēngzhǎng 。 Zhōngguó zài zhè yī lǐngyù miànlín de tiǎozhàn yóuwéi yánjùn ， yùjì dào 2050 nián ， 65 suì yǐshàng lǎonián rénkǒu jiāng zhàn zǒng rénkǒu de sān fēn zhī yī yǐshàng 。 wèi yìngduì lǎolínghuà tiǎozhàn ， gèguó zhèngzài tànsuǒ yánchí tuìxiū 、 fāzhǎn yínfà jīngjì 、 yǐnjìn yímín yǐ bǔchōng láodònglì děng duōzhǒng duìcè ， tóngshí yě zài jiādà duì yǎnglǎo jīchǔ shèshī hé shèhuì fúwù tǐxì de tóurù 。",
+    "translation": "Population ageing is a major social issue that the world universally faces today. As birth rates fall and life expectancy rises, more and more countries are entering an ageing society. This trend brings multi-level challenges: pension systems face funding pressure, medical and care demands are rising sharply, and labour shortages constrain economic growth. China faces particularly severe challenges in this area — it is estimated that by 2050 people aged 65 and above will account for more than one-third of the total population. To address the ageing challenge, countries are exploring multiple countermeasures such as delaying retirement, developing the silver economy and bringing in migrants to supplement the workforce, while also increasing investment in elderly care infrastructure and social service systems.",
+    "word_count": 165
+  },
+  {
+    "title": "环境保护与经济发展",
+    "title_pinyin": "huánjìng bǎohù yǔ jīngjì fāzhǎn",
+    "topic": "Environment",
+    "hsk_level": "HSK5",
+    "content": "长期以来，环境保护与经济发展之间的矛盾似乎难以调和。一些发展中国家认为，在经济尚未发展到一定水平之前，过于严格的环保要求会阻碍经济增长和人民生活水平的提高。然而，这种以牺牲环境换取经济增长的发展模式已被证明是不可持续的。生态系统的破坏会导致自然灾害频发，空气和水污染对公共健康造成巨大危害，最终将严重拖累经济的长期发展。越来越多的证据表明，绿色发展不仅是可能的，而且是有利可图的。可再生能源、绿色建筑和清洁交通领域已经涌现出大量创业机会和就业岗位，证明了生态文明建设与经济高质量发展完全可以相辅相成。",
+    "content_pinyin": "chángqī yǐlái ， huánjìng bǎohù yǔ jīngjì fāzhǎn zhījiān de máodùn sìhu nányǐ tiáohé 。 yīxiē fāzhǎn zhōng guójiā rènwéi ， zài jīngjì shàng wèi fāzhǎn dào yīdìng shuǐpíng zhīqián ， guòyú yángé de huánbǎo yāoqiú huì zǔ'ài jīngjì zēngzhǎng hé rénmín shēnghuó shuǐpíng de tígāo 。 rán'ér ， zhè zhǒng yǐ xīshēng huánjìng huàn qǔ jīngjì zēngzhǎng de fāzhǎn móshì yǐ bèi zhèngmíng shì bù kě chíxù de 。 shēngtài xìtǒng de pòhuài huì dǎozhì zìrán zāihài pínfā ， kōngqì hé shuǐ wūrǎn duì gōnggòng jiànkāng zàochéng jùdà wēihài ， zuìzhōng jiāng yánzhòng tuōlèi jīngjì de chángqī fāzhǎn 。 yuèlái yuè duō de zhèngjù biǎomíng ， lǜsè fāzhǎn bùjǐn shì kěnéng de ， érqiě shì yǒulì kě tú de 。 kě zài shēng nénggyuán 、 lǜsè jiànzhù hé qīngjié jiāotōng lǐngyù yǐjīng yǒngxiàn chū dàliàng chuàngyè jīhuì hé jiùyè gǎngwèi ， zhèngmíng le shēngtài wénmíng jiànshè yǔ jīngjì gāo zhìliàng fāzhǎn wánquán kěyǐ xiāngfǔ xiāngchéng 。",
+    "translation": "For a long time, the contradiction between environmental protection and economic development seemed hard to reconcile. Some developing countries believe that overly stringent environmental requirements will impede economic growth and improvements in people's living standards before the economy has reached a certain level of development. However, this development model of sacrificing the environment for economic growth has been proven to be unsustainable. Ecosystem destruction leads to frequent natural disasters, and air and water pollution cause enormous harm to public health, ultimately dragging down long-term economic development severely. A growing body of evidence shows that green development is not only possible, but also profitable. Vast numbers of entrepreneurial opportunities and jobs have already emerged in renewable energy, green construction and clean transportation, proving that ecological civilisation building and high-quality economic development can fully complement each other.",
+    "word_count": 170
+  }
 ]
