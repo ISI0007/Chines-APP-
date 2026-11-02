@@ -4,12 +4,15 @@ import { useAuth } from "../hooks/useAuth";
 import { router } from "expo-router";
 
 const MODULES = [
-  { id: "flashcards", label: "Flashcards", emoji: "🃏", screen: "Flashcards" },
-  { id: "reading",    label: "Reading",    emoji: "📖", screen: "Reading"    },
-  { id: "listening",  label: "Listening",  emoji: "🎧", screen: "Listening"  },
-  { id: "writing",    label: "Writing",    emoji: "✍️", screen: "Writing"    },
-  { id: "tests",      label: "HSK Tests",  emoji: "📝", screen: "Tests"      },
-  { id: "grammar",    label: "Grammar",    emoji: "📚", screen: "Grammar"    },
+  { id: "flashcards",  label: "Flashcards",  emoji: "🃏", route: "/flashcards"  },
+  { id: "reading",     label: "Reading",     emoji: "📖", route: "/reading"     },
+  { id: "listening",   label: "Listening",   emoji: "🎧", route: "/listening"   },
+  { id: "writing",     label: "Writing",     emoji: "✍️", route: "/writing"     },
+  { id: "tests",       label: "HSK Tests",   emoji: "📝", route: "/tests"       },
+  { id: "grammar",     label: "Grammar",     emoji: "📚", route: "/grammar"     },
+  { id: "speaking",    label: "Speaking",    emoji: "🎤", route: "/speaking"    },
+  { id: "course",      label: "Course",      emoji: "🏫", route: "/course"      },
+  { id: "progression", label: "Progression", emoji: "📈", route: "/progression" },
 ];
 
 export default function HomeScreen() {
@@ -23,9 +26,14 @@ export default function HomeScreen() {
           <Text style={styles.greeting}>你好, {user?.username}! 👋</Text>
           <Text style={styles.level}>{user?.hsk_level} · {user?.xp} XP</Text>
         </View>
-        <TouchableOpacity onPress={logout}>
-          <Text style={styles.logout}>Logout</Text>
-        </TouchableOpacity>
+        <View style={{ flexDirection: "row", gap: 16, alignItems: "center" }}>
+          <TouchableOpacity onPress={() => router.push("/profile")}>
+            <Text style={styles.logout}>👤</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={logout}>
+            <Text style={styles.logout}>Logout</Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
       {/* Daily Goal */}
@@ -41,25 +49,10 @@ export default function HomeScreen() {
           <TouchableOpacity
             key={m.id}
             style={styles.moduleCard}
-            disabled={m.id === "listening"}
-            onPress={() => {
-              if (m.id === "reading")   router.push("/reading");
-              else if (m.id === "grammar")  router.push("/grammar");
-              else if (m.id === "writing")  router.push("/writing");
-              else if (m.id === "tests")    router.push("/tests");
-              else router.push("/flashcards");
-            }}
+            onPress={() => router.push(m.route as any)}
           >
             <Text style={styles.moduleEmoji}>{m.emoji}</Text>
             <Text style={styles.moduleLabel}>{m.label}</Text>
-            <Text>{
-              m.id === "flashcards" ? "Start review"
-              : m.id === "tests"    ? "Start practice"
-              : m.id === "reading"  ? "Read HSK1 stories"
-              : m.id === "grammar"  ? "Learn HSK1 patterns"
-              : m.id === "writing"  ? "Stroke practice"
-              : "Coming soon"
-            }</Text>
           </TouchableOpacity>
         ))}
       </View>

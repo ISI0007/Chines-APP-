@@ -19,5 +19,12 @@ export default function Layout() {
     <Stack.Screen name="grammar/[id]" options={{ title: "Grammar lesson" }} />
     <Stack.Screen name="writing" options={{ title: "Stroke practice" }} />
     <Stack.Screen name="leaderboard" options={{ title: "Leaderboard" }} />
+    <Stack.Screen name="speaking" options={{ title: "Speaking practice" }} />
+    <Stack.Screen name="profile" options={{ title: "Profile" }} />
+    <Stack.Screen name="listening" options={{ title: "Listening test" }} />
+    <Stack.Screen name="progression" options={{ title: "HSK progression" }} />
+    <Stack.Screen name="course/index" options={{ title: "HSK Course" }} />
+    <Stack.Screen name="course/units" options={{ title: "Lessons" }} />
+    <Stack.Screen name="course/lesson" options={{ title: "Lesson" }} />
   </Stack>;
 }
