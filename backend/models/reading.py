@@ -23,7 +23,9 @@ class ReadingText(Base):
     translation: Mapped[str] = mapped_column(Text, default="")     # English translation
     hsk_level: Mapped[HskLevel] = mapped_column(SAEnum(HskLevel))
     topic: Mapped[str] = mapped_column(String(100), default="")    # e.g. "Daily Life"
+    image_description: Mapped[str] = mapped_column(Text, default="")
     word_count: Mapped[int] = mapped_column(Integer, default=0)
+    image_path: Mapped[str | None] = mapped_column(String(500), nullable=True)
     audio_path: Mapped[str | None] = mapped_column(String(300), nullable=True)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)

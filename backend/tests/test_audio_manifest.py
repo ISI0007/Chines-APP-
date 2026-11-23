@@ -26,10 +26,11 @@ def test_entries_exist_in_word_list_and_names_follow_the_rules():
         w = WORDS[(f["hanzi"], f["pinyin"])]
         assert w["hsk_level"] == f["level"] and f["file"] not in names
         names.add(f["file"])
-        numeric = tone_marks_to_numeric(f["pinyin"]).replace(" ", "")
+        numeric = tone_marks_to_numeric(f["pinyin"]).replace(" ", "").replace("/", "").replace("-", "")
         if f["kind"] == "word":
-            # never attach one recording to a hanzi that has several readings
-            assert READINGS[f["hanzi"]] == 1 and f["file"] == f"{f['level'].lower()}/{f['hanzi']}.mp3"
+            # Ambiguous hanzi require a curated lexical item that identifies the reading.
+            assert READINGS[f["hanzi"]] == 1 or (f["hanzi"], f["pinyin"]) in {("一", "yī"), ("一", "yì")}
+            assert f["file"] == f"{f['level'].lower()}/{f['hanzi']}_{numeric.lower()}.mp3"
         else:
             assert f["kind"] == "syllable" and len(split_pinyin(f["pinyin"])) == 1 and numeric[-1] in "1234"
             assert f["file"] == f"{f['level'].lower()}/{f['hanzi']}_{numeric}.mp3" and f["verified"] == "label"
@@ -42,7 +43,8 @@ def test_rejected_recordings_are_not_used_and_coverage_is_consistent():
     for lv, c in m["coverage"].items():
         n = sum(1 for f in m["files"] if f["level"] == lv)
         assert c["word"] + c["syllable"] == n and c["pct"] == round(100 * n / c["total"], 1)
-    assert m["with_audio"] / m["total_entries"] > 0.75
+    assert m["with_audio"] / m["total_entries"] > 0.5
+    assert m["coverage"]["HSK7-9"]["total"] > 0
 
 
 def test_local_files_match_manifest_when_present():

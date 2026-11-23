@@ -12,6 +12,7 @@ class HskLevel(str, enum.Enum):
     HSK4 = "HSK4"
     HSK5 = "HSK5"
     HSK6 = "HSK6"
+    HSK7_9 = "HSK7-9"
 
 
 class User(Base):
@@ -28,6 +29,7 @@ class User(Base):
     hsk_level: Mapped[HskLevel] = mapped_column(SAEnum(HskLevel), default=HskLevel.HSK1)
     xp: Mapped[int] = mapped_column(Integer, default=0)
     streak_days: Mapped[int] = mapped_column(Integer, default=0)
+    preferred_language: Mapped[str] = mapped_column(String(16), default="en", nullable=False)
     last_active_on: Mapped[Date] = mapped_column(Date, nullable=True)   # last UTC day with XP activity
 
     created_at: Mapped[DateTime] = mapped_column(DateTime(timezone=True), server_default=func.now())

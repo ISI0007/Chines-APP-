@@ -166,9 +166,9 @@ Example: GET /api/v1/audio/hsk1/谢谢.mp3
 ```js
 `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(simplified)}&tl=zh-CN&client=tw-ob`
 ```
-**Recordings are real now** (open licence): `python scripts/fetch_audio.py` (run on the host, needs git + `pip install -r scripts/requirements-audio.txt`) downloads them into `backend/data/audio/` (not in git; the folder is mounted into Docker). Without that step `audio_path` stays null everywhere.
-Coverage: **4,442 of 5,375 entries (83%)** — HSK1 93%, HSK2 87%, HSK3 91%, HSK4 84%, HSK5 85%, HSK6 76%. A word with several readings only gets a recording when the exact reading is known (single-syllable words).
-Single-syllable recordings were checked against the expected tone with a pitch classifier (95% cross-validated accuracy on the labelled syllables, ~90% agreement on the word recordings); multi-syllable recordings are unchecked and rely on the source's curation. `backend/data/audio/MANIFEST.json` lists which recording backs which word.
+**Recordings are real now** (open licence): `python scripts/fetch_audio.py` (run on the host; needs git, ffmpeg and `pip install -r scripts/requirements-audio.txt`) downloads them into `backend/data/audio/` (not in git; the folder is mounted into Docker). Rerun after updating the vocabulary seed to refresh files and the manifest.
+Coverage for the imported seed: **7,285 of 12,451 entries (59%)** — HSK1 76%, HSK2 54%, HSK3 76%, HSK4 73%, HSK5 78%, HSK6 68%, HSK7–9 45%. A word with several readings gets human audio only when the reading can be matched exactly; otherwise the player falls back to Google TTS.
+Single-syllable recordings were checked against the expected tone with a pitch classifier (95.3% cross-validated accuracy on labelled syllables; 91.6% agreement on checked word recordings, with 114 mismatches rejected). Multi-syllable recordings are unchecked individually and rely on the source's curation. `backend/data/audio/MANIFEST.json` lists each recording, word and verification status.
 **Attribution is required (CC BY-SA):** the About screen must credit *hugolpz/audio-cmn* (Shtooka/SWAC) — speakers Yue Tan (words) and Chen Wang (syllables). Text: `backend/data/audio/ATTRIBUTION.md`.
 
 ---
@@ -180,11 +180,11 @@ GET  /api/v1/reading/texts?hsk_level=HSK1&topic=Family     -> [ReadingSummary]
 GET  /api/v1/reading/texts/{id}                            -> ReadingDetail
 POST /api/v1/reading/texts/{id}/complete  {"comprehension_score": 80}   (score optional, 0-100)
 
-ReadingSummary: { id, title, title_pinyin, topic, hsk_level, word_count, completed }
+ReadingSummary: { id, title, title_pinyin, topic, hsk_level, word_count, image_description, image_path, completed }
 ReadingDetail : ReadingSummary + { content, content_pinyin, translation, audio_path }
 complete ->     { "xp_gained": 10, "total_xp": 10 }     // XP only on FIRST completion, else 0
 ```
-`content_pinyin` is the whole passage in pinyin (sentence-level, not per-character alignment).
+`image_path` is nullable and resolves to a story cover when available; `image_description` is descriptive alternative text. `content`, `content_pinyin`, and `translation` share paragraph breaks. `audio_path` is nullable; clients may offer sentence-sized speech playback when no recording is supplied.
 
 ## Grammar
 

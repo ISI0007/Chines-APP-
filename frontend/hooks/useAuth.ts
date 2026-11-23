@@ -3,7 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { API_BASE } from "../constants/api";
 import { createClient } from "../services/client";
 import type { Tokens } from "../services/contracts";
-interface User { id: number; email: string; username: string; hsk_level: string; xp: number; streak_days: number }
+interface User { id: number; email: string; username: string; hsk_level: string; xp: number; streak_days: number; preferred_language: string }
 interface AuthState {
   user: User | null; accessToken: string | null; isLoading: boolean;
   login(email: string, password: string): Promise<void>;

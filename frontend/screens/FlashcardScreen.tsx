@@ -17,6 +17,7 @@ export default function FlashcardScreen() {
   const [error, setError] = useState("");
   const [saveError, setSaveError] = useState("");
   const [notice, setNotice] = useState("");
+  const [showFullDefinition, setShowFullDefinition] = useState(false);
   const [retry, setRetry] = useState(0);
   const [earned, setEarned] = useState(0);
   const pending = useRef(false);
@@ -25,7 +26,7 @@ export default function FlashcardScreen() {
   useFocusEffect(useCallback(() => {
     const controller = new AbortController();
     generation.current++;
-    setBusy(true); setError(""); setWords([]); setIndex(0); setEarned(0); setRevealed(false); setSaveError(""); setNotice(""); flip.setValue(0);
+    setBusy(true); setError(""); setWords([]); setIndex(0); setEarned(0); setRevealed(false); setShowFullDefinition(false); setSaveError(""); setNotice(""); flip.setValue(0);
     api<Word[]>(`/vocabulary/review?hsk_level=${level}&limit=20`, { signal: controller.signal })
       .then(data => { if (!controller.signal.aborted) setWords(data); })
       .catch(() => { if (!controller.signal.aborted) setError("Could not load your review queue."); })
@@ -49,14 +50,15 @@ export default function FlashcardScreen() {
       if (current !== generation.current) return;
       setEarned(n => n + result.xp_gained);
       setNotice(`+${result.xp_gained} XP · Next review: ${new Date(result.next_review).toLocaleDateString()}`);
-      setIndex(i => i + 1); setRevealed(false); flip.setValue(0);
+      setIndex(i => i + 1); setRevealed(false); setShowFullDefinition(false); flip.setValue(0);
     } catch {
       if (current === generation.current) setSaveError("We could not confirm this rating was saved. Reload the queue before continuing to avoid counting it twice.");
     } finally { pending.current = false; setSaving(false); }
   }
   return <ScrollView contentContainerStyle={ui.page}>
-    <Text style={ui.title}>A little practice, every day</Text>
-    <Text style={ui.subtitle}>Recall the meaning before revealing the answer. Your rating sets the next review.</Text>
+    <Text style={{fontSize:10,fontWeight:"800",letterSpacing:1.5,color:"#66806B"}}>DAILY REVIEW · 复习</Text>
+    <Text style={ui.title}>Remember it before you reveal it.</Text>
+    <Text style={ui.subtitle}>Try to recall the meaning first. Your answer sets when you’ll see this word again.</Text>
     <Levels value={level} onChange={setLevel} disabled={saving} />
     {!!notice && <Text accessibilityLiveRegion="polite">{notice}</Text>}
     {busy ? <ActivityIndicator accessibilityLabel="Loading review queue" /> : error ? <Failure message={error} retry={() => setRetry(n => n + 1)} /> : !word ? <View style={ui.card}><Text style={ui.title}>{words.length ? "Session complete" : "No words to review"}</Text><Text>{index} cards reviewed · {earned} XP earned this session</Text><Button title="Check for more words" onPress={() => setRetry(n => n + 1)} /></View> : <>
@@ -64,9 +66,10 @@ export default function FlashcardScreen() {
       <Pressable accessibilityRole="button" accessibilityLabel={revealed ? "Answer revealed" : `Reveal meaning for ${word.simplified} ${word.pinyin}`} onPress={reveal} disabled={revealed || saving}>
         <Animated.View style={[ui.card, { minHeight: 240, justifyContent: "center", transform: [{ perspective: 1000 }, { rotateY: flip.interpolate({ inputRange: [0, 0.5, 1], outputRange: ["0deg", "90deg", "0deg"] }) }] }]}>
           <View style={ui.row}><Text style={ui.hanzi}>{word.simplified}</Text><Text style={ui.pinyin}>{word.pinyin}</Text></View>
-          {revealed ? <Text>{word.definitions.join("; ")}</Text> : <Text>Tap to reveal meaning</Text>}
+          {revealed ? <Text>{word.definitions[0]}{showFullDefinition ? word.definitions.slice(1).map((definition, i) => `\n\n${i + 2}. ${definition}`).join("") : ""}</Text> : <Text>Tap to reveal meaning</Text>}
         </Animated.View>
       </Pressable>
+      {revealed && word.definitions.length > 1 && <Pressable accessibilityRole="button" onPress={() => setShowFullDefinition(v => !v)}><Text>{showFullDefinition ? "Show concise meaning" : `Show full entry (${word.definitions.length} definitions)`}</Text></Pressable>}
       {revealed && <WordAudio key={word.id} word={word} />}
       {revealed && <View style={ui.row}>{RATINGS.map((label, quality) => <Pressable key={quality} accessibilityRole="button" disabled={saving || !!saveError} onPress={() => rate(quality)} style={[ui.chip, { opacity: saving || saveError ? 0.5 : 1 }]}><Text>{quality} · {label}</Text></Pressable>)}</View>}
       {saving && <ActivityIndicator accessibilityLabel="Saving rating" />}

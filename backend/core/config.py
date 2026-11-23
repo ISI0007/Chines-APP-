@@ -7,6 +7,13 @@ class Settings(BaseSettings):
     APP_NAME: str = "ChineseLearn"
     APP_ENV: str = "development"
     FRONTEND_URL: str = "http://localhost:19006"
+    PASSWORD_RESET_TOKEN_EXPIRE_MINUTES: int = 30
+    SMTP_HOST: str = ""
+    SMTP_PORT: int = 587
+    SMTP_USERNAME: str = ""
+    SMTP_PASSWORD: str = ""
+    SMTP_FROM_EMAIL: str = ""
+    SMTP_USE_TLS: bool = True
 
     # Database
     DATABASE_URL: str = "postgresql://chineselearn:chineselearn123@postgres:5432/chineselearn"

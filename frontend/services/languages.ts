@@ -1,0 +1,15 @@
+export const LANGUAGES = [
+  { code: "en", name: "English" }, { code: "si", name: "සිංහල · Sinhala" },
+  { code: "zh", name: "中文 · Chinese" }, { code: "ru", name: "Русский · Russian" },
+  { code: "tg", name: "Тоҷикӣ · Tajik" }, { code: "uz", name: "O‘zbek · Uzbek" },
+  { code: "bn", name: "বাংলা · Bengali" }, { code: "ur", name: "اردو · Urdu" },
+  { code: "id", name: "Bahasa Indonesia" }, { code: "ms", name: "Bahasa Melayu" },
+  { code: "km", name: "ភាសាខ្មែរ · Khmer" }, { code: "hi", name: "हिन्दी · Hindi" },
+  { code: "ne", name: "नेपाली · Nepali" }, { code: "th", name: "ไทย · Thai" },
+  { code: "vi", name: "Tiếng Việt" }, { code: "ja", name: "日本語 · Japanese" },
+  { code: "ko", name: "한국어 · Korean" }, { code: "my", name: "မြန်မာ · Burmese" },
+  { code: "fil", name: "Filipino" }, { code: "ps", name: "پښتو · Pashto" },
+  { code: "fa", name: "فارسی · Persian" }, { code: "ar", name: "العربية · Arabic" },
+  { code: "kk", name: "Қазақша · Kazakh" }, { code: "ky", name: "Кыргызча · Kyrgyz" },
+  { code: "mn", name: "Монгол · Mongolian" }, { code: "lo", name: "ລາວ · Lao" },
+] as const;

@@ -31,7 +31,8 @@ def local_audio_path(simplified: str, hsk_level: str, pinyin_numeric: str | None
     level = hsk_level.lower()
     names = []
     if pinyin_numeric:
-        names.append(f"{simplified}_{pinyin_numeric.replace(' ', '').lower()}.mp3")
+        reading = pinyin_numeric.replace(" ", "").replace("/", "").replace("-", "").lower()
+        names.append(f"{simplified}_{reading}.mp3")
     names.append(f"{simplified}.mp3")
     for name in names:
         if (AUDIO_ROOT / level / name).exists():
@@ -58,5 +59,5 @@ def audio_url(simplified: str, hsk_level: str) -> str:
 
 def ensure_audio_dirs() -> None:
     """Create audio directories for all HSK levels."""
-    for level in ["hsk1", "hsk2", "hsk3", "hsk4", "hsk5", "hsk6"]:
+    for level in ["hsk1", "hsk2", "hsk3", "hsk4", "hsk5", "hsk6", "hsk7-9"]:
         (AUDIO_ROOT / level).mkdir(parents=True, exist_ok=True)

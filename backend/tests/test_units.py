@@ -52,17 +52,22 @@ def test_syllabus_rows_are_complete_and_match_official_totals():
 def test_every_app_word_traces_to_its_syllabus_row():
     rows = {r["seq"]: r for r in json.load(open(DATA / "hsk" / "syllabus_vocab_l1-6.json", encoding="utf-8"))}
     for w in _hsk_words():
+        if w.get("syllabus_seq") is None:  # Pleco-added readings are outside this official list.
+            continue
         r = rows[w["syllabus_seq"]]
         assert re.sub(r"\d+$", "", r["word"]) == w["simplified"] and r["level"][0] == w["hsk_level"][3:], w
-    kept = {w["syllabus_seq"] for w in _hsk_words()}
+    kept = {w["syllabus_seq"] for w in _hsk_words() if w.get("syllabus_seq") is not None}
     assert len(rows) - len(kept) == 25          # only same-word/same-reading homograph rows are merged
 
 
 def test_hsk30_level_counts_follow_the_official_syllabus():
     from collections import Counter
     c = Counter(w["hsk_level"] for w in _hsk_words())
-    assert c["HSK1"] == 300                      # the official HSK 1 size
-    assert c == {"HSK1": 300, "HSK2": 198, "HSK3": 497, "HSK4": 997, "HSK5": 1591, "HSK6": 1792}
+    # The 2025 syllabus rows retain their official level counts. Pleco adds
+    # reading variants and other flashcards on top of these seed entries.
+    syllabus = Counter(w["hsk_level"] for w in _hsk_words() if w.get("syllabus_seq") is not None)
+    assert syllabus == {"HSK1": 300, "HSK2": 198, "HSK3": 497, "HSK4": 997, "HSK5": 1591, "HSK6": 1792}
+    assert c["HSK7-9"] > 0
 
 
 def test_hsk30_unique_and_complete():
@@ -71,7 +76,11 @@ def test_hsk30_unique_and_complete():
     assert len(keys) == len(set(keys)), "duplicate (simplified, pinyin)"
     for w in words:
         assert w["definitions"] and all(isinstance(d, str) and d for d in w["definitions"]), w["simplified"]
-        assert w["hsk_level"] in {f"HSK{n}" for n in range(1, 7)}
+        assert all(len(d) <= 10000 for d in w["definitions"]), w["simplified"]
+        if w.get("syllabus_seq") is not None:
+            assert w["hsk_level"] in {f"HSK{n}" for n in range(1, 7)}
+        else:
+            assert w["hsk_level"] in {f"HSK{n}" for n in range(1, 7)} | {"HSK7-9"}
         assert len(w["simplified"]) <= 20 and len(w["traditional"]) <= 20 and len(w["pinyin"]) <= 100
 
 
@@ -80,6 +89,15 @@ def test_hsk30_no_noise_only_definitions():
     junk = re.compile(r"^(surname |name of |erhua variant of|variant of|old variant of|also pr\.|abbr\. for|see |\(Internet slang\))", re.I)
     bad = [w["simplified"] for w in _hsk_words() if all(junk.match(d) for d in w["definitions"])]
     assert not bad, bad
+
+
+def test_pleco_import_has_hsk1_to_9_provenance():
+    from collections import Counter
+    imported = [w for w in _hsk_words() if w.get("definition_quality") == "pleco_import"]
+    levels = Counter(w["hsk_level"] for w in imported)
+    assert len(imported) == 6878
+    assert levels["HSK7-9"] > 0
+    assert all(w.get("source_data", {}).get("pleco_hsk_2026_levels") for w in imported)
 
 
 def test_hsk30_heteronyms_keep_their_own_meaning():

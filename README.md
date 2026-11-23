@@ -37,6 +37,10 @@ docker compose up -d
 # 4. Import HSK word data
 docker compose exec backend python /scripts/import_hsk.py
 
+# 4b. Apply schema updates and import graded reading, grammar, and tests
+docker compose exec backend alembic upgrade head
+docker compose exec backend python /scripts/import_content.py
+
 # 5. API docs
 open http://localhost:8000/docs
 

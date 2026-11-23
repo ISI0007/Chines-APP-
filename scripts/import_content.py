@@ -44,11 +44,21 @@ async def seed_reading(db, prune=False):
             hit = (await db.execute(select(ReadingText).where(
                 ReadingText.hsk_level == lvl, ReadingText.title == t["title"]))).scalar_one_or_none()
             if hit:
+                hit.title_pinyin = t.get("title_pinyin", "")
+                hit.content = t["content"]
+                hit.content_pinyin = t.get("content_pinyin", "")
+                hit.translation = t.get("translation", "")
+                hit.topic = t.get("topic", "")
+                hit.image_description = t.get("image_description", "")
+                hit.image_path = t.get("image_path")
+                hit.word_count = len(t["content"])
                 continue
             db.add(ReadingText(
                 title=t["title"], title_pinyin=t.get("title_pinyin", ""), content=t["content"],
                 content_pinyin=t.get("content_pinyin", ""), translation=t.get("translation", ""),
                 hsk_level=lvl, topic=t.get("topic", ""), word_count=len(t["content"]),
+                image_description=t.get("image_description", ""),
+                image_path=t.get("image_path"),
             ))
             n += 1
     return n, (await _prune(db, ReadingText, keep, lambda r: (r.hsk_level, r.title)) if prune else 0)

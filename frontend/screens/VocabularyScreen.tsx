@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ActivityIndicator, Button, ScrollView, Text, TextInput, View } from "react-native";
+import { ActivityIndicator, Button, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { api } from "../hooks/useAuth";
 import { Failure, Levels, ui } from "../components/StudyUI";
 import { WordAudio } from "../components/WordAudio";
@@ -27,16 +27,18 @@ export default function VocabularyScreen() {
     return () => controller.abort();
   }, [filter, retry]);
   return <ScrollView contentContainerStyle={ui.page} keyboardShouldPersistTaps="handled">
-    <Text style={ui.title}>Build your vocabulary</Text>
-    <Text style={ui.subtitle}>Explore words, meanings and pronunciation at your level.</Text>
-    <Text>HSK 3.0 · Levels show where each word is introduced, not cumulative totals. Pronunciation uses synthetic speech while recordings are being added.</Text>
+    <Text style={s.kicker}>DICTIONARY · 词典</Text>
+    <Text style={ui.title}>Find a word. Make it yours.</Text>
+    <Text style={ui.subtitle}>Search by Chinese, pinyin, or meaning. Listen, learn, then add it to your review habit.</Text>
     <Levels value={filter.level} onChange={level => setFilter(f => ({ ...f, level, page: 0 }))} />
-    <TextInput accessibilityLabel="Search vocabulary" placeholder="Search Chinese, pinyin or meaning" value={query} onChangeText={setQuery} maxLength={50} autoCapitalize="none" style={[ui.card, { fontSize: 16 }]} />
+    <TextInput accessibilityLabel="Search vocabulary" placeholder="⌕   Chinese, pinyin, or English" value={query} onChangeText={setQuery} maxLength={50} autoCapitalize="none" style={s.search} />
     {busy ? <ActivityIndicator accessibilityLabel="Loading vocabulary" /> : error ? <Failure message={error} retry={() => setRetry(r => r + 1)} /> : <>
-      <Text>{data?.total ?? 0} matching words</Text>
-      {!data?.words.length && <Text>No matching words. Try another search or level.</Text>}
-      {data?.words.map(word => <View key={word.id} style={ui.card}><View style={ui.row}><Text style={ui.hanzi}>{word.simplified}</Text><Text style={ui.pinyin}>{word.pinyin}</Text></View><Text>{word.definitions.join("; ")}</Text><WordAudio word={word} /></View>)}
+      <View style={s.resultHead}><Text style={s.resultLabel}>{filter.search ? "SEARCH RESULTS" : `${filter.level} · WORD LIST`}</Text><Text style={s.count}>{data?.total ?? 0}</Text></View>
+      {!data?.words.length && <View style={ui.card}><Text style={s.wordMeaning}>No matching words</Text><Text style={ui.subtitle}>Try a different spelling, pinyin, or meaning.</Text></View>}
+      {data?.words.map(word => <View key={word.id} style={s.wordCard}><View style={s.wordTop}><View style={s.wordCopy}><Text style={s.hanzi}>{word.simplified}</Text><Text style={s.pinyin}>{word.pinyin}</Text></View><WordAudio word={word} /></View><View style={s.divider}/><Text style={s.wordMeaning}>{word.definitions.join("; ")}</Text><Text style={s.levelTag}>{word.hsk_level} · Simplified{word.traditional !== word.simplified ? ` · Traditional ${word.traditional}` : ""}</Text></View>)}
     </>}
-    <View style={ui.row}><Button title="Previous" disabled={busy || filter.page === 0} onPress={() => setFilter(f => ({ ...f, page: f.page - 1 }))} /><Text>Page {filter.page + 1} of {Math.max(1, Math.ceil((data?.total ?? 0) / PAGE_SIZE))}</Text><Button title="Next" disabled={busy || !data || (filter.page + 1) * PAGE_SIZE >= data.total} onPress={() => setFilter(f => ({ ...f, page: f.page + 1 }))} /></View>
+    <View style={s.paging}><Button title="Previous" disabled={busy || filter.page === 0} onPress={() => setFilter(f => ({ ...f, page: f.page - 1 }))} /><Text style={s.pageText}>{filter.page + 1} / {Math.max(1, Math.ceil((data?.total ?? 0) / PAGE_SIZE))}</Text><Button title="Next" disabled={busy || !data || (filter.page + 1) * PAGE_SIZE >= data.total} onPress={() => setFilter(f => ({ ...f, page: f.page + 1 }))} /></View>
+    <Text style={s.note}>HSK 3.0 · Levels show where a word is introduced. Human recordings are used when a matching pronunciation is available; otherwise audio is synthetic.</Text>
   </ScrollView>;
 }
+const s = StyleSheet.create({kicker:{fontSize:10,fontWeight:"800",letterSpacing:1.5,color:"#66806B"},search:{backgroundColor:"#fff",borderWidth:1,borderColor:"#e6e3dc",borderRadius:15,paddingVertical:15,paddingHorizontal:16,fontSize:15,color:"#303832"},resultHead:{flexDirection:"row",justifyContent:"space-between",alignItems:"center",marginTop:3},resultLabel:{fontSize:10,fontWeight:"800",letterSpacing:1.2,color:"#7B817A"},count:{fontSize:12,fontWeight:"700",color:"#68746A"},wordCard:{backgroundColor:"#fff",borderWidth:1,borderColor:"#e9e7e0",borderRadius:19,padding:18,gap:11},wordTop:{flexDirection:"row",alignItems:"center",justifyContent:"space-between",gap:12},wordCopy:{flex:1},hanzi:{fontSize:39,color:"#293D31",fontWeight:"500"},pinyin:{fontSize:17,color:"#AD5548",marginTop:1},divider:{height:1,backgroundColor:"#F0EEE8"},wordMeaning:{fontSize:15,color:"#383E39",lineHeight:22},levelTag:{fontSize:11,color:"#82877F"},paging:{flexDirection:"row",alignItems:"center",justifyContent:"center",gap:18},pageText:{fontSize:12,color:"#737A73"},note:{fontSize:11,color:"#868A82",lineHeight:16}});

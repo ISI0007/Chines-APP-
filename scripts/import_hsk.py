@@ -1,5 +1,6 @@
 """
-Seed/refresh the words table from backend/data/hsk/hsk30.json (official HSK 3.0, levels 1-6).
+Seed/refresh the words table from backend/data/hsk/hsk30.json (official HSK 3.0, levels 1-6,
+plus imported Pleco cards for levels 1-9; the 7-9 band is grouped together).
 
     python scripts/import_hsk.py            # add new words, update existing ones
     python scripts/import_hsk.py --prune    # also delete words no longer in the file

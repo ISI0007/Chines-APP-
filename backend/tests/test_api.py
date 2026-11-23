@@ -54,6 +54,25 @@ async def test_auth_flow(client):
     assert (await client.get(f"{V}/auth/me", headers=bad)).status_code == 401
 
 
+async def test_password_reset_flow(client):
+    headers, _ = await _user(client, "resetuser")
+    response = await client.post(f"{V}/auth/forgot-password", json={"email": "resetuser@x.com"})
+    assert response.status_code == 200 and response.json().get("reset_token")
+    token = response.json()["reset_token"]
+    assert (await client.post(f"{V}/auth/reset-password", json={"token": "bad", "new_password": "newpassword123"})).status_code == 400
+    assert (await client.post(f"{V}/auth/reset-password", json={"token": token, "new_password": "newpassword123"})).status_code == 200
+    assert (await client.post(f"{V}/auth/login", json={"email": "resetuser@x.com", "password": "password123"})).status_code == 401
+    assert (await client.post(f"{V}/auth/login", json={"email": "resetuser@x.com", "password": "newpassword123"})).status_code == 200
+
+
+async def test_learner_report_is_scoped_to_authenticated_user(client):
+    headers, _ = await _user(client, "reportuser")
+    report = await client.get(f"{V}/users/me/report", headers=headers)
+    assert report.status_code == 200
+    assert report.json()["user"]["username"] == "reportuser"
+    assert set(report.json()["levels"]) >= {"HSK1", "HSK2"}
+
+
 async def test_vocabulary(client):
     h, _ = await _user(client, "bob")
     r = (await client.get(f"{V}/vocabulary/words?hsk_level=HSK1&limit=200", headers=h)).json()
@@ -75,6 +94,8 @@ async def test_vocabulary(client):
     totals = {lv: (await client.get(f"{V}/vocabulary/words?hsk_level={lv}&limit=1", headers=h)).json()["total"]
               for lv in ("HSK1", "HSK6")}
     assert totals == {"HSK1": 300, "HSK6": 1792}
+    advanced = await client.get(f"{V}/vocabulary/words?hsk_level=HSK7-9&limit=1", headers=h)
+    assert advanced.status_code == 200 and advanced.json()["total"] > 0
 
 
 async def test_srs_review_cycle(client):

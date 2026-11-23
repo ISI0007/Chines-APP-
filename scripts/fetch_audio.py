@@ -6,8 +6,8 @@ recordings by Chen Wang -- both from the Shtooka/SWAC projects). Audio is NOT co
 (about 40 MB); this script downloads and places it under backend/data/audio/hsk{N}/.
 
 Selection rules (accuracy first -- no recording is better than a wrong one):
-  1. word recording  <hanzi>.mp3        only if the hanzi has ONE reading in our list (a recording
-                                        of 行 can't be matched to xíng vs háng without listening)
+  1. word recording  <hanzi>.mp3        for a single-reading hanzi, or a manually mapped
+                                        lexicalised source item that uniquely matches a reading
   2. syllable recording <hanzi>_<numeric>.mp3   for single-syllable entries, exact reading known
   3. single-syllable word recordings are checked with a pitch-based tone classifier
      (scripts/audio_tone_check.py); a recording whose measured tone contradicts the expected tone
@@ -78,15 +78,23 @@ def main() -> None:
         clf = tc.train_and_report(str(src))
 
     plan, rejected = [], []
-    # 1) word recordings for single-reading hanzi (tone-verified when monosyllabic)
+    # These source filenames encode lexicalised pronunciations for ambiguous hanzi.
+    # Keep them tagged to the matching reading so they cannot shadow another sound.
+    lexical = {
+        ("一", "yī"): "一_也_",
+        ("一", "yì"): "一_就_",
+    }
+    # 1) word recordings for single-reading hanzi and explicit lexical matches
+    # (tone-verified when monosyllabic)
     mono = []
     for w in words:
-        numeric = tone_marks_to_numeric(w["pinyin"]).replace(" ", "")
+        numeric = tone_marks_to_numeric(w["pinyin"]).replace(" ", "").replace("/", "").replace("-", "")
         n_syl = len(split_pinyin(w["pinyin"]))
-        wav = words_dir / f"cmn-{w['simplified']}.mp3"
+        lexical_name = lexical.get((w["simplified"], w["pinyin"]))
+        wav = words_dir / f"cmn-{lexical_name}.mp3" if lexical_name else words_dir / f"cmn-{w['simplified']}.mp3"
         entry = {"hanzi": w["simplified"], "pinyin": w["pinyin"], "level": w["hsk_level"], "numeric": numeric}
-        if readings[w["simplified"]] == 1 and wav.exists():
-            entry.update(src=wav, name=f"{w['simplified']}.mp3", kind="word", author="Yue Tan", verified="unchecked")
+        if wav.exists() and (readings[w["simplified"]] == 1 or lexical_name):
+            entry.update(src=wav, name=f"{w['simplified']}_{numeric.lower()}.mp3", kind="word", author="Yue Tan", verified="unchecked")
             tone = split_pinyin(w["pinyin"])[0][1] if n_syl == 1 else None
             if n_syl == 1 and tone in (1, 2, 3, 4) and clf is not None:
                 mono.append((entry, tone))
@@ -120,7 +128,7 @@ def main() -> None:
                 e.update(src=syl, name=f"{e['hanzi']}_{e['numeric']}.mp3", kind="syllable", author="Chen Wang", verified="label")
 
     # 3) place files + manifest
-    for old_dir in OUT.glob("hsk[1-9]"):          # replace generated audio only; keep ATTRIBUTION.md / MANIFEST.json
+    for old_dir in [*OUT.glob("hsk[1-9]"), OUT / "hsk7-9"]:  # replace generated audio only; keep attribution / manifest
         shutil.rmtree(old_dir)
     kept, per_level = [], defaultdict(Counter)
     for e in plan:

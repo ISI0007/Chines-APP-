@@ -4,7 +4,7 @@ Vocabulary routes — HSK word listing, lookup, search, and SRS review.
 
 from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, Query
-from sqlalchemy import select, func, or_, and_
+from sqlalchemy import select, func, or_, and_, case
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from api.deps import current_user
@@ -40,11 +40,14 @@ async def list_words(
     List vocabulary words with optional filters.
 
     Query params:
-    - hsk_level: HSK1 | HSK2 | HSK3 | HSK4 | HSK5 | HSK6
+    - hsk_level: HSK1 | HSK2 | HSK3 | HSK4 | HSK5 | HSK6 | HSK7-9
     - search: full-text search across simplified, pinyin, definitions
     - skip / limit: pagination
     """
     q = select(Word)
+    # Keep advanced flashcards after levels 1-6 in an unfiltered list.
+    level_order = case({level: index for index, level in enumerate(HskLevel, start=1)},
+                       value=Word.hsk_level, else_=99)
 
     if hsk_level:
         q = q.where(Word.hsk_level == hsk_level)
@@ -62,7 +65,7 @@ async def list_words(
     total_q = select(func.count()).select_from(q.subquery())
     total = (await db.execute(total_q)).scalar_one()
 
-    q = q.order_by(Word.hsk_level.asc(), Word.frequency_rank.asc().nulls_last(), Word.id.asc()).offset(skip).limit(limit)
+    q = q.order_by(level_order.asc(), Word.frequency_rank.asc().nulls_last(), Word.id.asc()).offset(skip).limit(limit)
     words = (await db.execute(q)).scalars().all()
 
     return WordListResponse(total=total, skip=skip, limit=limit, words=words)
@@ -127,7 +130,9 @@ async def get_due_reviews(
             new_q = new_q.where(Word.id.not_in(seen_ids))
         if hsk_level:
             new_q = new_q.where(Word.hsk_level == hsk_level)
-        new_q = new_q.order_by(Word.hsk_level.asc(), Word.frequency_rank.asc().nulls_last(), Word.id.asc()).limit(remaining)
+        level_order = case({level: index for index, level in enumerate(HskLevel, start=1)},
+                           value=Word.hsk_level, else_=99)
+        new_q = new_q.order_by(level_order.asc(), Word.frequency_rank.asc().nulls_last(), Word.id.asc()).limit(remaining)
         new_words = list((await db.execute(new_q)).scalars().all())
         due_words.extend(new_words)
 

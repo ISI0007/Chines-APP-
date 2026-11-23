@@ -15,7 +15,16 @@ export function createClient(base: string, session: Session, transport: typeof f
     if (init.signal?.aborted) controller.abort();
     init.signal?.addEventListener("abort", abort);
     const timer = setTimeout(abort, 15000);
-    try { return await transport(`${base}${path}`, { ...init, headers, signal: controller.signal }); }
+    try {
+      return await transport(`${base}${path}`, { ...init, headers, signal: controller.signal });
+    } catch (error) {
+      // Fetch's browser error hides whether the API host is unreachable. Include
+      // the configured base URL so the user can verify the device-specific setup.
+      if (error instanceof TypeError || (error instanceof Error && error.name === "AbortError")) {
+        throw new ApiError(0, `Can't reach the learning server at ${base}. Start the backend and check EXPO_PUBLIC_API_URL for this device.`);
+      }
+      throw error;
+    }
     finally { clearTimeout(timer); init.signal?.removeEventListener("abort", abort); }
   }
   async function decode<T>(response: Response): Promise<T> {

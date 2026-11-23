@@ -3,12 +3,13 @@ from sqlalchemy import select
 from fastapi import HTTPException, status
 from models.user import User
 from schemas.auth import RegisterRequest, LoginRequest, TokenResponse
-from core.security import hash_password, verify_password, create_access_token, create_refresh_token, decode_token
+from core.security import hash_password, verify_password, create_access_token, create_refresh_token, create_password_reset_token, decode_token, decode_password_reset_token
 
 
 async def register_user(data: RegisterRequest, db: AsyncSession) -> User:
+    email = str(data.email).lower()
     # Check email
-    result = await db.execute(select(User).where(User.email == data.email))
+    result = await db.execute(select(User).where(User.email == email))
     if result.scalar_one_or_none():
         raise HTTPException(status_code=400, detail="Email already registered")
 
@@ -18,7 +19,7 @@ async def register_user(data: RegisterRequest, db: AsyncSession) -> User:
         raise HTTPException(status_code=400, detail="Username already taken")
 
     user = User(
-        email=data.email,
+        email=email,
         username=data.username,
         hashed_password=hash_password(data.password),
     )
@@ -26,6 +27,28 @@ async def register_user(data: RegisterRequest, db: AsyncSession) -> User:
     await db.commit()
     await db.refresh(user)
     return user
+
+
+async def request_password_reset(email: str, db: AsyncSession) -> str | None:
+    result = await db.execute(select(User).where(User.email == email.lower()))
+    user = result.scalar_one_or_none()
+    return create_password_reset_token(str(user.id)) if user and user.is_active else None
+
+
+async def reset_password(token: str, new_password: str, db: AsyncSession) -> bool:
+    payload = decode_password_reset_token(token)
+    if not payload:
+        return False
+    try:
+        user_id = int(payload.get("sub"))
+    except (TypeError, ValueError):
+        return False
+    user = await db.get(User, user_id)
+    if not user or not user.is_active:
+        return False
+    user.hashed_password = hash_password(new_password)
+    await db.commit()
+    return True
 
 
 async def login_user(data: LoginRequest, db: AsyncSession) -> TokenResponse:
